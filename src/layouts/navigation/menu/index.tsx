@@ -1,11 +1,13 @@
 'use client'
+
+import 'react-accessible-accordion/dist/fancy-example.css'
+import mstyles from './sidebar.module.css'
+
 import { useState } from 'react'
 import Link from 'next/link'
-import mstyles from './sidebar.module.css'
 import { Accordion } from 'react-accessible-accordion'
-import { Accordionsection } from './accordionsection'
+import { Mobilesection } from './mobilesection'
 import { Regularsection } from './regularsection'
-import 'react-accessible-accordion/dist/fancy-example.css'
 import { HomeIcon, NotepadIcon, ShopIcon, PaletteIcon, MusicIcon, BlogIcon } from '../icons'
 import { headerBlogLinks } from '../headerlinks/headerBlogLinks'
 import { headerMusicLinks } from '../headerlinks/headerMusicLinks'
@@ -39,6 +41,10 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
 
   if (!mounted) return null
 
+  const DynamicClass =
+    theme === 'light'
+      ? `${menuclick ? mstyles.toggle2 : mstyles.toggle}`
+      : `${menuclick ? mstyles.toggledark2 : mstyles.toggledark}`
   const navMenuStyles = {
     background: theme !== 'light' ? '#1c1c1c' : 'white',
   }
@@ -46,7 +52,7 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
 
   return (
     <>
-      <div className={menuclick ? mstyles.toggle2 : mstyles.toggle} onClick={handleClick}>
+      <div className={`${DynamicClass} `} onClick={handleClick}>
         <div></div>
       </div>
       <div className={menuclick ? mstyles.navmenuactive : mstyles.navmenu} style={navMenuStyles}>
@@ -61,35 +67,35 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
           </Link>
           <div className="lg:flex lg:flex-row">
             <Accordion allowZeroExpanded className="lg:hidden">
-              <Accordionsection
+              <Mobilesection
                 title="Shop"
                 links={headerShopLinks}
                 icon={<ShopIcon />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
-              <Accordionsection
+              <Mobilesection
                 title="Commissions"
                 links={headerCommissionsLinks}
                 icon={<NotepadIcon />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
-              <Accordionsection
+              <Mobilesection
                 title="Gallery"
                 links={headerArtLinks}
                 icon={<PaletteIcon />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
-              <Accordionsection
+              <Mobilesection
                 title="Music"
                 links={headerMusicLinks}
                 icon={<MusicIcon />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
-              <Accordionsection
+              <Mobilesection
                 title="Blog"
                 links={headerBlogLinks}
                 icon={<BlogIcon />}
@@ -137,11 +143,11 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
                     key={link.title}
                     href={link.href}
                     onClick={closeMenu}
-                    className={`hidden font-medium ${
-                      isSelected ? 'text-primary-500' : 'text-gray-900 dark:text-gray-100'
-                    }  sm:block`}
+                    className={`ml-4 flex cursor-pointer flex-col text-sm underline  ${
+                      isSelected ? 'text-blue-300' : 'text-gray-900 dark:text-gray-100'
+                    }`}
                   >
-                    {link.title.toLowerCase()}
+                    {link.title}
                   </Link>
                 )
               })}

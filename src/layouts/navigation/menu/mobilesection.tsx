@@ -17,7 +17,7 @@ interface SectionProps {
   theme: string
 }
 
-export const Accordionsection: React.FC<SectionProps> = ({
+export const Mobilesection: React.FC<SectionProps> = ({
   icon,
   title,
   links,
@@ -48,11 +48,11 @@ export const Accordionsection: React.FC<SectionProps> = ({
                 key={link.title}
                 href={link.href as string | UrlObject}
                 onClick={closeMenu}
-                className={`hidden font-medium ${
+                className={`ml-8 flex flex-col font-medium ${
                   isSelected ? 'text-blue-300' : 'text-gray-900 dark:text-gray-100'
-                }  sm:block`}
+                }`}
               >
-                {link.title.toLowerCase()}
+                {link.title}
               </Link>
             )
           }

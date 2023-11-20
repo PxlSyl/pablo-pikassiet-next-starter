@@ -2,7 +2,11 @@ import { AlgoliaButton } from 'pliny/search/AlgoliaButton'
 import { KBarButton } from 'pliny/search/KBarButton'
 import siteMetadata from '@/data/siteMetadata'
 
-const SearchButton = () => {
+type Props = {
+  className: string
+}
+
+const SearchButton = ({ className }: Props) => {
   if (
     siteMetadata.search &&
     (siteMetadata.search.provider === 'algolia' || siteMetadata.search.provider === 'kbar')
@@ -18,7 +22,7 @@ const SearchButton = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="h-6 w-6 text-gray-900 dark:text-gray-100"
+          className={`h-6 w-6 text-gray-900 dark:text-gray-100 ${className}`}
         >
           <path
             strokeLinecap="round"
