@@ -1,7 +1,8 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
-import { ContactModal } from '@/declaration/components/contact/modals/ContactModal'
-import { useContactModal } from '@/declaration/components/contact/hooks/useContactModal'
+import { ContactModal } from '@/layouts/contact/modals/ContactModal'
+import { useContactModal } from '@/layouts/contact/hooks/useContactModal'
 
 export const Email = (): JSX.Element => {
   const contactModal = useContactModal()
@@ -13,7 +14,7 @@ export const Email = (): JSX.Element => {
   return (
     <>
       <Image
-        className="hover:scale-110 transition duration-500 cursor-pointer"
+        className="cursor-pointer transition duration-500 hover:scale-110"
         src="/Logos/Email.svg"
         alt="email"
         height={32}

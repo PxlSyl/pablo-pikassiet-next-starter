@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 export const ContactModal = (): JSX.Element => {
   const contactModal = useContactModal()
-  const [state, handleSubmit, reset] = useForm(process.env.NEXT_FORMSPREE_KEY ?? '')
+  const [state, handleSubmit, reset] = useForm(`${process.env.NEXT_FORMSPREE_KEY}`)
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')

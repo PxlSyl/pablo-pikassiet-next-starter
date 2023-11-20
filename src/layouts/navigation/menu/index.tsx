@@ -13,14 +13,15 @@ import { headerShopLinks } from '../headerlinks/HeaderShopLinks'
 import { headerCommissionsLinks } from '../headerlinks/headerCommissionsLinks'
 import { headerArtLinks } from '../headerlinks/headerArtLinks'
 import { headerInfosLinks } from '../headerlinks/headerInfosLinks'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { useDarkMode } from '@/hooks/useDarkmode'
-import { Social } from './Social'
+
 import { ContactModal } from '@/layouts/contact/modals/ContactModal'
 import { useContactModal } from '@/layouts/contact/hooks/useContactModal'
 
 export const Sidebar: React.FC = (): JSX.Element | null => {
-  const router = useRouter()
+  const pathname = usePathname()
+
   const [menuclick, setClick] = useState<boolean>(false)
   const handleClick = (): void => setClick(!menuclick)
   const closeMenu = (): void => setClick(false)
@@ -39,10 +40,7 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
   if (!mounted) return null
 
   const navMenuStyles = {
-    background:
-      theme !== 'light'
-        ? 'linear-gradient(90deg, rgb(0, 0, 0,1) 0%, rgb(31, 84, 148,1) 100%)'
-        : 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(101,9,121,1) 100%, rgba(0,212,255,1) 100%)',
+    background: theme !== 'light' ? '#1c1c1c' : 'white',
   }
   const hoverClass = theme === 'light' ? 'hover:text-blue-300' : 'hover:text-purple-300'
 
@@ -68,7 +66,6 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
                 links={headerShopLinks}
                 icon={<ShopIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
                 theme={theme}
               />
               <Accordionsection
@@ -76,7 +73,6 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
                 links={headerCommissionsLinks}
                 icon={<NotepadIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
                 theme={theme}
               />
               <Accordionsection
@@ -84,7 +80,6 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
                 links={headerArtLinks}
                 icon={<PaletteIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
                 theme={theme}
               />
               <Accordionsection
@@ -92,7 +87,6 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
                 links={headerMusicLinks}
                 icon={<MusicIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
                 theme={theme}
               />
               <Accordionsection
@@ -100,7 +94,6 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
                 links={headerBlogLinks}
                 icon={<BlogIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
                 theme={theme}
               />
             </Accordion>
@@ -110,61 +103,48 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
                 links={headerShopLinks}
                 icon={<ShopIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
-                theme={theme}
               />
               <Regularsection
                 title="Commissions"
                 links={headerCommissionsLinks}
                 icon={<NotepadIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
-                theme={theme}
               />
               <Regularsection
                 title="Gallery"
                 links={headerArtLinks}
                 icon={<PaletteIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
-                theme={theme}
               />
               <Regularsection
                 title="Music"
                 links={headerMusicLinks}
                 icon={<MusicIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
-                theme={theme}
               />
               <Regularsection
                 title="Blog"
                 links={headerBlogLinks}
                 icon={<BlogIcon />}
                 closeMenu={closeMenu}
-                activePath={router.asPath}
-                theme={theme}
               />
             </div>
             <div className="mt-4 lg:mt-6">
-              {headerInfosLinks.map((link) => (
-                <Link
-                  key={link.title}
-                  href={link.href}
-                  onClick={closeMenu}
-                  className={
-                    theme === 'light'
-                      ? `ml-4 flex cursor-pointer flex-col text-sm underline hover:text-blue-300 hover:underline ${
-                          router.asPath === link.href ? 'text-blue-500' : ''
-                        }`
-                      : `ml-4 flex cursor-pointer flex-col text-sm underline hover:text-purple-300 ${
-                          router.asPath === link.href ? 'text-purple-500' : ''
-                        }`
-                  }
-                >
-                  {link.title.toLowerCase()}
-                </Link>
-              ))}
+              {headerInfosLinks.map((link) => {
+                const isSelected = pathname.includes(link.href)
+                return (
+                  <Link
+                    key={link.title}
+                    href={link.href}
+                    onClick={closeMenu}
+                    className={`hidden font-medium ${
+                      isSelected ? 'text-primary-500' : 'text-gray-900 dark:text-gray-100'
+                    }  sm:block`}
+                  >
+                    {link.title.toLowerCase()}
+                  </Link>
+                )
+              })}
               <div
                 className={
                   theme === 'light'
@@ -177,9 +157,7 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
               </div>
             </div>
           </div>
-          <div className="lg:hidden">
-            <Social />
-          </div>
+          <div className="lg:hidden"></div>
         </div>
       </div>
       <ContactModal />

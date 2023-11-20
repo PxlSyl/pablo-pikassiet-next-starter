@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import siteMetadata from '@/data/siteMetadata'
 import { Facebook, Deviantart, Instagram, Twitter, Youtube, Tiktok } from '../icons'

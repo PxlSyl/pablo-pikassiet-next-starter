@@ -106,41 +106,42 @@
 
   @media screen and (max-width: 768px) {
     .navmenuactive {
-        width: 260px;
+      width: 260px;
     }
-}
+  }
 
-@media screen and (min-width: 1024px) {
-  .navmenu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: -100%;
-    left: 0;
-    opacity: 1;
-    transition: 0.5s ease;
-    padding-top: 100px;
-    padding-bottom: 1.5rem;
-    z-index: 19;
+  @media screen and (min-width: 1024px) {
+    .navmenu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: -100%;
+      left: 0;
+      opacity: 1;
+      transition: 0.5s ease;
+      padding-top: 100px;
+      padding-bottom: 1.5rem;
+      z-index: 19;
+    }
+
+    .navmenuactive {
+      background: white;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.16), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+      border-bottom-left-radius: 20%;
+      border-bottom-right-radius: 20%;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 300px;
+      position: fixed;
+      top: 0px;
+      opacity: 1;
+      transition: 0.5s ease;
+      padding-top: 100px;
+      padding-bottom: 1.5rem;
+      z-index: 19;
+    }
   }
- 
-  .navmenuactive {
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(101,9,121,1) 100%, rgba(0,212,255,1) 100%);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.16), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-    border-radius: 20%;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 300px;
-    position: fixed;
-    top: 0px;
-    opacity: 1;
-    transition: 0.5s ease;
-    padding-top: 100px;
-    padding-bottom: 1.5rem;
-    z-index: 19;
-  }
-}

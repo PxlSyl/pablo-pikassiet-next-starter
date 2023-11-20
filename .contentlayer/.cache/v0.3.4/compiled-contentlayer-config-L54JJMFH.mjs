@@ -47,6 +47,9 @@ var require_siteMetadata = __commonJS({
       facebook: "https://facebook.com",
       youtube: "https://youtube.com",
       linkedin: "https://www.linkedin.com",
+      deviantart: "https://deviantart",
+      instagram: "https://instagram.com",
+      tiktok: "https://tiktok.",
       locale: "en-US",
       analytics: {
         // If you want to use an analytics provider you have to add it to the
@@ -238,4 +241,4 @@ export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-4IIHDJPG.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-L54JJMFH.mjs.map

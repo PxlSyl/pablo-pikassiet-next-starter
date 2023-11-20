@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { UrlObject } from 'url'
 
 interface SectionProps {
@@ -6,8 +8,6 @@ interface SectionProps {
   title: string
   links: { title: string; href?: string | UrlObject; onClick?: () => void }[]
   closeMenu: () => void
-  activePath: string
-  theme: string
 }
 
 export const Regularsection: React.FC<SectionProps> = ({
@@ -15,33 +15,32 @@ export const Regularsection: React.FC<SectionProps> = ({
   title,
   links,
   closeMenu,
-  activePath,
-  theme,
 }): JSX.Element => {
+  const pathname = usePathname()
   return (
     <div className="rounded-md border pb-2">
       <div className="mx-2 mb-1 flex flex-row items-center border-b border-gray-500 text-xl">
         {icon}
         {title}
       </div>
-      {links.map((link) => (
-        <Link
-          key={link.title}
-          href={link.href as string | UrlObject}
-          onClick={closeMenu}
-          className={
-            theme === 'light'
-              ? `ml-8 flex flex-col font-medium hover:text-blue-300 ${
-                  activePath === link.href ? 'text-blue-500' : ''
-                }`
-              : `ml-8 flex flex-col font-medium hover:text-purple-300 ${
-                  activePath === link.href ? 'text-purple-500' : ''
-                }`
-          }
-        >
-          {link.title.toLowerCase()}
-        </Link>
-      ))}
+      {links.map((link) => {
+        if (link.href) {
+          const isSelected = pathname.includes(link.href as string)
+          return (
+            <Link
+              key={link.title}
+              href={link.href as string | UrlObject}
+              onClick={closeMenu}
+              className={`hidden font-medium ${
+                isSelected ? 'text-blue-300' : 'text-gray-900 dark:text-gray-100'
+              }  sm:block`}
+            >
+              {link.title.toLowerCase()}
+            </Link>
+          )
+        }
+        return null
+      })}
     </div>
   )
 }
