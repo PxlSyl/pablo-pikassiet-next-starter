@@ -1,32 +1,21 @@
-import { useDarkMode } from '../hooks/useDarkmode'
-import { IconWrapper } from '@/data/headers/iconswrapper'
 import Link from 'next/link'
+import Social from '@/components/Social'
+import social from '@/config/social.json'
 
-export const Navbar: React.FC = (): JSX.Element | null => {
-  const { theme, mounted } = useDarkMode()
-  if (!mounted) return null
-
+export const Navbar = () => {
   return (
     <>
-      <div
-        className="fixed z-20 bg-transparent top-0 w-screen h-20"
-        style={{
-          background:
-            theme === 'light'
-              ? 'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(101,9,121,1) 100%, rgba(0,212,255,1) 100%)'
-              : 'linear-gradient(90deg, rgb(0, 0, 0,1) 0%, rgb(31, 84, 148,1) 100%)',
-        }}
-      >
-        <nav className="max-w-7xl mx-auto flex items-center justify-center px-4 space-x-4 sm:space-x-16 mt-3">
+      <div className="fixed top-0 z-20 h-20 w-screen bg-transparent">
+        <nav className="mx-auto mt-3 flex max-w-7xl items-center justify-center space-x-4 px-4 sm:space-x-16">
           <div className="flex items-center space-x-2 xl:space-x-4">
             <div className="hidden lg:block">
               <Link href="/">
-                <p className="text-3xl text-blue-300">Pxlsyl.art</p>
+                <p className="text-3xl text-blue-300">Pablo Pikassiet</p>
               </Link>
             </div>
           </div>
           <div className="hidden lg:block">
-            <IconWrapper />
+            <Social source={social.main} className="social-icons" />
           </div>
         </nav>
       </div>

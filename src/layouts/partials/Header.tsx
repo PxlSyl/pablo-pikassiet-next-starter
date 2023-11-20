@@ -1,13 +1,12 @@
 'use client'
 
 import Logo from '@/components/Logo'
-import ThemeSwitcher from '@/components/ThemeSwitcher'
+import ThemeSwitcher from '@/layouts/navigation/theme'
 import config from '@/config/config.json'
 import menu from '@/config/menu.json'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
-import { IoSearch } from 'react-icons/io5/index.js'
 import SearchButton from '@/components/SearchButton'
 
 //  child navigation link interface

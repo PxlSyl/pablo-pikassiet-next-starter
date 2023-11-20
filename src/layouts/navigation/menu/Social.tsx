@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import siteMetadata from '@/declaration/data/siteMetadata'
+import siteMetadata from '@/data/siteMetadata'
 import { Facebook, Deviantart, Instagram, Twitter, Youtube, Tiktok } from '../icons'
 
 const socialMediaLinks = [

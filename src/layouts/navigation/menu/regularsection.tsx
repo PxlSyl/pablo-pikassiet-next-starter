@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import useTranslation from 'next-translate/useTranslation'
 import { UrlObject } from 'url'
 
 interface SectionProps {
@@ -9,7 +8,6 @@ interface SectionProps {
   closeMenu: () => void
   activePath: string
   theme: string
-  translationKey: string
 }
 
 export const Regularsection: React.FC<SectionProps> = ({
@@ -19,15 +17,12 @@ export const Regularsection: React.FC<SectionProps> = ({
   closeMenu,
   activePath,
   theme,
-  translationKey,
 }): JSX.Element => {
-  const { t } = useTranslation(translationKey)
-
   return (
-    <div className="border rounded-md pb-2">
-      <div className="flex flex-row items-center text-xl mx-2 mb-1 border-b border-gray-500">
+    <div className="rounded-md border pb-2">
+      <div className="mx-2 mb-1 flex flex-row items-center border-b border-gray-500 text-xl">
         {icon}
-        {t(title)}
+        {title}
       </div>
       {links.map((link) => (
         <Link
@@ -36,15 +31,15 @@ export const Regularsection: React.FC<SectionProps> = ({
           onClick={closeMenu}
           className={
             theme === 'light'
-              ? `flex flex-col font-medium hover:text-blue-300 ml-8 ${
+              ? `ml-8 flex flex-col font-medium hover:text-blue-300 ${
                   activePath === link.href ? 'text-blue-500' : ''
                 }`
-              : `flex flex-col font-medium hover:text-purple-300 ml-8 ${
+              : `ml-8 flex flex-col font-medium hover:text-purple-300 ${
                   activePath === link.href ? 'text-purple-500' : ''
                 }`
           }
         >
-          {t(`${translationKey}:${link.title.toLowerCase()}`)}
+          {link.title.toLowerCase()}
         </Link>
       ))}
     </div>

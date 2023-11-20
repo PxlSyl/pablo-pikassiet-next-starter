@@ -5,7 +5,6 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from 'react-accessible-accordion'
-import useTranslation from 'next-translate/useTranslation'
 import { UrlObject } from 'url'
 
 interface SectionProps {
@@ -15,7 +14,6 @@ interface SectionProps {
   closeMenu: () => void
   activePath: string
   theme: string
-  translationKey: string
 }
 
 export const Accordionsection: React.FC<SectionProps> = ({
@@ -25,22 +23,19 @@ export const Accordionsection: React.FC<SectionProps> = ({
   closeMenu,
   activePath,
   theme,
-  translationKey,
 }): JSX.Element => {
-  const { t } = useTranslation(translationKey)
-
   return (
     <AccordionItem>
       <AccordionItemHeading>
         <AccordionItemButton
           className={
             theme === 'light'
-              ? `flex flex-row items-center text-2xl ml-4 mb-1 border-b border-t border-gray-500 hover:text-blue-300`
-              : `flex flex-row items-center text-2xl ml-4 mb-1 border-b border-t border-gray-500 hover:text-purple-300`
+              ? `mb-1 ml-4 flex flex-row items-center border-b border-t border-gray-500 text-2xl hover:text-blue-300`
+              : `mb-1 ml-4 flex flex-row items-center border-b border-t border-gray-500 text-2xl hover:text-purple-300`
           }
         >
           {icon}
-          {t(title)}
+          {title}
         </AccordionItemButton>
       </AccordionItemHeading>
       <AccordionItemPanel>
@@ -51,15 +46,15 @@ export const Accordionsection: React.FC<SectionProps> = ({
             onClick={closeMenu}
             className={
               theme === 'light'
-                ? `flex flex-col font-medium hover:text-blue-300 ml-8 ${
+                ? `ml-8 flex flex-col font-medium hover:text-blue-300 ${
                     activePath === link.href ? 'text-blue-500' : ''
                   }`
-                : `flex flex-col font-medium hover:text-purple-300 ml-8 ${
+                : `ml-8 flex flex-col font-medium hover:text-purple-300 ${
                     activePath === link.href ? 'text-purple-500' : ''
                   }`
             }
           >
-            {t(`${translationKey}:${link.title.toLowerCase()}`)}
+            {link.title.toLowerCase()}
           </Link>
         ))}
       </AccordionItemPanel>
