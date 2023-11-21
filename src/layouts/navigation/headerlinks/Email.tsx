@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import { ContactModal } from '@/layouts/contact/modal/ContactModal'
+import { ContactModal } from '@/layouts/contact'
 import { useContactModal } from '@/layouts/contact/hook/useContactModal'
 
 export const Email = (): JSX.Element => {

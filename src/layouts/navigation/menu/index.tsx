@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 import { useDarkMode } from '@/hooks/useDarkmode'
 import { useOuterClick } from '@/hooks/useOuterclick'
 import { useContactModal } from '@/layouts/contact/hook/useContactModal'
-import { ContactModal } from '@/layouts/contact/modal/ContactModal'
+import { ContactModal } from '@/layouts/contact'
 
 import Link from 'next/link'
 import { Accordion } from 'react-accessible-accordion'

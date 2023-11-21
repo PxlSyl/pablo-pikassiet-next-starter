@@ -2,9 +2,9 @@
 
 import 'react-toastify/dist/ReactToastify.css'
 import { useState, useEffect } from 'react'
-import { useContactModal } from '../hook/useContactModal'
+import { useContactModal } from './hook/useContactModal'
 import { useForm, ValidationError } from '@formspree/react'
-import { CModal } from '../CModal'
+import { CModal } from './CModal'
 import { ToastContainer, toast } from 'react-toastify'
 
 export const ContactModal = (): JSX.Element => {
