@@ -13,7 +13,7 @@ import Link from 'next/link'
 import { Accordion } from 'react-accessible-accordion'
 import { Mobilesection } from './mobilesection'
 import { Regularsection } from './regularsection'
-import { HomeIcon } from '../icons'
+import { FaHome } from 'react-icons/fa'
 import { FaShop, FaRegNoteSticky, FaPalette, FaMusic, FaBlogger } from 'react-icons/fa6'
 import { headerBlogLinks } from '../headerlinks/headerBlogLinks'
 import { headerMusicLinks } from '../headerlinks/headerMusicLinks'
@@ -47,9 +47,6 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
       ? `${menuclick ? mstyles.toggle2 : mstyles.toggle}`
       : `${menuclick ? mstyles.toggledark2 : mstyles.toggledark}`
 
-  const navMenuStyles = {
-    background: theme !== 'light' ? '#1c1c1c' : 'white',
-  }
   const hoverClass = theme === 'light' ? 'hover:text-blue-300' : 'hover:text-purple-300'
 
   return (
@@ -57,15 +54,15 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
       <div className={`${DynamicClass}`} onClick={handleClick}>
         <div></div>
       </div>
-      <div className={menuclick ? mstyles.navmenuactive : mstyles.navmenu} style={navMenuStyles}>
+      <div className={`${menuclick ? mstyles.navmenuactive : mstyles.navmenu} bg-gradient`}>
         <div className="overflow-y-auto lg:mx-auto">
           <Link
             className={`mb-2 ml-2 mt-2 flex flex-row items-center text-2xl lg:hidden ${hoverClass}`}
             href="/"
             onClick={closeMenu}
           >
-            <HomeIcon />
-            Home
+            <FaHome />
+            <p className="ml-1">Home</p>
           </Link>
           <div className="lg:flex lg:flex-row">
             <Accordion allowZeroExpanded className="lg:hidden">
