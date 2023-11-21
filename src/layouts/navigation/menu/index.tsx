@@ -3,9 +3,10 @@
 import 'react-accessible-accordion/dist/fancy-example.css'
 import mstyles from './menu.module.css'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { useDarkMode } from '@/hooks/useDarkmode'
+import { useOuterClick } from '@/hooks/useOuterclick'
 import { useContactModal } from '@/layouts/contact/hook/useContactModal'
 import { ContactModal } from '@/layouts/contact/modal/ContactModal'
 
@@ -22,13 +23,16 @@ import { headerCommissionsLinks } from '../headerlinks/headerCommissionsLinks'
 import { headerArtLinks } from '../headerlinks/headerArtLinks'
 import { headerInfosLinks } from '../headerlinks/headerInfosLinks'
 
-export const Sidebar: React.FC = (): JSX.Element | null => {
+export const Menubar: React.FC = (): JSX.Element | null => {
   const pathname = usePathname()
 
   const [menuclick, setClick] = useState<boolean>(false)
   const handleClick = (): void => setClick(!menuclick)
   const closeMenu = (): void => setClick(false)
+  const menubarRef = useRef<HTMLDivElement>(null)
 
+  // Close sidebar when clicking outside of it
+  useOuterClick(menubarRef, closeMenu)
   const contactModal = useContactModal()
   const handleContactClick = (): void => {
     contactModal.onOpen()
@@ -54,7 +58,10 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
       <div className={`${DynamicClass}`} onClick={handleClick}>
         <div></div>
       </div>
-      <div className={`${menuclick ? mstyles.navmenuactive : mstyles.navmenu} bg-gradient`}>
+      <div
+        ref={menubarRef}
+        className={`${menuclick ? mstyles.navmenuactive : mstyles.navmenu} bg-gradient`}
+      >
         <div className="overflow-y-auto lg:mx-auto">
           <Link
             className={`mb-2 ml-2 mt-2 flex flex-row items-center text-2xl lg:hidden ${hoverClass}`}

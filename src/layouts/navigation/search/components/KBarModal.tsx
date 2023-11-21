@@ -16,10 +16,7 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
     <KBarPortal>
       <KBarPositioner className="fixed inset-0 z-50 bg-gray-300/50 p-4 backdrop-blur backdrop-filter dark:bg-black/50">
         <KBarAnimator className="w-full max-w-xl">
-          <div
-            style={{ zIndex: '100' }}
-            className="overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 dark:border-gray-800 dark:bg-[#1c1c1c]"
-          >
+          <div className="bg-gradient border-gray-10 overflow-hidden rounded-2xl border dark:border-gray-800">
             <div className="flex items-center space-x-4 p-4">
               <span className="block w-5">
                 <svg
