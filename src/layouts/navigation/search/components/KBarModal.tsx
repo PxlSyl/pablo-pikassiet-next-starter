@@ -14,7 +14,7 @@ export const KBarModal = ({ actions, isLoading }: { actions: Action[]; isLoading
 
   return (
     <KBarPortal>
-      <KBarPositioner className="bg-gray-300/50 p-4 backdrop-blur backdrop-filter dark:bg-black/50">
+      <KBarPositioner className="fixed inset-0 z-50 bg-gray-300/50 p-4 backdrop-blur backdrop-filter dark:bg-black/50">
         <KBarAnimator className="w-full max-w-xl">
           <div
             style={{ zIndex: '100' }}
@@ -74,7 +74,7 @@ const RenderResults = () => {
               <div
                 className={`flex cursor-pointer justify-between px-4 py-2 ${
                   active
-                    ? 'bg-primary-600 text-gray-100'
+                    ? 'bg-gray-800 text-gray-100 dark:bg-white dark:text-black'
                     : 'bg-transparent text-gray-700 dark:text-gray-100'
                 }`}
               >

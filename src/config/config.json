@@ -13,7 +13,6 @@
   },
 
   "settings": {
-    "search": true,
     "sticky_header": true,
     "theme_switcher": true,
     "default_theme": "system",
@@ -31,12 +30,6 @@
     "enable": true,
     "label": "Get Started",
     "link": "https://github.com/zeon-studio/nextplate"
-  },
-
-  "disqus": {
-    "enable": true,
-    "shortname": "themefisher-template",
-    "settings": {}
   },
 
   "metadata": {
