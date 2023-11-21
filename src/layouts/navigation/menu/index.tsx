@@ -1,9 +1,14 @@
 'use client'
 
 import 'react-accessible-accordion/dist/fancy-example.css'
-import mstyles from './sidebar.module.css'
+import mstyles from './menu.module.css'
 
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useDarkMode } from '@/hooks/useDarkmode'
+import { useContactModal } from '@/layouts/contact/hook/useContactModal'
+import { ContactModal } from '@/layouts/contact/modal/ContactModal'
+
 import Link from 'next/link'
 import { Accordion } from 'react-accessible-accordion'
 import { Mobilesection } from './mobilesection'
@@ -16,10 +21,6 @@ import { headerShopLinks } from '../headerlinks/HeaderShopLinks'
 import { headerCommissionsLinks } from '../headerlinks/headerCommissionsLinks'
 import { headerArtLinks } from '../headerlinks/headerArtLinks'
 import { headerInfosLinks } from '../headerlinks/headerInfosLinks'
-import { usePathname } from 'next/navigation'
-import { useDarkMode } from '@/hooks/useDarkmode'
-import { ContactModal } from '@/layouts/contact/modals/ContactModal'
-import { useContactModal } from '@/layouts/contact/hooks/useContactModal'
 
 export const Sidebar: React.FC = (): JSX.Element | null => {
   const pathname = usePathname()
@@ -53,7 +54,7 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
 
   return (
     <>
-      <div className={`${DynamicClass} `} onClick={handleClick}>
+      <div className={`${DynamicClass}`} onClick={handleClick}>
         <div></div>
       </div>
       <div className={menuclick ? mstyles.navmenuactive : mstyles.navmenu} style={navMenuStyles}>

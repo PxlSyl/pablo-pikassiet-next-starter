@@ -1,10 +1,11 @@
 'use client'
+
+import 'react-toastify/dist/ReactToastify.css'
 import { useState, useEffect } from 'react'
-import { useContactModal } from '../hooks/useContactModal'
+import { useContactModal } from '../hook/useContactModal'
 import { useForm, ValidationError } from '@formspree/react'
 import { CModal } from '../CModal'
 import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 export const ContactModal = (): JSX.Element => {
   const contactModal = useContactModal()
@@ -85,7 +86,7 @@ export const ContactModal = (): JSX.Element => {
           disabled={state.submitting || !name || !email || !message}
           data-te-ripple-init
           data-te-ripple-color="light"
-          className="text-md w-full rounded-full border-2 bg-black px-4 py-2 font-semibold text-white transition hover:opacity-80 dark:bg-white dark:text-black "
+          className="text-md w-full rounded-full border-2 bg-black px-4 py-2 font-semibold text-white transition hover:opacity-80 dark:bg-white dark:text-black"
         >
           Submit
         </button>
