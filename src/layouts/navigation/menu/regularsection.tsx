@@ -21,7 +21,7 @@ export const Regularsection: React.FC<SectionProps> = ({
     <div className="rounded-md border pb-2">
       <div className="mx-2 mb-1 flex flex-row items-center border-b border-gray-500 text-xl">
         {icon}
-        {title}
+        <p className="ml-1">{title}</p>
       </div>
       {links.map((link) => {
         if (link.href) {

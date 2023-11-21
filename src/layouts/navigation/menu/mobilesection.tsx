@@ -36,7 +36,7 @@ export const Mobilesection: React.FC<SectionProps> = ({
           }
         >
           {icon}
-          {title}
+          <p className="ml-1">{title}</p>
         </AccordionItemButton>
       </AccordionItemHeading>
       <AccordionItemPanel>

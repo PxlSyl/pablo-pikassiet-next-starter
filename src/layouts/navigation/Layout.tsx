@@ -2,7 +2,7 @@
 import { Navbar } from './Navbar'
 import { Sidebar } from './menu'
 import ThemeSwitcher from './theme'
-import SearchButton from '@/components/SearchButton'
+import SearchButton from './search/SearchButton'
 
 export const Header = () => {
   return (

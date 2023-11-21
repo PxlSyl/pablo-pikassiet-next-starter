@@ -7,7 +7,7 @@ import menu from '@/config/menu.json'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
-import SearchButton from '@/components/SearchButton'
+import SearchButton from '../navigation/search/SearchButton'
 
 //  child navigation link interface
 export interface IChildNavigationLink {

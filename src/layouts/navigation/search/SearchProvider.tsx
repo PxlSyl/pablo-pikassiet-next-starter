@@ -1,7 +1,7 @@
 'use client'
 // use this component in layout.tsx to customize kbar search
 import { ReactNode } from 'react'
-import { KBarSearchProvider } from 'pliny/search/KBar'
+import { KBarSearchProvider } from './components/KBar'
 import { useRouter } from 'next/navigation'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { Blog } from 'contentlayer/generated'

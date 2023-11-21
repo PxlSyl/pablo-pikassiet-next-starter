@@ -8,7 +8,8 @@ import Link from 'next/link'
 import { Accordion } from 'react-accessible-accordion'
 import { Mobilesection } from './mobilesection'
 import { Regularsection } from './regularsection'
-import { HomeIcon, NotepadIcon, ShopIcon, PaletteIcon, MusicIcon, BlogIcon } from '../icons'
+import { HomeIcon } from '../icons'
+import { FaShop, FaRegNoteSticky, FaPalette, FaMusic, FaBlogger } from 'react-icons/fa6'
 import { headerBlogLinks } from '../headerlinks/headerBlogLinks'
 import { headerMusicLinks } from '../headerlinks/headerMusicLinks'
 import { headerShopLinks } from '../headerlinks/HeaderShopLinks'
@@ -17,7 +18,6 @@ import { headerArtLinks } from '../headerlinks/headerArtLinks'
 import { headerInfosLinks } from '../headerlinks/headerInfosLinks'
 import { usePathname } from 'next/navigation'
 import { useDarkMode } from '@/hooks/useDarkmode'
-
 import { ContactModal } from '@/layouts/contact/modals/ContactModal'
 import { useContactModal } from '@/layouts/contact/hooks/useContactModal'
 
@@ -45,6 +45,7 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
     theme === 'light'
       ? `${menuclick ? mstyles.toggle2 : mstyles.toggle}`
       : `${menuclick ? mstyles.toggledark2 : mstyles.toggledark}`
+
   const navMenuStyles = {
     background: theme !== 'light' ? '#1c1c1c' : 'white',
   }
@@ -70,35 +71,35 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
               <Mobilesection
                 title="Shop"
                 links={headerShopLinks}
-                icon={<ShopIcon />}
+                icon={<FaShop />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
               <Mobilesection
                 title="Commissions"
                 links={headerCommissionsLinks}
-                icon={<NotepadIcon />}
+                icon={<FaRegNoteSticky />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
               <Mobilesection
                 title="Gallery"
                 links={headerArtLinks}
-                icon={<PaletteIcon />}
+                icon={<FaPalette />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
               <Mobilesection
                 title="Music"
                 links={headerMusicLinks}
-                icon={<MusicIcon />}
+                icon={<FaMusic />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
               <Mobilesection
                 title="Blog"
                 links={headerBlogLinks}
-                icon={<BlogIcon />}
+                icon={<FaBlogger />}
                 closeMenu={closeMenu}
                 theme={theme}
               />
@@ -107,31 +108,31 @@ export const Sidebar: React.FC = (): JSX.Element | null => {
               <Regularsection
                 title="Shop"
                 links={headerShopLinks}
-                icon={<ShopIcon />}
+                icon={<FaShop />}
                 closeMenu={closeMenu}
               />
               <Regularsection
                 title="Commissions"
                 links={headerCommissionsLinks}
-                icon={<NotepadIcon />}
+                icon={<FaRegNoteSticky />}
                 closeMenu={closeMenu}
               />
               <Regularsection
                 title="Gallery"
                 links={headerArtLinks}
-                icon={<PaletteIcon />}
+                icon={<FaPalette />}
                 closeMenu={closeMenu}
               />
               <Regularsection
                 title="Music"
                 links={headerMusicLinks}
-                icon={<MusicIcon />}
+                icon={<FaMusic />}
                 closeMenu={closeMenu}
               />
               <Regularsection
                 title="Blog"
                 links={headerBlogLinks}
-                icon={<BlogIcon />}
+                icon={<FaBlogger />}
                 closeMenu={closeMenu}
               />
             </div>
