@@ -1,16 +1,10 @@
 'use client'
-import { Navbar } from './Navbar'
 import { Menubar } from './menu'
-import ThemeSwitcher from './theme'
-import SearchButton from './search/SearchButton'
 
 export const Header = () => {
   return (
     <>
-      <Navbar />
       <Menubar />
-      <SearchButton className="fixed right-[80px] top-[16px] z-40 mr-5" />
-      <ThemeSwitcher className="fixed right-[20px] top-[20px] z-40 mr-5" />
     </>
   )
 }

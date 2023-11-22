@@ -1,24 +1,19 @@
-import React from 'react'
+import React, { RefObject, useEffect } from 'react'
 
-export function useOuterClick(dom: React.RefObject<HTMLElement>, cb: () => void) {
-  const cbRef = React.useRef(cb)
-  cbRef.current = cb
-
-  React.useEffect(() => {
-    function handler(event: any) {
-      if (
-        dom.current?.contains(event.target) ||
-        // Add support for ReactShadowRoot
-        // @ts-expect-error wrong types, the `host` property exists https://stackoverflow.com/a/25340456
-        event.target === dom.current?.getRootNode().host
-      ) {
-        return
+export function useOuterClick(dom: RefObject<HTMLElement>, cb: () => void): void {
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent): void {
+      if (dom.current && !dom.current.contains(event.target as Node)) {
+        cb()
       }
-      event.preventDefault()
-      event.stopPropagation()
-      cbRef.current()
     }
-    window.addEventListener('pointerdown', handler, true)
-    return () => window.removeEventListener('pointerdown', handler, true)
-  }, [dom])
+
+    // Attach the event listener during component mount
+    window.addEventListener('mousedown', handleClickOutside)
+
+    // Detach the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [dom, cb])
 }

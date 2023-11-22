@@ -1,7 +1,9 @@
 'use client'
 
 import 'react-accessible-accordion/dist/fancy-example.css'
-import mstyles from './menu.module.css'
+import styles from './menu.module.css'
+import social from '@/config/social.json'
+import Social from '@/components/Social'
 
 import { useState, useRef } from 'react'
 import { usePathname } from 'next/navigation'
@@ -11,6 +13,9 @@ import { useContactModal } from '@/layouts/contact/hook/useContactModal'
 import { ContactModal } from '@/layouts/contact'
 
 import Link from 'next/link'
+import ThemeSwitcher from '../theme'
+import SearchButton from '../search/SearchButton'
+
 import { Accordion } from 'react-accessible-accordion'
 import { Mobilesection } from './mobilesection'
 import { Regularsection } from './regularsection'
@@ -48,20 +53,33 @@ export const Menubar: React.FC = (): JSX.Element | null => {
 
   const DynamicClass =
     theme === 'light'
-      ? `${menuclick ? mstyles.toggle2 : mstyles.toggle}`
-      : `${menuclick ? mstyles.toggledark2 : mstyles.toggledark}`
+      ? `${menuclick ? styles.toggle2 : styles.toggle}`
+      : `${menuclick ? styles.toggledark2 : styles.toggledark}`
 
   const hoverClass = theme === 'light' ? 'hover:text-blue-300' : 'hover:text-purple-300'
 
   return (
-    <>
+    <div ref={menubarRef}>
       <div className={`${DynamicClass}`} onClick={handleClick}>
         <div></div>
       </div>
-      <div
-        ref={menubarRef}
-        className={`${menuclick ? mstyles.navmenuactive : mstyles.navmenu} bg-gradient`}
-      >
+      <div className="bg-gradient fixed top-0 z-20 h-20 w-full">
+        <nav className="mx-auto mt-3 flex max-w-7xl items-center justify-center space-x-4 px-4 sm:space-x-16">
+          <div className="flex items-center space-x-2 xl:space-x-4">
+            <div className="hidden lg:block">
+              <Link href="/">
+                <p className="text-2xl">Pablo Pikassiet</p>
+              </Link>
+            </div>
+          </div>
+          <div className="hidden lg:block">
+            <Social source={social.main} className="social-icons" />
+          </div>
+        </nav>
+        <SearchButton className="fixed right-[80px] top-[16px] z-40 mr-5" />
+        <ThemeSwitcher className="fixed right-[20px] top-[20px] z-40 mr-5" />
+      </div>
+      <div className={`${menuclick ? styles.navmenuactive : styles.navmenu} bg-gradient`}>
         <div className="overflow-y-auto lg:mx-auto">
           <Link
             className={`mb-2 ml-2 mt-2 flex flex-row items-center text-2xl lg:hidden ${hoverClass}`}
@@ -173,6 +191,6 @@ export const Menubar: React.FC = (): JSX.Element | null => {
         </div>
       </div>
       <ContactModal />
-    </>
+    </div>
   )
 }
