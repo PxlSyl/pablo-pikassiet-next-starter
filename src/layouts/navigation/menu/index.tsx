@@ -28,7 +28,7 @@ import { headerCommissionsLinks } from '../headerlinks/headerCommissionsLinks'
 import { headerArtLinks } from '../headerlinks/headerArtLinks'
 import { headerInfosLinks } from '../headerlinks/headerInfosLinks'
 
-export const Menubar: React.FC = (): JSX.Element | null => {
+export const Header: React.FC = (): JSX.Element | null => {
   const pathname = usePathname()
 
   const [menuclick, setClick] = useState<boolean>(false)
@@ -79,8 +79,12 @@ export const Menubar: React.FC = (): JSX.Element | null => {
         <SearchButton className="fixed right-[80px] top-[16px] z-40 mr-5" />
         <ThemeSwitcher className="fixed right-[20px] top-[20px] z-40 mr-5" />
       </div>
-      <div className={`${menuclick ? styles.navmenuactive : styles.navmenu} bg-gradient`}>
-        <div className="overflow-y-auto lg:mx-auto">
+      <div
+        className={`${
+          menuclick ? styles.navmenuactive : styles.navmenu
+        } bg-gradient overflow-y-auto`}
+      >
+        <div className=" lg:mx-auto">
           <Link
             className={`mb-2 ml-2 mt-2 flex flex-row items-center text-2xl lg:hidden ${hoverClass}`}
             href="/"
