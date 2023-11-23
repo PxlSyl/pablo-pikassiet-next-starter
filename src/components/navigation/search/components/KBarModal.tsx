@@ -71,7 +71,7 @@ const RenderResults = () => {
               <div
                 className={`flex cursor-pointer justify-between px-4 py-2 ${
                   active
-                    ? 'bg-gray-800 text-gray-100 dark:bg-white dark:text-black'
+                    ? 'bg-highlighted dark:bg-highlighted text-gray-100 '
                     : 'bg-transparent text-gray-700 dark:text-gray-100'
                 }`}
               >
@@ -91,7 +91,7 @@ const RenderResults = () => {
                     {item.shortcut.map((sc) => (
                       <kbd
                         key={sc}
-                        className={`flex h-7 w-6 items-center justify-center	rounded border text-xs font-medium ${
+                        className={`flex h-7 w-6 items-center justify-center rounded border text-xs font-medium ${
                           active ? 'border-gray-200 text-gray-200' : 'border-gray-400 text-gray-400'
                         }`}
                       >

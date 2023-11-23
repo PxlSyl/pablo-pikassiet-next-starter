@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import config from '@/config/config.json'
-import { FaRegFolder, FaRegUserCircle } from 'react-icons/fa/index.js'
+import { FaRegFolder, FaRegUserCircle, FaRegClock } from 'react-icons/fa/index.js'
 
 import { formatDate } from 'pliny/utils/formatDate'
 import { humanize, slugify } from '@/lib/utils/textConverter'
@@ -21,18 +21,20 @@ const BlogCard = ({ post }: any) => {
   return (
     <div className="bg-body dark:bg-darkmode-body">
       {image && (
-        <ImageFallback
-          className="mb-6 w-full rounded"
-          src={image}
-          alt={title}
-          width={445}
-          height={230}
-        />
+        <Link href={`/${blog_folder}/${path}`}>
+          <ImageFallback
+            className="mb-6 w-full rounded"
+            src={image}
+            alt={title}
+            width={445}
+            height={230}
+          />
+        </Link>
       )}
       <h4 className="mb-3">
         <Link href={`/${blog_folder}/${path}`}>{title}</Link>
       </h4>
-      <ul className="mb-4">
+      <ul className="text-highlighted dark:text-darkmode-highlighted mb-4">
         <li className="mr-4 inline-block">
           <a href={`/authors/${slugify(author)}`}>
             <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
@@ -51,6 +53,7 @@ const BlogCard = ({ post }: any) => {
         {date && (
           <li className="inline-block">
             {' '}
+            <FaRegClock className={'-mt-1 mr-2 inline-block'} />
             <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
           </li>
         )}

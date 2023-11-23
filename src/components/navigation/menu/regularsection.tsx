@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { UrlObject } from 'url'
+import { selectedClass, hoverClass } from './menutheme'
 
 interface SectionProps {
   icon: React.ReactNode
@@ -31,9 +32,8 @@ export const Regularsection: React.FC<SectionProps> = ({
               key={link.title}
               href={link.href as string | UrlObject}
               onClick={closeMenu}
-              className={`ml-8 flex flex-col font-medium ${
-                isSelected ? 'text-blue-300' : 'text-gray-900 dark:text-gray-100'
-              }`}
+              className={`ml-8 flex flex-col font-medium text-gray-900 dark:text-gray-100 ${hoverClass}
+               ${isSelected ? selectedClass : ''}`}
             >
               {link.title}
             </Link>

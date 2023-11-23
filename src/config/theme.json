@@ -11,7 +11,8 @@
       "text_color": {
         "default": "#444444",
         "dark": "#040404",
-        "light": "#717171"
+        "light": "#717171",
+        "highlighted": "#ec4899"
       }
     },
     "darkmode": {
@@ -25,7 +26,8 @@
       "text_color": {
         "default": "#B4AFB6",
         "dark": "#fff",
-        "light": "#B4AFB6"
+        "light": "#B4AFB6",
+        "highlighted": "#ec4899"
       }
     }
   },

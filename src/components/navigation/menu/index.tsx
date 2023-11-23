@@ -5,6 +5,7 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 import { Accordion } from 'react-accessible-accordion'
 import { FaHome } from 'react-icons/fa'
 import { FaShop, FaRegNoteSticky, FaPalette, FaMusic, FaBlogger } from 'react-icons/fa6'
+import { selectedClass, hoverClass } from './menutheme'
 // utility and hooks
 import Link from 'next/link'
 import { useState, useRef } from 'react'
@@ -53,16 +54,14 @@ export const Header: React.FC = (): JSX.Element | null => {
 
   if (!mounted) return null
 
-  const DynamicClass =
+  const menuClass =
     theme === 'light'
       ? `${menuclick ? styles.toggle2 : styles.toggle}`
       : `${menuclick ? styles.toggledark2 : styles.toggledark}`
 
-  const hoverClass = theme === 'light' ? 'hover:text-blue-300' : 'hover:text-purple-300'
-
   return (
     <div ref={menubarRef}>
-      <div className={`${DynamicClass}`} onClick={handleClick}>
+      <div className={`${menuClass}`} onClick={handleClick}>
         <div></div>
       </div>
       <div className="bg-gradient fixed top-0 z-20 h-20 w-full">
@@ -78,8 +77,10 @@ export const Header: React.FC = (): JSX.Element | null => {
             <Social source={social.main} className="social-icons" />
           </div>
         </nav>
-        <SearchButton className="fixed right-[80px] top-[16px] z-40 mr-5" />
-        <ThemeSwitcher className="fixed right-[20px] top-[20px] z-40 mr-5" />
+        <div>
+          <SearchButton className="fixed right-[80px] top-[16px] z-40 mr-5" />
+          <ThemeSwitcher className="fixed right-[20px] top-[20px] z-40 mr-5" />
+        </div>
       </div>
       <div
         className={`${
@@ -102,35 +103,30 @@ export const Header: React.FC = (): JSX.Element | null => {
                 links={headerShopLinks}
                 icon={<FaShop />}
                 closeMenu={closeMenu}
-                theme={theme}
               />
               <Mobilesection
                 title="Commissions"
                 links={headerCommissionsLinks}
                 icon={<FaRegNoteSticky />}
                 closeMenu={closeMenu}
-                theme={theme}
               />
               <Mobilesection
                 title="Gallery"
                 links={headerArtLinks}
                 icon={<FaPalette />}
                 closeMenu={closeMenu}
-                theme={theme}
               />
               <Mobilesection
                 title="Music"
                 links={headerMusicLinks}
                 icon={<FaMusic />}
                 closeMenu={closeMenu}
-                theme={theme}
               />
               <Mobilesection
                 title="Blog"
                 links={headerBlogLinks}
                 icon={<FaBlogger />}
                 closeMenu={closeMenu}
-                theme={theme}
               />
             </Accordion>
             <div className="hidden lg:grid lg:grid-cols-5 lg:justify-center lg:gap-4">
@@ -173,20 +169,15 @@ export const Header: React.FC = (): JSX.Element | null => {
                     key={link.title}
                     href={link.href}
                     onClick={closeMenu}
-                    className={`ml-4 flex cursor-pointer flex-col text-sm underline  ${
-                      isSelected ? 'text-blue-300' : 'text-gray-900 dark:text-gray-100'
-                    }`}
+                    className={`ml-4 flex cursor-pointer flex-col text-sm text-gray-900 underline dark:text-gray-100 ${hoverClass} 
+                     ${isSelected ? selectedClass : ''}`}
                   >
                     {link.title}
                   </Link>
                 )
               })}
               <div
-                className={
-                  theme === 'light'
-                    ? `ml-4 mt-2 flex cursor-pointer flex-col text-sm underline hover:text-blue-300 hover:underline`
-                    : `ml-4 mt-2 flex cursor-pointer flex-col text-sm underline hover:text-purple-300`
-                }
+                className={`ml-4 mt-2 flex cursor-pointer flex-col text-sm underline hover:underline ${hoverClass} `}
                 onClick={ContactClick}
               >
                 Contact
