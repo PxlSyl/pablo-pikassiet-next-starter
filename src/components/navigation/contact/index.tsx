@@ -3,7 +3,7 @@
 import 'react-toastify/dist/ReactToastify.css'
 import { useState, useEffect } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
-import { useContactModal } from './hook/useContactModal'
+import { useContactModal } from './store'
 
 import { ToastContainer, toast } from 'react-toastify'
 import { CModal } from './CModal'

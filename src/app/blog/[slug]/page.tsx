@@ -13,10 +13,10 @@ import { allBlogs } from 'contentlayer/generated'
 import type { Blog } from 'contentlayer/generated'
 
 import { components } from '@/components/blog/MDXComponents'
-import PostDefault from '@/components/PostDefault'
-import PostSimple from '@/components/PostSimple'
-import PostLayout from '@/components/PostLayout'
-import PostBanner from '@/components/PostBanner'
+import PostDefault from '@/components/blog/layouts/PostDefault'
+import PostSimple from '@/components/blog/layouts/PostSimple'
+import PostLayout from '@/components/blog/layouts/PostLayout'
+import PostBanner from '@/components/blog/layouts/PostBanner'
 import BlogCard from '@/components/blog/BlogCard'
 
 interface PageProps {

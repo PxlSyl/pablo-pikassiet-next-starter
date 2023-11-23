@@ -9,10 +9,10 @@ import { CoreContent } from 'pliny/utils/contentlayer'
 import { Blog } from 'contentlayer/generated'
 
 import { humanize, markdownify, slugify } from '@/lib/utils/textConverter'
-import ImageFallback from './helpers/ImageFallback'
-import Share from './blog/Share'
-import ScrollTopAndComment from './blog/ScrollTopAndComment'
-import Comments from './blog/Comments'
+import ImageFallback from '../../helpers/ImageFallback'
+import Share from '../Share'
+import ScrollTopAndComment from '../ScrollTopAndComment'
+import Comments from '../Comments'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',

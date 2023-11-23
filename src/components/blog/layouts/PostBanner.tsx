@@ -8,12 +8,12 @@ import { FaRegFolder, FaRegClock } from 'react-icons/fa6'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 
-import Comments from './blog/Comments'
-import Link from './blog/Link'
-import PageTitle from './blog/PageTitle'
-import ScrollTopAndComment from './blog/ScrollTopAndComment'
-import Share from './blog/Share'
-import ImageFallback from './helpers/ImageFallback'
+import Comments from '../Comments'
+import Link from '../Link'
+import PageTitle from '../PageTitle'
+import ScrollTopAndComment from '../ScrollTopAndComment'
+import Share from '../Share'
+import ImageFallback from '../../helpers/ImageFallback'
 
 import { slugify, humanize } from '@/lib/utils/textConverter'
 
