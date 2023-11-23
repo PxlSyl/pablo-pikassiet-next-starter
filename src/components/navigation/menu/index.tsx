@@ -78,7 +78,7 @@ export const Header: React.FC = (): JSX.Element | null => {
             <Social source={social.main} className="social-icons" />
           </div>
         </nav>
-        <div>
+        <div className="z-40 justify-end">
           <SearchButton className="fixed right-[80px] top-[16px] z-40 mr-5" />
           <ThemeSwitcher className="fixed right-[20px] top-[20px] z-40 mr-5" />
         </div>

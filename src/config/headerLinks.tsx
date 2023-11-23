@@ -35,7 +35,8 @@ export const headerBlogLinks: HeaderLink[] = [
 ]
 
 export const headerInfosLinks: HeaderLink[] = [
+  { href: '/authors', title: 'Authors' },
+  { href: '/about', title: 'About' },
   { href: '/terms', title: 'Terms' },
   { href: '/legalnotice', title: 'Legalnotice' },
-  { href: '/about', title: 'About' },
 ]

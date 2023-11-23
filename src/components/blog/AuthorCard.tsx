@@ -9,18 +9,23 @@ const AuthorCard = ({ data }: { data: any }) => {
   return (
     <div className="rounded bg-theme-light p-8 text-center dark:bg-darkmode-theme-light">
       {image && (
-        <ImageFallback
-          className="mx-auto mb-6 rounded"
-          src={image}
-          alt={title}
-          width={120}
-          height={120}
-        />
+        <Link href={`/authors/${data.slug}`}>
+          <ImageFallback
+            className="mx-auto mb-6 rounded"
+            src={image}
+            alt={title}
+            width={120}
+            height={120}
+          />
+        </Link>
       )}
       <h4 className="mb-3">
         <Link href={`/authors/${data.slug}`}>{title}</Link>
       </h4>
-      <p className="mb-4">{plainify(data.content?.slice(0, 100))}</p>
+      <Link href={`/authors/${data.slug}`}>
+        <p className="mb-4">{plainify(data.content?.slice(0, 300))}...</p>
+        <p className="mb-4 text-highlighted">Read more</p>
+      </Link>
       <Social source={social} className="social-icons" />
     </div>
   )
