@@ -1,15 +1,11 @@
-import { Author, Post } from '@/types'
-
-import config from '@/config/config.json'
+import { Author } from '@/types'
 
 import SeoMeta from '@/components/partials/SeoMeta'
 import ImageFallback from '@/components/helpers/ImageFallback'
 import MDXContent from '@/components/helpers/MDXContent'
-import BlogCard from '@/components/blog/BlogCard'
 import Social from '@/components/blog/Social'
 
 import { getSinglePage } from '@/lib/contentParser'
-import { slugify } from '@/lib/utils/textConverter'
 
 // remove dynamicParams
 export const dynamicParams = false
@@ -30,11 +26,6 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
   const author = authors.filter((page) => page.slug === params.single)[0]
   const { frontmatter, content } = author
   const { title, social, meta_title, description, image } = frontmatter
-  const { blog_folder } = config.settings
-  const posts: Post[] = getSinglePage(blog_folder)
-  const postFilterByAuthor: Post[] = posts.filter(
-    (post) => slugify(post.frontmatter.author) === slugify(title)
-  )
 
   return (
     <>
@@ -52,20 +43,12 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
                   alt={title}
                 />
               )}
-              <h1 className="h3 mb-6">{title}</h1>
+              <h1 className="h3 mb-6 text-highlighted dark:text-highlighted">{title}</h1>
               <div className="content">
                 <MDXContent content={content} />
               </div>
               <Social source={social} className="social-icons" />
             </div>
-          </div>
-
-          <div className="row justify-center pb-16 pt-14">
-            {postFilterByAuthor.map((post, index: number) => (
-              <div className="mb-12 md:col-6 lg:col-4" key={index}>
-                <BlogCard data={post} />
-              </div>
-            ))}
           </div>
         </div>
       </section>
