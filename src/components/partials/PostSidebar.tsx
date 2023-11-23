@@ -1,5 +1,6 @@
-import { humanize } from '@/lib/utils/textConverter'
 import Link from 'next/link'
+import { humanize } from '@/lib/utils/textConverter'
+
 import tagData from '@/app/tag-data.json'
 import categoryData from '@/app/category-data.json'
 

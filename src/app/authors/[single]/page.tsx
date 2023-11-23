@@ -1,12 +1,15 @@
-import BlogCard from '@/components/blog/BlogCard'
-import Social from '@/components/blog/Social'
+import { Author, Post } from '@/types'
+
 import config from '@/config/config.json'
+
+import SeoMeta from '@/components/partials/SeoMeta'
 import ImageFallback from '@/components/helpers/ImageFallback'
 import MDXContent from '@/components/helpers/MDXContent'
+import BlogCard from '@/components/blog/BlogCard'
+import Social from '@/components/blog/Social'
+
 import { getSinglePage } from '@/lib/contentParser'
 import { slugify } from '@/lib/utils/textConverter'
-import SeoMeta from '@/components/partials/SeoMeta'
-import { Author, Post } from '@/types'
 
 // remove dynamicParams
 export const dynamicParams = false

@@ -1,11 +1,13 @@
 'use client'
 
-import ImageFallback from '../helpers/ImageFallback'
-import { markdownify } from '@/lib/utils/textConverter'
 import { Testimonial } from '@/types'
+
 import 'swiper/css'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import ImageFallback from '../helpers/ImageFallback'
+import { markdownify } from '@/lib/utils/textConverter'
 
 interface PageData {
   notFound?: boolean

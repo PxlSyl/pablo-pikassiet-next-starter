@@ -1,11 +1,14 @@
-import BlogCard from '@/components/blog/BlogCard'
-import Pagination from '@/components/blog/Pagination'
 import config from '@/config/config.json'
 import { getListPage } from '@/lib/contentParser'
+
+import BlogCard from '@/components/blog/BlogCard'
+import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
 import PostSidebar from '@/components/partials/PostSidebar'
 import SeoMeta from '@/components/partials/SeoMeta'
+
 import { Post } from '@/types'
+
 import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 

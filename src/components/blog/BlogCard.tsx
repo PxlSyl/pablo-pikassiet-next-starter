@@ -1,8 +1,11 @@
+import Link from 'next/link'
+
 import config from '@/config/config.json'
+import { FaRegFolder, FaRegUserCircle } from 'react-icons/fa/index.js'
+
 import { formatDate } from 'pliny/utils/formatDate'
 import { humanize, slugify } from '@/lib/utils/textConverter'
-import Link from 'next/link'
-import { FaRegFolder, FaRegUserCircle } from 'react-icons/fa/index.js'
+
 import ImageFallback from '../helpers/ImageFallback'
 import siteMetadata from '@/data/siteMetadata'
 

@@ -1,13 +1,17 @@
+import { ReactNode } from 'react'
+import Link from 'next/link'
+
+import siteMetadata from '@/data/siteMetadata'
+
+import { FaRegClock, FaRegFolder, FaRegUserCircle } from 'react-icons/fa/index.js'
+
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { Blog } from 'contentlayer/generated'
-import Share from './blog/Share'
-import ImageFallback from './helpers/ImageFallback'
+
 import { humanize, markdownify, slugify } from '@/lib/utils/textConverter'
-import Link from 'next/link'
-import { FaRegClock, FaRegFolder, FaRegUserCircle } from 'react-icons/fa/index.js'
-import { ReactNode } from 'react'
+import ImageFallback from './helpers/ImageFallback'
+import Share from './blog/Share'
 import ScrollTopAndComment from './blog/ScrollTopAndComment'
-import siteMetadata from '@/data/siteMetadata'
 import Comments from './blog/Comments'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {

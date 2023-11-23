@@ -1,8 +1,11 @@
+import Link from 'next/link'
+
 import tagData from '@/app/tag-data.json'
+
 import { humanize } from '@/lib/utils/textConverter'
 import PageHeader from '@/components/partials/PageHeader'
+
 import SeoMeta from '@/components/partials/SeoMeta'
-import Link from 'next/link'
 
 const tags = () => {
   const tagCounts = tagData as Record<string, number>

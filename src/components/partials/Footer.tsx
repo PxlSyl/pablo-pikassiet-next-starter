@@ -1,12 +1,15 @@
 'use client'
 
-import Logo from '../blog/Logo'
-import Social from '../blog/Social'
+import Link from 'next/link'
+
 import config from '@/config/config.json'
 import menu from '@/config/menu.json'
 import social from '@/config/social.json'
+
+import Logo from '../blog/Logo'
+import Social from '../blog/Social'
+
 import { markdownify } from '@/lib/utils/textConverter'
-import Link from 'next/link'
 
 const Footer = () => {
   const { copyright } = config.params

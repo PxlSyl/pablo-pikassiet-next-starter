@@ -1,6 +1,7 @@
-import ImageFallback from '../helpers/ImageFallback'
-import { markdownify } from '@/lib/utils/textConverter'
 import { Call_to_action } from '@/types'
+import { markdownify } from '@/lib/utils/textConverter'
+
+import ImageFallback from '../helpers/ImageFallback'
 
 interface PageData {
   notFound?: boolean

@@ -8,8 +8,10 @@ import siteMetadata from '@/data/siteMetadata'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
 import similerItems from '@/lib/utils/similarItems'
+
 import { allBlogs } from 'contentlayer/generated'
 import type { Blog } from 'contentlayer/generated'
+
 import { components } from '@/components/blog/MDXComponents'
 import PostDefault from '@/components/PostDefault'
 import PostSimple from '@/components/PostSimple'

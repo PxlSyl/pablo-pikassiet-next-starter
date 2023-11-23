@@ -1,17 +1,21 @@
 import { ReactNode } from 'react'
 import Bleed from 'pliny/ui/Bleed'
+import siteMetadata, { author } from '@/data/siteMetadata'
+
+import { FaRegUserCircle } from 'react-icons/fa'
+import { FaRegFolder, FaRegClock } from 'react-icons/fa6'
+
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
+
 import Comments from './blog/Comments'
 import Link from './blog/Link'
 import PageTitle from './blog/PageTitle'
-import siteMetadata, { author } from '@/data/siteMetadata'
 import ScrollTopAndComment from './blog/ScrollTopAndComment'
 import Share from './blog/Share'
-import { slugify, humanize } from '@/lib/utils/textConverter'
-import { FaRegUserCircle } from 'react-icons/fa'
-import { FaRegFolder, FaRegClock } from 'react-icons/fa6'
 import ImageFallback from './helpers/ImageFallback'
+
+import { slugify, humanize } from '@/lib/utils/textConverter'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',

@@ -1,7 +1,8 @@
-import Social from './Social'
-import ImageFallback from '../helpers/ImageFallback'
-import { plainify } from '@/lib/utils/textConverter'
 import Link from 'next/link'
+import Social from './Social'
+
+import { plainify } from '@/lib/utils/textConverter'
+import ImageFallback from '../helpers/ImageFallback'
 
 const AuthorCard = ({ data }: { data: any }) => {
   const { title, image, social } = data.frontmatter

@@ -1,38 +1,35 @@
-import Link from "next/link";
-import React from "react";
+import React from 'react'
+import Link from 'next/link'
 
 const Pagination = ({
   section,
   currentPage,
   totalPages,
 }: {
-  section: string;
-  currentPage: number;
-  totalPages: number;
+  section: string
+  currentPage: number
+  totalPages: number
 }) => {
-  const indexPageLink = currentPage === 2;
-  const hasPrevPage = currentPage > 1;
-  const hasNextPage = totalPages > currentPage;
+  const indexPageLink = currentPage === 2
+  const hasPrevPage = currentPage > 1
+  const hasNextPage = totalPages > currentPage
 
-  let pageList = [];
+  let pageList = []
   for (let i = 1; i <= totalPages; i++) {
-    pageList.push(i);
+    pageList.push(i)
   }
 
   return (
     <>
       {totalPages > 1 && (
-        <nav
-          className="flex items-center justify-center space-x-3"
-          aria-label="Pagination"
-        >
+        <nav className="flex items-center justify-center space-x-3" aria-label="Pagination">
           {/* previous */}
           {hasPrevPage ? (
             <Link
               href={
                 indexPageLink
-                  ? `${section ? "/" + section : "/"}`
-                  : `${section ? "/" + section : ""}/page/${currentPage - 1}`
+                  ? `${section ? '/' + section : '/'}`
+                  : `${section ? '/' + section : ''}/page/${currentPage - 1}`
               }
               className="rounded px-2 py-1.5 text-dark hover:bg-theme-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
             >
@@ -84,8 +81,8 @@ const Pagination = ({
                 <Link
                   href={
                     i === 0
-                      ? `${section ? "/" + section : "/"}`
-                      : `${section ? "/" + section : ""}/page/${pagination}`
+                      ? `${section ? '/' + section : '/'}`
+                      : `${section ? '/' + section : ''}/page/${pagination}`
                   }
                   passHref
                   aria-current="page"
@@ -100,7 +97,7 @@ const Pagination = ({
           {/* next page */}
           {hasNextPage ? (
             <Link
-              href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
+              href={`${section ? '/' + section : ''}/page/${currentPage + 1}`}
               className="rounded px-2 py-1.5 text-dark hover:bg-theme-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
             >
               <span className="sr-only">Next</span>
@@ -139,7 +136,7 @@ const Pagination = ({
         </nav>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

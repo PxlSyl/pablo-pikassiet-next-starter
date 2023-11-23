@@ -1,10 +1,11 @@
-import config from "@/config/config.json";
+import config from '@/config/config.json'
+
 import {
   IoLogoFacebook,
   IoLogoLinkedin,
   IoLogoPinterest,
   IoLogoTwitter,
-} from "react-icons/io5/index.js";
+} from 'react-icons/io5/index.js'
 
 const Share = ({
   title,
@@ -12,12 +13,12 @@ const Share = ({
   slug,
   className,
 }: {
-  title: string;
-  description?: string;
-  slug: string;
-  className?: string;
+  title: string
+  description?: string
+  slug: string
+  className?: string
 }) => {
-  const { base_url } = config.site;
+  const { base_url } = config.site
 
   return (
     <ul className={className}>
@@ -62,7 +63,7 @@ const Share = ({
         </a>
       </li>
     </ul>
-  );
-};
+  )
+}
 
-export default Share;
+export default Share

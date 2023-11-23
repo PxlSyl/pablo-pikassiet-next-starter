@@ -1,13 +1,18 @@
+import config from '@/config/config.json'
+
+import { Post } from '@/types'
+
+import { getListPage } from '@/lib/contentParser'
+
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
-import config from '@/config/config.json'
-import { getListPage } from '@/lib/contentParser'
 import PageHeader from '@/components/partials/PageHeader'
 import PostSidebar from '@/components/partials/PostSidebar'
 import SeoMeta from '@/components/partials/SeoMeta'
-import { Post } from '@/types'
+
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+
 const { blog_folder, pagination } = config.settings
 
 // for all regular pages

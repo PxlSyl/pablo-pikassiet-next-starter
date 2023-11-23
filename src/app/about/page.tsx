@@ -1,9 +1,10 @@
+import { RegularPage } from '@/types'
+
+import SeoMeta from '@/components/partials/SeoMeta'
 import ImageFallback from '@/components/helpers/ImageFallback'
 import MDXContent from '@/components/helpers/MDXContent'
 import { getListPage } from '@/lib/contentParser'
 import { markdownify } from '@/lib/utils/textConverter'
-import SeoMeta from '@/components/partials/SeoMeta'
-import { RegularPage } from '@/types'
 
 const About = () => {
   const data: RegularPage = getListPage('about/_index.md')

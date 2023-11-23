@@ -1,8 +1,11 @@
+import Link from 'next/link'
+
 import categoryData from '@/app/category-data.json'
+
 import { humanize } from '@/lib/utils/textConverter'
+
 import PageHeader from '@/components/partials/PageHeader'
 import SeoMeta from '@/components/partials/SeoMeta'
-import Link from 'next/link'
 
 const Categories = () => {
   const categoryCounts = categoryData as Record<string, number>

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { slugify } from '@/lib/utils/textConverter'
+
 interface Props {
   text: string
 }

@@ -1,19 +1,24 @@
 import { ReactNode } from 'react'
-import { CoreContent } from 'pliny/utils/contentlayer'
+
+import { FaRegClock, FaRegFolder } from 'react-icons/fa6'
+import { FaHashtag, FaRegUserCircle } from 'react-icons/fa'
+import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io'
+
+import siteMetadata, { author } from '@/data/siteMetadata'
+
 import type { Blog } from 'contentlayer/generated'
+import { CoreContent } from 'pliny/utils/contentlayer'
+
 import Comments from './blog/Comments'
 import Link from './blog/Link'
 import PageTitle from './blog/PageTitle'
 import Category from './blog/Categories'
 import Tag from './blog/Tag'
-import siteMetadata, { author } from '@/data/siteMetadata'
 import ScrollTopAndComment from './blog/ScrollTopAndComment'
-import { FaRegClock, FaRegFolder } from 'react-icons/fa6'
-import { FaHashtag, FaRegUserCircle } from 'react-icons/fa'
-import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io'
-import { slugify, humanize } from '@/lib/utils/textConverter'
 import Share from './blog/Share'
 import ImageFallback from './helpers/ImageFallback'
+
+import { slugify, humanize } from '@/lib/utils/textConverter'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',

@@ -1,5 +1,5 @@
-import AuthorCard from '@/components/blog/AuthorCard'
 import { getListPage, getSinglePage } from '@/lib/contentParser'
+import AuthorCard from '@/components/blog/AuthorCard'
 import PageHeader from '@/components/partials/PageHeader'
 import SeoMeta from '@/components/partials/SeoMeta'
 import { Author } from '@/types'

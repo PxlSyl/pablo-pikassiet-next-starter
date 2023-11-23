@@ -2,16 +2,20 @@ import { ReactNode } from 'react'
 import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
+
+import siteMetadata from '@/data/siteMetadata'
+
+import { FaRegUserCircle } from 'react-icons/fa'
+import { FaRegFolder, FaRegClock } from 'react-icons/fa6'
+
 import Comments from './blog/Comments'
 import Link from './blog/Link'
 import PageTitle from './blog/PageTitle'
-import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from './blog/ScrollTopAndComment'
-import { slugify, humanize } from '@/lib/utils/textConverter'
-import { FaRegUserCircle } from 'react-icons/fa'
-import { FaRegFolder, FaRegClock } from 'react-icons/fa6'
 import Share from './blog/Share'
 import ImageFallback from './helpers/ImageFallback'
+
+import { slugify, humanize } from '@/lib/utils/textConverter'
 
 interface LayoutProps {
   content: CoreContent<Blog>
