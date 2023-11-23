@@ -1,20 +1,21 @@
 import 'css/prism.css'
 import 'katex/dist/katex.css'
 
-import { components } from '@/components/MDXComponents'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+
+import siteMetadata from '@/data/siteMetadata'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
+import similerItems from '@/lib/utils/similarItems'
 import { allBlogs } from 'contentlayer/generated'
 import type { Blog } from 'contentlayer/generated'
-import PostDefault from '@/layouts/PostDefault'
-import PostSimple from '@/layouts/PostSimple'
-import PostLayout from '@/layouts/PostLayout'
-import PostBanner from '@/layouts/PostBanner'
-import { Metadata } from 'next'
-import siteMetadata from '@/data/siteMetadata'
-import { notFound } from 'next/navigation'
-import similerItems from '@/lib/utils/similarItems'
-import BlogCard from '@/components/BlogCard'
+import { components } from '@/components/blog/MDXComponents'
+import PostDefault from '@/components/PostDefault'
+import PostSimple from '@/components/PostSimple'
+import PostLayout from '@/components/PostLayout'
+import PostBanner from '@/components/PostBanner'
+import BlogCard from '@/components/blog/BlogCard'
 
 interface PageProps {
   params: { slug: string }

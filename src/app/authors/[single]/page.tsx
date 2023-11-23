@@ -1,46 +1,41 @@
-import BlogCard from "@/components/BlogCard";
-import Social from "@/components/Social";
-import config from "@/config/config.json";
-import ImageFallback from "@/helpers/ImageFallback";
-import MDXContent from "@/helpers/MDXContent";
-import { getSinglePage } from "@/lib/contentParser";
-import { slugify } from "@/lib/utils/textConverter";
-import SeoMeta from "@/partials/SeoMeta";
-import { Author, Post } from "@/types";
+import BlogCard from '@/components/blog/BlogCard'
+import Social from '@/components/blog/Social'
+import config from '@/config/config.json'
+import ImageFallback from '@/components/helpers/ImageFallback'
+import MDXContent from '@/components/helpers/MDXContent'
+import { getSinglePage } from '@/lib/contentParser'
+import { slugify } from '@/lib/utils/textConverter'
+import SeoMeta from '@/components/partials/SeoMeta'
+import { Author, Post } from '@/types'
 
 // remove dynamicParams
-export const dynamicParams = false;
+export const dynamicParams = false
 
 // generate static params
 export const generateStaticParams: () => { single?: string }[] = () => {
-  const authors: Author[] = getSinglePage("authors");
+  const authors: Author[] = getSinglePage('authors')
 
   const paths = authors.map((author) => ({
     single: author.slug,
-  }));
+  }))
 
-  return paths;
-};
+  return paths
+}
 
 const AuthorSingle = ({ params }: { params: { single: string } }) => {
-  const authors: Author[] = getSinglePage("authors");
-  const author = authors.filter((page) => page.slug === params.single)[0];
-  const { frontmatter, content } = author;
-  const { title, social, meta_title, description, image } = frontmatter;
-  const { blog_folder } = config.settings;
-  const posts: Post[] = getSinglePage(blog_folder);
+  const authors: Author[] = getSinglePage('authors')
+  const author = authors.filter((page) => page.slug === params.single)[0]
+  const { frontmatter, content } = author
+  const { title, social, meta_title, description, image } = frontmatter
+  const { blog_folder } = config.settings
+  const posts: Post[] = getSinglePage(blog_folder)
   const postFilterByAuthor: Post[] = posts.filter(
-    (post) => slugify(post.frontmatter.author) === slugify(title),
-  );
+    (post) => slugify(post.frontmatter.author) === slugify(title)
+  )
 
   return (
     <>
-      <SeoMeta
-        title={title}
-        meta_title={meta_title}
-        description={description}
-        image={image}
-      />
+      <SeoMeta title={title} meta_title={meta_title} description={description} image={image} />
       <section className="section-sm pb-0">
         <div className="container">
           <div className="row justify-center border-b border-border pb-14 dark:border-darkmode-border">
@@ -72,7 +67,7 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default AuthorSingle;
+export default AuthorSingle

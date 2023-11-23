@@ -1,9 +1,9 @@
 import categoryData from '@/app/category-data.json'
-import BlogCard from '@/components/BlogCard'
+import BlogCard from '@/components/blog/BlogCard'
 import taxonomyFilter from '@/lib/utils/taxonomyFilter'
 import { humanize } from '@/lib/utils/textConverter'
-import PageHeader from '@/partials/PageHeader'
-import SeoMeta from '@/partials/SeoMeta'
+import PageHeader from '@/components/partials/PageHeader'
+import SeoMeta from '@/components/partials/SeoMeta'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 

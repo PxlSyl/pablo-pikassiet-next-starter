@@ -22,11 +22,8 @@
       }
     ],
     "paths": {
-      "@/components/*": ["./src/layouts/components/*"],
+      "@/components/*": ["src/components/*"],
       "@/data/*": ["data/*"],
-      "@/shortcodes/*": ["./src/layouts/shortcodes/*"],
-      "@/partials/*": ["./src/layouts/partials/*"],
-      "@/helpers/*": ["./src/layouts/helpers/*"],
       "@/*": ["./src/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }

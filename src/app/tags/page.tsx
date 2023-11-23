@@ -1,7 +1,7 @@
 import tagData from '@/app/tag-data.json'
 import { humanize } from '@/lib/utils/textConverter'
-import PageHeader from '@/partials/PageHeader'
-import SeoMeta from '@/partials/SeoMeta'
+import PageHeader from '@/components/partials/PageHeader'
+import SeoMeta from '@/components/partials/SeoMeta'
 import Link from 'next/link'
 
 const tags = () => {

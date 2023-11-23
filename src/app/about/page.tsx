@@ -1,23 +1,18 @@
-import ImageFallback from "@/helpers/ImageFallback";
-import MDXContent from "@/helpers/MDXContent";
-import { getListPage } from "@/lib/contentParser";
-import { markdownify } from "@/lib/utils/textConverter";
-import SeoMeta from "@/partials/SeoMeta";
-import { RegularPage } from "@/types";
+import ImageFallback from '@/components/helpers/ImageFallback'
+import MDXContent from '@/components/helpers/MDXContent'
+import { getListPage } from '@/lib/contentParser'
+import { markdownify } from '@/lib/utils/textConverter'
+import SeoMeta from '@/components/partials/SeoMeta'
+import { RegularPage } from '@/types'
 
 const About = () => {
-  const data: RegularPage = getListPage("about/_index.md");
-  const { frontmatter, content } = data;
-  const { title, meta_title, description, image } = frontmatter;
+  const data: RegularPage = getListPage('about/_index.md')
+  const { frontmatter, content } = data
+  const { title, meta_title, description, image } = frontmatter
 
   return (
     <>
-      <SeoMeta
-        title={title}
-        meta_title={meta_title}
-        description={description}
-        image={image}
-      />
+      <SeoMeta title={title} meta_title={meta_title} description={description} image={image} />
       <section className="section-sm">
         <div className="container">
           <div className="row justify-center">
@@ -31,10 +26,7 @@ const About = () => {
                   alt={title}
                 />
               )}
-              <h2
-                dangerouslySetInnerHTML={markdownify(title)}
-                className="h3 mb-6"
-              />
+              <h2 dangerouslySetInnerHTML={markdownify(title)} className="h3 mb-6" />
               <div className="content">
                 <MDXContent content={content} />
               </div>
@@ -43,7 +35,7 @@ const About = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default About;
+export default About

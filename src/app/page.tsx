@@ -1,9 +1,9 @@
-import ImageFallback from '@/helpers/ImageFallback'
+import ImageFallback from '@/components/helpers/ImageFallback'
 import { getListPage } from '@/lib/contentParser'
 import { markdownify } from '@/lib/utils/textConverter'
-import CallToAction from '@/partials/CallToAction'
-import SeoMeta from '@/partials/SeoMeta'
-import Testimonials from '@/partials/Testimonials'
+import CallToAction from '@/components/partials/CallToAction'
+import SeoMeta from '@/components/partials/SeoMeta'
+import Testimonials from '@/components/partials/Testimonials'
 import { Button, Feature } from '@/types'
 import { FaCheck } from 'react-icons/fa/index.js'
 

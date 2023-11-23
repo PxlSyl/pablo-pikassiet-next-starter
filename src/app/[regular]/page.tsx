@@ -1,7 +1,7 @@
-import MDXContent from '@/helpers/MDXContent'
+import MDXContent from '@/components/helpers/MDXContent'
 import { getSinglePage } from '@/lib/contentParser'
-import PageHeader from '@/partials/PageHeader'
-import SeoMeta from '@/partials/SeoMeta'
+import PageHeader from '@/components/partials/PageHeader'
+import SeoMeta from '@/components/partials/SeoMeta'
 import { RegularPage } from '@/types'
 
 // remove dynamicParams

@@ -26,7 +26,7 @@ if (theme.fonts.font_family.secondary) {
 module.exports = {
   content: [
     './node_modules/pliny/**/*.js',
-    './src/layouts/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
     './src/content/**/*.{md,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx}',
   ],

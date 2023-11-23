@@ -1,21 +1,16 @@
-import AuthorCard from "@/components/AuthorCard";
-import { getListPage, getSinglePage } from "@/lib/contentParser";
-import PageHeader from "@/partials/PageHeader";
-import SeoMeta from "@/partials/SeoMeta";
-import { Author } from "@/types";
+import AuthorCard from '@/components/blog/AuthorCard'
+import { getListPage, getSinglePage } from '@/lib/contentParser'
+import PageHeader from '@/components/partials/PageHeader'
+import SeoMeta from '@/components/partials/SeoMeta'
+import { Author } from '@/types'
 
 const Authors = () => {
-  const authorIndex: Author = getListPage("authors/_index.md");
-  const authors: Author[] = getSinglePage("authors");
-  const { title, meta_title, description, image } = authorIndex.frontmatter;
+  const authorIndex: Author = getListPage('authors/_index.md')
+  const authors: Author[] = getSinglePage('authors')
+  const { title, meta_title, description, image } = authorIndex.frontmatter
   return (
     <>
-      <SeoMeta
-        title={title}
-        meta_title={meta_title}
-        description={description}
-        image={image}
-      />
+      <SeoMeta title={title} meta_title={meta_title} description={description} image={image} />
       <PageHeader title={title} />
       <section className="section-sm pb-0">
         <div className="container">
@@ -29,7 +24,7 @@ const Authors = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Authors;
+export default Authors

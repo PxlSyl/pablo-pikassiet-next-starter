@@ -1,11 +1,11 @@
+import '@/styles/main.scss'
 import config from '@/config/config.json'
 import theme from '@/config/theme.json'
-import TwSizeIndicator from '@/helpers/TwSizeIndicator'
-import Footer from '@/partials/Footer'
-import { Header } from '@/layouts/navigation/menu'
-import Providers from '@/partials/Providers'
-import { SearchProvider } from '@/layouts/navigation/search/SearchProvider'
-import '@/styles/main.scss'
+import TwSizeIndicator from '@/components/helpers/TwSizeIndicator'
+import Footer from '@/components/partials/Footer'
+import { Header } from '@/components/navigation/menu'
+import Providers from '@/components/partials/Providers'
+import { SearchProvider } from '@/components/navigation/search/SearchProvider'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // import google font css
