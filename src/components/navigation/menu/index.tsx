@@ -5,6 +5,7 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 import { Accordion } from 'react-accessible-accordion'
 import { FaHome } from 'react-icons/fa'
 import { FaShop, FaRegNoteSticky, FaPalette, FaMusic, FaBlogger } from 'react-icons/fa6'
+import Logo from '@/components/blog/Logo'
 import { selectedClass, hoverClass } from './menutheme'
 // utility and hooks
 import Link from 'next/link'
@@ -69,7 +70,7 @@ export const Header: React.FC = (): JSX.Element | null => {
           <div className="flex items-center space-x-2 xl:space-x-4">
             <div className="hidden lg:block">
               <Link href="/">
-                <p className="text-2xl">Pablo Pikassiet</p>
+                <Logo />
               </Link>
             </div>
           </div>

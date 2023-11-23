@@ -1,15 +1,15 @@
 {
   "site": {
-    "title": "Nextplate",
+    "title": "Pablo Pikassiet",
     "base_url": "https://nextplate.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
-    "logo_height": "27",
-    "logo_text": "Nextplate"
+    "logo": "/images/logo.svg",
+    "logo_darkmode": "/images/logo-darkmode.svg",
+    "logo_width": "225",
+    "logo_height": "60",
+    "logo_text": "Pablo Pikassiet"
   },
 
   "settings": {
@@ -23,7 +23,8 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
+    "copyright": "Designed and Developed by <u>[Pxlsyl](https://pxlsyl.art)</u> ",
+    "credits": "Credits: <u>[Zeon Studio](https://zeon.studio)</u>  and <u>[Timlrx](https://www.timlrx.com/)<u>"
   },
 
   "navigation_button": {
