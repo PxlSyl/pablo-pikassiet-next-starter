@@ -27,7 +27,10 @@ const About = () => {
                   alt={title}
                 />
               )}
-              <h2 dangerouslySetInnerHTML={markdownify(title)} className="h3 mb-6" />
+              <h2
+                dangerouslySetInnerHTML={markdownify(title)}
+                className="h3 mb-6 text-highlighted dark:text-highlighted"
+              />
               <div className="content">
                 <MDXContent content={content} />
               </div>

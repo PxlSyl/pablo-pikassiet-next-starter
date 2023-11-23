@@ -20,7 +20,9 @@ const AuthorCard = ({ data }: { data: any }) => {
         </Link>
       )}
       <h4 className="mb-3">
-        <Link href={`/authors/${data.slug}`}>{title}</Link>
+        <Link className=" text-highlighted" href={`/authors/${data.slug}`}>
+          {title}
+        </Link>
       </h4>
       <Link href={`/authors/${data.slug}`}>
         <p className="mb-4">{plainify(data.content?.slice(0, 300))}...</p>

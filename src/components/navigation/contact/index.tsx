@@ -58,7 +58,7 @@ export const ContactModal = (): JSX.Element => {
           placeholder="Name*"
           value={name}
           onChange={handleNameChange}
-          className="bg-gradient mb-2 w-full rounded-md border-2 border-neutral-800 p-2 text-black outline-none transition focus:border-2 focus:border-black disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white  dark:text-white"
+          className="bg-gradient mb-2 w-full rounded-md p-2 text-black outline-none transition focus:ring-highlighted disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white  dark:text-white"
         />
         <input
           required
@@ -69,7 +69,7 @@ export const ContactModal = (): JSX.Element => {
           placeholder="Email*"
           value={email}
           onChange={handleEmailChange}
-          className="bg-gradient mb-2 w-full rounded-md border-2 border-neutral-800 p-2 text-base text-black outline-none transition focus:border-2 focus:border-black disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:text-white"
+          className="bg-gradient mb-2 w-full rounded-md p-2 text-base text-black outline-none transition focus:ring-highlighted disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:text-white"
         />
         <ValidationError prefix="Email" field="email" errors={state.errors} />
         <textarea
@@ -79,7 +79,7 @@ export const ContactModal = (): JSX.Element => {
           placeholder="Message*"
           value={message}
           onChange={handleMessageChange}
-          className="bg-gradient mb-2 w-full rounded-md border-2 border-neutral-800 p-2 text-base text-black outline-none transition focus:border-2 focus:border-black disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:text-white"
+          className="bg-gradient mb-2 w-full rounded-md p-2 text-base text-black outline-none transition focus:ring-highlighted disabled:cursor-not-allowed disabled:bg-neutral-900 disabled:opacity-70 dark:border-white dark:text-white"
         />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
         <button
@@ -87,7 +87,7 @@ export const ContactModal = (): JSX.Element => {
           disabled={state.submitting || !name || !email || !message}
           data-te-ripple-init
           data-te-ripple-color="light"
-          className="text-md btn btn-primary w-full rounded-full border-2 px-4 py-2 font-semibold text-white transition hover:opacity-80  dark:text-black"
+          className="text-md w-full rounded-full border-2 bg-highlighted px-4 py-2 font-semibold text-white transition hover:opacity-80  dark:text-black"
         >
           Submit
         </button>
