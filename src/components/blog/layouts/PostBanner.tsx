@@ -56,15 +56,22 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                 </div>
                 <ul className="mb-2 mt-2 text-center">
                   <li className="mr-4 inline-block">
-                    <a href={`/authors/${slugify(author)}`}>
-                      <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                    <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                    <a
+                      className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                      href={`/authors/${slugify(author)}`}
+                    >
                       {humanize(author)}
                     </a>
                   </li>
                   <li className="mr-4 inline-block">
                     <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
                     {categories?.map((category: string, index: number) => (
-                      <Link key={category} href={`/categories/${slugify(category)}`}>
+                      <Link
+                        className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                        key={category}
+                        href={`/categories/${slugify(category)}`}
+                      >
                         {humanize(category)}
                         {index !== categories.length - 1 && ', '}
                       </Link>
@@ -82,15 +89,21 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                 <div className="prose max-w-none py-4 dark:prose-invert">{children}</div>
                 <div className="flex flex-col justify-center text-sm font-medium sm:flex-row sm:justify-between">
                   <div className="mb-6 flex items-center sm:mb-0 ">
-                    <h5 className="mr-3">Tags:</h5>
+                    <h5 className="mr-3 text-highlighted dark:text-darkmode-highlighted">Tags:</h5>
                     {tags?.map((tag: string, index: number) => (
-                      <Link className="mx-1" key={tag} href={`/tags/${slugify(tag)}`}>
+                      <Link
+                        className="mx-1 hover:text-highlighted hover:dark:text-darkmode-highlighted"
+                        key={tag}
+                        href={`/tags/${slugify(tag)}`}
+                      >
                         #{humanize(tag)}
                       </Link>
                     ))}
                   </div>
                   <div className="flex items-center ">
-                    <h5 className="mr-3">Share :</h5>
+                    <h5 className="mr-3  text-highlighted dark:text-darkmode-highlighted">
+                      Share :
+                    </h5>
                     <Share
                       className="social-icons"
                       title={title}
@@ -113,7 +126,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                       <div className="pt-4 xl:pt-8">
                         <Link
                           href={`/blog/${prev.path}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                          className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                           aria-label={`Previous post: ${prev.title}`}
                         >
                           &larr; {prev.title}
@@ -124,7 +137,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                       <div className="pt-4 xl:pt-8">
                         <Link
                           href={`/blog/${next.path}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                          className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                           aria-label={`Next post: ${next.title}`}
                         >
                           {next.title} &rarr;

@@ -51,7 +51,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     <dl>
                       <div>
                         <dt className="sr-only">Published on</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                        <dd className="text-base font-medium leading-6">
                           <FaRegClock className="-mt-1 mr-2 inline-block" />
                           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         </dd>
@@ -61,17 +61,24 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       <PageTitle>{title}</PageTitle>
                     </div>
                   </div>
-                  <ul className="mb-4 mt-4 text-center">
+                  <ul className="text-cente mb-4 mt-4 ">
                     <li className="mr-4 inline-block">
-                      <a href={`/authors/${slugify(author)}`}>
-                        <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                      <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                      <a
+                        className="text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                        href={`/authors/${slugify(author)}`}
+                      >
                         {humanize(author)}
                       </a>
                     </li>
                     <li className="mr-4 inline-block">
                       <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
                       {categories?.map((category: string, index: number) => (
-                        <Link key={category} href={`/categories/${slugify(category)}`}>
+                        <Link
+                          className="mx-1 text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                          key={category}
+                          href={`/categories/${slugify(category)}`}
+                        >
                           {humanize(category)}
                           {index !== categories.length - 1 && ', '}
                         </Link>
@@ -79,7 +86,11 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     </li>
                     <li className="mr-4 inline-block">
                       {tags?.map((tag: string, index: number) => (
-                        <Link className="mx-1" key={tag} href={`/tags/${slugify(tag)}`}>
+                        <Link
+                          className="mx-1 text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                          key={tag}
+                          href={`/tags/${slugify(tag)}`}
+                        >
                           #{humanize(tag)}
                         </Link>
                       ))}
@@ -113,7 +124,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                         <div className="pt-4 xl:pt-8">
                           <Link
                             href={`/blog/${prev.path}`}
-                            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                            className="text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                             aria-label={`Previous post: ${prev.title}`}
                           >
                             &larr; {prev.title}
@@ -124,7 +135,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                         <div className="pt-4 xl:pt-8">
                           <Link
                             href={`/blog/${next.path}`}
-                            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                            className="text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                             aria-label={`Next post: ${next.title}`}
                           >
                             {next.title} &rarr;

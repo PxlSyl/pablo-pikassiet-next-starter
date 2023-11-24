@@ -9,7 +9,7 @@ const Category = ({ text }: Props) => {
   return (
     <Link
       href={`/categories/${slugify(text)}`}
-      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 mr-3 text-sm font-medium uppercase"
+      className="mr-3 text-sm font-medium uppercase text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
     >
       {text.split(' ').join('-')}
     </Link>

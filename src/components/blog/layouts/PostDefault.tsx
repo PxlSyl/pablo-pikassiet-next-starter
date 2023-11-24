@@ -52,15 +52,22 @@ const PostDefault = ({ children, content }: LayoutProps) => {
               <h1 dangerouslySetInnerHTML={markdownify(title)} className="h2 mb-4" />
               <ul className="mb-4">
                 <li className="mr-4 inline-block">
-                  <a href={`/authors/${slugify(author)}`}>
-                    <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                  <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                  <a
+                    className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                    href={`/authors/${slugify(author)}`}
+                  >
                     {humanize(author)}
                   </a>
                 </li>
                 <li className="mr-4 inline-block">
                   <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
                   {categories?.map((category: string, index: number) => (
-                    <Link key={category} href={`/categories/${slugify(category)}`}>
+                    <Link
+                      className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                      key={category}
+                      href={`/categories/${slugify(category)}`}
+                    >
                       {humanize(category)}
                       {index !== categories.length - 1 && ', '}
                     </Link>
@@ -78,12 +85,12 @@ const PostDefault = ({ children, content }: LayoutProps) => {
               <div className="content mb-10">{children}</div>
               <div className="row items-start justify-between">
                 <div className="mb-10 flex items-center lg:col-5 lg:mb-0">
-                  <h5 className="mr-3">Tags :</h5>
+                  <h5 className="mr-3 text-highlighted dark:text-darkmode-highlighted">Tags :</h5>
                   <ul>
                     {tags?.map((tag: string) => (
                       <li key={tag} className="inline-block">
                         <Link
-                          className="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark"
+                          className="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-highlighted hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-highlighted"
                           href={`/tags/${slugify(tag)}`}
                         >
                           {humanize(tag)}
@@ -93,7 +100,7 @@ const PostDefault = ({ children, content }: LayoutProps) => {
                   </ul>
                 </div>
                 <div className="flex items-center lg:col-4">
-                  <h5 className="mr-3">Share :</h5>
+                  <h5 className="mr-3 text-highlighted dark:text-darkmode-highlighted">Share :</h5>
                   <Share
                     className="social-icons"
                     title={title}

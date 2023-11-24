@@ -34,17 +34,24 @@ const BlogCard = ({ post }: any) => {
       <h4 className="mb-3">
         <Link href={`/${blog_folder}/${path}`}>{title}</Link>
       </h4>
-      <ul className="text-highlighted dark:text-darkmode-highlighted mb-4">
+      <ul className="mb-4 ">
         <li className="mr-4 inline-block">
-          <a href={`/authors/${slugify(author)}`}>
-            <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+          <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+          <a
+            className="text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+            href={`/authors/${slugify(author)}`}
+          >
             {humanize(author)}
           </a>
         </li>
         <li className="mr-4 inline-block">
           <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
           {categories?.map((category: string, index: number) => (
-            <Link key={index} href={`/categories/${slugify(category)}`}>
+            <Link
+              className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+              key={index}
+              href={`/categories/${slugify(category)}`}
+            >
               {humanize(category)}
               {index !== categories.length - 1 && ', '}
             </Link>

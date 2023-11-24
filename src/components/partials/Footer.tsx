@@ -6,7 +6,7 @@ import config from '@/config/config.json'
 import menu from '@/config/menu.json'
 import social from '@/config/social.json'
 import siteMetadata from '@/data/siteMetadata'
-import NewsletterForm from '../NewsletterForm'
+import NewsletterForm from '../blog/NewsletterForm'
 
 import Logo from '../blog/Logo'
 import Social from '../blog/Social'

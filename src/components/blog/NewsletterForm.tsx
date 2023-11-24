@@ -69,7 +69,7 @@ const NewsletterForm = ({
         </div>
         <div className="mt-2 flex w-full rounded-md shadow-sm sm:ml-3 sm:mt-0">
           <button
-            className={`w-full rounded-md bg-highlighted px-4 py-2 font-medium text-white sm:py-0 ${
+            className={`w-full rounded-md bg-highlighted px-4 py-2 font-medium text-white dark:bg-darkmode-highlighted sm:py-0 ${
               subscribed ? 'cursor-default' : 'hover:bg-opacity-80 dark:hover:bg-opacity-80'
             } focus:outline-none focus:ring-2 focus:ring-highlighted focus:ring-offset-2 dark:ring-offset-black`}
             type="submit"

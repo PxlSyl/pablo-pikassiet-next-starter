@@ -39,6 +39,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
 
   return (
     <>
+      <ScrollTopAndComment />
       <section className="section pt-7">
         <div className="container">
           <div className="row justify-center">
@@ -53,7 +54,6 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                 />
               </div>
             )}
-            <ScrollTopAndComment />
             <article>
               <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
                 <header className="pt-6 xl:pb-6">
@@ -105,7 +105,12 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                           <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
                           Author
                         </h2>
-                        <a href={`/authors/${slugify(author)}`}>{humanize(author)}</a>
+                        <a
+                          className="text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                          href={`/authors/${slugify(author)}`}
+                        >
+                          {humanize(author)}
+                        </a>
                       </div>
                       {categories && (
                         <div className="py-4 xl:py-8">
@@ -142,7 +147,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                                   <IoIosArrowDropleftCircle className={'-mt-1 mr-2 inline-block'} />
                                   Previous Article
                                 </h2>
-                                <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                                <div className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80">
                                   {prev.title}
                                 </div>
                               </Link>
@@ -157,7 +162,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                                     className={'-mt-1 mr-2 inline-block'}
                                   />
                                 </h2>
-                                <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                                <div className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80">
                                   {next.title}
                                 </div>
                               </Link>
@@ -166,11 +171,10 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                         </div>
                       )}
                     </div>
-
                     <div className="pt-4 xl:pt-8">
                       <Link
                         href="/blog"
-                        className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                        className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                         aria-label="Back to the blog"
                       >
                         &larr; Back to the blog
