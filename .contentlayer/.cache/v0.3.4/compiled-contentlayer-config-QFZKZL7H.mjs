@@ -30,7 +30,7 @@ var require_siteMetadata = __commonJS({
     "use strict";
     var siteMetadata2 = {
       title: "Next.js Starter Blog",
-      author: "Tails Azimuth",
+      author: "Pablo Pikassiet",
       headerTitle: "TailwindBlog",
       description: "A blog created with Next.js and Tailwind.css",
       language: "en-us",
@@ -241,4 +241,4 @@ export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-L54JJMFH.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-QFZKZL7H.mjs.map

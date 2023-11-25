@@ -102,7 +102,9 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
                   </div>
                   <div className="flex items-center">
-                    <h5 className="mr-3">Share :</h5>
+                    <h5 className="mr-3 text-highlighted dark:text-darkmode-highlighted">
+                      Share :
+                    </h5>
                     <Share
                       className="social-icons "
                       title={title}

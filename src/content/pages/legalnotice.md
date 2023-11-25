@@ -1,7 +1,7 @@
 ---
 title: 'LEGAL NOTICE'
-meta_title: 'LEGAL NOTICE'
-description: 'LEGAL NOTICE'
+meta_title: 'Legal notice'
+description: 'Legal notice'
 draft: false
 ---
 

@@ -15,6 +15,13 @@ export const headerCommissionsLinks: HeaderLink[] = [
   { href: '/generative', title: 'Generative' },
 ]
 
+export const headerProjectsLinks: HeaderLink[] = [
+  { href: '/art', title: 'Art' },
+  { href: '/photography', title: 'Photos' },
+  { href: '/games', title: 'Games' },
+  { href: '/web', title: 'Web' },
+]
+
 export const headerArtLinks: HeaderLink[] = [
   { href: '/drawings', title: 'Drawings' },
   { href: '/pixelartbook', title: 'Pixelart' },
@@ -29,8 +36,8 @@ export const headerMusicLinks: HeaderLink[] = [
 ]
 
 export const headerBlogLinks: HeaderLink[] = [
-  { href: '/homeblog', title: 'Home' },
-  { href: '/blog', title: 'Blog' },
+  { href: '/blog', title: 'Posts' },
+  { href: '/archives', title: 'Archives' },
   { href: '/projects', title: 'Projects' },
 ]
 
@@ -38,5 +45,5 @@ export const headerInfosLinks: HeaderLink[] = [
   { href: '/authors', title: 'Authors' },
   { href: '/about', title: 'About' },
   { href: '/terms', title: 'Terms' },
-  { href: '/legalnotice', title: 'Legalnotice' },
+  { href: '/legalnotice', title: 'Legal notice' },
 ]

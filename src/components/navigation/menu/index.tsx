@@ -26,6 +26,7 @@ import social from '@/config/social.json'
 import {
   headerShopLinks,
   headerCommissionsLinks,
+  headerProjectsLinks,
   headerArtLinks,
   headerMusicLinks,
   headerBlogLinks,
@@ -106,8 +107,8 @@ export const Header: React.FC = (): JSX.Element | null => {
                 closeMenu={closeMenu}
               />
               <Mobilesection
-                title="Commissions"
-                links={headerCommissionsLinks}
+                title="Projects"
+                links={headerProjectsLinks}
                 icon={<FaRegNoteSticky />}
                 closeMenu={closeMenu}
               />
@@ -138,8 +139,8 @@ export const Header: React.FC = (): JSX.Element | null => {
                 closeMenu={closeMenu}
               />
               <Regularsection
-                title="Commissions"
-                links={headerCommissionsLinks}
+                title="Projects"
+                links={headerProjectsLinks}
                 icon={<FaRegNoteSticky />}
                 closeMenu={closeMenu}
               />
