@@ -185,7 +185,6 @@ var Blog = defineDocumentType(() => ({
     tags: { type: "list", of: { type: "string" }, default: [] },
     lastmod: { type: "date" },
     draft: { type: "boolean" },
-    author: { type: "string", required: true },
     summary: { type: "string" },
     images: { type: "json" },
     authors: { type: "list", of: { type: "string" } },
@@ -241,4 +240,4 @@ export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-QFZKZL7H.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-SCQBXAWA.mjs.map

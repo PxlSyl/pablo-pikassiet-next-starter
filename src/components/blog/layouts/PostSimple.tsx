@@ -65,15 +65,29 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   <ul className="text-cente mb-4 mt-4 ">
                     <li className="mr-4 inline-block">
                       <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
-                      {authors?.map((author: string, index: number) => (
+                      {authors === undefined ? (
                         <Link
                           className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
-                          href={authorDefault === author ? `/about` : `/authors/${slugify(author)}`}
+                          href="/about"
                         >
-                          {humanize(author)}
-                          {index !== authors.length - 1 && ', '}
+                          {humanize(authorDefault)}
                         </Link>
-                      ))}
+                      ) : (
+                        <>
+                          {authors.map((author: string, index: number) => (
+                            <Link
+                              className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                              key={index}
+                              href={
+                                authorDefault === author ? `/about` : `/authors/${slugify(author)}`
+                              }
+                            >
+                              {humanize(author)}
+                              {index !== authors.length - 1 && ', '}
+                            </Link>
+                          ))}
+                        </>
+                      )}
                     </li>
                     <li className="mr-4 inline-block">
                       <FaRegFolder className={'-mt-1 mr-2 inline-block'} />

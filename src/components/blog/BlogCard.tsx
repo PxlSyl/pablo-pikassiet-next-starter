@@ -4,15 +4,21 @@ import config from '@/config/config.json'
 import { FaRegFolder, FaRegUserCircle, FaRegClock } from 'react-icons/fa/index.js'
 
 import { formatDate } from 'pliny/utils/formatDate'
+import { CoreContent } from 'pliny/utils/contentlayer'
 import { humanize, slugify } from '@/lib/utils/textConverter'
 
 import ImageFallback from '../helpers/ImageFallback'
 import siteMetadata from '@/data/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
+import { Blog } from 'contentlayer/generated'
 
 const { blog_folder } = config.settings
 
-const BlogCard = ({ post }: any) => {
+interface Props {
+  post: CoreContent<Blog>
+}
+
+const BlogCard = ({ post }: Props) => {
   if (!post) {
     return null
   }
@@ -38,15 +44,27 @@ const BlogCard = ({ post }: any) => {
       <ul className="mb-4 ">
         <li className="mr-4 inline-block">
           <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
-          {authors?.map((author: string, index: number) => (
+          {authors === undefined ? (
             <Link
               className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
-              href={authorDefault === author ? `/about` : `/authors/${slugify(author)}`}
+              href="/about"
             >
-              {humanize(author)}
-              {index !== authors.length - 1 && ', '}
+              {humanize(authorDefault)}
             </Link>
-          ))}
+          ) : (
+            <>
+              {authors.map((author: string, index: number) => (
+                <Link
+                  className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                  key={index}
+                  href={authorDefault === author ? `/about` : `/authors/${slugify(author)}`}
+                >
+                  {humanize(author)}
+                  {index !== authors.length - 1 && ', '}
+                </Link>
+              ))}
+            </>
+          )}
         </li>
         <li className="mr-4 inline-block">
           <FaRegFolder className={'-mt-1 mr-2 inline-block'} />

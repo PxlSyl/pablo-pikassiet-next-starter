@@ -22,7 +22,6 @@ export type Blog = {
   tags: string[]
   lastmod?: IsoDateTimeString | undefined
   draft?: boolean | undefined
-  author: string
   summary?: string | undefined
   images?: any | undefined
   authors?: string[] | undefined

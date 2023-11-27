@@ -106,17 +106,31 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                           <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
                           Author
                         </h2>
-                        {authors?.map((author: string, index: number) => (
+                        {authors === undefined ? (
                           <Link
                             className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
-                            href={
-                              authorDefault === author ? `/about` : `/authors/${slugify(author)}`
-                            }
+                            href="/about"
                           >
-                            {humanize(author)}
-                            {index !== authors.length - 1 && ', '}
+                            {humanize(authorDefault)}
                           </Link>
-                        ))}
+                        ) : (
+                          <>
+                            {authors.map((author: string, index: number) => (
+                              <Link
+                                className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                                key={index}
+                                href={
+                                  authorDefault === author
+                                    ? `/about`
+                                    : `/authors/${slugify(author)}`
+                                }
+                              >
+                                {humanize(author)}
+                                {index !== authors.length - 1 && ', '}
+                              </Link>
+                            ))}
+                          </>
+                        )}
                       </div>
                       {categories && (
                         <div className="py-4 xl:py-8">
