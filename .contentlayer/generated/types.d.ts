@@ -25,6 +25,7 @@ export type Blog = {
   summary?: string | undefined
   images?: any | undefined
   authors?: string[] | undefined
+  serie?: string | undefined
   layout?: string | undefined
   bibliography?: string | undefined
   canonicalUrl?: string | undefined

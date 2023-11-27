@@ -30,7 +30,7 @@ interface LayoutProps {
 }
 
 const PostDefault = ({ children, content }: LayoutProps) => {
-  const { title, slug, description, image, authors, categories, date, tags } = content
+  const { title, slug, description, image, authors, serie, categories, date, tags } = content
 
   return (
     <>

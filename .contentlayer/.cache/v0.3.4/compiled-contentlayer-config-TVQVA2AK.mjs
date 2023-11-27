@@ -188,6 +188,7 @@ var Blog = defineDocumentType(() => ({
     summary: { type: "string" },
     images: { type: "json" },
     authors: { type: "list", of: { type: "string" } },
+    serie: { type: "string" },
     layout: { type: "string" },
     bibliography: { type: "string" },
     canonicalUrl: { type: "string" }
@@ -240,4 +241,4 @@ export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-SCQBXAWA.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-TVQVA2AK.mjs.map
