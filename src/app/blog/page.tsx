@@ -44,7 +44,6 @@ const Posts = () => {
               </div>
               <Pagination section={blog_folder} currentPage={1} totalPages={totalPages} />
             </div>
-
             <PostSidebar />
           </div>
         </div>
