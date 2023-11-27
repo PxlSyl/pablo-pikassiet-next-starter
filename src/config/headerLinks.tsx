@@ -9,12 +9,6 @@ export const headerShopLinks: HeaderLinks[] = [
   { href: '/shopinfos', title: 'Infos' },
 ]
 
-export const headerCommissionsLinks: HeaderLinks[] = [
-  { href: '/illustration', title: 'Illustration' },
-  { href: '/pixelart', title: 'Pixelart' },
-  { href: '/generative', title: 'Generative' },
-]
-
 export const headerProjectsLinks: HeaderLinks[] = [
   { href: '/art', title: 'Art' },
   { href: '/photography', title: 'Photos' },
@@ -37,8 +31,9 @@ export const headerMusicLinks: HeaderLinks[] = [
 
 export const headerBlogLinks: HeaderLinks[] = [
   { href: '/blog', title: 'Posts' },
+  { href: '/categories', title: 'Categories' },
+  { href: '/tags', title: 'Tags' },
   { href: '/archives', title: 'Archives' },
-  { href: '/projects', title: 'Projects' },
 ]
 
 export const headerInfosLinks: HeaderLinks[] = [

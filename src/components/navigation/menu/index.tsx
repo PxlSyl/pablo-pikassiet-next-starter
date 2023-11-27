@@ -25,7 +25,6 @@ import Social from '@/components/blog/Social'
 import social from '@/config/social.json'
 import {
   headerShopLinks,
-  headerCommissionsLinks,
   headerProjectsLinks,
   headerArtLinks,
   headerMusicLinks,
