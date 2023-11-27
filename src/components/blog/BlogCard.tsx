@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import config from '@/config/config.json'
-import { FaRegFolder, FaRegUserCircle, FaRegClock } from 'react-icons/fa/index.js'
+import { FaRegFolder, FaRegUserCircle, FaRegClock, FaTags } from 'react-icons/fa/index.js'
 
 import { formatDate } from 'pliny/utils/formatDate'
 import { CoreContent } from 'pliny/utils/contentlayer'
@@ -23,7 +23,7 @@ const BlogCard = ({ post }: Props) => {
     return null
   }
 
-  const { path, title, summary, image, authors, categories, date } = post
+  const { path, title, summary, image, authors, categories, tags, date } = post
 
   return (
     <div className="bg-body dark:bg-darkmode-body">
@@ -76,6 +76,19 @@ const BlogCard = ({ post }: Props) => {
             >
               {humanize(category)}
               {index !== categories.length - 1 && ', '}
+            </Link>
+          ))}
+        </li>
+        <li className="mr-4 inline-block">
+          <FaTags className={'-mt-1 mr-2 inline-block'} />
+          {tags?.map((tag: string, index: number) => (
+            <Link
+              className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+              key={index}
+              href={`/tags/${slugify(tag)}`}
+            >
+              {humanize(tag)}
+              {index !== tags.length - 1 && ', '}
             </Link>
           ))}
         </li>
