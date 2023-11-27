@@ -40,6 +40,7 @@ export async function generateMetadata({
   if (!post) {
     return
   }
+
   const publishedAt = new Date(post.date).toISOString()
   const modifiedAt = new Date(post.lastmod || post.date).toISOString()
   let imageList = [siteMetadata.socialBanner]
@@ -65,7 +66,7 @@ export async function generateMetadata({
       modifiedTime: modifiedAt,
       url: './',
       images: ogImages,
-      authors: siteMetadata.author,
+      authors: post.authors,
     },
     twitter: {
       card: 'summary_large_image',
@@ -97,7 +98,6 @@ export default async function Page({ params: { slug } }: PageProps) {
   const post = allBlogs.find((p) => p.slug === slug) as Blog
 
   const mainContent = coreContent(post)
-  const jsonLd = post.structuredData
 
   const Layout = layouts[post.layout || defaultLayout]
 
@@ -105,10 +105,6 @@ export default async function Page({ params: { slug } }: PageProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <Layout content={mainContent} next={next} prev={prev}>
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
       </Layout>

@@ -43,52 +43,106 @@
   border-radius: 5px;
 }
 
-.wrapper-menu {
+/*Hamburger*/
+
+.hamburger_position {
   position: fixed;
-  bottom: 30px;
-  left: 15px;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: transform 330ms ease-out;
+  bottom: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
   z-index: 12;
 }
 
-.wrapper-menu.open {
+.visuallyHidden {
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; width: 1px; 
+  margin: -1px; padding: 0; border: 0; 
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  padding: 0;
+  width: 30px;
+  height: 4px;
+  background: #ffffff;
+  display: block;
+  border-radius: 4px;
+  transition: all 0.4s ease-in-out;
+  position: absolute; 
+}
+
+.bar1 {
+  top: 0;
+}
+
+.bar2,
+.bar3 {
+  top: 13.5px;
+}
+
+.bar3 {
+  right: 0;
+}
+
+.bar4 {
+  bottom: 0;
+}
+
+.hamburger_style .bar4 {
+  top: 13.5px;
+}
+
+.hamburger_style .bar5 {
+  bottom: 0px;
+}
+
+.hamburger_style .bar {
+  transition: all 0.4s ease-in-out, transform 0.4s ease-in-out 0.4s;
+}
+
+.hamburger_style .bar2 {
+  width: 1px;
+  transform: rotate(90deg);
+  left: 13.5px;
+}
+
+.hamburger_style .bar3 {
+  width: 1px;
+  left: 13.5px;
+  
+}
+
+.checkbox:checked + label > .hamburger_style > .bar1{
+  top: 13.5px;
+  background-color: transparent;
+}
+
+.checkbox:checked + label > .hamburger_style > .bar2{
+  left: 0px;
+  width: 30px;
+  transform: rotate(45deg);
+}
+
+.checkbox:checked + label > .hamburger_style > .bar3{
+  left: 0;
+  width: 30px;
   transform: rotate(-45deg);
 }
 
-.line-menu {
-  background-color: #fff;
-  border-radius: 5px;
-  width: 100%;
-  height: 5px;
+.checkbox:checked + label > .hamburger_style > .bar4{
+  background-color: transparent;
 }
 
-.line-menu.half {
-  width: 50%;
-}
-
-.line-menu.start {
-  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-  transform-origin: right;
-}
-
-.open .line-menu.start {
-  transform: rotate(-90deg) translateX(3px);
-  background-color: #fff;
-}
-
-.line-menu.end {
-  align-self: flex-end;
-  transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
-  transform-origin: left;
-}
-
-.open .line-menu.end {
-  transform: rotate(-90deg) translateX(-3px);
-  background-color: #fff;
+.checkbox:checked + label > .hamburger_style > .bar5{
+  bottom: 13.5px;
+  background-color: transparent; 
 }

@@ -21,44 +21,59 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   return (
     <>
-      <div
-        className={`wrapper-menu rounded-full bg-black ${isOpen ? 'open' : ''}`}
-        onClick={toggleMenu}
-      >
-        <div className="line-menu half start"></div>
-        <div className="line-menu"></div>
-        <div className="line-menu half end"></div>
+      <div className="fixed bottom-0 left-0 z-[12] h-[80px] w-[80px] rounded-tr-lg bg-highlighted dark:bg-darkmode-highlighted">
+        <div className="hamburger_position rounded-full">
+          <input
+            type="checkbox"
+            aria-label="Music menu"
+            id="checkbox"
+            className="checkbox visuallyHidden"
+          />
+          <label htmlFor="checkbox" onClick={toggleMenu}>
+            <div className="hamburger hamburger_style">
+              <span className="bar bar1"></span>
+              <span className="bar bar2"></span>
+              <span className="bar bar3"></span>
+              <span className="bar bar4"></span>
+              <span className="bar bar5"></span>
+            </div>
+          </label>
+        </div>
       </div>
       <div
         className={`fixed left-0 z-[11] transition-transform duration-500 ${
           isOpen
-            ? 'mb-100 bottom-0 left-0 mt-10 h-screen w-[150px] translate-y-0 transform overflow-y-auto bg-black p-4'
+            ? 'mb-100 bg-gradient bottom-0 left-0 mt-10 h-screen w-[150px] translate-y-0 transform overflow-y-auto p-4'
             : 'bottom-[-100%] h-0 translate-y-full transform'
         }`}
       >
         <div className="mb-20 mt-20">
           <div className="m-2 grid grid-cols-1">
-            <p className="m-1 border-b px-2 text-lg">Serie:</p>
+            <p className="mb-2 mt-2 w-full rounded-md bg-highlighted px-4 py-1 text-lg font-medium text-white dark:bg-darkmode-highlighted">
+              Serie:
+            </p>
             {allSerie.map((serie, index) => (
               <button
                 key={index}
-                className={`m-1 block rounded-lg px-2 shadow-lg hover:bg-gray-900 hover:text-white ${
+                className={`m-1 block rounded-lg px-2 shadow-lg hover:bg-highlighted hover:text-white dark:hover:bg-darkmode-highlighted ${
                   selectedSerie.includes(serie)
-                    ? 'bg-gray-900 text-blue-400'
+                    ? 'bg-highlighted text-white dark:bg-darkmode-highlighted'
                     : 'bg-gray-200 text-black'
                 }`}
                 onClick={() => selectSeries(serie)}
               >
-                ${serie}`
+                {serie}
               </button>
             ))}
-            <p className="m-1 border-b px-2 text-lg">Tags:</p>
+            <p className=" mb-2 mt-2 w-full rounded-md bg-highlighted px-4 py-1 text-lg font-medium text-white dark:bg-darkmode-highlighted">
+              Tags:
+            </p>
             {allTags.map((tag, index) => (
               <button
                 key={index}
-                className={`m-1 block rounded-lg px-2 shadow-lg hover:bg-gray-900 hover:text-white ${
+                className={`m-1 block rounded-lg px-2 shadow-lg hover:bg-highlighted hover:text-white dark:hover:bg-darkmode-highlighted ${
                   selectedTags.includes(tag)
-                    ? 'bg-gray-900 text-blue-400'
+                    ? 'bg-highlighted text-white dark:bg-darkmode-highlighted'
                     : 'bg-gray-200 text-black'
                 }`}
                 onClick={() => selectTag(tag)}

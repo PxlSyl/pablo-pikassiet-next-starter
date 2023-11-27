@@ -4,6 +4,7 @@ import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 
 import siteMetadata from '@/data/siteMetadata'
+import { authorDefault } from '@/config/authorDefault'
 
 import { FaRegUserCircle } from 'react-icons/fa'
 import { FaRegFolder, FaRegClock } from 'react-icons/fa6'
@@ -25,7 +26,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { title, description, image, slug, author, categories, tags, date } = content
+  const { title, description, image, slug, authors, categories, tags, date } = content
 
   return (
     <>
@@ -64,12 +65,15 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   <ul className="text-cente mb-4 mt-4 ">
                     <li className="mr-4 inline-block">
                       <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
-                      <a
-                        className="text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
-                        href={`/authors/${slugify(author)}`}
-                      >
-                        {humanize(author)}
-                      </a>
+                      {authors?.map((author: string, index: number) => (
+                        <Link
+                          className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                          href={authorDefault === author ? `/about` : `/authors/${slugify(author)}`}
+                        >
+                          {humanize(author)}
+                          {index !== authors.length - 1 && ', '}
+                        </Link>
+                      ))}
                     </li>
                     <li className="mr-4 inline-block">
                       <FaRegFolder className={'-mt-1 mr-2 inline-block'} />

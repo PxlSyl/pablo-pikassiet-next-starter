@@ -57,7 +57,7 @@ const Drawings = (): JSX.Element => {
           />
         </div>
       ) : (
-        <>
+        <div className="mb-20 mt-20">
           <Sidebar
             isOpen={isOpen}
             toggleMenu={toggleMenu}
@@ -78,7 +78,7 @@ const Drawings = (): JSX.Element => {
               selectTag={selectTag}
             />
           </div>
-        </>
+        </div>
       )}
     </>
   )

@@ -8,6 +8,7 @@ import { humanize, slugify } from '@/lib/utils/textConverter'
 
 import ImageFallback from '../helpers/ImageFallback'
 import siteMetadata from '@/data/siteMetadata'
+import { authorDefault } from '@/config/authorDefault'
 
 const { blog_folder } = config.settings
 
@@ -16,7 +17,7 @@ const BlogCard = ({ post }: any) => {
     return null
   }
 
-  const { path, title, summary, image, author, categories, date } = post
+  const { path, title, summary, image, authors, categories, date } = post
 
   return (
     <div className="bg-body dark:bg-darkmode-body">
@@ -37,12 +38,15 @@ const BlogCard = ({ post }: any) => {
       <ul className="mb-4 ">
         <li className="mr-4 inline-block">
           <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
-          <a
-            className="text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
-            href={`/authors/${slugify(author)}`}
-          >
-            {humanize(author)}
-          </a>
+          {authors?.map((author: string, index: number) => (
+            <Link
+              className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+              href={authorDefault === author ? `/about` : `/authors/${slugify(author)}`}
+            >
+              {humanize(author)}
+              {index !== authors.length - 1 && ', '}
+            </Link>
+          ))}
         </li>
         <li className="mr-4 inline-block">
           <FaRegFolder className={'-mt-1 mr-2 inline-block'} />

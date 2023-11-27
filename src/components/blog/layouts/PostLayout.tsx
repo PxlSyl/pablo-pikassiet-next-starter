@@ -4,7 +4,8 @@ import { FaRegClock, FaRegFolder } from 'react-icons/fa6'
 import { FaHashtag, FaRegUserCircle } from 'react-icons/fa'
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io'
 
-import siteMetadata, { author } from '@/data/siteMetadata'
+import siteMetadata from '@/data/siteMetadata'
+import { authorDefault } from '@/config/authorDefault'
 
 import type { Blog } from 'contentlayer/generated'
 import { CoreContent } from 'pliny/utils/contentlayer'
@@ -35,7 +36,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { slug, date, title, description, image, categories, tags } = content
+  const { slug, date, title, description, authors, image, categories, tags } = content
 
   return (
     <>
@@ -105,12 +106,17 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                           <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
                           Author
                         </h2>
-                        <a
-                          className="text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
-                          href={`/authors/${slugify(author)}`}
-                        >
-                          {humanize(author)}
-                        </a>
+                        {authors?.map((author: string, index: number) => (
+                          <Link
+                            className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                            href={
+                              authorDefault === author ? `/about` : `/authors/${slugify(author)}`
+                            }
+                          >
+                            {humanize(author)}
+                            {index !== authors.length - 1 && ', '}
+                          </Link>
+                        ))}
                       </div>
                       {categories && (
                         <div className="py-4 xl:py-8">

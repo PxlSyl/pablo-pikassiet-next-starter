@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 
 import siteMetadata from '@/data/siteMetadata'
+import { authorDefault } from '@/config/authorDefault'
 
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from 'react-icons/fa/index.js'
 
@@ -29,7 +30,7 @@ interface LayoutProps {
 }
 
 const PostDefault = ({ children, content }: LayoutProps) => {
-  const { title, slug, description, image, author, categories, date, tags } = content
+  const { title, slug, description, image, authors, categories, date, tags } = content
 
   return (
     <>
@@ -53,12 +54,15 @@ const PostDefault = ({ children, content }: LayoutProps) => {
               <ul className="mb-4">
                 <li className="mr-4 inline-block">
                   <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
-                  <a
-                    className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
-                    href={`/authors/${slugify(author)}`}
-                  >
-                    {humanize(author)}
-                  </a>
+                  {authors?.map((author: string, index: number) => (
+                    <Link
+                      className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                      href={authorDefault === author ? `/about` : `/authors/${slugify(author)}`}
+                    >
+                      {humanize(author)}
+                      {index !== authors.length - 1 && ', '}
+                    </Link>
+                  ))}
                 </li>
                 <li className="mr-4 inline-block">
                   <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
