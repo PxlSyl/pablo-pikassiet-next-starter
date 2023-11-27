@@ -14,7 +14,7 @@ const PostSidebar = () => {
   const sortedTags = sortData(tagCounts)
 
   return (
-    <div className="lg:col-4">
+    <div className="mt-8 lg:col-4 sm:mt-0">
       {/* <!-- categories --> */}
       <div className="mb-8">
         <h5 className="mb-6 text-highlighted dark:text-darkmode-highlighted">Categories</h5>
