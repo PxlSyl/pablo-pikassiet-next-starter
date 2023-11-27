@@ -1,35 +1,10 @@
-import Link from 'next/link'
-import { humanize } from '@/lib/utils/textConverter'
+import { sortData } from '@/lib/utils/sortData'
 
 import tagData from '@/app/tag-data.json'
 import categoryData from '@/app/category-data.json'
 
-const sortData = (data: Record<string, number>) => {
-  const keys = Object.keys(data)
-  return keys.sort((a, b) => data[b] - data[a])
-}
-
-const CategoryLink = ({ category, count }: { category: string; count: number }) => (
-  <li key={category}>
-    <Link
-      className="flex justify-between hover:text-highlighted dark:hover:text-darkmode-highlighted"
-      href={`/categories/${category}`}
-    >
-      {` ${humanize(category)} (${count})`}
-    </Link>
-  </li>
-)
-
-const TagLink = ({ tag, count }: { tag: string; count: number }) => (
-  <li className="inline-block" key={tag}>
-    <Link
-      className="m-1 block rounded bg-white px-3 py-1 hover:bg-highlighted hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-highlighted"
-      href={`/tags/${tag}`}
-    >
-      {` ${humanize(tag)} (${count})`}
-    </Link>
-  </li>
-)
+import { CategoryLink } from './CategoryLink'
+import { TagLink } from './TagLink'
 
 const PostSidebar = () => {
   const categoryCounts = categoryData as Record<string, number>
