@@ -1,37 +1,25 @@
-import Link from 'next/link'
-
 import tagData from '@/app/tag-data.json'
 
-import { humanize } from '@/lib/utils/textConverter'
-import PageHeader from '@/components/partials/PageHeader'
+import { sortData } from '@/lib/utils/sortData'
 
+import PageHeader from '@/components/partials/PageHeader'
+import { TagLink } from '@/components/partials/PostSidebar/TagLink'
 import SeoMeta from '@/components/partials/SeoMeta'
 
 const tags = () => {
   const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+  const sortedTags = sortData(tagCounts)
 
   return (
     <>
       <SeoMeta title={'Tags'} />
       <PageHeader title={'Tags'} />
-      <section className="section">
-        <div className="container text-center">
-          <ul>
-            {sortedTags.map((tag: string) => {
-              return (
-                <li className="m-3 inline-block" key={tag}>
-                  <Link
-                    href={`/tags/${tag}`}
-                    className="block rounded bg-theme-light px-4 py-2 text-xl text-dark hover:text-highlighted dark:bg-darkmode-theme-light dark:text-darkmode-dark hover:dark:text-darkmode-highlighted"
-                  >
-                    {humanize(tag)}
-                    <span className="ml-2 rounded bg-body px-2 dark:bg-darkmode-body">{`(${tagCounts[tag]})`}</span>
-                  </Link>
-                </li>
-              )
-            })}
+      <section className="mb-4 mt-4 flex flex-col items-center justify-center">
+        <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
+          <ul className="space-y-4">
+            {sortedTags.map((tag: string) => (
+              <TagLink className="" key={tag} tag={tag} count={tagCounts[tag]} />
+            ))}
           </ul>
         </div>
       </section>

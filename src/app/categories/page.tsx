@@ -1,39 +1,25 @@
-import Link from 'next/link'
-
 import categoryData from '@/app/category-data.json'
 
-import { humanize } from '@/lib/utils/textConverter'
+import { sortData } from '@/lib/utils/sortData'
 
 import PageHeader from '@/components/partials/PageHeader'
+import { CategoryLink } from '@/components/partials/PostSidebar/CategoryLink'
 import SeoMeta from '@/components/partials/SeoMeta'
 
 const Categories = () => {
   const categoryCounts = categoryData as Record<string, number>
-  const categoryKeys = Object.keys(categoryCounts)
-  const sortedCategories = categoryKeys.sort((a, b) => categoryCounts[b] - categoryCounts[a])
+  const sortedCategories = sortData(categoryCounts)
 
   return (
     <>
       <SeoMeta title={'Categories'} />
       <PageHeader title={'Categories'} />
-      <section className="section">
-        <div className="container text-center">
-          <ul>
-            {sortedCategories.map((category: string) => {
-              return (
-                <li className="m-3 inline-block" key={category}>
-                  <Link
-                    href={`/categories/${category}`}
-                    className="block rounded bg-theme-light px-4 py-2 text-xl text-dark hover:text-highlighted dark:bg-darkmode-theme-light dark:text-darkmode-dark hover:dark:text-darkmode-highlighted"
-                  >
-                    {humanize(category)}{' '}
-                    <span className="ml-2 rounded bg-body px-2 dark:bg-darkmode-body">
-                      ({categoryCounts[category]})
-                    </span>
-                  </Link>
-                </li>
-              )
-            })}
+      <section className="mb-4 mt-4 flex flex-col items-center justify-center">
+        <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
+          <ul className="space-y-4">
+            {sortedCategories.map((category: string) => (
+              <CategoryLink key={category} category={category} count={categoryCounts[category]} />
+            ))}
           </ul>
         </div>
       </section>

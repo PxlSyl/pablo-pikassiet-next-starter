@@ -32,7 +32,7 @@ const PostSidebar = () => {
         <div className="rounded bg-theme-light p-6 dark:bg-darkmode-theme-light">
           <ul>
             {sortedTags.map((tag: string) => (
-              <TagLink key={tag} tag={tag} count={tagCounts[tag]} />
+              <TagLink className="inline-block" key={tag} tag={tag} count={tagCounts[tag]} />
             ))}
           </ul>
         </div>

@@ -1,6 +1,7 @@
 import tagData from '@/app/tag-data.json'
 
 import taxonomyFilter from '@/lib/utils/taxonomyFilter'
+import { sortData } from '@/lib/utils/sortData'
 import { humanize } from '@/lib/utils/textConverter'
 
 import BlogCard from '@/components/blog/BlogCard'
@@ -18,8 +19,7 @@ export const dynamicParams = false
 // generate static params
 export const generateStaticParams: StaticParams = () => {
   const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+  const sortedTags = sortData(tagCounts)
 
   const paths = sortedTags.map((tag) => ({
     single: tag,
