@@ -6,10 +6,11 @@ import { humanize } from '@/lib/utils/textConverter'
 
 import BlogCard from '@/components/blog/BlogCard'
 import PageHeader from '@/components/partials/PageHeader'
+import { TagLink } from '@/components/partials/PostSidebar/TagLink'
 import SeoMeta from '@/components/partials/SeoMeta'
 
-import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { allBlogs } from 'contentlayer/generated'
 
 type StaticParams = () => { single: string }[]
 
@@ -29,6 +30,9 @@ export const generateStaticParams: StaticParams = () => {
 }
 
 const TagSingle = ({ params }: { params: { single: string } }) => {
+  const tagCounts = tagData as Record<string, number>
+  const sortedTags = sortData(tagCounts)
+
   const posts = allCoreContent(sortPosts(allBlogs))
   const filterByTags = taxonomyFilter(posts, 'tags', params.single)
 
@@ -36,14 +40,25 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
     <>
       <SeoMeta title={humanize(params.single)} />
       <PageHeader title={humanize(params.single)} />
-      <div className="section-sm pb-0">
-        <div className="container">
-          <div className="row">
-            {filterByTags.map((post, index: number) => (
-              <div className="mb-14 md:col-6 lg:col-4" key={index}>
-                <BlogCard post={post} />
-              </div>
-            ))}
+      <div className="flex flex-row justify-center">
+        <div className="mb-4 mt-20 flex flex-col">
+          <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
+            <ul className="space-y-4">
+              {sortedTags.map((tag: string) => (
+                <TagLink className="" key={tag} tag={tag} count={tagCounts[tag]} />
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="section-sm pb-0">
+          <div className="container max-w-[600px]">
+            <div className="row">
+              {filterByTags.map((post, index: number) => (
+                <div className="mb-14" key={index}>
+                  <BlogCard post={post} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
