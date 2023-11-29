@@ -4,7 +4,7 @@ import { FaRegClock, FaRegFolder } from 'react-icons/fa6'
 import { FaHashtag, FaRegUserCircle } from 'react-icons/fa'
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io'
 
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
 import type { Blog } from 'contentlayer/generated'

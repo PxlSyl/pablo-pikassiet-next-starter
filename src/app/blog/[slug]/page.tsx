@@ -4,7 +4,7 @@ import 'katex/dist/katex.css'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
 import similerItems from '@/lib/utils/similarItems'

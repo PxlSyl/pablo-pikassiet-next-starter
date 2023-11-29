@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 import { Comments as CommentsComponent } from 'pliny/comments'
 
 export default function Comments({ slug }: { slug: string }) {

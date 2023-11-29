@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import Bleed from 'pliny/ui/Bleed'
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
 import { FaRegUserCircle } from 'react-icons/fa'

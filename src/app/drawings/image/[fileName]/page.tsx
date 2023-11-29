@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 import { IoIosArrowDropleftCircle } from 'react-icons/io'
 
 // import { ImgMenu } from '@/components/gallery/ImgMenu'

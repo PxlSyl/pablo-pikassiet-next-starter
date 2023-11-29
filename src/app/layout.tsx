@@ -3,7 +3,7 @@ import config from '@/config/config.json'
 import theme from '@/config/theme.json'
 
 import TwSizeIndicator from '@/components/helpers/TwSizeIndicator'
-import Footer from '@/components/partials/Footer'
+import Footer from '@/components/navigation/footer/Footer'
 import { Header } from '@/components/navigation/menu'
 
 import { SearchProvider } from '@/components/navigation/search/SearchProvider'

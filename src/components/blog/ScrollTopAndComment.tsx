@@ -1,6 +1,6 @@
 'use client'
 
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 import { useEffect, useState } from 'react'
 
 type Props = {

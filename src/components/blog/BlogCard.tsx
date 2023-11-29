@@ -8,7 +8,7 @@ import { CoreContent } from 'pliny/utils/contentlayer'
 import { humanize, slugify } from '@/lib/utils/textConverter'
 
 import ImageFallback from '../helpers/ImageFallback'
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 import { Blog } from 'contentlayer/generated'
 

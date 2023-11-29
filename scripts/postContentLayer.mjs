@@ -4,7 +4,7 @@ import { writeFileSync } from 'fs'
 import GithubSlugger from 'github-slugger'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
-import siteMetadata from '../data/siteMetadata.js'
+import siteMetadata from '../src/config/siteMetadata.js'
 
 const isProduction = process.env.NODE_ENV === 'production'
 

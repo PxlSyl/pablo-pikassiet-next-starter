@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
 import Head from 'next/head'
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 // import { ImgMenu } from '@/components/gallery/ImgMenu'
 import { ImageSlider } from '@/components/gallery/drawings/imageSlider'
 import { imageFileNames } from '@/config/galleryData'

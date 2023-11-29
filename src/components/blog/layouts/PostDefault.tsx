@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import Link from 'next/link'
 
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from 'react-icons/fa/index.js'

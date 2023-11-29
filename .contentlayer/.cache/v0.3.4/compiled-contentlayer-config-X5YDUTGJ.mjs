@@ -24,9 +24,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// data/siteMetadata.js
+// src/config/siteMetadata.js
 var require_siteMetadata = __commonJS({
-  "data/siteMetadata.js"(exports, module) {
+  "src/config/siteMetadata.js"(exports, module) {
     "use strict";
     var siteMetadata2 = {
       title: "Next.js Starter Blog",
@@ -241,4 +241,4 @@ export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-TVQVA2AK.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-X5YDUTGJ.mjs.map
