@@ -32,7 +32,7 @@ export const generateStaticParams: StaticParams = () => {
   return paths
 }
 
-const CategorySingle = ({ params }: { params: { single: string } }) => {
+const CategorySingle = ({ params }: { params: { single: string; page: number } }) => {
   const categoryCounts = categoryData as Record<string, number>
   const sortedCategories = sortData(categoryCounts)
 
@@ -40,7 +40,10 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
   const filterByCategories = taxonomyFilter(posts, 'categories', params.single)
 
   const totalPages = Math.ceil(filterByCategories.length / POSTS_PER_PAGE)
-  const currentPosts = filterByCategories.slice(0, POSTS_PER_PAGE)
+  const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
+  const indexOfLastPost = currentPage * POSTS_PER_PAGE
+  const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE
+  const currentPosts = filterByCategories.slice(indexOfFirstPost, indexOfLastPost)
 
   return (
     <>
@@ -67,7 +70,7 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
           </div>
           <Pagination
             section={`categories/${params.single}`}
-            currentPage={1}
+            currentPage={currentPage}
             totalPages={totalPages}
           />
         </div>
