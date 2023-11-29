@@ -6,20 +6,43 @@ import { sortData } from '@/lib/utils/sortData'
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
+import BlogCard from '@/components/blog/BlogCard'
+import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
 import { TagLink } from '@/components/partials/PostSidebar/TagLink'
 import SeoMeta from '@/components/partials/SeoMeta'
-import BlogCard from '@/components/blog/BlogCard'
-import Pagination from '@/components/blog/Pagination'
+
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
-const tags = () => {
+// remove dynamicParams
+export const dynamicParams = false
+
+// generate static params
+export const generateStaticParams = () => {
+  const allPost = allCoreContent(sortPosts(allBlogs))
+  const allSlug: string[] = allPost.map((item) => item.slug!)
+  const totalPages = Math.ceil(allSlug.length / POSTS_PER_PAGE)
+  let paths: { page: string }[] = []
+
+  for (let i = 1; i < totalPages; i++) {
+    paths.push({
+      page: (i + 1).toString(),
+    })
+  }
+
+  return paths
+}
+
+const tags = ({ params }: { params: { page: number } }) => {
   const tagCounts = tagData as Record<string, number>
   const sortedTags = sortData(tagCounts)
   const posts = allCoreContent(sortPosts(allBlogs))
 
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
-  const currentPosts = posts.slice(0, POSTS_PER_PAGE)
+  const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
+  const indexOfLastPost = currentPage * POSTS_PER_PAGE
+  const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
 
   return (
     <>
@@ -44,7 +67,7 @@ const tags = () => {
               </div>
             ))}
           </div>
-          <Pagination section="tags" currentPage={1} totalPages={totalPages} />
+          <Pagination section="tags" currentPage={currentPage} totalPages={totalPages} />
         </div>
       </div>
     </>

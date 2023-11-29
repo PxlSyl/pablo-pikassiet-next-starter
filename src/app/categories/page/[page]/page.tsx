@@ -1,4 +1,3 @@
-import config from '@/config/config.json'
 import categoryData from '@/app/category-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
@@ -14,8 +13,6 @@ import { CategoryLink } from '@/components/partials/PostSidebar/CategoryLink'
 import SeoMeta from '@/components/partials/SeoMeta'
 
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
-
-const { blog_folder } = config.settings
 
 // remove dynamicParams
 export const dynamicParams = false

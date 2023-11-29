@@ -1,4 +1,3 @@
-import config from '@/config/config.json'
 import categoryData from '@/app/category-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
@@ -13,8 +12,6 @@ import SeoMeta from '@/components/partials/SeoMeta'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
-
-const { blog_folder } = config.settings
 
 const Categories = () => {
   const categoryCounts = categoryData as Record<string, number>

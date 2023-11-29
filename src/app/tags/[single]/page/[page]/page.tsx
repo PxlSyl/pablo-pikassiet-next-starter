@@ -32,7 +32,7 @@ export const generateStaticParams: StaticParams = () => {
   return paths
 }
 
-const TagSingle = ({ params }: { params: { single: string } }) => {
+const TagSingle = ({ params }: { params: { single: string; page: number } }) => {
   const tagCounts = tagData as Record<string, number>
   const sortedTags = sortData(tagCounts)
 
@@ -40,7 +40,10 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
   const filterByTags = taxonomyFilter(posts, 'tags', params.single)
 
   const totalPages = Math.ceil(filterByTags.length / POSTS_PER_PAGE)
-  const currentPosts = filterByTags.slice(0, POSTS_PER_PAGE)
+  const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
+  const indexOfLastPost = currentPage * POSTS_PER_PAGE
+  const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE
+  const currentPosts = filterByTags.slice(indexOfFirstPost, indexOfLastPost)
 
   return (
     <>
@@ -60,14 +63,18 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
         <div className="section-sm pb-0">
           <div className="container max-w-[600px]">
             <div className="row">
-              {filterByTags.map((post, index: number) => (
+              {currentPosts.map((post, index: number) => (
                 <div className="mb-14" key={index}>
                   <BlogCard post={post} />
                 </div>
               ))}
             </div>
           </div>
-          <Pagination section={`tags/${params.single}`} currentPage={1} totalPages={totalPages} />
+          <Pagination
+            section={`tags/${params.single}`}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
         </div>
       </div>
     </>
