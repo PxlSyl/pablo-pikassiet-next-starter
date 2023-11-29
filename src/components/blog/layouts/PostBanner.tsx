@@ -37,7 +37,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
 
   return (
     <>
-      <ScrollTopAndComment />
+      <ScrollTopAndComment scrollToComment={true} />
       <section className="section pt-7">
         <div className="container">
           <div className="row justify-center">

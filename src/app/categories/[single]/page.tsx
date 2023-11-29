@@ -4,13 +4,14 @@ import taxonomyFilter from '@/lib/utils/taxonomyFilter'
 import { sortData } from '@/lib/utils/sortData'
 import { humanize } from '@/lib/utils/textConverter'
 
-import BlogCard from '@/components/blog/BlogCard'
+import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { allBlogs } from 'contentlayer/generated'
+
 import PageHeader from '@/components/partials/PageHeader'
 import { CategoryLink } from '@/components/partials/PostSidebar/CategoryLink'
 import SeoMeta from '@/components/partials/SeoMeta'
-
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
+import BlogCard from '@/components/blog/BlogCard'
+import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
 type StaticParams = () => { single: string }[]
 
@@ -38,6 +39,7 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
 
   return (
     <>
+      <ScrollTopAndComment scrollToComment={false} />
       <SeoMeta title={humanize(params.single)} />
       <PageHeader title={humanize(params.single)} />
       <div className="flex flex-row justify-center">

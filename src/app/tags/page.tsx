@@ -2,11 +2,13 @@ import tagData from '@/app/tag-data.json'
 
 import { sortData } from '@/lib/utils/sortData'
 
+import { allBlogs } from 'contentlayer/generated'
+import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+
 import PageHeader from '@/components/partials/PageHeader'
 import { TagLink } from '@/components/partials/PostSidebar/TagLink'
 import SeoMeta from '@/components/partials/SeoMeta'
-import { allBlogs } from 'contentlayer/generated'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 import BlogCard from '@/components/blog/BlogCard'
 
 const tags = () => {
@@ -16,6 +18,7 @@ const tags = () => {
 
   return (
     <>
+      <ScrollTopAndComment scrollToComment={false} />
       <SeoMeta title={'Tags'} />
       <PageHeader title={'Tags'} />
       <div className="flex flex-row justify-center">

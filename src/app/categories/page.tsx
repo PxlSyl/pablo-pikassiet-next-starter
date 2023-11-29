@@ -2,12 +2,14 @@ import categoryData from '@/app/category-data.json'
 
 import { sortData } from '@/lib/utils/sortData'
 
+import { allBlogs } from 'contentlayer/generated'
+import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+
 import PageHeader from '@/components/partials/PageHeader'
 import { CategoryLink } from '@/components/partials/PostSidebar/CategoryLink'
 import SeoMeta from '@/components/partials/SeoMeta'
-import { allBlogs } from 'contentlayer/generated'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import BlogCard from '@/components/blog/BlogCard'
+import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
 const Categories = () => {
   const categoryCounts = categoryData as Record<string, number>
@@ -16,6 +18,7 @@ const Categories = () => {
 
   return (
     <>
+      <ScrollTopAndComment scrollToComment={false} />
       <SeoMeta title={'Categories'} />
       <PageHeader title={'Categories'} />
       <div className="flex flex-row justify-center">

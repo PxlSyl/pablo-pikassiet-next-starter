@@ -30,7 +30,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
 
   return (
     <>
-      <ScrollTopAndComment />
+      <ScrollTopAndComment scrollToComment={true} />
       <section className="section pt-7">
         <div className="container">
           <div className="row justify-center">
