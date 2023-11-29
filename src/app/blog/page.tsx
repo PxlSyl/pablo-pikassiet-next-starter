@@ -1,4 +1,5 @@
 import config from '@/config/config.json'
+import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
 import { Post } from '@/types'
 
@@ -13,7 +14,7 @@ import SeoMeta from '@/components/partials/SeoMeta'
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
-const { blog_folder, pagination } = config.settings
+const { blog_folder } = config.settings
 
 // for all regular pages
 const Posts = () => {
@@ -24,8 +25,8 @@ const Posts = () => {
   const sortedPosts = sortPosts(allBlogs)
   const posts = allCoreContent(sortedPosts)
 
-  const totalPages = Math.ceil(posts.length / pagination)
-  const currentPosts = sortedPosts.slice(0, pagination)
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
+  const currentPosts = sortedPosts.slice(0, POSTS_PER_PAGE)
 
   return (
     <>

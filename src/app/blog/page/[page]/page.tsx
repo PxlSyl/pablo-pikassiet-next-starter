@@ -1,4 +1,5 @@
 import config from '@/config/config.json'
+import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 import { getListPage } from '@/lib/contentParser'
 
 import BlogCard from '@/components/blog/BlogCard'
@@ -12,7 +13,7 @@ import { Post } from '@/types'
 import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 
-const { blog_folder, pagination } = config.settings
+const { blog_folder } = config.settings
 
 // remove dynamicParams
 export const dynamicParams = false
@@ -21,7 +22,7 @@ export const dynamicParams = false
 export const generateStaticParams = () => {
   const allPost = allCoreContent(sortPosts(allBlogs))
   const allSlug: string[] = allPost.map((item) => item.slug!)
-  const totalPages = Math.ceil(allSlug.length / pagination)
+  const totalPages = Math.ceil(allSlug.length / POSTS_PER_PAGE)
   let paths: { page: string }[] = []
 
   for (let i = 1; i < totalPages; i++) {
@@ -51,10 +52,10 @@ const Posts = ({ params }: { params: { page: number } }) => {
   const sortedPosts = sortPosts(allBlogs)
   const posts = allCoreContent(sortedPosts)
 
-  const totalPages = Math.ceil(posts.length / pagination)
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
   const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
-  const indexOfLastPost = currentPage * pagination
-  const indexOfFirstPost = indexOfLastPost - pagination
+  const indexOfLastPost = currentPage * POSTS_PER_PAGE
+  const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost)
 
   return (
