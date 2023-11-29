@@ -52,7 +52,12 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <ul className="space-y-4">
               {sortedCategories.map((category: string) => (
-                <CategoryLink key={category} category={category} count={categoryCounts[category]} />
+                <CategoryLink
+                  className={params.single === category ? 'text-highlighted' : ''}
+                  key={category}
+                  category={category}
+                  count={categoryCounts[category]}
+                />
               ))}
             </ul>
           </div>

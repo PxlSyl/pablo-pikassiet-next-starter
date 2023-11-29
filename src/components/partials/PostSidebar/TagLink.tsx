@@ -8,7 +8,7 @@ export const TagLink = ({
 }: {
   tag: string
   count: number
-  className: string
+  className?: string
 }) => (
   <li className={className} key={tag}>
     <Link

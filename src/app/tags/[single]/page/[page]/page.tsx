@@ -55,7 +55,12 @@ const TagSingle = ({ params }: { params: { single: string; page: number } }) => 
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <ul className="space-y-4">
               {sortedTags.map((tag: string) => (
-                <TagLink className="" key={tag} tag={tag} count={tagCounts[tag]} />
+                <TagLink
+                  className={params.single === tag ? 'text-highlighted' : ''}
+                  key={tag}
+                  tag={tag}
+                  count={tagCounts[tag]}
+                />
               ))}
             </ul>
           </div>

@@ -31,7 +31,7 @@ const tags = () => {
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <ul className="space-y-4">
               {sortedTags.map((tag: string) => (
-                <TagLink className="" key={tag} tag={tag} count={tagCounts[tag]} />
+                <TagLink key={tag} tag={tag} count={tagCounts[tag]} />
               ))}
             </ul>
           </div>

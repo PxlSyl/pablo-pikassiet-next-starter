@@ -52,7 +52,12 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <ul className="space-y-4">
               {sortedTags.map((tag: string) => (
-                <TagLink className="" key={tag} tag={tag} count={tagCounts[tag]} />
+                <TagLink
+                  className={params.single === tag ? 'text-highlighted' : ''}
+                  key={tag}
+                  tag={tag}
+                  count={tagCounts[tag]}
+                />
               ))}
             </ul>
           </div>
@@ -60,7 +65,7 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
         <div className="section-sm pb-0">
           <div className="container max-w-[600px]">
             <div className="row">
-              {filterByTags.map((post, index: number) => (
+              {currentPosts.map((post, index: number) => (
                 <div className="mb-14" key={index}>
                   <BlogCard post={post} />
                 </div>
