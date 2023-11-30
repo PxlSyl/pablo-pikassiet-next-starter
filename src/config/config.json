@@ -14,9 +14,7 @@
 
   "settings": {
     "theme_switcher": true,
-    "default_theme": "system",
-    "summary_length": 200,
-    "blog_folder": "blog"
+    "summary_length": 200
   },
 
   "params": {
