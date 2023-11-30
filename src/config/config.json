@@ -13,7 +13,6 @@
   },
 
   "settings": {
-    "sticky_header": true,
     "theme_switcher": true,
     "default_theme": "system",
     "summary_length": 200,
@@ -21,7 +20,6 @@
   },
 
   "params": {
-    "contact_form_action": "#",
     "copyright": "Designed and developed by <u>[PxlSyl](https://pxlsyl.art)</u> ",
     "credits": "Credits: <u>[Zeon Studio](https://zeon.studio)</u>  and <u>[Timlrx](https://www.timlrx.com/)<u>"
   },
@@ -30,11 +28,6 @@
     "enable": true,
     "label": "Get Started",
     "link": "https://github.com/zeon-studio/nextplate"
-  },
-
-  "metadata": {
-    "meta_author": "Themefisher",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "Next Boilerplate"
   }
+
 }

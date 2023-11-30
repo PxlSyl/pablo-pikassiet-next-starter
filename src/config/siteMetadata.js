@@ -1,26 +1,34 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
+  title: 'Pablo Pikassiet',
   author: 'Pablo Pikassiet',
   headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
-  language: 'en-us',
-  theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  description: 'An amazing Next.js template for creative people',
+
+  base_url: 'https://nextplate.netlify.app',
+  base_path: '/',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
+
+  trailing_slash: false,
+  favicon: '/images/favicon.png',
+  logo: '/images/logo.svg',
+  logo_darkmode: '/images/logo-darkmode.svg',
+  logo_width: '225',
+  logo_height: '60',
+  logo_text: 'Pablo Pikassiet',
+
+  language: 'en',
+  theme: 'system', // system, dark or light
+
   socialBanner: '/static/images/twitter-card.png',
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
-  deviantart: 'https://deviantart',
-  instagram: 'https://instagram.com',
-  tiktok: 'https://tiktok.',
   locale: 'en-US',
+
+  metadata: {
+    meta_author: 'Themefisher',
+    meta_image: '/images/og-image.png',
+    meta_description: 'Next Boilerplate',
+  },
+
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.

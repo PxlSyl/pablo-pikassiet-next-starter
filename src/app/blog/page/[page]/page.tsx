@@ -1,4 +1,3 @@
-import config from '@/config/config.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 import { getListPage } from '@/lib/contentParser'
 
@@ -12,8 +11,6 @@ import { Post } from '@/types'
 
 import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
-
-const { blog_folder } = config.settings
 
 // remove dynamicParams
 export const dynamicParams = false
@@ -46,7 +43,7 @@ function spreadPages(num: number): number[] {
 
 // for all regular pages
 const Posts = ({ params }: { params: { page: number } }) => {
-  const postIndex: Post = getListPage(`${blog_folder}/_index.md`)
+  const postIndex: Post = getListPage('blog/_index.md')
   const { title, meta_title, description, image } = postIndex.frontmatter
 
   const sortedPosts = sortPosts(allBlogs)
@@ -73,7 +70,7 @@ const Posts = ({ params }: { params: { page: number } }) => {
                   </div>
                 ))}
               </div>
-              <Pagination section={blog_folder} currentPage={currentPage} totalPages={totalPages} />
+              <Pagination section="blog" currentPage={currentPage} totalPages={totalPages} />
             </div>
             <PostSidebar />
           </div>

@@ -1,4 +1,3 @@
-import config from '@/config/config.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
 import { Post } from '@/types'
@@ -14,11 +13,9 @@ import SeoMeta from '@/components/partials/SeoMeta'
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
-const { blog_folder } = config.settings
-
 // for all regular pages
 const Posts = () => {
-  const postIndex: Post = getListPage(`${blog_folder}/_index.md`)
+  const postIndex: Post = getListPage('blog/_index.md')
 
   const { title, meta_title, description, image } = postIndex.frontmatter
 
@@ -43,7 +40,7 @@ const Posts = () => {
                   </div>
                 ))}
               </div>
-              <Pagination section={blog_folder} currentPage={1} totalPages={totalPages} />
+              <Pagination section="blog" currentPage={1} totalPages={totalPages} />
             </div>
             <PostSidebar />
           </div>

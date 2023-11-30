@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import config from '@/config/config.json'
 import { FaRegFolder, FaRegUserCircle, FaRegClock, FaTags } from 'react-icons/fa/index.js'
 
 import { formatDate } from 'pliny/utils/formatDate'
@@ -11,8 +10,6 @@ import ImageFallback from '../helpers/ImageFallback'
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 import { Blog } from 'contentlayer/generated'
-
-const { blog_folder } = config.settings
 
 interface Props {
   post: CoreContent<Blog>
@@ -28,7 +25,7 @@ const BlogCard = ({ post }: Props) => {
   return (
     <div className="bg-body dark:bg-darkmode-body">
       {image && (
-        <Link href={`/${blog_folder}/${path}`}>
+        <Link href={`/blog/${path}`}>
           <ImageFallback
             className="mb-6 w-full rounded"
             src={image}
@@ -39,7 +36,7 @@ const BlogCard = ({ post }: Props) => {
         </Link>
       )}
       <h4 className="mb-3">
-        <Link href={`/${blog_folder}/${path}`}>{title}</Link>
+        <Link href={`/blog/${path}`}>{title}</Link>
       </h4>
       <ul className="mb-4 ">
         <li className="mr-4 inline-block">
@@ -101,7 +98,7 @@ const BlogCard = ({ post }: Props) => {
         )}
       </ul>
       <p className="mb-6">{summary}</p>
-      <Link className="btn btn-outline-primary btn-sm" href={`/${blog_folder}/${path}`}>
+      <Link className="btn btn-outline-primary btn-sm" href={`/blog/${path}`}>
         read more
       </Link>
     </div>

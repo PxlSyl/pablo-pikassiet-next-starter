@@ -1,6 +1,6 @@
 'use client'
 
-import config from '@/config/config.json'
+import siteMetadata from '@/config/siteMetadata'
 import { plainify } from '@/lib/utils/textConverter'
 import { usePathname } from 'next/navigation'
 
@@ -19,14 +19,14 @@ const SeoMeta = ({
   canonical?: string
   noindex?: boolean
 }) => {
-  const { meta_image, meta_author, meta_description } = config.metadata
-  const { base_url } = config.site
+  const { meta_image, meta_author, meta_description } = siteMetadata.metadata
+  const { base_url } = siteMetadata.base_url
   const pathname = usePathname()
 
   return (
     <>
       {/* title */}
-      <title>{plainify(meta_title ? meta_title : title ? title : config.site.title)}</title>
+      <title>{plainify(meta_title ? meta_title : title ? title : siteMetadata.title)}</title>
 
       {/* canonical url */}
       {canonical && <link rel="canonical" href={canonical} itemProp="url" />}
@@ -43,7 +43,7 @@ const SeoMeta = ({
       {/* og-title */}
       <meta
         property="og:title"
-        content={plainify(meta_title ? meta_title : title ? title : config.site.title)}
+        content={plainify(meta_title ? meta_title : title ? title : siteMetadata.title)}
       />
 
       {/* og-description */}
@@ -57,7 +57,7 @@ const SeoMeta = ({
       {/* twitter-title */}
       <meta
         name="twitter:title"
-        content={plainify(meta_title ? meta_title : title ? title : config.site.title)}
+        content={plainify(meta_title ? meta_title : title ? title : siteMetadata.title)}
       />
 
       {/* twitter-description */}

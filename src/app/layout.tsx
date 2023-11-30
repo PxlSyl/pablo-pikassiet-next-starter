@@ -1,11 +1,10 @@
 import '@/styles/main.scss'
-import config from '@/config/config.json'
+import siteMetadata from '@/config/siteMetadata'
 import theme from '@/config/theme.json'
 
 import TwSizeIndicator from '@/components/helpers/TwSizeIndicator'
 import Footer from '@/components/navigation/footer/Footer'
 import { Header } from '@/components/navigation/menu'
-
 import { SearchProvider } from '@/components/navigation/search/SearchProvider'
 import Providers from '@/components/partials/Providers'
 
@@ -21,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
 
         {/* favicon */}
-        <link rel="shortcut icon" href={config.site.favicon} />
+        <link rel="shortcut icon" href={siteMetadata.favicon} />
         {/* theme meta */}
         <meta name="theme-name" content="nextplate" />
         <meta name="msapplication-TileColor" content="#000000" />
