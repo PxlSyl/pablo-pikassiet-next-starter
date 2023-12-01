@@ -20,7 +20,7 @@ import PostBanner from '@/components/blog/layouts/PostBanner'
 import BlogCard from '@/components/blog/BlogCard'
 
 interface PageProps {
-  params: { slug: string }
+  params: { slug: string[] }
 }
 
 const defaultLayout = 'PostDefault'
@@ -35,7 +35,7 @@ const layouts: { [key: string]: React.ComponentType<any> } = {
 export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata | undefined> {
-  const dslug = decodeURI(Array.isArray(slug) ? slug.join('/') : '')
+  const dslug = Array.isArray(slug) ? decodeURI(slug.join('/')) : decodeURI(slug)
   const post = allBlogs.find((p) => p.slug === dslug)
   if (!post) {
     return
@@ -86,9 +86,10 @@ export const generateStaticParams: () => { slug: string }[] = () => {
 }
 
 export default async function Page({ params: { slug } }: PageProps) {
+  const dslug = Array.isArray(slug) ? decodeURI(slug.join('/')) : decodeURI(slug)
   // Filter out drafts in production
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
-  const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
+  const postIndex = sortedCoreContents.findIndex((p) => p.slug === dslug)
   if (postIndex === -1) {
     return notFound()
   }
@@ -96,7 +97,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   const prev = sortedCoreContents[postIndex + 1]
   const next = sortedCoreContents[postIndex - 1]
   const posts = allCoreContent(sortPosts(allBlogs))
-  const post = allBlogs.find((p) => p.slug === slug) as Blog
+  const post = allBlogs.find((p) => p.slug === dslug) as Blog
 
   const mainContent = coreContent(post)
 
