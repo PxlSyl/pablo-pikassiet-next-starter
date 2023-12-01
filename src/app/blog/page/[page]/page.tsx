@@ -1,16 +1,15 @@
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
-import { getListPage } from '@/lib/contentParser'
+import { genPageMetadata } from '@/app/seo'
 
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
 import PostSidebar from '@/components/partials/PostSidebar'
-import SeoMeta from '@/components/partials/SeoMeta'
-
-import { Post } from '@/types'
 
 import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
+
+export const metadata = genPageMetadata({ title: 'Blog Posts' })
 
 // remove dynamicParams
 export const dynamicParams = false
@@ -43,9 +42,6 @@ function spreadPages(num: number): number[] {
 
 // for all regular pages
 const Posts = ({ params }: { params: { page: number } }) => {
-  const postIndex: Post = getListPage('blog/_index.md')
-  const { title, meta_title, description, image } = postIndex.frontmatter
-
   const sortedPosts = sortPosts(allBlogs)
   const posts = allCoreContent(sortedPosts)
 
@@ -57,8 +53,7 @@ const Posts = ({ params }: { params: { page: number } }) => {
 
   return (
     <>
-      <SeoMeta title={title} meta_title={meta_title} description={description} image={image} />
-      <PageHeader title={postIndex.frontmatter.title} />
+      <PageHeader title="Blog Posts" />
       <section className="section">
         <div className="container">
           <div className="row gx-5">

@@ -1,16 +1,18 @@
+import { Author } from '@/types'
+import { genPageMetadata } from '../seo'
 import { getListPage, getSinglePage } from '@/lib/contentParser'
 import AuthorCard from '@/components/blog/AuthorCard'
 import PageHeader from '@/components/partials/PageHeader'
-import SeoMeta from '@/components/partials/SeoMeta'
-import { Author } from '@/types'
+
+export const metadata = genPageMetadata({ title: 'Authors' })
 
 const Authors = () => {
   const authorIndex: Author = getListPage('authors/_index.md')
   const authors: Author[] = getSinglePage('authors')
-  const { title, meta_title, description, image } = authorIndex.frontmatter
+  const { title } = authorIndex.frontmatter
+
   return (
     <>
-      <SeoMeta title={title} meta_title={meta_title} description={description} image={image} />
       <PageHeader title={title} />
       <section className="section-sm pb-0">
         <div className="container">

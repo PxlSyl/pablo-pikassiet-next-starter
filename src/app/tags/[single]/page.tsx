@@ -1,3 +1,5 @@
+import { Metadata } from 'next'
+import siteMetadata from '@/config/siteMetadata'
 import tagData from '@/app/tag-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
@@ -10,12 +12,39 @@ import { allBlogs } from 'contentlayer/generated'
 
 import PageHeader from '@/components/partials/PageHeader'
 import { TagLink } from '@/components/partials/PostSidebar/TagLink'
-import SeoMeta from '@/components/partials/SeoMeta'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
 type StaticParams = () => { single: string }[]
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { single: string }
+}): Promise<Metadata | undefined> {
+  return {
+    title: params.single,
+    description: 'Tags',
+    openGraph: {
+      title: params.single,
+      description: 'Tags',
+      siteName: siteMetadata.title,
+      locale: 'en',
+      type: 'website',
+      url: './',
+      images: siteMetadata.socialBanner,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: siteMetadata.base_url,
+      creator: siteMetadata.author,
+      title: params.single,
+      description: 'Tags',
+      images: siteMetadata.socialBanner,
+    },
+  }
+}
 
 // remove dynamicParams
 export const dynamicParams = false
@@ -45,7 +74,6 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
   return (
     <>
       <ScrollTopAndComment scrollToComment={false} />
-      <SeoMeta title={humanize(params.single)} />
       <PageHeader title={humanize(params.single)} />
       <div className="mb-20 flex flex-row justify-center">
         <div className="mb-4 mt-20 flex flex-col">

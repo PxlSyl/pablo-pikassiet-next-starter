@@ -1,24 +1,18 @@
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
-import { Post } from '@/types'
-
-import { getListPage } from '@/lib/contentParser'
-
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
 import PostSidebar from '@/components/partials/PostSidebar'
-import SeoMeta from '@/components/partials/SeoMeta'
 
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { genPageMetadata } from '../seo'
+
+export const metadata = genPageMetadata({ title: 'Blog Posts' })
 
 // for all regular pages
 const Posts = () => {
-  const postIndex: Post = getListPage('blog/_index.md')
-
-  const { title, meta_title, description, image } = postIndex.frontmatter
-
   const sortedPosts = sortPosts(allBlogs)
   const posts = allCoreContent(sortedPosts)
 
@@ -27,8 +21,7 @@ const Posts = () => {
 
   return (
     <>
-      <SeoMeta title={title} meta_title={meta_title} description={description} image={image} />
-      <PageHeader title={postIndex.frontmatter.title} />
+      <PageHeader title="Blog Posts" />
       <section className="section">
         <div className="container">
           <div className="row gx-5">

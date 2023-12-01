@@ -19,9 +19,10 @@ const siteMetadata = {
 
   language: 'en',
   theme: 'system', // system, dark or light
+  theme_switcher: true,
 
   socialBanner: '/static/images/twitter-card.png',
-  locale: 'en-US',
+  locale: 'en',
 
   metadata: {
     meta_author: 'Themefisher',

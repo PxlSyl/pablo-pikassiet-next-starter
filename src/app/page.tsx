@@ -1,13 +1,14 @@
 import { Button, Feature } from '@/types'
 import { FaCheck } from 'react-icons/fa/index.js'
-
+import { genPageMetadata } from './seo'
 import { getListPage } from '@/lib/contentParser'
 import { markdownify } from '@/lib/utils/textConverter'
 
-import SeoMeta from '@/components/partials/SeoMeta'
 import CallToAction from '@/components/partials/CallToAction'
 import ImageFallback from '@/components/helpers/ImageFallback'
 import Testimonials from '@/components/partials/Testimonials'
+
+export const metadata = genPageMetadata({ title: 'Home' })
 
 const Home = () => {
   const homepage = getListPage('homepage/_index.md')
@@ -24,7 +25,6 @@ const Home = () => {
 
   return (
     <>
-      <SeoMeta />
       <section className="section mt-20 pt-14">
         <div className="container">
           <div className="row justify-center">

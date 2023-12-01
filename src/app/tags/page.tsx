@@ -1,5 +1,6 @@
 import tagData from '@/app/tag-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
+import { genPageMetadata } from '../seo'
 
 import { sortData } from '@/lib/utils/sortData'
 
@@ -8,10 +9,11 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 import PageHeader from '@/components/partials/PageHeader'
 import { TagLink } from '@/components/partials/PostSidebar/TagLink'
-import SeoMeta from '@/components/partials/SeoMeta'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
+
+export const metadata = genPageMetadata({ title: 'Tags' })
 
 const tags = () => {
   const tagCounts = tagData as Record<string, number>
@@ -24,7 +26,6 @@ const tags = () => {
   return (
     <>
       <ScrollTopAndComment scrollToComment={false} />
-      <SeoMeta title={'Tags'} />
       <PageHeader title={'Tags'} />
       <div className="mb-20 flex flex-row justify-center">
         <div className="mt-20 flex flex-col">

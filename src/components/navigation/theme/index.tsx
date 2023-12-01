@@ -1,29 +1,24 @@
-"use client";
+'use client'
 
-import config from "@/config/config.json";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import siteMetadata from '@/config/siteMetadata'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 const ThemeSwitcher = ({ className }: { className: string }) => {
-  const { theme_switcher } = config.settings;
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  useEffect(() => setMounted(true), []);
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme, resolvedTheme } = useTheme()
+  useEffect(() => setMounted(true), [])
 
   return (
     <>
-      {theme_switcher && (
+      {siteMetadata.theme_switcher === true && (
         <div className={`theme-switcher ${className}`}>
           <input
             id="theme-switcher"
             type="checkbox"
-            defaultChecked={
-              mounted && (theme === "dark" || resolvedTheme === "dark")
-            }
+            defaultChecked={mounted && (theme === 'dark' || resolvedTheme === 'dark')}
             onClick={() =>
-              setTheme(
-                theme === "dark" || resolvedTheme === "dark" ? "light" : "dark",
-              )
+              setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')
             }
           />
           <label htmlFor="theme-switcher">
@@ -58,7 +53,7 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default ThemeSwitcher;
+export default ThemeSwitcher

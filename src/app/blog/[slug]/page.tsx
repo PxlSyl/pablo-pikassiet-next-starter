@@ -49,7 +49,7 @@ export async function generateMetadata({
   }
   const ogImages = imageList.map((img) => {
     return {
-      url: img.includes('http') ? img : siteMetadata.siteUrl + img,
+      url: img.includes('http') ? img : siteMetadata.base_url + img,
     }
   })
 
@@ -69,9 +69,10 @@ export async function generateMetadata({
       authors: post.authors,
     },
     twitter: {
-      card: 'summary_large_image',
       title: post.title,
       description: post.summary,
+      site: siteMetadata.base_url,
+      card: 'summary_large_image',
       images: imageList,
     },
   }
