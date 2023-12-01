@@ -19,7 +19,7 @@ export const Regularsection: React.FC<SectionProps> = ({
 }): JSX.Element => {
   const pathname = usePathname()
   return (
-    <div className="rounded-md border pb-2">
+    <div className="rounded-md border pb-2 xl:mx-2 xl:px-4">
       <div className="mx-2 mb-1 flex flex-row items-center border-b border-gray-500 text-xl">
         {icon}
         <p className="ml-1">{title}</p>

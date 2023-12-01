@@ -162,7 +162,7 @@ export const Header: React.FC = (): JSX.Element | null => {
                 closeMenu={closeMenu}
               />
             </div>
-            <div className="mt-4 lg:mt-6">
+            <div className="mt-4 lg:mt-6 xl:ml-4">
               {headerInfosLinks.map((link) => {
                 const isSelected = pathname.includes(link.href)
                 return (
