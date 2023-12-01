@@ -5,7 +5,7 @@ import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
 import taxonomyFilter from '@/lib/utils/taxonomyFilter'
 import { sortData } from '@/lib/utils/sortData'
-import { humanize } from '@/lib/utils/textConverter'
+import { humanize, capitalizeFirstLetter } from '@/lib/utils/textConverter'
 
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
@@ -23,11 +23,12 @@ export async function generateMetadata({
 }: {
   params: { single: string }
 }): Promise<Metadata | undefined> {
+  const title = capitalizeFirstLetter(params.single)
   return {
-    title: params.single,
+    title: title,
     description: 'Categories',
     openGraph: {
-      title: params.single,
+      title: title,
       description: 'Categories',
       siteName: siteMetadata.title,
       locale: 'en',
@@ -39,7 +40,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       site: siteMetadata.base_url,
       creator: siteMetadata.author,
-      title: params.single,
+      title: title,
       description: 'Categories',
       images: siteMetadata.socialBanner,
     },
