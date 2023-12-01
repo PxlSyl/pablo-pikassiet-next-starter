@@ -8,7 +8,7 @@ import { Sidebar } from '@/components/gallery/drawings/sidebar'
 import { useWindowWidth } from '@/hooks/useWindowWidth'
 import { useGalleryStore } from '@/components/gallery/drawings/store'
 
-const Gallery = (): JSX.Element => {
+const Gallery = () => {
   const { isOpen, setIsOpen, selectedSerie, selectSeries, selectedTags, selectTag } =
     useGalleryStore()
   const toggleMenu = () => {
