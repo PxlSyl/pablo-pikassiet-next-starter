@@ -3,7 +3,7 @@ draft: false
 fileName: 'willendorfvenus'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree', 'Statue']
-name: 'Venus Gaia of Willendorf'
+title: 'Venus Gaia of Willendorf'
 width: 400
 height: 533
 ---

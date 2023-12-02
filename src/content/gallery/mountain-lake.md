@@ -3,7 +3,7 @@ draft: true
 fileName: 'Mountain lake'
 serie: 'Landscape'
 tags: ['Landscape']
-name: 'Mountain lake'
+title: 'Mountain lake'
 width: 400
 height: 533
 ---

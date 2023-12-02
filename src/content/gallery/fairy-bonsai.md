@@ -3,7 +3,7 @@ draft: false
 fileName: 'FaerieBonsai'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree', 'Fantasy']
-name: 'Fairy bonsai'
+title: 'Fairy bonsai'
 width: 400
 height: 533
 ---

@@ -3,7 +3,7 @@ draft: false
 fileName: 'ChineseBonsai'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree']
-name: 'Chinese bonsai'
+title: 'Chinese bonsai'
 width: 400
 height: 533
 ---

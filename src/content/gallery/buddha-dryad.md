@@ -3,7 +3,7 @@ draft: false
 fileName: 'Buddhadryad'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree']
-name: "Bouddh'Arbre"
+title: "Bouddh'Arbre"
 width: 400
 height: 533
 ---

@@ -3,7 +3,7 @@ draft: false
 fileName: 'JupinerusBonsai'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree']
-name: 'Juniper bonsai'
+title: 'Juniper bonsai'
 width: 400
 height: 533
 ---

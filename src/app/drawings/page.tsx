@@ -1,14 +1,17 @@
 // import { ImgMenu } from '@/components/gallery/ImgMenu'
+import type { ImgData } from '@/types'
 import { useMemo } from 'react'
 import { genPageMetadata } from '../seo'
 import PageHeader from '@/components/partials/PageHeader'
 import Gallery from '@/components/gallery/drawings'
-import { getSinglePage } from '@/lib/contentParser'
+import { getListPage, getSinglePage } from '@/lib/contentParser'
 
 export const metadata = genPageMetadata({ title: 'Drawings' })
 
 const Drawings = () => {
-  const galleryData = getSinglePage('gallery')
+  const galleryIndex: ImgData = getListPage('gallery/_index.md')
+  const galleryData: ImgData[] = getSinglePage('gallery')
+  const { title } = galleryIndex.frontmatter
 
   const allSerie = useMemo(
     () => Array.from(new Set(galleryData.map((item) => item.frontmatter.serie))).sort(),
@@ -22,7 +25,7 @@ const Drawings = () => {
   return (
     <>
       <div className="mb-20 mt-20">
-        <PageHeader title="Drawings" />
+        <PageHeader title={title} />
         <Gallery galleryData={galleryData} allSerie={allSerie} allTags={allTags} />
       </div>
     </>

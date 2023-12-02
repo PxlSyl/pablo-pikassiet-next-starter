@@ -3,7 +3,7 @@ draft: false
 fileName: 'lespuguevenus'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree', 'Statue']
-name: 'Venus gaïa of Lespugue'
+title: 'Venus gaïa of Lespugue'
 width: 400
 height: 533
 ---

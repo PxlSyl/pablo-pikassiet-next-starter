@@ -5,7 +5,7 @@ import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
 import taxonomyFilter from '@/lib/utils/taxonomyFilter'
 import { sortData } from '@/lib/utils/sortData'
-import { humanize, capitalizeFirstLetter } from '@/lib/utils/textConverter'
+import { capitalizeFirstLetter } from '@/lib/utils/textConverter'
 
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
@@ -75,7 +75,7 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
   return (
     <>
       <ScrollTopAndComment scrollToComment={false} />
-      <PageHeader title={humanize(params.single)} />
+      <PageHeader title={params.single} />
       <div className="mb-20 flex flex-row justify-center">
         <div className="mb-4 mt-20 flex flex-col">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">

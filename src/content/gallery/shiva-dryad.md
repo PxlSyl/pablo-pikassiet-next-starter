@@ -3,7 +3,7 @@ draft: false
 fileName: 'shivadryad'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree']
-name: 'Dryade Shiva'
+title: 'Shiva Dryad'
 width: 400
 height: 533
 ---

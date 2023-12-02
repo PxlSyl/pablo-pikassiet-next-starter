@@ -3,7 +3,7 @@ draft: false
 fileName: 'ghostdryad'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree']
-name: 'Ghost Dryad'
+title: 'Ghost Dryad'
 width: 400
 height: 533
 ---

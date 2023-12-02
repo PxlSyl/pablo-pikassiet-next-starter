@@ -3,7 +3,7 @@ draft: false
 fileName: 'PalmatumBonsai'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree']
-name: 'Japanese maple'
+title: 'Japanese maple'
 width: 400
 height: 533
 ---

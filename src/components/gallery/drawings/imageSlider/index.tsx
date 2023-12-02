@@ -1,3 +1,4 @@
+import type { ImgData } from '@/types'
 import { useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -11,25 +12,8 @@ import 'swiper/css/pagination'
 
 SwiperCore.use([EffectCoverflow, Pagination])
 
-interface Frontmatter {
-  draft?: boolean
-  fileName: string
-  serie: string
-  tags: string[]
-  name: string
-  description: string
-  width: number
-  height: number
-}
-
-interface MDFile {
-  frontmatter: Frontmatter
-  slug: string
-  content: string
-}
-
 type ImageSliderProps = {
-  imageData: MDFile[]
+  imageData: ImgData[]
   portraitDimensions: { width: number; height: number }
   landscapeDimensions: { width: number; height: number }
   selectedSerie: string
@@ -67,7 +51,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
     })
 
     // Create an object to store images with unique keys (e.g., fileName)
-    const imageMap: { [key: string]: MDFile } = {}
+    const imageMap: { [key: string]: ImgData } = {}
 
     // Populate the imageMap with images from imageData
     imageData.forEach((image) => {
@@ -117,7 +101,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
                 href={{
                   pathname: `/drawings/${image.slug}`,
                 }}
-                aria-label={image.frontmatter.name}
+                aria-label={image.frontmatter.title}
               >
                 <Image
                   src={`/Images/drawings/${image.frontmatter.fileName}.jpg`}

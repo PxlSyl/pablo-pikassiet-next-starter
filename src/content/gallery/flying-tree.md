@@ -3,7 +3,7 @@ draft: false
 fileName: 'Flyingtree'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree', 'Fantasy']
-name: 'Arbre volant'
+title: 'Flying tree'
 width: 400
 height: 533
 ---

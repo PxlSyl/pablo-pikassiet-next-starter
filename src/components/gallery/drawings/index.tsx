@@ -6,7 +6,13 @@ import { Sidebar } from '@/components/gallery/drawings/sidebar'
 import { useWindowWidth } from '@/hooks/useWindowWidth'
 import { useGalleryStore } from '@/components/gallery/drawings/store'
 
-const Gallery = ({ galleryData, allSerie, allTags }) => {
+interface GalleryProps {
+  galleryData: any // Replace YourImageDataType with the actual type
+  allSerie: string[] // Replace string[] with the actual type
+  allTags: string[] // Replace string[] with the actual type
+}
+
+const Gallery: React.FC<GalleryProps> = ({ galleryData, allSerie, allTags }) => {
   const { isOpen, setIsOpen, selectedSerie, selectSeries, selectedTags, selectTag } =
     useGalleryStore()
   const toggleMenu = () => {
