@@ -13,6 +13,7 @@ interface CustomMDXComponents extends OriginalMDXComponents {
   Tabs?: React.ComponentType<TabsProps>
   Notice?: React.ComponentType<NoticeProps>
   Youtube?: React.ComponentType<YoutubeProps>
+  Audioplayer?: React.ComponentType<AudioplayerProps>
   // Add or override other properties as needed
 }
 

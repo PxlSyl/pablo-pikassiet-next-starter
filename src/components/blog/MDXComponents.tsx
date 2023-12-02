@@ -10,6 +10,7 @@ import Tab from '../shortcodes/Tab'
 import Tabs from '../shortcodes/Tabs'
 import Video from '../shortcodes/Video'
 import Youtube from '../shortcodes/Youtube'
+import Audioplayer from '../shortcodes/Audioplayer'
 
 import Image from './Image'
 import CustomLink from './Link'
@@ -27,4 +28,5 @@ export const components: CustomMDXComponents = {
   Tabs,
   Notice,
   Youtube,
+  Audioplayer,
 }
