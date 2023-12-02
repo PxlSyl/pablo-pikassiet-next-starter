@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'Buddhadryad'
+image: '/images/drawings/Buddhadryad.jpg'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree']
-title: "Bouddh'Arbre"
+title: Bouddh'Arbre
+description: Bouddh'Arbre drawing
 width: 400
 height: 533
 ---

@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'willendorfvenus'
+image: '/images/drawings/willendorfvenus.jpg'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree', 'Statue']
-title: 'Venus Gaia of Willendorf'
+title: Venus Gaia of Willendorf
+description: Venus Gaia of Willendorf drawing
 width: 400
 height: 533
 ---

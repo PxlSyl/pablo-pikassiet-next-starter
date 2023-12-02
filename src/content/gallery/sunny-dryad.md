@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'Fancydryad2'
+image: '/images/drawings/Fancydryad2.jpg'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree']
-title: 'Sunny Dryad'
+title: Sunny Dryad
+description: Sunny Dryad drawing
 width: 400
 height: 533
 ---

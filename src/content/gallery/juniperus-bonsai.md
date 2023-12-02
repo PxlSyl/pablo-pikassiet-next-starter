@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'JupinerusBonsai'
+image: '/images/drawings/JupinerusBonsai.jpg'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree']
-title: 'Juniper bonsai'
+title: Juniper bonsai
+description: Juniper bonsai drawing
 width: 400
 height: 533
 ---

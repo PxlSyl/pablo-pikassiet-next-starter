@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'FaerieBonsai'
+image: '/images/drawings/FaerieBonsai.jpg'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree', 'Fantasy']
-title: 'Fairy bonsai'
+title: Fairy bonsai
+description: Fairy bonsai drawing
 width: 400
 height: 533
 ---

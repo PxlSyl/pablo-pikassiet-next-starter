@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'ChineseBonsai'
+image: '/images/drawings/ChineseBonsai.jpg'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree']
-title: 'Chinese bonsai'
+title: Chinese bonsai
+description: Chinese bonsai drawing
 width: 400
 height: 533
 ---

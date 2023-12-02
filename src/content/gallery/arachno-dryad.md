@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'arachnodryad'
+image: '/images/drawings/arachnodryad.jpg'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree']
-title: 'Arachnodryad'
+title: Arachnodryad
+description: Arachnodryad drawing
 width: 400
 height: 533
 ---

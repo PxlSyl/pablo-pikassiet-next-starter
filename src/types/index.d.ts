@@ -48,11 +48,11 @@ export type Author = {
 export type ImgData = {
   frontmatter: {
     draft: boolean
-    fileName: string
+    image: string
     serie: string
     tags: string[]
     title: string
-    description?: string
+    description: string
     width: number
     height: number
   }

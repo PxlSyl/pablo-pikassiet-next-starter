@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'ghostdryad'
+image: '/images/drawings/ghostdryad.jpg'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree']
-title: 'Ghost Dryad'
+title: Ghost Dryad
+description: Ghost Dryad drawing
 width: 400
 height: 533
 ---

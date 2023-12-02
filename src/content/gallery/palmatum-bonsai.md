@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'PalmatumBonsai'
+image: '/images/drawings/PalmatumBonsai.jpg'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree']
-title: 'Japanese maple'
+title: Japanese maple
+description: Japanese maple drawing
 width: 400
 height: 533
 ---

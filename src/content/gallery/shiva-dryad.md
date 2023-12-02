@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'shivadryad'
+image: '/images/drawings/shivadryad.jpg'
 serie: 'Dryad'
 tags: ['Dryad', 'Fantasy', 'Tree']
-title: 'Shiva Dryad'
+title: Shiva Dryad
+description: Shiva Dryad drawing
 width: 400
 height: 533
 ---

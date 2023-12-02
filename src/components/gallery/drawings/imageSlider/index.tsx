@@ -45,7 +45,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
               image.frontmatter.tags.some((tag) => selectedTags.includes(tag))))
         ) {
           // Add the fileName to the Set
-          uniqueFileNames.add(image.frontmatter.fileName)
+          uniqueFileNames.add(image.frontmatter.image)
         }
       }
     })
@@ -58,7 +58,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
       // Check if image.frontmatter is defined
       if (image.frontmatter) {
         // Use the fileName as a unique key in the imageMap
-        imageMap[image.frontmatter.fileName] = image
+        imageMap[image.frontmatter.image] = image
       }
     })
 
@@ -71,8 +71,8 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
   const slides = filteredImages
     .sort((a, b) => {
       // Perform null checks before accessing fileName
-      const fileNameA = a.frontmatter?.fileName || ''
-      const fileNameB = b.frontmatter?.fileName || ''
+      const fileNameA = a.frontmatter?.image || ''
+      const fileNameB = b.frontmatter?.image || ''
 
       return fileNameA.localeCompare(fileNameB)
     })
@@ -88,7 +88,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
 
       return (
         <SwiperSlide
-          key={image.frontmatter.fileName}
+          key={image.frontmatter.image}
           style={{
             ...slideStyle,
             width: `${width}px`,
@@ -103,20 +103,10 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
                 }}
                 aria-label={image.frontmatter.title}
               >
-                <Image
-                  src={`/Images/drawings/${image.frontmatter.fileName}.jpg`}
-                  alt=""
-                  width={width}
-                  height={height}
-                />
+                <Image src={`${image.frontmatter.image}`} alt="" width={width} height={height} />
               </Link>
             ) : (
-              <Image
-                src={`/Images/drawings/${image.frontmatter.fileName}.jpg`}
-                alt=""
-                width={width}
-                height={height}
-              />
+              <Image src={`${image.frontmatter.image}`} alt="" width={width} height={height} />
             )}
             <div className="absolute left-0 top-2 bg-transparent text-black">
               {image.frontmatter.tags.map((tag) => (

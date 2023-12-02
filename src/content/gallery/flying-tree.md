@@ -1,9 +1,10 @@
 ---
 draft: false
-fileName: 'Flyingtree'
+image: '/images/drawings/Flyingtree.jpg'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree', 'Fantasy']
-title: 'Flying tree'
+title: Flying tree
+description: Flying tree drawing
 width: 400
 height: 533
 ---

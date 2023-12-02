@@ -8,6 +8,39 @@ import MDXContent from '@/components/helpers/MDXContent'
 
 import { getSinglePage } from '@/lib/contentParser'
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { single: string }
+}): Promise<Metadata | undefined> {
+  const imagesData: ImgData[] = getSinglePage('gallery')
+  const imageSingle = imagesData.filter((page) => page.slug === params.single)[0]
+  const { frontmatter } = imageSingle
+  const { title, description, image } = frontmatter
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      siteName: siteMetadata.title,
+      locale: 'en',
+      type: 'website',
+      url: './',
+      images: image ? image : siteMetadata.socialBanner,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: siteMetadata.base_url,
+      creator: siteMetadata.author,
+      title: title,
+      description: description,
+      images: image ? image : siteMetadata.socialBanner,
+    },
+  }
+}
+
 // remove dynamicParams
 export const dynamicParams = false
 
@@ -26,7 +59,7 @@ const ImageSingle = ({ params }: { params: { single: string } }) => {
   const imagesData: ImgData[] = getSinglePage('gallery')
   const imageSingle = imagesData.filter((page) => page.slug === params.single)[0]
   const { frontmatter, content } = imageSingle
-  const { title, fileName, width, height } = frontmatter
+  const { title, image, width, height } = frontmatter
 
   return (
     <>
@@ -35,9 +68,9 @@ const ImageSingle = ({ params }: { params: { single: string } }) => {
         <div className="container">
           <div className="row justify-center border-b border-border pb-14 dark:border-darkmode-border">
             <div className="text-center lg:col-4">
-              {fileName && (
+              {image && (
                 <ImageFallback
-                  src={`/images/drawings/${fileName}.jpg`}
+                  src={`${image}`}
                   className="mx-auto mb-10 rounded"
                   height={height}
                   width={width}
