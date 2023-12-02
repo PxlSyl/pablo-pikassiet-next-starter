@@ -18,6 +18,7 @@ import PostSimple from '@/components/blog/layouts/PostSimple'
 import PostLayout from '@/components/blog/layouts/PostLayout'
 import PostBanner from '@/components/blog/layouts/PostBanner'
 import BlogCard from '@/components/blog/BlogCard'
+import { MDXComponents } from 'mdx/types'
 
 interface PageProps {
   params: { slug: string[] }
@@ -108,7 +109,11 @@ export default async function Page({ params: { slug } }: PageProps) {
   return (
     <>
       <Layout content={mainContent} next={next} prev={prev}>
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        <MDXLayoutRenderer
+          code={post.body.code}
+          components={components as MDXComponents}
+          toc={post.toc}
+        />
       </Layout>
       <section className="section pt-7">
         <div className="container">

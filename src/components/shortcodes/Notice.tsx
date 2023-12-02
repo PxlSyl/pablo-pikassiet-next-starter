@@ -1,7 +1,12 @@
 import React from 'react'
 import { humanize } from '@/lib/utils/textConverter'
 
-function Notice({ type, children }: { type: string; children: React.ReactNode }) {
+type NoticeProps = {
+  type: string
+  children: React.ReactNode
+}
+
+function Notice({ type, children }: NoticeProps) {
   return (
     <div className={`notice ${type}`}>
       <div className="notice-head">

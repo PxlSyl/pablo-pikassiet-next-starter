@@ -1,6 +1,10 @@
 'use client'
 
-function Tab({ children }: { children: React.ReactNode }) {
+type TabProps = {
+  children: React.ReactNode
+}
+
+function Tab({ children }: TabProps) {
   return <div className="tab-content-panel">{children}</div>
 }
 

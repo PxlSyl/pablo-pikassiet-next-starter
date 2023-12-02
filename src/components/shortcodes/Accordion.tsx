@@ -2,15 +2,13 @@
 
 import React, { useState } from 'react'
 
-const Accordion = ({
-  title,
-  children,
-  className,
-}: {
+type AccordionProps = {
   title: string
   children: React.ReactNode
   className?: string
-}) => {
+}
+
+const Accordion = ({ title, children, className }: AccordionProps) => {
   const [show, setShow] = useState(false)
 
   return (

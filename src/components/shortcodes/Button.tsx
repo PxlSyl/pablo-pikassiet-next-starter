@@ -1,16 +1,13 @@
 import Link from 'next/link'
 
-const Button = ({
-  label,
-  link,
-  style,
-  rel,
-}: {
+type ButtonProps = {
   label: string
   link: string
   style?: string
   rel?: string
-}) => {
+}
+
+const Button = ({ label, link, style, rel }: ButtonProps) => {
   return (
     <Link
       href={link}

@@ -2,7 +2,11 @@
 
 import { KeyboardEvent, ReactElement, RefObject, useEffect, useRef, useState } from 'react'
 
-function Tabs({ children }: { children: ReactElement[] }) {
+type TabsProps = {
+  children: ReactElement[]
+}
+
+function Tabs({ children }: TabsProps) {
   const [active, setActive] = useState(0)
   //select tabItems
   const tabItemsRef: RefObject<HTMLElement[]> = useRef([])
