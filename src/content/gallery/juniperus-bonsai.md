@@ -1,6 +1,6 @@
 ---
 draft: false
- fileName: 'JupinerusBonsai'
+fileName: 'JupinerusBonsai'
 serie: 'Bonsai'
 tags: ['Bonsai', 'Tree']
 name: 'Juniper bonsai'

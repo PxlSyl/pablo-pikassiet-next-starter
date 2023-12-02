@@ -11,8 +11,8 @@ import 'swiper/css/pagination'
 
 SwiperCore.use([EffectCoverflow, Pagination])
 
-interface ImageDataProps {
-  href: boolean
+interface Frontmatter {
+  draft?: boolean
   fileName: string
   serie: string
   tags: string[]
@@ -22,8 +22,14 @@ interface ImageDataProps {
   height: number
 }
 
+interface MDFile {
+  frontmatter: Frontmatter
+  slug: string
+  content: string
+}
+
 type ImageSliderProps = {
-  imageData: ImageDataProps[]
+  imageData: MDFile[]
   portraitDimensions: { width: number; height: number }
   landscapeDimensions: { width: number; height: number }
   selectedSerie: string
@@ -40,100 +46,115 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
   selectTag,
 }) => {
   const filteredImages = useMemo(() => {
-    return imageData.filter((image) => {
-      if (selectedSerie && selectedSerie !== image.serie) {
-        return false
+    // Create a Set to store unique image file names
+    const uniqueFileNames = new Set<string>()
+
+    // Iterate through the images and add unique file names to the Set
+    imageData.forEach((image) => {
+      // Check if image.frontmatter is defined
+      if (image.frontmatter) {
+        // Check if the image satisfies the conditions
+        if (
+          (!selectedSerie || selectedSerie === image.frontmatter.serie) &&
+          (!selectedTags.length ||
+            (image.frontmatter.tags &&
+              image.frontmatter.tags.some((tag) => selectedTags.includes(tag))))
+        ) {
+          // Add the fileName to the Set
+          uniqueFileNames.add(image.frontmatter.fileName)
+        }
       }
-      if (selectedTags.length > 0 && !image.tags.some((tag) => selectedTags.includes(tag))) {
-        return false
-      }
-      return true
     })
+
+    // Create an object to store images with unique keys (e.g., fileName)
+    const imageMap: { [key: string]: MDFile } = {}
+
+    // Populate the imageMap with images from imageData
+    imageData.forEach((image) => {
+      // Check if image.frontmatter is defined
+      if (image.frontmatter) {
+        // Use the fileName as a unique key in the imageMap
+        imageMap[image.frontmatter.fileName] = image
+      }
+    })
+
+    // Convert the Set to an array of images
+    const resultImages = Array.from(uniqueFileNames).map((fileName) => imageMap[fileName])
+
+    return resultImages
   }, [imageData, selectedSerie, selectedTags])
 
   const slides = filteredImages
-    .sort((a, b) => a.fileName.localeCompare(b.fileName))
-    .map(
-      (image: {
-        href: boolean
-        fileName: string
-        name: string
-        description: string
-        tags: string[]
-        width: number
-        height: number
-      }) => {
-        const isPortrait = image.height > image.width
+    .sort((a, b) => {
+      // Perform null checks before accessing fileName
+      const fileNameA = a.frontmatter?.fileName || ''
+      const fileNameB = b.frontmatter?.fileName || ''
 
-        const { width, height } = isPortrait ? portraitDimensions : landscapeDimensions
+      return fileNameA.localeCompare(fileNameB)
+    })
+    .map((image) => {
+      const isPortrait = image.frontmatter.height > image.frontmatter.width
 
-        const slideStyle = {
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-        }
+      const { width, height } = isPortrait ? portraitDimensions : landscapeDimensions
 
-        return (
-          <SwiperSlide
-            key={image.fileName}
-            style={{
-              ...slideStyle,
-              width: `${width}px`,
-              height: `${height}px`,
-            }}
-          >
-            <div className="relative transition duration-500 sm:hover:scale-105">
-              {image.href === true ? (
-                <Link
-                  href={{
-                    pathname: `/drawings/image/${image.fileName}`,
-                    query: {
-                      fileName: image.fileName,
-                      name: image.name,
-                      description: image.description,
-                      width: width,
-                      height: height,
-                    },
-                  }}
-                  passHref
-                  aria-label={image.name}
-                >
-                  <Image
-                    src={`/Images/drawings/${image.fileName}.jpg`}
-                    alt=""
-                    width={width}
-                    height={height}
-                  />
-                </Link>
-              ) : (
+      const slideStyle = {
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+      }
+
+      return (
+        <SwiperSlide
+          key={image.frontmatter.fileName}
+          style={{
+            ...slideStyle,
+            width: `${width}px`,
+            height: `${height}px`,
+          }}
+        >
+          <div className="relative transition duration-500 sm:hover:scale-105">
+            {image.frontmatter.draft === false ? (
+              <Link
+                href={{
+                  pathname: `/drawings/${image.slug}`,
+                }}
+                aria-label={image.frontmatter.name}
+              >
                 <Image
-                  src={`/Images/drawings/${image.fileName}.jpg`}
+                  src={`/Images/drawings/${image.frontmatter.fileName}.jpg`}
                   alt=""
                   width={width}
                   height={height}
                 />
-              )}
-              <div className="absolute left-0 top-2 bg-transparent text-black">
-                {image.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    onClick={() => selectTag(tag)}
-                    className={`mx-1 block rounded-lg px-1 shadow-lg 
+              </Link>
+            ) : (
+              <Image
+                src={`/Images/drawings/${image.frontmatter.fileName}.jpg`}
+                alt=""
+                width={width}
+                height={height}
+              />
+            )}
+            <div className="absolute left-0 top-2 bg-transparent text-black">
+              {image.frontmatter.tags.map((tag) => (
+                <span
+                  key={tag}
+                  onClick={() => selectTag(tag)}
+                  className={`mx-1 block rounded-lg px-1 shadow-lg 
                                 ${
                                   selectedTags.includes(tag)
                                     ? 'bg-gray-900 text-white'
                                     : 'bg-gray-200 text-black'
                                 }`}
-                    style={{ marginBottom: '4px' }}
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
+                  style={{ marginBottom: '4px' }}
+                >
+                  #{tag}
+                </span>
+              ))}
             </div>
-          </SwiperSlide>
-        )
-      }
-    )
+          </div>
+        </SwiperSlide>
+      )
+    })
 
   const swiperStyle = {
     width: '100%',

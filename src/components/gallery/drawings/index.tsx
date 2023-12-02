@@ -1,29 +1,18 @@
 'use client'
 
-import { useMemo } from 'react'
-// import { ImgMenu } from '@/components/gallery/ImgMenu'
 import { ImageSlider } from '@/components/gallery/drawings/imageSlider'
-import { imageFileNames } from '@/config/galleryData'
+
 import { Sidebar } from '@/components/gallery/drawings/sidebar'
 import { useWindowWidth } from '@/hooks/useWindowWidth'
 import { useGalleryStore } from '@/components/gallery/drawings/store'
 
-const Gallery = () => {
+const Gallery = ({ galleryData, allSerie, allTags }) => {
   const { isOpen, setIsOpen, selectedSerie, selectSeries, selectedTags, selectTag } =
     useGalleryStore()
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
   const windowWidth = useWindowWidth()
-
-  const allSerie: string[] = useMemo(
-    () => Array.from(new Set(imageFileNames.flatMap((image) => image.serie))).sort(),
-    [imageFileNames]
-  )
-  const allTags: string[] = useMemo(
-    () => Array.from(new Set(imageFileNames.flatMap((image) => image.tags))).sort(),
-    [imageFileNames]
-  )
 
   const isNotMobile = windowWidth > 768
   const portraitDimensions = { width: isNotMobile ? 300 : 225, height: isNotMobile ? 400 : 300 }
@@ -43,7 +32,7 @@ const Gallery = () => {
       />
       <div className="mt-20 w-screen">
         <ImageSlider
-          imageData={imageFileNames}
+          imageData={galleryData}
           portraitDimensions={portraitDimensions}
           landscapeDimensions={landscapeDimensions}
           selectedSerie={selectedSerie}

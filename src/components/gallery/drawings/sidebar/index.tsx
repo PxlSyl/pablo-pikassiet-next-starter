@@ -52,19 +52,20 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <p className="mb-2 mt-2 w-full rounded-md bg-highlighted px-4 py-1 text-lg font-medium text-white dark:bg-darkmode-highlighted">
               Serie:
             </p>
-            {allSerie.map((serie, index) => (
-              <button
-                key={index}
-                className={`m-1 block rounded-lg px-2 shadow-lg hover:bg-highlighted hover:text-white dark:hover:bg-darkmode-highlighted ${
-                  selectedSerie.includes(serie)
-                    ? 'bg-highlighted text-white dark:bg-darkmode-highlighted'
-                    : 'bg-gray-200 text-black'
-                }`}
-                onClick={() => selectSeries(serie)}
-              >
-                {serie}
-              </button>
-            ))}
+            {Array.isArray(allSerie) &&
+              allSerie.map((serie, index) => (
+                <button
+                  key={index}
+                  className={`m-1 block rounded-lg px-2 shadow-lg hover:bg-highlighted hover:text-white dark:hover:bg-darkmode-highlighted ${
+                    selectedSerie.includes(serie)
+                      ? 'bg-highlighted text-white dark:bg-darkmode-highlighted'
+                      : 'bg-gray-200 text-black'
+                  }`}
+                  onClick={() => selectSeries(serie)}
+                >
+                  {serie}
+                </button>
+              ))}
             <p className=" mb-2 mt-2 w-full rounded-md bg-highlighted px-4 py-1 text-lg font-medium text-white dark:bg-darkmode-highlighted">
               Tags:
             </p>
