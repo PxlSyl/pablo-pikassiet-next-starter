@@ -10,7 +10,7 @@ type AudioplayerProps = {
 const Audioplayer = ({ src }: AudioplayerProps) => {
   return (
     <div>
-      <AudioPlayer src={src} />
+      <AudioPlayer className="rounded-md" src={src} />
     </div>
   )
 }
