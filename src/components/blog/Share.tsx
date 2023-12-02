@@ -7,17 +7,9 @@ import {
   IoLogoTwitter,
 } from 'react-icons/io5/index.js'
 
-const Share = ({
-  title,
-  description,
-  slug,
-  className,
-}: {
-  title: string
-  description?: string
-  slug: string
-  className?: string
-}) => {
+type ShareProps = { title: string; description?: string; slug: string; className?: string }
+
+const Share = ({ title, description, slug, className }: ShareProps) => {
   return (
     <ul className={className}>
       <li className="inline-block">

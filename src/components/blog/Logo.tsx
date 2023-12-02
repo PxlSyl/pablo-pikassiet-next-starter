@@ -8,7 +8,9 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Logo = ({ src }: { src?: string }) => {
+type LogoProps = { src?: string }
+
+const Logo = ({ src }: LogoProps) => {
   // destructuring items from config object
   const { logo, logo_darkmode, logo_width, logo_height, logo_text, title } = siteMetadata
 
