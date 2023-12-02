@@ -34,18 +34,18 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
     const uniqueFileNames = new Set<string>()
 
     // Iterate through the images and add unique file names to the Set
-    imageData.forEach((image) => {
+    imageData.forEach((img) => {
       // Check if image.frontmatter is defined
-      if (image.frontmatter) {
+      if (img.frontmatter) {
         // Check if the image satisfies the conditions
         if (
-          (!selectedSerie || selectedSerie === image.frontmatter.serie) &&
+          (!selectedSerie || selectedSerie === img.frontmatter.serie) &&
           (!selectedTags.length ||
-            (image.frontmatter.tags &&
-              image.frontmatter.tags.some((tag) => selectedTags.includes(tag))))
+            (img.frontmatter.tags &&
+              img.frontmatter.tags.some((tag) => selectedTags.includes(tag))))
         ) {
           // Add the fileName to the Set
-          uniqueFileNames.add(image.frontmatter.image)
+          uniqueFileNames.add(img.frontmatter.image)
         }
       }
     })
@@ -54,11 +54,11 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
     const imageMap: { [key: string]: ImgData } = {}
 
     // Populate the imageMap with images from imageData
-    imageData.forEach((image) => {
+    imageData.forEach((img) => {
       // Check if image.frontmatter is defined
-      if (image.frontmatter) {
+      if (img.frontmatter) {
         // Use the fileName as a unique key in the imageMap
-        imageMap[image.frontmatter.image] = image
+        imageMap[img.frontmatter.image] = img
       }
     })
 
@@ -76,8 +76,8 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
 
       return fileNameA.localeCompare(fileNameB)
     })
-    .map((image) => {
-      const isPortrait = image.frontmatter.height > image.frontmatter.width
+    .map((img) => {
+      const isPortrait = img.frontmatter.height > img.frontmatter.width
 
       const { width, height } = isPortrait ? portraitDimensions : landscapeDimensions
 
@@ -88,7 +88,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
 
       return (
         <SwiperSlide
-          key={image.frontmatter.image}
+          key={img.frontmatter.image}
           style={{
             ...slideStyle,
             width: `${width}px`,
@@ -96,20 +96,20 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
           }}
         >
           <div className="relative transition duration-500 sm:hover:scale-105">
-            {image.frontmatter.draft === false ? (
+            {img.frontmatter.draft === false ? (
               <Link
                 href={{
-                  pathname: `/drawings/${image.slug}`,
+                  pathname: `/drawings/${img.slug}`,
                 }}
-                aria-label={image.frontmatter.title}
+                aria-label={img.frontmatter.title}
               >
-                <Image src={`${image.frontmatter.image}`} alt="" width={width} height={height} />
+                <Image src={`${img.frontmatter.image}`} alt="" width={width} height={height} />
               </Link>
             ) : (
-              <Image src={`${image.frontmatter.image}`} alt="" width={width} height={height} />
+              <Image src={`${img.frontmatter.image}`} alt="" width={width} height={height} />
             )}
             <div className="absolute left-0 top-2 bg-transparent text-black">
-              {image.frontmatter.tags.map((tag) => (
+              {img.frontmatter.tags.map((tag) => (
                 <span
                   key={tag}
                   onClick={() => selectTag(tag)}
