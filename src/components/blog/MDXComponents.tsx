@@ -9,12 +9,10 @@ import Tabs from '../shortcodes/Tabs'
 import Video from '../shortcodes/Video'
 import Youtube from '../shortcodes/Youtube'
 
-import type { MDXComponents } from 'mdx/types'
-
 import Image from './Image'
 import CustomLink from './Link'
 
-export const components: MDXComponents = {
+export const components = {
   Image,
   TOCInline,
   a: CustomLink,
