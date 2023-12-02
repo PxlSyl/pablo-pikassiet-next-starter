@@ -10,7 +10,7 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
-import { CategoryLink } from '@/components/partials/PostSidebar/CategoryLink'
+import { CategoryLink } from '@/components/blog/PostSidebar/CategoryLink'
 
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 

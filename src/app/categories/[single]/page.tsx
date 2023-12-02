@@ -11,7 +11,7 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 
 import PageHeader from '@/components/partials/PageHeader'
-import { CategoryLink } from '@/components/partials/PostSidebar/CategoryLink'
+import { CategoryLink } from '@/components/blog/PostSidebar/CategoryLink'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'

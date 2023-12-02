@@ -3,7 +3,7 @@ import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
-import PostSidebar from '@/components/partials/PostSidebar'
+import PostSidebar from '@/components/blog/PostSidebar'
 
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'

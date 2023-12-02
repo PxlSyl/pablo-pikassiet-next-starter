@@ -8,7 +8,7 @@ import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 import PageHeader from '@/components/partials/PageHeader'
-import { TagLink } from '@/components/partials/PostSidebar/TagLink'
+import { TagLink } from '@/components/blog/PostSidebar/TagLink'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'

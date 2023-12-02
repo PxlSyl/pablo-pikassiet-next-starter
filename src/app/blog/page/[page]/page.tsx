@@ -4,7 +4,7 @@ import { genPageMetadata } from '@/app/seo'
 import BlogCard from '@/components/blog/BlogCard'
 import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
-import PostSidebar from '@/components/partials/PostSidebar'
+import PostSidebar from '@/components/blog/PostSidebar'
 
 import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
