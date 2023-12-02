@@ -2,7 +2,6 @@
 const siteMetadata = {
   title: 'Pablo Pikassiet',
   author: 'Pablo Pikassiet',
-  headerTitle: 'TailwindBlog',
   description: 'An amazing Next.js template for creative people',
 
   base_url: 'https://nextplate.netlify.app',
@@ -23,12 +22,6 @@ const siteMetadata = {
 
   socialBanner: '/static/images/twitter-card.png',
   locale: 'en',
-
-  metadata: {
-    meta_author: 'Themefisher',
-    meta_image: '/images/og-image.png',
-    meta_description: 'Next Boilerplate',
-  },
 
   analytics: {
     // If you want to use an analytics provider you have to add it to the
