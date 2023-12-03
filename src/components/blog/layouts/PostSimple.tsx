@@ -7,7 +7,7 @@ import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
 import { FaRegUserCircle } from 'react-icons/fa'
-import { FaRegFolder, FaRegClock } from 'react-icons/fa6'
+import { FaRegFolder, FaRegClock, FaTags } from 'react-icons/fa6'
 
 import Comments from '../Comments'
 import Link from '../Link'
@@ -31,7 +31,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
   return (
     <>
       <ScrollTopAndComment scrollToComment={true} />
-      <section className="section pt-7">
+      <section className="section mt-20 pt-7">
         <div className="container">
           <div className="row justify-center">
             {image && (
@@ -103,7 +103,8 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       ))}
                     </li>
                     <li className="mr-4 inline-block">
-                      {tags?.map((tag: string, index: number) => (
+                      <FaTags className={'-mt-1 mr-2 inline-block'} />
+                      {tags?.map((tag: string) => (
                         <Link
                           className="mx-1 text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                           key={tag}

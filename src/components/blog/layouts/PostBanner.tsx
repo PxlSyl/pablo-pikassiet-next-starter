@@ -38,7 +38,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
   return (
     <>
       <ScrollTopAndComment scrollToComment={true} />
-      <section className="section pt-7">
+      <section className="section mt-20 pt-7">
         <div className="container">
           <div className="row justify-center">
             <article>
@@ -46,9 +46,16 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                 <div className="space-y-1 pb-10 text-center dark:border-gray-700">
                   <div className="w-full">
                     <Bleed>
-                      <div className="relative aspect-[2/1] w-full">
-                        <ImageFallback src={image} alt={title} fill className="object-cover" />
-                      </div>
+                      {image && (
+                        <div className="relative aspect-[2/1] w-full">
+                          <ImageFallback
+                            src={image}
+                            alt={title}
+                            fill
+                            className="rounded object-cover"
+                          />
+                        </div>
+                      )}
                     </Bleed>
                   </div>
                   <div className="relative mb-3 pt-10">

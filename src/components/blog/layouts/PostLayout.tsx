@@ -41,7 +41,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
   return (
     <>
       <ScrollTopAndComment scrollToComment={true} />
-      <section className="section pt-7">
+      <section className="section mt-20 pt-7">
         <div className="container">
           <div className="row justify-center">
             {image && (
@@ -80,7 +80,9 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                 </header>
                 <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
                   <div>
-                    <h5 className="mb-3 mr-3 mt-3">Share :</h5>
+                    <h5 className="mb-3 mr-3 mt-3 text-highlighted dark:text-darkmode-highlighted">
+                      Share :
+                    </h5>
                     <Share
                       className="social-icons flex items-center"
                       title={title}

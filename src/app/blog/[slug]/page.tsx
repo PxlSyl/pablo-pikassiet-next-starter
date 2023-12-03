@@ -5,6 +5,8 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import siteMetadata from '@/config/siteMetadata'
+
+import { MDXComponents } from 'mdx/types'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
 import similerItems from '@/lib/utils/similarItems'
@@ -18,13 +20,12 @@ import PostSimple from '@/components/blog/layouts/PostSimple'
 import PostLayout from '@/components/blog/layouts/PostLayout'
 import PostBanner from '@/components/blog/layouts/PostBanner'
 import BlogCard from '@/components/blog/BlogCard'
-import { MDXComponents } from 'mdx/types'
 
 interface PageProps {
   params: { slug: string[] }
 }
 
-const defaultLayout = 'PostDefault'
+const defaultLayout = 'PostSimple'
 
 const layouts: { [key: string]: React.ComponentType<any> } = {
   PostDefault,

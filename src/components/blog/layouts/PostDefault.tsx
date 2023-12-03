@@ -35,7 +35,7 @@ const PostDefault = ({ children, content }: LayoutProps) => {
   return (
     <>
       <ScrollTopAndComment scrollToComment={true} />
-      <section className="section pt-7">
+      <section className="section mt-20 pt-7">
         <div className="container">
           <div className="row justify-center">
             <article className="lg:col-10">
