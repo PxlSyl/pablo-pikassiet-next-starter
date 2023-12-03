@@ -11,6 +11,7 @@
     "postbuild": "next-sitemap",
     "lint": "next lint",
     "format": "prettier -w ./src",
+    "music": "node ./scripts/musicData.mjs",
     "generate-json": "node scripts/jsonGenerator.js",
     "remove-darkmode": "node scripts/removeDarkmode.js && yarn format"
   },
