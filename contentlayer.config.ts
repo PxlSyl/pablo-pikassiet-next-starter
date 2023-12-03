@@ -96,7 +96,6 @@ export const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: '**/*.*',
   contentType: 'mdx',
-  exclude: ['_index.md'],
   fields: {
     title: { type: 'string', required: true },
     meta_title: { type: 'string' },
