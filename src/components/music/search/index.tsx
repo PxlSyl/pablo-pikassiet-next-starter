@@ -1,15 +1,10 @@
-import { useDarkMode } from '@/hooks/useDarkmode'
-
 type SearchProps = {
   isSearch: boolean
   handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Search = ({ isSearch, handleSearchChange }: SearchProps): JSX.Element | null => {
-  const { theme, mounted } = useDarkMode()
-  if (!mounted) return null
-
-  const bgClass = theme === 'light' ? 'bg-white' : 'bg-gray-800'
+  const bgClass = 'bg-white dark:bg-gray-800'
 
   return (
     <>

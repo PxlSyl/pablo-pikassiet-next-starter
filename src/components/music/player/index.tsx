@@ -56,9 +56,9 @@ export const Player: React.FC<PlayerProps> = ({
   const { theme, mounted } = useDarkMode()
   if (!mounted) return null
 
-  const containerClass = `${theme === 'light' ? 'bg-gray-200' : 'bg-gray-700'}`
-  const progressbarClass = `${theme === 'light' ? 'bg-gray-300' : 'bg-white'}`
-  const volumebarClass = `${theme === 'light' ? 'bg-gray-300' : 'bg-white'}`
+  const containerClass = 'bg-gray-200 dark:bg-gray-700'
+  const progressbarClass = 'bg-gray-300 dark:bg-white'
+  const volumebarClass = 'bg-gray-300 dark:bg-white'
   const sliderthumbclass = ` ${theme === 'light' ? 'background: #70abf8' : 'background: #70abf8'}`
 
   return (

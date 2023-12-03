@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useDarkMode } from '@/hooks/useDarkmode'
 import { MenuItems } from './menuItems'
 import { defaultClass, selectedClass } from '../styles'
 import styles from './index.module.css'
@@ -44,10 +43,7 @@ export const Sidebar = ({
     setIsFull(true)
   }
 
-  const { theme, mounted } = useDarkMode()
-  if (!mounted) return null
-
-  const musicMenuStyles = `${theme === 'light' ? 'bg-gray-200' : 'bg-gray-700'}`
+  const musicMenuStyles = 'bg-gray-200 dark:bg-gray-700'
 
   const genres = Array.from(
     new Set(musics.filter((music) => music.genre).map((music) => music.genre))
@@ -68,7 +64,7 @@ export const Sidebar = ({
 
   return (
     <>
-      <div className="hamburger_position">
+      <div className="fixed bottom-[40px] left-[20px] z-[12] h-[30px] w-[30px]">
         <input
           type="checkbox"
           aria-label="Music menu"

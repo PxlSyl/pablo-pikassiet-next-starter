@@ -22,7 +22,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       <div className="fixed bottom-0 left-0 z-[12] h-[80px] w-[80px] rounded-tr-lg bg-highlighted dark:bg-darkmode-highlighted">
-        <div className="hamburger_position rounded-full">
+        <div className="fixed bottom-[20px] left-[20px] z-[12] h-[30px] w-[30px]">
           <input
             type="checkbox"
             aria-label="Music menu"
