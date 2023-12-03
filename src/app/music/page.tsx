@@ -1,7 +1,10 @@
 import PageHeader from '@/components/partials/PageHeader'
 import MusicPlayer from './music'
+import { genPageMetadata } from '../seo'
 
-export default function Music(): JSX.Element {
+export const metadata = genPageMetadata({ title: 'Music' })
+
+const Music = () => {
   return (
     <>
       <PageHeader title={'Music'} />
@@ -9,3 +12,4 @@ export default function Music(): JSX.Element {
     </>
   )
 }
+export default Music
