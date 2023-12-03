@@ -25,8 +25,8 @@ export const MusicCardPlaying = ({
   return (
     <>
       {musicId === id && (
-        <div className="grid max-h-[600px] w-3/4 grid-cols-2 items-center justify-between border p-4 pr-10">
-          <div className="mb-5 mr-5 flex min-w-[280px] cursor-pointer flex-col items-center justify-center p-5">
+        <div className=" flex flex-col items-center justify-center p-4 pr-10 lg:grid lg:grid-cols-2">
+          <div className="m-2 flex h-[250px] min-w-[280px] cursor-pointer flex-col items-center justify-center rounded border p-5 shadow-lg dark:border-none">
             <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-full">
               <div className={`${isPlaying ? 'animate-spin' : ''}`}>
                 <Image
@@ -39,7 +39,7 @@ export const MusicCardPlaying = ({
               </div>
             </div>
           </div>
-          <div>
+          <div className="m-2 flex h-[250px] min-w-[280px] flex-col justify-center rounded border p-5 shadow-lg dark:border-none">
             <div>
               <p className="mr-1 inline-block text-highlighted dark:text-darkmode-highlighted">
                 Title:
