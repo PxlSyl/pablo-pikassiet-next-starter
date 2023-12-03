@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useWindowWidth } from '@/components/hooks/useWindowWidth'
+import { useWindowWidth } from '@/hooks/useWindowWidth'
 import { EffectCoverflow, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore from 'swiper'
