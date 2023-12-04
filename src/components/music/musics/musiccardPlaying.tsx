@@ -7,6 +7,8 @@ interface MusicCardPlayingProps {
   img: string
   title: string
   author: string
+  album: string
+  year: string
   audio: string
   genre: string
 }
@@ -17,9 +19,11 @@ export const MusicCardPlaying = ({
   img,
   title,
   author,
+  album,
+  year,
   genre,
   audio,
-}: MusicCardPlayingProps): JSX.Element => {
+}: MusicCardPlayingProps) => {
   const { isPlaying } = useMusicstate()
 
   return (
@@ -60,21 +64,15 @@ export const MusicCardPlaying = ({
             </div>
             <div>
               <p className="mr-1 inline-block text-highlighted dark:text-darkmode-highlighted">
-                Composer:{' '}
-              </p>
-              <span></span>
-            </div>
-            <div>
-              <p className="mr-1 inline-block text-highlighted dark:text-darkmode-highlighted">
                 Album:{' '}
               </p>
-              <span></span>
+              <span>{album}</span>
             </div>
             <div>
               <p className="mr-1 inline-block text-highlighted dark:text-darkmode-highlighted">
                 Year:{' '}
               </p>
-              <span></span>
+              <span>{year}</span>
             </div>
           </div>
         </div>

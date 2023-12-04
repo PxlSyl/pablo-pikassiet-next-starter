@@ -14,9 +14,11 @@ interface Music {
   id: number
   image: string
   title: string
-  author: string
-  url: string
   genre: string
+  author: string
+  album: string
+  year: string
+  url: string
 }
 
 const MemoizedMusics = React.memo(Musics)
@@ -72,7 +74,7 @@ export default function MusicPlayer(): JSX.Element {
 
   return (
     <>
-      <div className="mx-auto mt-20 max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div className="mx-auto mt-10 max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <div className="mb-10 flex flex-wrap justify-center">
           {musics &&
             musics.map((musicplaying) => (
@@ -84,6 +86,8 @@ export default function MusicPlayer(): JSX.Element {
                 title={musicplaying.title}
                 author={musicplaying.author}
                 genre={musicplaying.genre}
+                album={musicplaying.album}
+                year={musicplaying.year}
                 audio={musicplaying.url}
               />
             ))}

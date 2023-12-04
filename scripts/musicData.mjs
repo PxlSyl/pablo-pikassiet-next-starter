@@ -1,34 +1,31 @@
 // node ./scripts/musicData.mjs
 import fs from 'fs/promises'
 import path from 'path'
-import jsmediatags from 'jsmediatags'
+import mm from 'music-metadata'
 
 async function extractMetadata(filePath) {
-  return new Promise((resolve, reject) => {
-    jsmediatags.read(filePath, {
-      onSuccess: (tag) => {
-        const { tags } = tag
-        const common = {
-          title: tags.title || path.basename(filePath, path.extname(filePath)),
-          author: tags.artist || '',
-          genre: tags.genre || '',
-          image: tags.picture.data,
-          url: '',
-        }
+  const metadata = await mm.parseFile(filePath)
+  const common = {
+    title: metadata.common.title || path.basename(filePath, path.extname(filePath)),
+    author: metadata.common.artist || '',
+    genre: metadata.common.genre ? metadata.common.genre.join(', ') : '',
+    album: metadata.common.album || '',
+    year: metadata.common.year || '',
+    image: metadata.common.picture ? metadata.common.picture[0].data : null,
+    url: '',
+  }
 
-        resolve(common)
-      },
-      onError: (error) => {
-        reject(error)
-      },
-    })
-  })
+  return common
 }
 
 async function saveImage(song, coverBuffer) {
+  if (!coverBuffer) {
+    return '/defaultcover/cover.jpg'
+  }
+
   const imageFileName = `song_${song.title}.jpg`
   const imagePath = path.join(process.cwd(), 'public', 'songs_images', imageFileName)
-  await fs.writeFile(imagePath, Buffer.from(coverBuffer))
+  await fs.writeFile(imagePath, coverBuffer)
   return `/songs_images/${imageFileName}`
 }
 
@@ -43,11 +40,7 @@ async function saveImage(song, coverBuffer) {
         const filePath = path.join(songsPath, file)
         const songData = await extractMetadata(filePath)
 
-        let image = '/defaultcover/cover.jpg'
-
-        if (songData.image) {
-          image = await saveImage(songData, songData.image)
-        }
+        const image = await saveImage(songData, songData.image)
 
         const songId = index + 1
 
@@ -56,6 +49,8 @@ async function saveImage(song, coverBuffer) {
           title: songData.title,
           genre: songData.genre,
           author: songData.author,
+          album: songData.album,
+          year: songData.year,
           url: `/songs/${file}`,
           image,
         }
