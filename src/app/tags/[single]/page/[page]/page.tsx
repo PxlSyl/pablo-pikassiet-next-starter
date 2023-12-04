@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import siteMetadata from '@/config/siteMetadata'
-import tagData from '@/app/tag-data.json'
+import tagData from '@/config/data/tag-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
 import taxonomyFilter from '@/lib/utils/taxonomyFilter'

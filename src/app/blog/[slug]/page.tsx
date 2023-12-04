@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import siteMetadata from '@/config/siteMetadata'
+import { defaultLayout } from '@/config/defaultLayout'
 
 import { MDXComponents } from 'mdx/types'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
@@ -24,8 +25,6 @@ import BlogCard from '@/components/blog/BlogCard'
 interface PageProps {
   params: { slug: string[] }
 }
-
-const defaultLayout = 'PostSimple'
 
 const layouts: { [key: string]: React.ComponentType<any> } = {
   PostDefault,

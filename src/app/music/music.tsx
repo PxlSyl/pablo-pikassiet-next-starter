@@ -1,6 +1,6 @@
 'use client'
 
-import musicData from '../musicData.json'
+import musicData from '../../config/data/music-data.json'
 
 import React, { useCallback, useEffect, useState } from 'react'
 

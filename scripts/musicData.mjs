@@ -65,9 +65,9 @@ async function saveImage(song, coverBuffer) {
       const totalMP3Files = files.length
 
       const result = { songs, totalMP3Files }
-      await fs.writeFile('./src/app/musicData.json', JSON.stringify(result, null, 2))
+      await fs.writeFile('./src/config/data/music-data.json', JSON.stringify(result, null, 2))
 
-      console.log(`Results for musicData written.`)
+      console.log(`Results for music-data.json written.`)
     }
   } catch (error) {
     console.error('Error:', error)

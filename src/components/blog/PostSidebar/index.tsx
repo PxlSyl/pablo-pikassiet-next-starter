@@ -1,7 +1,7 @@
 import { sortData } from '@/lib/utils/sortData'
 
-import tagData from '@/app/tag-data.json'
-import categoryData from '@/app/category-data.json'
+import tagData from '@/config/data/tag-data.json'
+import categoryData from '@/config/data/category-data.json'
 
 import { CategoryLink } from './CategoryLink'
 import { TagLink } from './TagLink'

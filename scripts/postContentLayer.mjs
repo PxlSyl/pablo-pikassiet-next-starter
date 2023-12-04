@@ -26,7 +26,8 @@ export async function createCategoryCount() {
       })
     }
   })
-  writeFileSync('./src/app/category-data.json', JSON.stringify(categoryCount))
+  writeFileSync('./src/config/data/category-data.json', JSON.stringify(categoryCount))
+  console.log(`Results for category-data.json written.`)
 }
 
 export async function createTagCount() {
@@ -43,7 +44,8 @@ export async function createTagCount() {
       })
     }
   })
-  writeFileSync('./src/app/tag-data.json', JSON.stringify(tagCount))
+  writeFileSync('./src/config/data/tag-data.json', JSON.stringify(tagCount))
+  console.log(`Results for tag-data.json written.`)
 }
 
 export async function createSearchIndex() {

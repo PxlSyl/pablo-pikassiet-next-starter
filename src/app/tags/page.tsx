@@ -1,4 +1,4 @@
-import tagData from '@/app/tag-data.json'
+import tagData from '@/config/data/tag-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 import { genPageMetadata } from '../seo'
 

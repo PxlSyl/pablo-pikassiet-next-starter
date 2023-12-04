@@ -236,4 +236,4 @@ export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-GDMF3WTA.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-5XAV43CK.mjs.map

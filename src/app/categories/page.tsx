@@ -1,4 +1,4 @@
-import categoryData from '@/app/category-data.json'
+import categoryData from '@/config/data/category-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 import { genPageMetadata } from '../seo'
 

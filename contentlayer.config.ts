@@ -59,7 +59,8 @@ function createCategoryCount(allBlogs) {
       })
     }
   })
-  writeFileSync('./app/category-data.json', JSON.stringify(categoryCount))
+  writeFileSync('./config/data/category-data.json', JSON.stringify(categoryCount))
+  console.log('Results for category-data.json written.')
 }
 
 function createTagCount(allBlogs) {
@@ -76,7 +77,8 @@ function createTagCount(allBlogs) {
       })
     }
   })
-  writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
+  writeFileSync('./config/data/tag-data.json', JSON.stringify(tagCount))
+  console.log('Results for tag-data.json written.')
 }
 
 function createSearchIndex(allBlogs) {
