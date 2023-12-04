@@ -30,7 +30,8 @@ const tags = () => {
       <div className="mb-20 flex flex-row justify-center">
         <div className="mt-20 flex flex-col">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
-            <ul className="space-y-4">
+            <h3 className="mb-4 text-highlighted dark:text-darkmode-highlighted">All posts</h3>
+            <ul className="ml-2 space-y-4">
               {sortedTags.map((tag: string) => (
                 <TagLink key={tag} tag={tag} count={tagCounts[tag]} />
               ))}

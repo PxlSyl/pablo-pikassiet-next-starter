@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Metadata } from 'next'
 import siteMetadata from '@/config/siteMetadata'
 import tagData from '@/config/data/tag-data.json'
@@ -82,7 +83,12 @@ const TagSingle = ({ params }: { params: { single: string; page: number } }) => 
       <div className="mb-20 flex flex-row justify-center">
         <div className="mb-4 mt-20 flex flex-col">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
-            <ul className="space-y-4">
+            <Link href="/tags">
+              <h3 className="mb-4 hover:text-highlighted dark:hover:text-darkmode-highlighted">
+                All posts
+              </h3>
+            </Link>
+            <ul className="ml-2 space-y-4">
               {sortedTags.map((tag: string) => (
                 <TagLink
                   className={params.single === tag ? 'text-highlighted' : ''}
