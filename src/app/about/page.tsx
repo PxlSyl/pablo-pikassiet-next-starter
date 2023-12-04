@@ -4,6 +4,7 @@ import siteMetadata from '@/config/siteMetadata'
 
 import ImageFallback from '@/components/helpers/ImageFallback'
 import MDXContent from '@/components/helpers/MDXContent'
+import PageHeader from '@/components/partials/PageHeader'
 import { getListPage } from '@/lib/contentParser'
 import { markdownify } from '@/lib/utils/textConverter'
 
@@ -42,6 +43,7 @@ const About = () => {
 
   return (
     <>
+      <PageHeader title="About" />
       <section className="section-sm">
         <div className="container">
           <div className="row justify-center">

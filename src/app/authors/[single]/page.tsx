@@ -4,6 +4,7 @@ import siteMetadata from '@/config/siteMetadata'
 
 import ImageFallback from '@/components/helpers/ImageFallback'
 import MDXContent from '@/components/helpers/MDXContent'
+import PageHeader from '@/components/partials/PageHeader'
 import Social from '@/components/blog/Social'
 
 import { getSinglePage } from '@/lib/contentParser'
@@ -63,6 +64,7 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
 
   return (
     <>
+      <PageHeader title="Authors" />
       <section className="section-sm pb-0">
         <div className="container">
           <div className="row justify-center border-b border-border pb-14 dark:border-darkmode-border">
