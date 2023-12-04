@@ -20,7 +20,7 @@ export const Search = ({ isSearch, handleSearchChange }: SearchProps): JSX.Eleme
               type="text"
               className={`${bgClass} mx-auto my-2 mt-10 w-1/2 cursor-pointer rounded border-gray-300 px-3 py-[0.32rem] leading-[1.6] outline-none`}
             />
-            <div className="text-sm">Search for music name or genre </div>
+            <div className="text-sm">Search for artist, track or genre </div>
           </div>
         </>
       )}

@@ -43,7 +43,7 @@ export const Sidebar = ({
     setIsFull(true)
   }
 
-  const musicMenuStyles = 'bg-gray-200 dark:bg-gray-700'
+  const musicMenuStyles = 'bg-gray-200 dark:bg-darkmode-body'
 
   const genres = Array.from(
     new Set(musics.filter((music) => music.genre).map((music) => music.genre))
@@ -64,7 +64,7 @@ export const Sidebar = ({
 
   return (
     <>
-      <div className="fixed bottom-[40px] left-[20px] z-[12] h-[30px] w-[30px]">
+      <div className="fixed bottom-[32px] left-[20px] z-[12] flex h-[50px] w-[50px] items-center justify-center rounded-xl bg-blue-400">
         <input
           type="checkbox"
           aria-label="Music menu"
@@ -84,7 +84,7 @@ export const Sidebar = ({
       <div className={`${musicMenuStyles} ${isOpen ? styles.navmenuactive : styles.navmenu}`}>
         <div className="mt-6" />
         <MenuItems selectedItem={selectedItem} handleSelect={handleSelect} />
-        <div className="mb-2 ml-2 border-t pt-2 text-lg uppercase">Genres:</div>
+        <div className="mb-2 ml-2 pt-2 text-lg uppercase">Genres:</div>
         <div className="ml-6 cursor-pointer">{genreElements}</div>
       </div>
     </>
