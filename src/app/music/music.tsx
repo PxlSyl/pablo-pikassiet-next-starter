@@ -77,18 +77,18 @@ export default function MusicPlayer(): JSX.Element {
       <div className="mx-auto mt-10 max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <div className="mb-10 flex flex-wrap justify-center">
           {musics &&
-            musics.map((musicplaying) => (
+            musics.map((music) => (
               <MusicCardPlaying
-                key={musicplaying.id}
+                key={music.id}
                 id={id}
-                musicId={musicplaying.id}
-                img={musicplaying.image}
-                title={musicplaying.title}
-                author={musicplaying.author}
-                genre={musicplaying.genre}
-                album={musicplaying.album}
-                year={musicplaying.year}
-                audio={musicplaying.url}
+                musicId={music.id}
+                img={music.image}
+                title={music.title}
+                author={music.author}
+                genre={music.genre}
+                album={music.album}
+                year={music.year}
+                audio={music.url}
               />
             ))}
         </div>
