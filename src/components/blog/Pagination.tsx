@@ -10,13 +10,16 @@ const Pagination = ({
   currentPage: number
   totalPages: number
 }) => {
-  const indexPageLink = currentPage === 2
   const hasPrevPage = currentPage > 1
   const hasNextPage = totalPages > currentPage
 
   let pageList = []
-  for (let i = 1; i <= totalPages; i++) {
-    pageList.push(i)
+  if (hasPrevPage) {
+    pageList.push(currentPage - 1)
+  }
+  pageList.push(currentPage)
+  if (hasNextPage) {
+    pageList.push(currentPage + 1)
   }
 
   return (
@@ -27,7 +30,7 @@ const Pagination = ({
           {hasPrevPage ? (
             <Link
               href={
-                indexPageLink
+                currentPage === 2
                   ? `${section ? '/' + section : '/'}`
                   : `${section ? '/' + section : ''}/page/${currentPage - 1}`
               }
@@ -73,7 +76,7 @@ const Pagination = ({
               {pagination === currentPage ? (
                 <span
                   aria-current="page"
-                  className="bg-highlighted dark:bg-darkmode-highlighted rounded px-4 py-2 text-white"
+                  className="rounded bg-highlighted px-4 py-2 text-white dark:bg-darkmode-highlighted"
                 >
                   {pagination}
                 </span>

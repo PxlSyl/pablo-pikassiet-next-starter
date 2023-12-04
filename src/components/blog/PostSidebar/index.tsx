@@ -3,6 +3,7 @@ import { sortData } from '@/lib/utils/sortData'
 import tagData from '@/config/data/tag-data.json'
 import categoryData from '@/config/data/category-data.json'
 
+import Link from 'next/link'
 import { CategoryLink } from './CategoryLink'
 import { TagLink } from './TagLink'
 
@@ -17,7 +18,9 @@ const PostSidebar = () => {
     <div className="mt-8 lg:col-4 sm:mt-0">
       {/* <!-- categories --> */}
       <div className="mb-8">
-        <h5 className="mb-6 text-highlighted dark:text-darkmode-highlighted">Categories</h5>
+        <Link href="/categories">
+          <h5 className="mb-6 text-highlighted dark:text-darkmode-highlighted">Categories</h5>
+        </Link>
         <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
           <ul className="space-y-4">
             {sortedCategories.map((category: string) => (
@@ -28,7 +31,9 @@ const PostSidebar = () => {
       </div>
       {/* <!-- tags --> */}
       <div className="mb-8">
-        <h5 className="mb-6 text-highlighted dark:text-darkmode-highlighted">Tags</h5>
+        <Link href="/tags">
+          <h5 className="mb-6 text-highlighted dark:text-darkmode-highlighted">Tags</h5>
+        </Link>
         <div className="rounded bg-theme-light p-6 dark:bg-darkmode-theme-light">
           <ul>
             {sortedTags.map((tag: string) => (
