@@ -13,7 +13,7 @@ import { allBlogs } from 'contentlayer/generated'
 
 import PageHeader from '@/components/partials/PageHeader'
 import { CategoryLink } from '@/components/blog/PostSidebar/CategoryLink'
-import BlogCard from '@/components/blog/BlogCard'
+import BlogPostsSection from '@/components/blog/BlogPostSection'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
@@ -99,13 +99,11 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
           </div>
         </div>
         <div className="section-sm pb-0">
-          <ul className="container max-w-[600px]">
-            {currentPosts.map((post, index: number) => (
-              <li className="mb-14" key={index}>
-                <BlogCard post={post} />
-              </li>
-            ))}
-          </ul>
+          <BlogPostsSection
+            currentPosts={currentPosts}
+            ulclassName="container max-w-[600px]"
+            liclassName="mb-14"
+          />
           <Pagination
             section={`categories/${params.single}`}
             currentPage={1}

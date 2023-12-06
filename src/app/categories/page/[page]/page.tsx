@@ -7,7 +7,7 @@ import { sortData } from '@/lib/utils/sortData'
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
-import BlogCard from '@/components/blog/BlogCard'
+import BlogPostsSection from '@/components/blog/BlogPostSection'
 import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
 import { CategoryLink } from '@/components/blog/PostSidebar/CategoryLink'
@@ -64,13 +64,11 @@ const Categories = ({ params }: { params: { page: number } }) => {
           </div>
         </div>
         <div className="section-sm pb-0">
-          <ul className="container max-w-[600px]">
-            {currentPosts.map((post: any, index: number) => (
-              <li key={index} className="mb-14 ">
-                <BlogCard post={post} />
-              </li>
-            ))}
-          </ul>
+          <BlogPostsSection
+            currentPosts={currentPosts}
+            ulclassName="container max-w-[600px]"
+            liclassName="mb-14"
+          />
           <Pagination section="categories" currentPage={currentPage} totalPages={totalPages} />
         </div>
       </div>

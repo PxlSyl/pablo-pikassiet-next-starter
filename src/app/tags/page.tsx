@@ -9,7 +9,7 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 import PageHeader from '@/components/partials/PageHeader'
 import { TagLink } from '@/components/blog/PostSidebar/TagLink'
-import BlogCard from '@/components/blog/BlogCard'
+import BlogPostsSection from '@/components/blog/BlogPostSection'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
@@ -41,13 +41,11 @@ const tags = () => {
           </div>
         </div>
         <div className="section-sm pb-0">
-          <ul className="container max-w-[600px]">
-            {currentPosts.map((post: any, index: number) => (
-              <li key={index} className="mb-14 ">
-                <BlogCard post={post} />
-              </li>
-            ))}
-          </ul>
+          <BlogPostsSection
+            currentPosts={currentPosts}
+            ulclassName="container max-w-[600px]"
+            liclassName="mb-14"
+          />
           <Pagination section="tags" currentPage={1} totalPages={totalPages} />
         </div>
       </div>

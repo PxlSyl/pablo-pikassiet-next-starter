@@ -1,6 +1,6 @@
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
-import BlogCard from '@/components/blog/BlogCard'
+import BlogPostsSection from '@/components/blog/BlogPostSection'
 import Pagination from '@/components/blog/Pagination'
 import PageHeader from '@/components/partials/PageHeader'
 import PostSidebar from '@/components/blog/PostSidebar'
@@ -26,13 +26,11 @@ const Posts = () => {
         <div className="container">
           <div className="row gx-5">
             <div className="lg:col-8">
-              <ul className="row">
-                {currentPosts.map((post: any, index: number) => (
-                  <li key={index} className="mb-14 md:col-6">
-                    <BlogCard post={post} />
-                  </li>
-                ))}
-              </ul>
+              <BlogPostsSection
+                currentPosts={currentPosts}
+                ulclassName="row"
+                liclassName="mb-14 md:col-6"
+              />
               <Pagination section="blog" currentPage={1} totalPages={totalPages} />
             </div>
             <PostSidebar />
