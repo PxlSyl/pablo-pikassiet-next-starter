@@ -58,13 +58,13 @@ const Posts = ({ params }: { params: { page: number } }) => {
         <div className="container">
           <div className="row gx-5">
             <div className="lg:col-8">
-              <div className="row">
+              <ul className="row">
                 {currentPosts.map((post: any, index: number) => (
-                  <div key={index} className="mb-14 md:col-6">
+                  <li key={index} className="mb-14 md:col-6">
                     <BlogCard post={post} />
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
               <Pagination section="blog" currentPage={currentPage} totalPages={totalPages} />
             </div>
             <PostSidebar />
