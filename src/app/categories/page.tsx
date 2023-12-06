@@ -33,19 +33,21 @@ const Categories = () => {
             <h3 className="mb-4 text-highlighted dark:text-darkmode-highlighted">All posts</h3>
             <ul className="ml-2 space-y-4">
               {sortedCategories.map((category: string) => (
-                <CategoryLink key={category} category={category} count={categoryCounts[category]} />
+                <li key={category}>
+                  <CategoryLink category={category} count={categoryCounts[category]} />
+                </li>
               ))}
             </ul>
           </div>
         </div>
         <div className="section-sm pb-0">
-          <div className="container max-w-[600px]">
+          <ul className="container max-w-[600px]">
             {currentPosts.map((post: any, index: number) => (
-              <div key={index} className="mb-14 ">
+              <li key={index} className="mb-14 ">
                 <BlogCard post={post} />
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
           <Pagination section="categories" currentPage={1} totalPages={totalPages} />
         </div>
       </div>

@@ -90,26 +90,25 @@ const TagSingle = ({ params }: { params: { single: string; page: number } }) => 
             </Link>
             <ul className="ml-2 space-y-4">
               {sortedTags.map((tag: string) => (
-                <TagLink
-                  className={params.single === tag ? 'text-highlighted' : ''}
-                  key={tag}
-                  tag={tag}
-                  count={tagCounts[tag]}
-                />
+                <li key={tag}>
+                  <TagLink
+                    className={params.single === tag ? 'text-highlighted' : ''}
+                    tag={tag}
+                    count={tagCounts[tag]}
+                  />
+                </li>
               ))}
             </ul>
           </div>
         </div>
         <div className="section-sm pb-0">
-          <div className="container max-w-[600px]">
-            <div className="row">
-              {currentPosts.map((post, index: number) => (
-                <div className="mb-14" key={index}>
-                  <BlogCard post={post} />
-                </div>
-              ))}
-            </div>
-          </div>
+          <ul className="container max-w-[600px]">
+            {currentPosts.map((post, index: number) => (
+              <li className="mb-14" key={index}>
+                <BlogCard post={post} />
+              </li>
+            ))}
+          </ul>
           <Pagination
             section={`tags/${params.single}`}
             currentPage={currentPage}

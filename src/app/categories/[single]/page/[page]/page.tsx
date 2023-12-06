@@ -90,24 +90,25 @@ const CategorySingle = ({ params }: { params: { single: string; page: number } }
             </Link>
             <ul className="ml-2 space-y-4">
               {sortedCategories.map((category: string) => (
-                <CategoryLink
-                  className={params.single === category ? 'text-highlighted' : ''}
-                  key={category}
-                  category={category}
-                  count={categoryCounts[category]}
-                />
+                <li key={category}>
+                  <CategoryLink
+                    className={params.single === category ? 'text-highlighted' : ''}
+                    category={category}
+                    count={categoryCounts[category]}
+                  />
+                </li>
               ))}
             </ul>
           </div>
         </div>
         <div className="section-sm pb-0">
-          <div className="container max-w-[600px]">
+          <ul className="container max-w-[600px]">
             {currentPosts.map((post, index: number) => (
-              <div className="mb-14" key={index}>
+              <li className="mb-14" key={index}>
                 <BlogCard post={post} />
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
           <Pagination
             section={`categories/${params.single}`}
             currentPage={currentPage}
