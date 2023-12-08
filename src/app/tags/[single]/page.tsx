@@ -85,7 +85,7 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
                 All posts
               </h3>
             </Link>
-            <TagLink ulclassName="ml-2 grid grid-cols-3 space-y-4 md:flex md:flex-col" />
+            <TagLink ulclassName="ml-2 space-y-4 " liclassName="inline-block md:flex md:flex-col" />
           </div>
         </div>
         <div className="section-sm pb-0">

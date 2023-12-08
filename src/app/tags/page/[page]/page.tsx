@@ -54,7 +54,7 @@ const tags = ({ params }: { params: { page: number } }) => {
         <div className="mt-20">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <h3 className="mb-4 text-highlighted dark:text-darkmode-highlighted">All posts</h3>
-            <TagLink ulclassName="ml-2 grid grid-cols-3 space-y-4 md:grid-cols-1" />
+            <TagLink ulclassName="ml-2 space-y-4 " liclassName="inline-block md:flex md:flex-col" />
           </div>
         </div>
         <div className="section-sm pb-0">
