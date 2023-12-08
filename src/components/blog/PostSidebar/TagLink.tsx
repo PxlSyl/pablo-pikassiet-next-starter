@@ -20,7 +20,7 @@ export const TagLink = ({
             className="m-1 block rounded bg-white px-3 py-1 hover:bg-highlighted hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-highlighted"
             href={`/tags/${tag}`}
           >
-            {` ${humanize(tag)} (${tagCounts[tag]})`}
+            {`${humanize(tag)} (${tagCounts[tag]})`}
           </Link>
         </li>
       ))}

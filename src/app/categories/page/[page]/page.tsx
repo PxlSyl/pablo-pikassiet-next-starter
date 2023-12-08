@@ -44,11 +44,14 @@ const Categories = ({ params }: { params: { page: number } }) => {
     <>
       <ScrollTopAndComment scrollToComment={false} />
       <PageHeader title={'Categories'} />
-      <div className="mb-20 flex flex-row justify-center">
-        <div className="mt-20 flex flex-col">
+      <div className="mb-20 flex flex-col justify-center md:flex-row">
+        <div className="mt-20">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <h3 className="mb-4 text-highlighted dark:text-darkmode-highlighted">All posts</h3>
-            <CategoryLink ulclassName="ml-2 space-y-4" />
+            <CategoryLink
+              ulclassName="ml-2 space-y-4"
+              liclassName="inline-block md:flex md:flex-col"
+            />
           </div>
         </div>
         <div className="section-sm pb-0">

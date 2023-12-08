@@ -18,10 +18,10 @@ export const CategoryLink = ({
       {sortedCategories.map((category: string) => (
         <li className={liclassName} key={category}>
           <Link
-            className="flex justify-between hover:text-highlighted dark:hover:text-darkmode-highlighted"
+            className="flex justify-between px-3 py-1 hover:text-highlighted dark:hover:text-darkmode-highlighted"
             href={`/categories/${category}`}
           >
-            {` ${humanize(category)} (${categoryCounts[category]})`}
+            {`${humanize(category)} (${categoryCounts[category]})`}
           </Link>
         </li>
       ))}

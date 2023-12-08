@@ -72,15 +72,18 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
     <>
       <ScrollTopAndComment scrollToComment={false} />
       <PageHeader title={params.single} />
-      <div className="mb-20 flex flex-row justify-center">
-        <div className="mb-4 mt-20 flex flex-col">
+      <div className="mb-20 flex flex-col justify-center md:flex-row">
+        <div className="mt-20">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <Link href="/categories">
               <h3 className="mb-4 hover:text-highlighted dark:hover:text-darkmode-highlighted">
                 All posts
               </h3>
             </Link>
-            <CategoryLink ulclassName="ml-2 space-y-4" />
+            <CategoryLink
+              ulclassName="ml-2 space-y-4"
+              liclassName="inline-block md:flex md:flex-col"
+            />
           </div>
         </div>
         <div className="section-sm pb-0">
