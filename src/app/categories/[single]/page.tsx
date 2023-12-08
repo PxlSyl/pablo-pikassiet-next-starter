@@ -55,7 +55,6 @@ export const dynamicParams = false
 export const generateStaticParams: StaticParams = () => {
   const categoryCounts = categoryData as Record<string, number>
   const sortedCategories = sortData(categoryCounts)
-
   const paths = sortedCategories.map((category) => ({
     single: category,
   }))
@@ -64,12 +63,8 @@ export const generateStaticParams: StaticParams = () => {
 }
 
 const CategorySingle = ({ params }: { params: { single: string } }) => {
-  const categoryCounts = categoryData as Record<string, number>
-  const sortedCategories = sortData(categoryCounts)
-
   const posts = allCoreContent(sortPosts(allBlogs))
   const filterByCategories = taxonomyFilter(posts, 'categories', params.single)
-
   const totalPages = Math.ceil(filterByCategories.length / POSTS_PER_PAGE)
   const currentPosts = filterByCategories.slice(0, POSTS_PER_PAGE)
 
@@ -85,15 +80,7 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
                 All posts
               </h3>
             </Link>
-            <ul className="ml-2 space-y-4">
-              {sortedCategories.map((category: string) => (
-                <CategoryLink
-                  className={params.single === category ? 'text-highlighted' : ''}
-                  category={category}
-                  count={categoryCounts[category]}
-                />
-              ))}
-            </ul>
+            <CategoryLink ulclassName="ml-2 space-y-4" />
           </div>
         </div>
         <div className="section-sm pb-0">

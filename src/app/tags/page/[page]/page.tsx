@@ -54,11 +54,7 @@ const tags = ({ params }: { params: { page: number } }) => {
         <div className="mt-20">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <h3 className="mb-4 text-highlighted dark:text-darkmode-highlighted">All posts</h3>
-            <ul className="ml-2 grid grid-cols-3 space-y-4 md:flex md:flex-col">
-              {sortedTags.map((tag: string) => (
-                <TagLink tag={tag} count={tagCounts[tag]} />
-              ))}
-            </ul>
+            <TagLink ulclassName="ml-2 grid grid-cols-3 space-y-4 md:grid-cols-1" />
           </div>
         </div>
         <div className="section-sm pb-0">

@@ -1,8 +1,5 @@
-import categoryData from '@/config/data/category-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 import { genPageMetadata } from '@/app/seo'
-
-import { sortData } from '@/lib/utils/sortData'
 
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
@@ -36,10 +33,7 @@ export const generateStaticParams = () => {
 }
 
 const Categories = ({ params }: { params: { page: number } }) => {
-  const categoryCounts = categoryData as Record<string, number>
-  const sortedCategories = sortData(categoryCounts)
   const posts = allCoreContent(sortPosts(allBlogs))
-
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
   const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE
@@ -54,11 +48,7 @@ const Categories = ({ params }: { params: { page: number } }) => {
         <div className="mt-20 flex flex-col">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <h3 className="mb-4 text-highlighted dark:text-darkmode-highlighted">All posts</h3>
-            <ul className="space-y-4">
-              {sortedCategories.map((category: string) => (
-                <CategoryLink category={category} count={categoryCounts[category]} />
-              ))}
-            </ul>
+            <CategoryLink ulclassName="ml-2 space-y-4" />
           </div>
         </div>
         <div className="section-sm pb-0">

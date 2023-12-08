@@ -85,15 +85,7 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
                 All posts
               </h3>
             </Link>
-            <ul className="ml-2 grid grid-cols-3 space-y-4 md:flex md:flex-col">
-              {sortedTags.map((tag: string) => (
-                <TagLink
-                  className={params.single === tag ? 'text-highlighted' : ''}
-                  tag={tag}
-                  count={tagCounts[tag]}
-                />
-              ))}
-            </ul>
+            <TagLink ulclassName="ml-2 grid grid-cols-3 space-y-4 md:flex md:flex-col" />
           </div>
         </div>
         <div className="section-sm pb-0">
