@@ -1,8 +1,5 @@
-import tagData from '@/config/data/tag-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 import { genPageMetadata } from '@/app/seo'
-
-import { sortData } from '@/lib/utils/sortData'
 
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
@@ -36,10 +33,7 @@ export const generateStaticParams = () => {
 }
 
 const tags = ({ params }: { params: { page: number } }) => {
-  const tagCounts = tagData as Record<string, number>
-  const sortedTags = sortData(tagCounts)
   const posts = allCoreContent(sortPosts(allBlogs))
-
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
   const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE

@@ -64,12 +64,8 @@ export const generateStaticParams: StaticParams = () => {
 }
 
 const TagSingle = ({ params }: { params: { single: string } }) => {
-  const tagCounts = tagData as Record<string, number>
-  const sortedTags = sortData(tagCounts)
-
   const posts = allCoreContent(sortPosts(allBlogs))
   const filterByTags = taxonomyFilter(posts, 'tags', params.single)
-
   const totalPages = Math.ceil(filterByTags.length / POSTS_PER_PAGE)
   const currentPosts = filterByTags.slice(0, POSTS_PER_PAGE)
 

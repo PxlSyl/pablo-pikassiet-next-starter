@@ -1,8 +1,5 @@
-import tagData from '@/config/data/tag-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 import { genPageMetadata } from '../seo'
-
-import { sortData } from '@/lib/utils/sortData'
 
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
@@ -16,10 +13,7 @@ import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 export const metadata = genPageMetadata({ title: 'Tags' })
 
 const tags = () => {
-  const tagCounts = tagData as Record<string, number>
-  const sortedTags = sortData(tagCounts)
   const posts = allCoreContent(sortPosts(allBlogs))
-
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
   const currentPosts = posts.slice(0, POSTS_PER_PAGE)
 

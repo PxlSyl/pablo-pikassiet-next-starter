@@ -64,12 +64,8 @@ export const generateStaticParams: StaticParams = () => {
 }
 
 const TagSingle = ({ params }: { params: { single: string; page: number } }) => {
-  const tagCounts = tagData as Record<string, number>
-  const sortedTags = sortData(tagCounts)
-
   const posts = allCoreContent(sortPosts(allBlogs))
   const filterByTags = taxonomyFilter(posts, 'tags', params.single)
-
   const totalPages = Math.ceil(filterByTags.length / POSTS_PER_PAGE)
   const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE
