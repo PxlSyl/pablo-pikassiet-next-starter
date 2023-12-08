@@ -1,7 +1,10 @@
+'use client'
+
 import Link from 'next/link'
+import tagData from '@/config/data/tag-data.json'
+import { usePathname } from 'next/navigation'
 import { humanize } from '@/lib/utils/textConverter'
 import { sortData } from '@/lib/utils/sortData'
-import tagData from '@/config/data/tag-data.json'
 
 export const TagLink = ({
   liclassName,
@@ -10,6 +13,7 @@ export const TagLink = ({
   liclassName?: string
   ulclassName?: string
 }) => {
+  const pathname = usePathname()
   const tagCounts = tagData as Record<string, number>
   const sortedTags = sortData(tagCounts)
   return (
@@ -17,7 +21,9 @@ export const TagLink = ({
       {sortedTags.map((tag: string) => (
         <li className={liclassName} key={tag}>
           <Link
-            className="m-1 block rounded bg-white px-3 py-1 hover:bg-highlighted hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-highlighted"
+            className={`${
+              pathname.includes(tag) ? 'text-highlighted' : ''
+            } m-1 block rounded bg-white px-3 py-1 hover:bg-highlighted hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-highlighted`}
             href={`/tags/${tag}`}
           >
             {`${humanize(tag)} (${tagCounts[tag]})`}
