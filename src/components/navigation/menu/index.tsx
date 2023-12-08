@@ -48,7 +48,6 @@ export const Header: React.FC = (): JSX.Element | null => {
   }
   function ContactClick(): void {
     handleContactClick()
-    closeMenu()
   }
 
   const { theme, mounted } = useDarkMode()

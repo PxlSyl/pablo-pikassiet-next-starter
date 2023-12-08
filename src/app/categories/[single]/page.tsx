@@ -87,13 +87,11 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
             </Link>
             <ul className="ml-2 space-y-4">
               {sortedCategories.map((category: string) => (
-                <li key={category}>
-                  <CategoryLink
-                    className={params.single === category ? 'text-highlighted' : ''}
-                    category={category}
-                    count={categoryCounts[category]}
-                  />
-                </li>
+                <CategoryLink
+                  className={params.single === category ? 'text-highlighted' : ''}
+                  category={category}
+                  count={categoryCounts[category]}
+                />
               ))}
             </ul>
           </div>

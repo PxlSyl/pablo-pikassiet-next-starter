@@ -56,9 +56,7 @@ const Categories = ({ params }: { params: { page: number } }) => {
             <h3 className="mb-4 text-highlighted dark:text-darkmode-highlighted">All posts</h3>
             <ul className="space-y-4">
               {sortedCategories.map((category: string) => (
-                <li key={category}>
-                  <CategoryLink category={category} count={categoryCounts[category]} />
-                </li>
+                <CategoryLink category={category} count={categoryCounts[category]} />
               ))}
             </ul>
           </div>

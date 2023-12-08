@@ -77,23 +77,21 @@ const TagSingle = ({ params }: { params: { single: string } }) => {
     <>
       <ScrollTopAndComment scrollToComment={false} />
       <PageHeader title={params.single} />
-      <div className="mb-20 flex flex-row justify-center">
-        <div className="mb-4 mt-20 flex flex-col">
+      <div className="mb-20 flex flex-col justify-center md:flex-row">
+        <div className="mb-4 mt-20">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
             <Link href="/tags">
               <h3 className="mb-4 hover:text-highlighted dark:hover:text-darkmode-highlighted">
                 All posts
               </h3>
             </Link>
-            <ul className="ml-2 space-y-4">
+            <ul className="ml-2 grid grid-cols-3 space-y-4 md:flex md:flex-col">
               {sortedTags.map((tag: string) => (
-                <li key={tag}>
-                  <TagLink
-                    className={params.single === tag ? 'text-highlighted' : ''}
-                    tag={tag}
-                    count={tagCounts[tag]}
-                  />
-                </li>
+                <TagLink
+                  className={params.single === tag ? 'text-highlighted' : ''}
+                  tag={tag}
+                  count={tagCounts[tag]}
+                />
               ))}
             </ul>
           </div>
