@@ -67,7 +67,7 @@ export const Header: React.FC = (): JSX.Element | null => {
         <div></div>
       </div>
       <div className="bg-gradient fixed top-0 z-20 h-20 w-full">
-        <nav className="mx-auto mt-3 flex max-w-7xl items-center justify-center space-x-4 px-4 sm:space-x-16">
+        <nav className="mx-auto mt-3 flex max-w-7xl items-center justify-center space-x-4 px-4 sm:space-x-8">
           <div className="flex items-center space-x-2 xl:space-x-4">
             <div className="hidden lg:block">
               <Link href="/">
@@ -78,8 +78,8 @@ export const Header: React.FC = (): JSX.Element | null => {
           <div className="hidden lg:block">
             <Social source={social.main} className="social-icons" />
           </div>
-          <div>|</div>
-          <div className="social-icons">
+          <div className="hidden lg:flex">|</div>
+          <div className="hidden lg:flex">
             <IoIosMail
               style={{ width: '40px', height: '40px', cursor: 'pointer' }}
               onClick={ContactClick}
@@ -87,8 +87,8 @@ export const Header: React.FC = (): JSX.Element | null => {
           </div>
         </nav>
         <div className="z-40">
-          <SearchButton className="fixed right-[70px] top-[30px] mr-5" />
-          <ThemeSwitcher className="fixed right-[20px] top-[30px] h-6 w-12 cursor-pointer opacity-100" />
+          <SearchButton className="fixed right-[70px] top-[34px] mr-5" />
+          <ThemeSwitcher className="fixed right-[20px] top-[34px] h-6 w-12 cursor-pointer opacity-100" />
         </div>
       </div>
       <div
