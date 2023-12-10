@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Thumbs } from 'swiper/modules'
-import 'swiper/css/navigation'
-import 'swiper/css'
+import { Thumbs } from 'swiper/modules'
+import 'swiper/scss'
+import 'swiper/scss/navigation'
 
 export default function SampleSlider() {
   const [thumbs, setThumbs] = useState(null)
@@ -11,54 +11,34 @@ export default function SampleSlider() {
     '/images/drawings/Blue tit.jpg',
     '/images/drawings/Blue jay.jpg',
     '/images/drawings/Bluethroat.jpg',
+    '/images/drawings/Cardinal.jpg',
+    '/images/drawings/Fox.jpg',
+    '/images/drawings/Glycon.jpg',
   ]
 
   const swiperStyles = {
-    width: '30%',
-  }
-
-  const swiperImgStyles = {
-    width: '100%',
-    verticalAlign: 'bottom',
-  }
-
-  const swiperThumbsStyles = {
-    cursor: 'pointer',
-  }
-
-  const swiperSlideThumbActiveStyles = {
-    outline: '2px solid #000',
-    outlineOffset: '-2px',
+    width: '300px',
   }
 
   return (
-    <div>
-      <style jsx>{`
-        .swiper-thumbs {
-          cursor: pointer;
-        }
-        .swiper-slide-thumb-active {
-          outline: 2px solid #000;
-          outline-offset: -2px;
-        }
-      `}</style>
+    <div className="mb-10 mt-10">
       <Swiper
         loop={true}
-        modules={[Navigation, Thumbs]}
+        modules={[Thumbs]}
         thumbs={{ swiper: thumbs && !thumbs.destroyed ? thumbs : null }}
-        navigation
         style={swiperStyles}
+        className="mb-4 rounded"
       >
         {images.map((src, idx) => (
           <SwiperSlide key={idx}>
-            <img style={swiperImgStyles} alt="" src={src} />
+            <Image width={300} height={400} alt="" src={src} />
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper slidesPerView={3} onSwiper={setThumbs} style={swiperStyles}>
+      <Swiper slidesPerView={3} onSwiper={setThumbs} style={swiperStyles} className="rounded">
         {images.map((src, idx) => (
           <SwiperSlide key={idx}>
-            <img style={swiperImgStyles} alt="" src={src} />
+            <Image width={300} height={100} className="cursor-grab" alt="" src={src} />
           </SwiperSlide>
         ))}
       </Swiper>

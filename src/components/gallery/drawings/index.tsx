@@ -7,9 +7,9 @@ import { useWindowWidth } from '@/hooks/useWindowWidth'
 import { useGalleryStore } from '@/components/gallery/drawings/store'
 
 interface GalleryProps {
-  galleryData: any // Replace YourImageDataType with the actual type
-  allSerie: string[] // Replace string[] with the actual type
-  allTags: string[] // Replace string[] with the actual type
+  galleryData: any
+  allSerie: string[]
+  allTags: string[]
 }
 
 const Gallery: React.FC<GalleryProps> = ({ galleryData, allSerie, allTags }) => {

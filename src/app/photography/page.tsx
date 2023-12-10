@@ -1,11 +1,15 @@
 'use client'
 import SampleSlider from '@/components/gallery/photos'
+import PageHeader from '@/components/partials/PageHeader'
 
 const Photography = () => {
   return (
-    <div className="mt-20">
-      <SampleSlider />
-    </div>
+    <>
+      <div className="mt-20">
+        <PageHeader title="Photography" />
+        <SampleSlider />
+      </div>
+    </>
   )
 }
 
