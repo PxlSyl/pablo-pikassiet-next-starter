@@ -6,7 +6,7 @@ interface Links {
 export const headerShopLinks: Links[] = [
   { href: 'https://pxlsyl.etsy.com', title: 'Etsy' },
   { href: '/prints', title: 'Prints' },
-  { href: '/shopinfos', title: 'Infos' },
+  { href: '/shop-infos', title: 'Infos' },
 ]
 
 export const headerProjectsLinks: Links[] = [
@@ -19,14 +19,12 @@ export const headerProjectsLinks: Links[] = [
 export const headerArtLinks: Links[] = [
   { href: '/drawings', title: 'Drawings' },
   { href: '/pixelartbook', title: 'Pixelart' },
-  { href: '/games', title: 'Games' },
-  { href: '/web3', title: 'Web3' },
 ]
 
 export const headerMusicLinks: Links[] = [
   { href: '/music', title: 'Tracks' },
   { href: 'https://youtube.com', title: 'Videos' },
-  { href: '/musicinfos', title: 'Infos' },
+  { href: '/music-infos', title: 'Infos' },
 ]
 
 export const headerBlogLinks: Links[] = [
@@ -39,10 +37,10 @@ export const headerBlogLinks: Links[] = [
 export const headerInfosLinks: Links[] = [
   { href: '/about', title: 'About' },
   { href: '/terms', title: 'Terms' },
-  { href: '/legalnotice', title: 'Legal notice' },
+  { href: '/legal-notice', title: 'Legal notice' },
 ]
 
 export const footerLinks: Links[] = [
   { href: '/terms', title: 'Terms' },
-  { href: '/legalnotice', title: 'Legal notice' },
+  { href: '/legal-notice', title: 'Legal notice' },
 ]

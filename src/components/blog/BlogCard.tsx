@@ -97,7 +97,7 @@ const BlogCard = ({ post }: Props) => {
           </li>
         )}
       </ul>
-      <p className="mb-6">{summary}</p>
+      <p className="mb-6">{summary.length > 149 ? `${summary.substring(0, 149)}...` : summary}</p>
       <Link className="btn btn-outline-primary btn-sm" href={`/blog/${path}`}>
         read more
       </Link>

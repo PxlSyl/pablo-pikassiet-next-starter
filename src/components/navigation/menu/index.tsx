@@ -5,6 +5,7 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 import { Accordion } from 'react-accessible-accordion'
 import { FaHome } from 'react-icons/fa'
 import { FaShop, FaRegNoteSticky, FaPalette, FaMusic, FaBlogger } from 'react-icons/fa6'
+import { IoIosMail } from 'react-icons/io'
 import Logo from '@/components/blog/Logo'
 import { selectedClass, hoverClass } from './menutheme'
 // utility and hooks
@@ -41,6 +42,7 @@ export const Header: React.FC = (): JSX.Element | null => {
   const menubarRef = useRef<HTMLDivElement>(null)
 
   useOuterClick(menubarRef, closeMenu)
+
   const contactModal = useContactModal()
 
   const handleContactClick = (): void => {
@@ -76,10 +78,17 @@ export const Header: React.FC = (): JSX.Element | null => {
           <div className="hidden lg:block">
             <Social source={social.main} className="social-icons" />
           </div>
+          <div>|</div>
+          <div className="social-icons">
+            <IoIosMail
+              style={{ width: '40px', height: '40px', cursor: 'pointer' }}
+              onClick={ContactClick}
+            />
+          </div>
         </nav>
-        <div className="z-40 justify-end">
-          <SearchButton className="fixed right-[70px] top-[30px] z-40 mr-5" />
-          <ThemeSwitcher />
+        <div className="z-40">
+          <SearchButton className="fixed right-[70px] top-[30px] mr-5" />
+          <ThemeSwitcher className="fixed right-[20px] top-[30px] h-6 w-12 cursor-pointer opacity-100" />
         </div>
       </div>
       <div
