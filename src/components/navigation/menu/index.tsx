@@ -70,9 +70,7 @@ export const Header: React.FC = (): JSX.Element | null => {
         <nav className="mx-auto mt-3 flex max-w-7xl items-center justify-center space-x-4 px-4 sm:space-x-8">
           <div className="flex items-center space-x-2 xl:space-x-4">
             <div className="hidden lg:block">
-              <Link href="/">
-                <Logo />
-              </Link>
+              <Logo />
             </div>
           </div>
           <div className="hidden lg:block">
