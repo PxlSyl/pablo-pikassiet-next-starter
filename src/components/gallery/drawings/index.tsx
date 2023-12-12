@@ -26,16 +26,6 @@ const Gallery: React.FC<GalleryProps> = ({ galleryData, allSerie, allTags }) => 
 
   return (
     <>
-      <Sidebar
-        isOpen={isOpen}
-        toggleMenu={toggleMenu}
-        allSerie={allSerie}
-        selectedSerie={selectedSerie}
-        selectSeries={selectSeries}
-        allTags={allTags}
-        selectedTags={selectedTags}
-        selectTag={selectTag}
-      />
       <div className="mt-20 w-screen">
         <ImageSlider
           imageData={galleryData}
@@ -46,6 +36,16 @@ const Gallery: React.FC<GalleryProps> = ({ galleryData, allSerie, allTags }) => 
           selectTag={selectTag}
         />
       </div>
+      <Sidebar
+        isOpen={isOpen}
+        toggleMenu={toggleMenu}
+        allSerie={allSerie}
+        selectedSerie={selectedSerie}
+        selectSeries={selectSeries}
+        allTags={allTags}
+        selectedTags={selectedTags}
+        selectTag={selectTag}
+      />
     </>
   )
 }

@@ -22,7 +22,7 @@ export const CategoryLink = ({
         <li className={liclassName} key={category}>
           <Link
             className={`${
-              pathname.includes(category) ? 'text-highlighted' : ''
+              pathname.includes(category) ? 'text-highlighted dark:text-darkmode-highlighted' : ''
             } flex justify-between px-3 py-1 hover:text-highlighted dark:hover:text-darkmode-highlighted`}
             href={`/categories/${category}`}
           >

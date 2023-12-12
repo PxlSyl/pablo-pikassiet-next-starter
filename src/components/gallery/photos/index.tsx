@@ -1,47 +1,53 @@
-import Image from 'next/image'
-import { useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Thumbs } from 'swiper/modules'
-import 'swiper/scss'
-import 'swiper/scss/navigation'
+'use client'
 
-export default function SampleSlider() {
-  const [thumbs, setThumbs] = useState(null)
-  const images = [
-    '/images/drawings/Blue tit.jpg',
-    '/images/drawings/Blue jay.jpg',
-    '/images/drawings/Bluethroat.jpg',
-    '/images/drawings/Cardinal.jpg',
-    '/images/drawings/Fox.jpg',
-    '/images/drawings/Glycon.jpg',
-  ]
+import { ImageSlider } from '@/components/gallery/photos/imageSlider'
 
-  const swiperStyles = {
-    width: '300px',
+import { Sidebar } from '@/components/gallery/photos/sidebar'
+import { useWindowWidth } from '@/hooks/useWindowWidth'
+import { useGalleryStore } from '@/components/gallery/photos/store'
+
+interface GalleryProps {
+  galleryData: any
+  allSerie: string[]
+  allTags: string[]
+}
+
+const Gallery: React.FC<GalleryProps> = ({ galleryData, allSerie, allTags }) => {
+  const { isOpen, setIsOpen, selectedSerie, selectSeries, selectedTags, selectTag } =
+    useGalleryStore()
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
   }
+  const windowWidth = useWindowWidth()
+
+  const isNotMobile = windowWidth > 768
+  const portraitDimensions = { width: isNotMobile ? 300 : 225, height: isNotMobile ? 400 : 300 }
+  const landscapeDimensions = { width: isNotMobile ? 533 : 400, height: isNotMobile ? 400 : 300 }
 
   return (
-    <div className="mb-10 mt-10">
-      <Swiper
-        loop={true}
-        modules={[Thumbs]}
-        thumbs={{ swiper: thumbs && !thumbs.destroyed ? thumbs : null }}
-        style={swiperStyles}
-        className="mb-4 rounded"
-      >
-        {images.map((src, idx) => (
-          <SwiperSlide key={idx}>
-            <Image width={300} height={400} alt="" src={src} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <Swiper slidesPerView={3} onSwiper={setThumbs} style={swiperStyles} className="rounded">
-        {images.map((src, idx) => (
-          <SwiperSlide key={idx}>
-            <Image width={300} height={100} className="cursor-grab" alt="" src={src} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+    <>
+      <div className="mt-20 w-screen">
+        <ImageSlider
+          imageData={galleryData}
+          portraitDimensions={portraitDimensions}
+          landscapeDimensions={landscapeDimensions}
+          selectedSerie={selectedSerie}
+          selectedTags={selectedTags}
+          selectTag={selectTag}
+        />
+      </div>
+      <Sidebar
+        isOpen={isOpen}
+        toggleMenu={toggleMenu}
+        allSerie={allSerie}
+        selectedSerie={selectedSerie}
+        selectSeries={selectSeries}
+        allTags={allTags}
+        selectedTags={selectedTags}
+        selectTag={selectTag}
+      />
+    </>
   )
 }
+
+export default Gallery

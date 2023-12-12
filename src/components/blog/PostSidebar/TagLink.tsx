@@ -22,7 +22,7 @@ export const TagLink = ({
         <li className={liclassName} key={tag}>
           <Link
             className={`${
-              pathname.includes(tag) ? 'text-highlighted' : ''
+              pathname.includes(tag) ? 'text-highlighted dark:text-darkmode-highlighted' : ''
             } m-1 block rounded bg-white px-3 py-1 hover:bg-highlighted hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-highlighted`}
             href={`/tags/${tag}`}
           >
