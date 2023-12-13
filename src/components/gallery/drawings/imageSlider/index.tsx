@@ -30,39 +30,29 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
   selectTag,
 }) => {
   const filteredImages = useMemo(() => {
-    // Create a Set to store unique image file names
     const uniqueFileNames = new Set<string>()
 
-    // Iterate through the images and add unique file names to the Set
     imageData.forEach((img) => {
-      // Check if image.frontmatter is defined
       if (img.frontmatter) {
-        // Check if the image satisfies the conditions
         if (
           (!selectedSerie || selectedSerie === img.frontmatter.serie) &&
           (!selectedTags.length ||
             (img.frontmatter.tags &&
               img.frontmatter.tags.some((tag) => selectedTags.includes(tag))))
         ) {
-          // Add the fileName to the Set
           uniqueFileNames.add(img.frontmatter.image)
         }
       }
     })
 
-    // Create an object to store images with unique keys (e.g., fileName)
     const imageMap: { [key: string]: ImgData } = {}
 
-    // Populate the imageMap with images from imageData
     imageData.forEach((img) => {
-      // Check if image.frontmatter is defined
       if (img.frontmatter) {
-        // Use the fileName as a unique key in the imageMap
         imageMap[img.frontmatter.image] = img
       }
     })
 
-    // Convert the Set to an array of images
     const resultImages = Array.from(uniqueFileNames).map((fileName) => imageMap[fileName])
 
     return resultImages
@@ -70,7 +60,6 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
 
   const slides = filteredImages
     .sort((a, b) => {
-      // Perform null checks before accessing fileName
       const fileNameA = a.frontmatter?.image || ''
       const fileNameB = b.frontmatter?.image || ''
 

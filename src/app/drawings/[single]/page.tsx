@@ -81,7 +81,7 @@ const ImageSingle = ({ params }: { params: { single: string } }) => {
                   alt={title}
                 />
               )}
-              <h1 className="h3 mb-6 text-highlighted dark:text-highlighted">Details:</h1>
+              <h1 className="h3 mb-6 text-highlighted dark:text-darkmode-highlighted">Details:</h1>
               <div className="content">
                 <MDXContent content={content} />
               </div>

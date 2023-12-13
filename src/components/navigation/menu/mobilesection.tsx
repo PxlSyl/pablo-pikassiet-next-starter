@@ -43,7 +43,7 @@ export const Mobilesection: React.FC<SectionProps> = ({
                 key={link.title}
                 href={link.href as string | UrlObject}
                 onClick={closeMenu}
-                className={`ml-8 flex flex-col font-medium text-gray-900 dark:text-gray-100 ${hoverClass}
+                className={`ml-8 flex flex-col font-medium ${hoverClass}
                  ${isSelected ? selectedClass : ''}`}
               >
                 {link.title}

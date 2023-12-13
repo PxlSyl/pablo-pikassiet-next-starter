@@ -20,13 +20,16 @@ const AuthorCard = ({ data }: { data: any }) => {
         </Link>
       )}
       <h4 className="mb-3">
-        <Link className=" text-highlighted" href={`/authors/${data.slug}`}>
+        <Link
+          className=" text-highlighted dark:text-darkmode-highlighted"
+          href={`/authors/${data.slug}`}
+        >
           {title}
         </Link>
       </h4>
       <Link href={`/authors/${data.slug}`}>
         <p className="mb-4">{plainify(data.content?.slice(0, 300))}...</p>
-        <p className="mb-4 text-highlighted">Read more</p>
+        <p className="mb-4 text-highlighted dark:text-darkmode-highlighted">Read more</p>
       </Link>
       <Social source={social} className="social-icons" />
     </div>

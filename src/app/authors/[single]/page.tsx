@@ -78,7 +78,7 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
                   alt={title}
                 />
               )}
-              <h1 className="h3 mb-6 text-highlighted dark:text-highlighted">{title}</h1>
+              <h1 className="h3 mb-6 text-highlighted dark:text-darkmode-highlighted">{title}</h1>
               <div className="content">
                 <MDXContent content={content} />
               </div>
