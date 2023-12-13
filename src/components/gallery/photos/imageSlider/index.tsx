@@ -110,7 +110,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
       <SwiperSlide
         key={img.frontmatter.image}
         style={{
-          flex: `0 0 ${(width / 5).toFixed(2)}px`, // Distribute width evenly among 3 images
+          flex: `0 0 ${(width / 3).toFixed(2)}px`, // Distribute width evenly among 3 images
           height: `${commonHeight}px`, // Set a common height for both portrait and landscape
           display: 'flex',
           justifyContent: 'center',
@@ -145,7 +145,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
       </Swiper>
       <Swiper
         loop={true}
-        slidesPerView={4}
+        slidesPerView={3}
         onSwiper={setThumbs}
         className="w-[533px] rounded  bg-theme-light p-6 dark:bg-darkmode-theme-light"
       >
