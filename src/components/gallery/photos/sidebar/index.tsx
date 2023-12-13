@@ -21,61 +21,40 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   return (
     <>
-      <div className="fixed bottom-0 left-0 z-[12] h-[80px] w-[80px] rounded-tr-lg bg-highlighted dark:bg-darkmode-highlighted">
-        <div className="fixed bottom-[20px] left-[20px] z-[12] h-[30px] w-[30px]">
-          <input
-            type="checkbox"
-            aria-label="Music menu"
-            id="checkbox"
-            className="checkbox visuallyHidden"
-          />
-          <label htmlFor="checkbox" onClick={toggleMenu}>
-            <div className="hamburger hamburger_style">
-              <span className="bar bar1"></span>
-              <span className="bar bar2"></span>
-              <span className="bar bar3"></span>
-              <span className="bar bar4"></span>
-              <span className="bar bar5"></span>
-            </div>
-          </label>
-        </div>
-      </div>
-      <div
-        className={`fixed left-0 z-[11] transition-transform duration-500 ${
-          isOpen
-            ? 'mb-100 bg-gradient bottom-0 left-0 mt-10 h-screen w-[150px] translate-y-0 transform overflow-y-auto p-4'
-            : 'bottom-[-100%] h-0 translate-y-full transform'
-        }`}
-      >
-        <div className="mb-20 mt-20">
-          <div className="m-2 grid grid-cols-1">
-            <p className="mb-2 mt-2 w-full rounded-md bg-highlighted px-4 py-1 text-lg font-medium text-white dark:bg-darkmode-highlighted">
-              Serie:
-            </p>
+      <div className="mt-8 flex flex-col items-center">
+        <div className="m-4 mb-8 max-w-[300px] ">
+          <div>
+            <h5 className="mb-6 text-highlighted dark:text-darkmode-highlighted">Serie:</h5>
+          </div>
+          <div className="flex flex-wrap rounded bg-theme-light p-6 dark:bg-darkmode-theme-light">
             {Array.isArray(allSerie) &&
               allSerie.map((serie, index) => (
                 <button
                   key={index}
-                  className={`m-1 block rounded-lg px-2 shadow-lg hover:bg-highlighted hover:text-white dark:hover:bg-darkmode-highlighted ${
+                  className={`m-1 block rounded bg-white px-3 py-1 hover:bg-highlighted hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-highlighted ${
                     selectedSerie.includes(serie)
-                      ? 'bg-highlighted text-white dark:bg-darkmode-highlighted'
-                      : 'bg-gray-200 text-black'
+                      ? 'text-highlighted hover:text-white dark:text-darkmode-highlighted dark:hover:text-white'
+                      : ''
                   }`}
                   onClick={() => selectSeries(serie)}
                 >
                   {serie}
                 </button>
               ))}
-            <p className=" mb-2 mt-2 w-full rounded-md bg-highlighted px-4 py-1 text-lg font-medium text-white dark:bg-darkmode-highlighted">
-              Tags:
-            </p>
+          </div>
+        </div>
+        <div className="m-4 max-w-[300px]">
+          <div>
+            <h5 className="mb-6 text-highlighted dark:text-darkmode-highlighted">Tags:</h5>
+          </div>
+          <div className="flex flex-wrap rounded bg-theme-light p-6 dark:bg-darkmode-theme-light">
             {allTags.map((tag, index) => (
               <button
                 key={index}
-                className={`m-1 block rounded-lg px-2 shadow-lg hover:bg-highlighted hover:text-white dark:hover:bg-darkmode-highlighted ${
+                className={`m-1 block rounded bg-white px-3 py-1 hover:bg-highlighted hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-highlighted ${
                   selectedTags.includes(tag)
-                    ? 'bg-highlighted text-white dark:bg-darkmode-highlighted'
-                    : 'bg-gray-200 text-black'
+                    ? 'text-highlighted hover:text-white dark:text-darkmode-highlighted dark:hover:text-white'
+                    : ''
                 }`}
                 onClick={() => selectTag(tag)}
               >

@@ -139,7 +139,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
         modules={[Thumbs]}
         thumbs={{ swiper: thumbs && !thumbs.destroyed ? thumbs : null }}
         style={swiperStyles}
-        className="mb-2 rounded bg-border dark:bg-darkmode-border"
+        className="mb-2 rounded  bg-theme-light p-6 dark:bg-darkmode-theme-light"
       >
         {slides}
       </Swiper>
@@ -147,7 +147,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
         loop={true}
         slidesPerView={4}
         onSwiper={setThumbs}
-        className="w-[533px] rounded bg-border dark:bg-darkmode-border"
+        className="w-[533px] rounded  bg-theme-light p-6 dark:bg-darkmode-theme-light"
       >
         <div style={{ display: 'flex' }}>{thumbsSlides}</div>
       </Swiper>
