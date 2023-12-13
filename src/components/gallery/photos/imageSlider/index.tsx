@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Thumbs } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/navigation'
+import Link from 'next/link'
 
 type ImageSliderProps = {
   imageData: ImgData[]
@@ -12,7 +13,6 @@ type ImageSliderProps = {
   landscapeDimensions: { width: number; height: number }
   selectedSerie: string
   selectedTags: string[]
-  selectTag: (tag: string) => void
 }
 
 export const ImageSlider: React.FC<ImageSliderProps> = ({
@@ -21,7 +21,6 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
   landscapeDimensions,
   selectedSerie,
   selectedTags,
-  selectTag,
 }) => {
   const [thumbs, setThumbs] = useState(null)
 
@@ -88,14 +87,32 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
             alignItems: 'center',
           }}
         >
-          <Image
-            src={`${img.frontmatter.image}`}
-            className="cursor-grab"
-            alt=""
-            width={width}
-            height={height}
-            style={{ objectFit: 'contain' }}
-          />
+          {img.frontmatter.draft === false ? (
+            <Link
+              href={{
+                pathname: `/photography/${img.slug}`,
+              }}
+              aria-label={img.frontmatter.title}
+            >
+              <Image
+                src={`${img.frontmatter.image}`}
+                className="cursor-pointer"
+                alt=""
+                width={width}
+                height={height}
+                style={{ objectFit: 'contain' }}
+              />
+            </Link>
+          ) : (
+            <Image
+              src={`${img.frontmatter.image}`}
+              className="cursor-pointer"
+              alt=""
+              width={width}
+              height={height}
+              style={{ objectFit: 'contain' }}
+            />
+          )}
         </SwiperSlide>
       )
     })
