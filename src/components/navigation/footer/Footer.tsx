@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import config from '@/config/config.json'
+import footer from '@/config/footer.json'
 import social from '@/config/social.json'
 import { footerLinks } from '@/config/headerLinks'
 
@@ -13,7 +13,7 @@ import Social from '../../blog/Social'
 import { markdownify } from '@/lib/utils/textConverter'
 
 const Footer = () => {
-  const { copyright, credits } = config.params
+  const { copyright, credits } = footer.params
 
   return (
     <footer className="bg-theme-light dark:bg-darkmode-theme-light">
