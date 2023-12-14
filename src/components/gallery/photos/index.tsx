@@ -33,7 +33,6 @@ const Gallery: React.FC<GalleryProps> = ({ galleryData, allSerie, allTags }) => 
           landscapeDimensions={landscapeDimensions}
           selectedSerie={selectedSerie}
           selectedTags={selectedTags}
-          selectTag={selectTag}
         />
         <Sidebar
           isOpen={isOpen}

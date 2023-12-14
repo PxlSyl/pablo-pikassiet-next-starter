@@ -48,9 +48,8 @@ export async function generateMetadata({
 export const dynamicParams = false
 
 // generate static params
-export const generateStaticParams: () => { single?: string }[] = () => {
+export const generateStaticParams: () => { single: string }[] = () => {
   const imagesData: ImgData[] = getSinglePage('gallery')
-
   const paths = imagesData.map((image) => ({
     single: image.slug,
   }))

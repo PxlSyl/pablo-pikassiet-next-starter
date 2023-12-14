@@ -20,6 +20,7 @@ export const headerProjectsLinks: Links[] = [
 export const headerArtLinks: Links[] = [
   { href: '/drawings', title: 'Drawings' },
   { href: '/photography', title: 'Photography' },
+  { href: '/projects', title: 'Projects' },
 ]
 
 export const headerMusicLinks: Links[] = [

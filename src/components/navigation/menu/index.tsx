@@ -124,19 +124,13 @@ export const Header: React.FC = (): JSX.Element | null => {
                 closeMenu={closeMenu}
               />
               <Mobilesection
-                title="Projects"
-                links={headerProjectsLinks}
-                icon={<FaRegNoteSticky />}
-                closeMenu={closeMenu}
-              />
-              <Mobilesection
                 title="Blog"
                 links={headerBlogLinks}
                 icon={<FaBlogger />}
                 closeMenu={closeMenu}
               />
             </Accordion>
-            <div className="hidden lg:grid lg:grid-cols-5 lg:justify-center lg:gap-4">
+            <div className="hidden lg:grid lg:grid-cols-4 lg:justify-center lg:gap-4">
               <Regularsection
                 title="Shop"
                 links={headerShopLinks}
@@ -153,12 +147,6 @@ export const Header: React.FC = (): JSX.Element | null => {
                 title="Music"
                 links={headerMusicLinks}
                 icon={<FaMusic />}
-                closeMenu={closeMenu}
-              />
-              <Regularsection
-                title="Projects"
-                links={headerProjectsLinks}
-                icon={<FaRegNoteSticky />}
                 closeMenu={closeMenu}
               />
               <Regularsection
