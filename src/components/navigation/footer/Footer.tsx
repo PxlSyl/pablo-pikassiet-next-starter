@@ -35,7 +35,7 @@ const Footer = () => {
           <ul>
             {footerLinks.map((link) => (
               <li
-                className="m-3 inline-block text-sm underline hover:text-highlighted"
+                className="m-3 inline-block text-sm underline hover:text-highlighted dark:hover:text-darkmode-highlighted"
                 key={link.title}
               >
                 <Link href={link.href}>{link.title}</Link>
