@@ -112,12 +112,6 @@ export const Header: React.FC = (): JSX.Element | null => {
                 closeMenu={closeMenu}
               />
               <Mobilesection
-                title="Projects"
-                links={headerProjectsLinks}
-                icon={<FaRegNoteSticky />}
-                closeMenu={closeMenu}
-              />
-              <Mobilesection
                 title="Gallery"
                 links={headerArtLinks}
                 icon={<FaPalette />}
@@ -127,6 +121,12 @@ export const Header: React.FC = (): JSX.Element | null => {
                 title="Music"
                 links={headerMusicLinks}
                 icon={<FaMusic />}
+                closeMenu={closeMenu}
+              />
+              <Mobilesection
+                title="Projects"
+                links={headerProjectsLinks}
+                icon={<FaRegNoteSticky />}
                 closeMenu={closeMenu}
               />
               <Mobilesection
@@ -144,12 +144,6 @@ export const Header: React.FC = (): JSX.Element | null => {
                 closeMenu={closeMenu}
               />
               <Regularsection
-                title="Projects"
-                links={headerProjectsLinks}
-                icon={<FaRegNoteSticky />}
-                closeMenu={closeMenu}
-              />
-              <Regularsection
                 title="Gallery"
                 links={headerArtLinks}
                 icon={<FaPalette />}
@@ -159,6 +153,12 @@ export const Header: React.FC = (): JSX.Element | null => {
                 title="Music"
                 links={headerMusicLinks}
                 icon={<FaMusic />}
+                closeMenu={closeMenu}
+              />
+              <Regularsection
+                title="Projects"
+                links={headerProjectsLinks}
+                icon={<FaRegNoteSticky />}
                 closeMenu={closeMenu}
               />
               <Regularsection

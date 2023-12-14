@@ -6,6 +6,7 @@ interface Links {
 export const headerShopLinks: Links[] = [
   { href: 'https://pxlsyl.etsy.com', title: 'Etsy' },
   { href: '/prints', title: 'Prints' },
+  { href: '/commissions', title: 'Commissions' },
   { href: '/shop-infos', title: 'Infos' },
 ]
 
