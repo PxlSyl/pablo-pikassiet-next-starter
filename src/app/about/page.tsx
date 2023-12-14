@@ -59,7 +59,7 @@ const About = () => {
               )}
               <h2
                 dangerouslySetInnerHTML={markdownify(title)}
-                className="h3 mb-6 text-highlighted dark:text-highlighted"
+                className="h3 mb-6 text-highlighted dark:text-darkmode-highlighted"
               />
               <div className="content">
                 <MDXContent content={content} />

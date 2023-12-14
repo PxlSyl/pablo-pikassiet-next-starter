@@ -8,11 +8,11 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is;
-  style-src 'self' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline'  https://fonts.googleapis.com;;
   img-src * blob: data:;
   media-src 'self' *.s3.amazonaws.com https://joy1.videvo.net/;
   connect-src *;
-  font-src 'self';
+  font-src 'self'  https://fonts.gstatic.com data:;
   frame-src giscus.app https://www.youtube.com/ https://www.youtube-nocookie.com/
 `
 

@@ -18,7 +18,6 @@ export const headerProjectsLinks: Links[] = [
 
 export const headerArtLinks: Links[] = [
   { href: '/drawings', title: 'Drawings' },
-  { href: '/pixelartbook', title: 'Pixelart' },
   { href: '/photography', title: 'Photography' },
 ]
 
