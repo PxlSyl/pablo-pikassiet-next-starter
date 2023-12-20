@@ -7,6 +7,8 @@ import { markdownify } from '@/lib/utils/textConverter'
 import CallToAction from '@/components/partials/CallToAction'
 import ImageFallback from '@/components/helpers/ImageFallback'
 import Testimonials from '@/components/partials/Testimonials'
+import siteMetadata from '@/config/siteMetadata'
+import NewsletterForm from '@/components/blog/NewsletterForm'
 
 export const metadata = genPageMetadata({ title: 'Home' })
 
@@ -86,6 +88,11 @@ const Home = () => {
 
       <Testimonials data={testimonial} />
       <CallToAction data={callToAction} />
+      {siteMetadata.newsletter?.provider && (
+        <div className="mb-10 flex items-center justify-center pt-4">
+          <NewsletterForm />
+        </div>
+      )}
     </>
   )
 }

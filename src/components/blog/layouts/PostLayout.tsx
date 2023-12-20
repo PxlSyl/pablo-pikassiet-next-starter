@@ -122,12 +122,10 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                                 className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                                 key={index}
                                 href={
-                                  authorDefault === author
-                                    ? `/about`
-                                    : `/authors/${slugify(author)}`
+                                  author === 'default' ? '/about' : `/authors/${slugify(author)}`
                                 }
                               >
-                                {humanize(author)}
+                                {humanize(author === 'default' ? authorDefault : author)}
                                 {index !== authors.length - 1 && ', '}
                               </Link>
                             ))}

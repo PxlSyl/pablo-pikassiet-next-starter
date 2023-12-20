@@ -7,7 +7,6 @@ import social from '@/config/social.json'
 import { footerLinks } from '@/config/headerLinks'
 
 import siteMetadata from '@/config/siteMetadata'
-import NewsletterForm from '../../blog/NewsletterForm'
 import Social from '../../blog/Social'
 
 import { markdownify } from '@/lib/utils/textConverter'
@@ -17,12 +16,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-theme-light dark:bg-darkmode-theme-light">
-      <div className="container">
-        {siteMetadata.newsletter?.provider && (
-          <div className="mb-8 flex items-center justify-center text-center">
-            <NewsletterForm />
-          </div>
-        )}
+      <div className="container pt-10">
         <div className="mb-8 justify-center text-center">
           <Social source={social.main} className="social-icons" />
         </div>
