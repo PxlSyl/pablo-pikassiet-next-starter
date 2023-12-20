@@ -1,12 +1,11 @@
 import { Button, Feature } from '@/types'
+import Link from 'next/link'
 import { FaCheck } from 'react-icons/fa/index.js'
 import { genPageMetadata } from './seo'
 import { getListPage } from '@/lib/contentParser'
 import { markdownify } from '@/lib/utils/textConverter'
 
-import CallToAction from '@/components/partials/CallToAction'
 import ImageFallback from '@/components/helpers/ImageFallback'
-import Testimonials from '@/components/partials/Testimonials'
 import siteMetadata from '@/config/siteMetadata'
 import NewsletterForm from '@/components/blog/NewsletterForm'
 
@@ -31,12 +30,17 @@ const Home = () => {
         <div className="container">
           <div className="row justify-center">
             <div className="mb-16 text-center lg:col-7">
-              <h1 className="mb-4" dangerouslySetInnerHTML={markdownify(banner.title)} />
+              <h1
+                className="mb-4 text-highlighted dark:text-darkmode-highlighted"
+                dangerouslySetInnerHTML={markdownify(banner.title)}
+              />
               <p className="mb-8" dangerouslySetInnerHTML={markdownify(banner.content ?? '')} />
               {banner.button!.enable && (
-                <a className="btn btn-primary" href={banner.button!.link}>
-                  {banner.button!.label}
-                </a>
+                <Link href={banner.button!.link}>
+                  <button className="h-[40px] w-[200px] rounded-md bg-highlighted p-2 px-4 py-2 font-medium text-white hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-highlighted focus:ring-offset-2 dark:bg-darkmode-highlighted dark:ring-offset-black dark:hover:bg-opacity-80 sm:py-0">
+                    {banner.button!.label}
+                  </button>
+                </Link>
               )}
             </div>
             {banner.image && (
@@ -57,12 +61,12 @@ const Home = () => {
       {features.map((feature, index: number) => (
         <section key={index} className={`section-sm ${index % 2 === 0 && 'bg-gradient'}`}>
           <div className="container">
-            <div className="row items-center justify-between">
-              <div className={`mb:md-0 mb-6 md:col-5 ${index % 2 !== 0 && 'md:order-2'}`}>
-                <ImageFallback src={feature.image} height={480} width={520} alt={feature.title} />
-              </div>
+            <div className="row items-center justify-center">
               <div className={`md:col-7 lg:col-6 ${index % 2 !== 0 && 'md:order-1'}`}>
-                <h2 className="mb-4" dangerouslySetInnerHTML={markdownify(feature.title)} />
+                <h2
+                  className="mb-4 text-highlighted dark:text-darkmode-highlighted"
+                  dangerouslySetInnerHTML={markdownify(feature.title)}
+                />
                 <p
                   className="mb-8 text-lg"
                   dangerouslySetInnerHTML={markdownify(feature.content)}
@@ -76,18 +80,17 @@ const Home = () => {
                   ))}
                 </ul>
                 {feature.button.enable && (
-                  <a className="btn btn-primary mt-5" href={feature.button.link}>
-                    {feature.button.label}
-                  </a>
+                  <Link href={feature.button.link}>
+                    <button className="mt-4 h-[40px] w-[200px] rounded-md bg-highlighted p-2 px-4 py-2 font-medium text-white hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-highlighted focus:ring-offset-2 dark:bg-darkmode-highlighted dark:ring-offset-black dark:hover:bg-opacity-80 sm:py-0">
+                      {feature.button.label}
+                    </button>
+                  </Link>
                 )}
               </div>
             </div>
           </div>
         </section>
       ))}
-
-      <Testimonials data={testimonial} />
-      <CallToAction data={callToAction} />
       {siteMetadata.newsletter?.provider && (
         <div className="mb-10 flex items-center justify-center pt-4">
           <NewsletterForm />
