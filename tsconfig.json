@@ -22,8 +22,7 @@
       }
     ],
     "paths": {
-      "@/components/*": ["/components/*"],
-      "@/data/*": ["data/*"],
+      "@/components/*": ["./components/*"],
       "@/*": ["./*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
