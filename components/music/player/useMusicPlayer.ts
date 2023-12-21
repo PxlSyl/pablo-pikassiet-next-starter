@@ -74,7 +74,7 @@ export const useMusicPlayer = (
     if (audioTag.current && progressBar.current) {
       progressBar.current.value = audioTag.current.currentTime.toString()
     }
-  }, [isPlaying, id, isRandom, volume, isMuted, windowWidth])
+  }, [isPlaying, id, isRandom, volume, isMuted, windowWidth, duration, isFull])
 
   const toggleLoop = () => {
     setIsLooping((prevLooping) => !prevLooping)
@@ -97,7 +97,7 @@ export const useMusicPlayer = (
       const newId = id + 1
       setId(newId)
     }
-  }, [id, setId])
+  }, [id, setId, totalMusicFiles])
 
   const skipRandom = useCallback(() => {
     const randomNum = Math.floor(Math.random() * totalMusicFiles)
@@ -107,7 +107,7 @@ export const useMusicPlayer = (
     } else {
       setId(randomNum)
     }
-  }, [id, setId])
+  }, [id, setId, totalMusicFiles])
 
   const skipBack = useCallback(() => {
     if (id === 1) {
@@ -117,7 +117,7 @@ export const useMusicPlayer = (
       const newId = id - 1
       setId(newId)
     }
-  }, [id, setId])
+  }, [id, setId, totalMusicFiles])
 
   const changeCurrentTime = useCallback(() => {
     if (progressBar.current) {
@@ -140,7 +140,7 @@ export const useMusicPlayer = (
       animationRef.current = requestAnimationFrame(whilePlaying)
       changeCurrentTime()
     }
-  }, [progressBar, audioTag, windowWidth, isFull, changeCurrentTime])
+  }, [progressBar, audioTag, changeCurrentTime])
 
   const changeRange = () => {
     if (audioTag.current && progressBar.current) {

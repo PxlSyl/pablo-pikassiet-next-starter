@@ -34,7 +34,7 @@ export const Sidebar = ({
 
   useEffect((): void => {
     setIsFull(true)
-  }, [])
+  }, [setIsFull])
 
   const handleSelect = (item: string): void => {
     setSelectedItem(item)

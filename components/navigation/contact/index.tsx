@@ -32,7 +32,7 @@ export const ContactModal = (): JSX.Element => {
     if (state.errors && Object.keys(state.errors).length > 0) {
       toast.error<unknown>('Error!')
     }
-  }, [state])
+  }, [state, reset])
 
   const handleNameChange = (e: any): void => {
     setName(e.target.value)

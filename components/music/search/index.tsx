@@ -15,7 +15,6 @@ export const Search = ({ isSearch, handleSearchChange }: SearchProps): JSX.Eleme
               id="searchmusic"
               name="searchmusic"
               onChange={handleSearchChange}
-              autoFocus
               placeholder="Search"
               type="text"
               className={`${bgClass} mx-auto my-2 mt-10 w-1/2 cursor-pointer rounded border-gray-300 px-3 py-[0.32rem] leading-[1.6] outline-none`}

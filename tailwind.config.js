@@ -1,4 +1,4 @@
-const theme = require('./src/config/theme.json')
+const theme = require('./config/theme.json')
 
 let font_base = Number(theme.fonts.font_size.base.replace('px', ''))
 let font_scale = Number(theme.fonts.font_size.scale)
@@ -26,9 +26,9 @@ if (theme.fonts.font_family.secondary) {
 module.exports = {
   content: [
     './node_modules/pliny/**/*.js',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/content/**/*.{md,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './content/**/*.{md,mdx}',
+    './app/**/*.{js,ts,jsx,tsx}',
   ],
   safelist: [{ pattern: /^swiper-/ }],
   darkMode: 'class',

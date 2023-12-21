@@ -19,7 +19,7 @@ import rehypeKatex from 'rehype-katex'
 import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
-import siteMetadata from './src/config/siteMetadata'
+import siteMetadata from './config/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 
 const slugger = new GithubSlugger()
@@ -136,7 +136,7 @@ export const Blog = defineDocumentType(() => ({
 }))
 
 export default makeSource({
-  contentDirPath: 'src/content/blog/',
+  contentDirPath: 'content/blog/',
   documentTypes: [Blog],
   mdx: {
     cwd: process.cwd(),
@@ -151,7 +151,7 @@ export default makeSource({
       rehypeSlug,
       rehypeAutolinkHeadings,
       rehypeKatex,
-      [rehypeCitation, { path: path.join(root, 'src', 'content', 'blog') }],
+      [rehypeCitation, { path: path.join(root, 'content', 'blog') }],
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
       rehypePresetMinify,
     ],
