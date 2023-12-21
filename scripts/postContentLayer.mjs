@@ -7,7 +7,7 @@ import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import siteMetadata from '../src/config/siteMetadata.js'
 
 const isProduction = process.env.NODE_ENV === 'production'
-
+const slugger = new GithubSlugger()
 /**
  * Count the occurrences of all tags and categories across blog posts and write to json file
  */
@@ -17,7 +17,7 @@ export async function createCategoryCount() {
   allBlogs.forEach((file) => {
     if (file.categories && (!isProduction || file.draft !== true)) {
       file.categories.forEach((category) => {
-        const formattedCategory = GithubSlugger.slug(category)
+        const formattedCategory = slugger.slug(category)
         if (formattedCategory in categoryCount) {
           categoryCount[formattedCategory] += 1
         } else {
@@ -35,7 +35,7 @@ export async function createTagCount() {
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
-        const formattedTag = GithubSlugger.slug(tag)
+        const formattedTag = slugger.slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {
