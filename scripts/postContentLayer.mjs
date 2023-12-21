@@ -1,13 +1,13 @@
 // node ./scripts/postContentLayer.mjs
 
 import { writeFileSync } from 'fs'
-import GithubSlugger from 'github-slugger'
+import { slug } from 'github-slugger'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
-import siteMetadata from '../src/config/siteMetadata.js'
+import siteMetadata from '../config/siteMetadata.js'
 
 const isProduction = process.env.NODE_ENV === 'production'
-const slugger = new GithubSlugger()
+
 /**
  * Count the occurrences of all tags and categories across blog posts and write to json file
  */
@@ -17,7 +17,7 @@ export async function createCategoryCount() {
   allBlogs.forEach((file) => {
     if (file.categories && (!isProduction || file.draft !== true)) {
       file.categories.forEach((category) => {
-        const formattedCategory = slugger.slug(category)
+        const formattedCategory = slug(category)
         if (formattedCategory in categoryCount) {
           categoryCount[formattedCategory] += 1
         } else {
@@ -26,7 +26,7 @@ export async function createCategoryCount() {
       })
     }
   })
-  writeFileSync('./src/config/data/category-data.json', JSON.stringify(categoryCount))
+  writeFileSync('./config/data/category-data.json', JSON.stringify(categoryCount))
   console.log(`Results for category-data.json written.`)
 }
 
@@ -35,7 +35,7 @@ export async function createTagCount() {
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
-        const formattedTag = slugger.slug(tag)
+        const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {
@@ -44,7 +44,7 @@ export async function createTagCount() {
       })
     }
   })
-  writeFileSync('./src/config/data/tag-data.json', JSON.stringify(tagCount))
+  writeFileSync('./config/data/tag-data.json', JSON.stringify(tagCount))
   console.log(`Results for tag-data.json written.`)
 }
 
