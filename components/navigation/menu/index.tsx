@@ -61,9 +61,21 @@ export const Header: React.FC = (): JSX.Element | null => {
       ? `${menuclick ? styles.toggle2 : styles.toggle}`
       : `${menuclick ? styles.toggledark2 : styles.toggledark}`
 
+  const handleMenuKeyPress = (e: React.KeyboardEvent): void => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleClick()
+    }
+  }
+
   return (
     <div ref={menubarRef}>
-      <div className={`${menuClass}`} onClick={handleClick}>
+      <div
+        className={`${menuClass}`}
+        onClick={handleClick}
+        onKeyDown={handleMenuKeyPress}
+        role="button"
+        tabIndex={0}
+      >
         <div></div>
       </div>
       <div className="bg-gradient fixed top-0 z-20 h-20 w-full">
@@ -174,6 +186,13 @@ export const Header: React.FC = (): JSX.Element | null => {
               <div
                 className={`ml-4 mt-2 flex cursor-pointer flex-col text-sm underline hover:underline ${hoverClass} `}
                 onClick={ContactClick}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    ContactClick()
+                  }
+                }}
+                role="button"
+                tabIndex={0}
               >
                 Contact
               </div>

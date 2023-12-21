@@ -19,7 +19,7 @@ export const generateStaticParams = () => {
   const allPost = allCoreContent(sortPosts(allBlogs))
   const allSlug: string[] = allPost.map((item) => item.slug!)
   const totalPages = Math.ceil(allSlug.length / POSTS_PER_PAGE)
-  let paths: { page: string }[] = []
+  const paths: { page: string }[] = []
 
   for (let i = 1; i < totalPages; i++) {
     paths.push({
@@ -31,7 +31,7 @@ export const generateStaticParams = () => {
 }
 
 function spreadPages(num: number): number[] {
-  let pages = []
+  const pages = []
 
   for (let i = 2; i <= num; i++) {
     pages.push(i)

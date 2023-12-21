@@ -56,6 +56,12 @@ export const Sidebar = ({
         setGenre(genre)
         handleSelect(genre)
       }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          setGenre(genre)
+          handleSelect(genre)
+        }
+      }}
       className={`${defaultClass} ${selectedItem === genre ? selectedClass : ''}`}
     >
       {genre}
