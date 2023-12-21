@@ -22,6 +22,7 @@ import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './src/config/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 
+const slugger = new GithubSlugger()
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -50,7 +51,7 @@ function createCategoryCount(allBlogs) {
   allBlogs.forEach((file) => {
     if (file.categories && (!isProduction || file.draft !== true)) {
       file.categories.forEach((category) => {
-        const formattedCategory = GithubSlugger.slug(category)
+        const formattedCategory = slugger.slug(category)
         if (formattedCategory in categoryCount) {
           categoryCount[formattedCategory] += 1
         } else {
@@ -68,7 +69,7 @@ function createTagCount(allBlogs) {
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
-        const formattedTag = GithubSlugger.slug(tag)
+        const formattedTag = slugger.slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {
@@ -155,9 +156,9 @@ export default makeSource({
       rehypePresetMinify,
     ],
   },
-  /*onSuccess: async (importData) => {
+  onSuccess: async (importData) => {
     const { allBlogs } = await importData()
     createTagCount(allBlogs)
     createSearchIndex(allBlogs)
-  },*/
+  },
 })
