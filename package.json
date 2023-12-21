@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "node ./scripts/postContentLayer.mjs && next build",
+    "build": "next build",
     "preview": "next start",
     "postbuild": "next-sitemap",
     "lint": "next lint",
