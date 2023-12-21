@@ -36,7 +36,7 @@ input#nav-toggle:checked ~ #nav-menu {
 // }
 
 .nav-link {
-  @apply block p-3 font-semibold text-dark transition hover:text-primary dark:text-darkmode-dark lg:px-2 lg:py-3;
+  @apply block p-3 font-semibold text-dark transition hover:text-primary lg:px-2 lg:py-3 dark:text-darkmode-dark;
 }
 
 .nav-dropdown {
@@ -68,7 +68,7 @@ input#nav-toggle:checked ~ #nav-menu {
   }
 
   span {
-    @apply absolute -top-1 left-0 dark:lg:left-4 flex h-6 w-6 items-center justify-center rounded-full bg-dark transition-all duration-300 dark:bg-white;
+    @apply absolute -top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full bg-dark transition-all duration-300 dark:bg-white dark:lg:left-4;
   }
 
   input:checked + label {
@@ -84,7 +84,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .search-modal {
-  @apply invisible absolute left-0 right-0 top-0 z-10 h-10 bg-white opacity-0 transition dark:bg-darkmode-theme-light md:h-full;
+  @apply invisible absolute left-0 right-0 top-0 z-10 h-10 bg-white opacity-0 transition md:h-full dark:bg-darkmode-theme-light;
   .form-input {
     @apply h-full w-full border-0 text-lg;
   }

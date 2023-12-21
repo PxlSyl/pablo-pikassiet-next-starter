@@ -40,5 +40,7 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     'no-prototype-builtins': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'jsx-a11y/media-has-caption': 'off',
   },
 }

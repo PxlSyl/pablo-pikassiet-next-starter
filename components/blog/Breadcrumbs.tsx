@@ -8,7 +8,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
   const pathname = usePathname()
 
   const paths = pathname.split('/').filter((x) => x)
-  let parts = [
+  const parts = [
     {
       label: 'Home',
       href: '/',
@@ -28,9 +28,9 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
 
   return (
     <nav aria-label="Breadcrumb" className={className}>
-      <ol className="inline-flex" role="list">
+      <ol className="inline-flex">
         {parts.map(({ label, ...attrs }, index) => (
-          <li className="mx-1 capitalize" role="listitem" key={index}>
+          <li className="mx-1 capitalize" key={index}>
             {index > 0 && <span className="inlin-block mr-1">/</span>}
             {index !== parts.length - 1 ? (
               <Link className="text-primary dark:text-darkmode-primary" {...attrs}>

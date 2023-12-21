@@ -1,7 +1,7 @@
 ---
-title: "Elements"
-meta_title: ""
-description: "this is meta description"
+title: 'Elements'
+meta_title: ''
+description: 'this is meta description'
 draft: false
 ---
 
@@ -124,9 +124,9 @@ img {
 #### JavaScript
 
 ```javascript
-window.addEventListener("load", (e) => {
-  document.querySelector(".preloader").style.display = "none";
-});
+window.addEventListener('load', (e) => {
+  document.querySelector('.preloader').style.display = 'none'
+})
 ```
 
 ---

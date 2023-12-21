@@ -12,4 +12,16 @@ import picturesOfCanadaMdx from './pictures-of-canada.mdx.json' assert { type: '
 import releaseOfTailwindNextjsStarterBlogV2_0Mdx from './release-of-tailwind-nextjs-starter-blog-v2.0.mdx.json' assert { type: 'json' }
 import theTimeMachineMdx from './the-time-machine.mdx.json' assert { type: 'json' }
 
-export const allBlogs = [codeSampleMdx, derivingOlsEstimatorMdx, elementsMdx, githubMarkdownGuideMdx, guideToUsingImagesInNextjsMdx, introducingTailwindNextjsStarterBlogMdx, myFancyTitleMdx, newFeaturesInV1Mdx, picturesOfCanadaMdx, releaseOfTailwindNextjsStarterBlogV2_0Mdx, theTimeMachineMdx]
+export const allBlogs = [
+  codeSampleMdx,
+  derivingOlsEstimatorMdx,
+  elementsMdx,
+  githubMarkdownGuideMdx,
+  guideToUsingImagesInNextjsMdx,
+  introducingTailwindNextjsStarterBlogMdx,
+  myFancyTitleMdx,
+  newFeaturesInV1Mdx,
+  picturesOfCanadaMdx,
+  releaseOfTailwindNextjsStarterBlogV2_0Mdx,
+  theTimeMachineMdx,
+]

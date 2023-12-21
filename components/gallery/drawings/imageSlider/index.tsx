@@ -102,6 +102,9 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
                 <span
                   key={tag}
                   onClick={() => selectTag(tag)}
+                  onKeyDown={(e) => e.key === 'Enter' && selectTag(tag)}
+                  role="button"
+                  tabIndex={0}
                   className={`mx-1 block rounded-lg px-1 shadow-lg 
                                 ${
                                   selectedTags.includes(tag)

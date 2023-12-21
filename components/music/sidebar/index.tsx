@@ -52,6 +52,8 @@ export const Sidebar = ({
   const genreElements = genres.map((genre) => (
     <div
       key={genre}
+      role="button"
+      tabIndex={0}
       onClick={() => {
         setGenre(genre)
         handleSelect(genre)
@@ -77,8 +79,14 @@ export const Sidebar = ({
           id="checkbox"
           className="checkbox visuallyHidden"
         />
-        <label htmlFor="checkbox" onClick={toggleMenu}>
-          <div className="hamburger hamburger_style">
+        <label htmlFor="checkbox">
+          <div
+            className="hamburger hamburger_style"
+            role="button"
+            tabIndex={0}
+            onClick={toggleMenu}
+            onKeyDown={toggleMenu}
+          >
             <span className="bar bar1"></span>
             <span className="bar bar2"></span>
             <span className="bar bar3"></span>

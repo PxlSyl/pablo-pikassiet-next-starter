@@ -29,8 +29,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
             id="checkbox"
             className="checkbox visuallyHidden"
           />
-          <label htmlFor="checkbox" onClick={toggleMenu}>
-            <div className="hamburger hamburger_style">
+          <label htmlFor="checkbox">
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={toggleMenu}
+              onKeyDown={(e) => e.key === 'Enter' && toggleMenu()}
+              className="hamburger hamburger_style"
+            >
               <span className="bar bar1"></span>
               <span className="bar bar2"></span>
               <span className="bar bar3"></span>

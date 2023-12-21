@@ -13,7 +13,7 @@ const Pagination = ({
   const hasPrevPage = currentPage > 1
   const hasNextPage = totalPages > currentPage
 
-  let pageList = []
+  const pageList = []
   if (hasPrevPage) {
     pageList.push(currentPage - 1)
   }

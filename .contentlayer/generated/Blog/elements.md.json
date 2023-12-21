@@ -4,16 +4,8 @@
   "description": "this is meta description",
   "date": "2023-11-20T00:00:00.000Z",
   "image": "/images/image-placeholder.png",
-  "categories": [
-    "Design",
-    "Web"
-  ],
-  "tags": [
-    "markdown",
-    "code",
-    "css",
-    "features"
-  ],
+  "categories": ["Design", "Web"],
+  "tags": ["markdown", "code", "css", "features"],
   "draft": false,
   "author": "John Doe",
   "summary": "Example of a markdown file with code blocks and syntax highlighting\r",
