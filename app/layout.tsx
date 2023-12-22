@@ -10,7 +10,7 @@ import { SearchProvider } from '@/components/navigation/search/SearchProvider'
 import Providers from '@/components/partials/Providers'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteMetadata.base_url),
+  metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     default: siteMetadata.title,
     template: `%s | ${siteMetadata.title}`,

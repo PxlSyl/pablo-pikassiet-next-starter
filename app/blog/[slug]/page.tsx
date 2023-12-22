@@ -72,7 +72,7 @@ export async function generateMetadata({
     twitter: {
       title: post.title,
       description: post.summary,
-      site: siteMetadata.base_url,
+      site: siteMetadata.siteUrl,
       card: 'summary_large_image',
       images: imageList,
     },

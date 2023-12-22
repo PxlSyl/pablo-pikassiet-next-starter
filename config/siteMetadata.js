@@ -4,7 +4,7 @@ const siteMetadata = {
   author: 'Pablo Pikassiet',
   description: 'An amazing Next.js template for creative people',
 
-  base_url: 'https://nextplate.netlify.app',
+  siteUrl: 'https://pablo-pikassiet-next-starter.vercel.app/',
   base_path: '/',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
 
