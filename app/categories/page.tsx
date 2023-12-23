@@ -13,9 +13,10 @@ import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 export const metadata = genPageMetadata({ title: 'Categories' })
 
 const Categories = () => {
-  const posts = allCoreContent(sortPosts(allBlogs))
-  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
-  const currentPosts = posts.slice(0, POSTS_PER_PAGE)
+  const allPost = allCoreContent(sortPosts(allBlogs))
+  const filteredPosts = allPost.filter((post) => post.draft === false)
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
+  const currentPosts = filteredPosts.slice(0, POSTS_PER_PAGE)
 
   return (
     <>

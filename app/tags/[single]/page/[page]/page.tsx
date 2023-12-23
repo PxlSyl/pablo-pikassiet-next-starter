@@ -57,7 +57,6 @@ export const dynamicParams = false
 export const generateStaticParams: StaticParams = () => {
   const tagCounts = tagData as Record<string, number>
   const sortedTags = sortData(tagCounts)
-
   const paths = sortedTags.map((tag) => ({
     single: tag,
   }))
@@ -66,8 +65,9 @@ export const generateStaticParams: StaticParams = () => {
 }
 
 const TagSingle = ({ params: { single, page } }: PageProps) => {
-  const posts = allCoreContent(sortPosts(allBlogs))
-  const filterByTags = taxonomyFilter(posts, 'tags', single)
+  const allPost = allCoreContent(sortPosts(allBlogs))
+  const filteredPosts = allPost.filter((post) => post.draft === false)
+  const filterByTags = taxonomyFilter(filteredPosts, 'tags', single)
   const totalPages = Math.ceil(filterByTags.length / POSTS_PER_PAGE)
   const currentPage = page && !isNaN(Number(page)) ? Number(page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE

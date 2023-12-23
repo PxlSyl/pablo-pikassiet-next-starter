@@ -65,8 +65,9 @@ export const generateStaticParams: StaticParams = () => {
 }
 
 const CategorySingle = ({ params: { single, page } }: PageProps) => {
-  const posts = allCoreContent(sortPosts(allBlogs))
-  const filterByCategories = taxonomyFilter(posts, 'categories', single)
+  const allPost = allCoreContent(sortPosts(allBlogs))
+  const filteredPosts = allPost.filter((post) => post.draft === false)
+  const filterByCategories = taxonomyFilter(filteredPosts, 'categories', single)
   const totalPages = Math.ceil(filterByCategories.length / POSTS_PER_PAGE)
   const currentPage = page && !isNaN(Number(page)) ? Number(page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE

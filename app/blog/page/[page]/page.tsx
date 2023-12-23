@@ -21,7 +21,7 @@ export const dynamicParams = false
 // generate static params
 export const generateStaticParams = () => {
   const allPost = allCoreContent(sortPosts(allBlogs))
-  const allSlug: string[] = allPost.map((item) => item.slug!)
+  const allSlug: string[] = allPost.filter((post) => post.draft === false).map((item) => item.slug!)
   const totalPages = Math.ceil(allSlug.length / POSTS_PER_PAGE)
   const paths: { page: string }[] = []
 
@@ -36,14 +36,13 @@ export const generateStaticParams = () => {
 
 // for all regular pages
 const Posts = ({ params: { page } }: PageProps) => {
-  const sortedPosts = sortPosts(allBlogs)
-  const posts = allCoreContent(sortedPosts)
-
-  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
+  const allPost = allCoreContent(sortPosts(allBlogs))
+  const filteredPosts = allPost.filter((post) => post.draft === false)
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
   const currentPage = page && !isNaN(Number(page)) ? Number(page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE
   const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE
-  const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost)
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost)
 
   return (
     <>
