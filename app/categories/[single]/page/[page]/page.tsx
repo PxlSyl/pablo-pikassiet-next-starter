@@ -1,11 +1,9 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import siteMetadata from '@/config/siteMetadata'
-import categoryData from '@/config/data/category-data.json'
 import { POSTS_PER_PAGE } from '@/config/postsPerPage'
 
 import taxonomyFilter from '@/lib/utils/taxonomyFilter'
-import { sortData } from '@/lib/utils/sortData'
 import { capitalizeFirstLetter } from '@/lib/utils/textConverter'
 
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
@@ -16,8 +14,6 @@ import { CategoryLink } from '@/components/blog/PostSidebar/CategoryLink'
 import BlogPostsSection from '@/components/blog/BlogPostSection'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
-
-type StaticParams = () => { single: string }[]
 
 type PageProps = {
   params: { single: string; page?: number }
