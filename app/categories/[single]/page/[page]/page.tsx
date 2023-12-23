@@ -54,12 +54,18 @@ export async function generateMetadata({
 export const dynamicParams = false
 
 // generate static params
-export const generateStaticParams: StaticParams = () => {
-  const categoryCounts = categoryData as Record<string, number>
-  const sortedCategories = sortData(categoryCounts)
-  const paths = sortedCategories.map((category) => ({
-    single: category,
-  }))
+export const generateStaticParams = ({ params: { single, page } }: PageProps) => {
+  const allPost = allCoreContent(sortPosts(allBlogs))
+  const filteredPosts = allPost.filter((post) => post.draft === false)
+  const filterByCategories = taxonomyFilter(filteredPosts, 'categories', single)
+  const totalPages = Math.ceil(filterByCategories.length / POSTS_PER_PAGE)
+  const paths: { page: string }[] = []
+
+  for (let i = 1; i < totalPages; i++) {
+    paths.push({
+      page: (i + 1).toString(),
+    })
+  }
 
   return paths
 }
