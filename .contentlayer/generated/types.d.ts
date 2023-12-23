@@ -37,9 +37,10 @@ export type Blog = {
   filePath: string
   toc: string
   structuredData: json
-}
+}  
 
 /** Nested types */
+  
 
 /** Helper types */
 
@@ -56,6 +57,7 @@ export type DataExports = {
   allDocuments: DocumentTypes[]
   allBlogs: Blog[]
 }
+
 
 export interface ContentlayerGenTypes {
   documentTypes: DocumentTypes
@@ -76,4 +78,8 @@ export type DocumentTypeMap = {
   Blog: Blog
 }
 
-export type NestedTypeMap = {}
+export type NestedTypeMap = {
+
+}
+
+ 
