@@ -19,12 +19,14 @@ import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
 type StaticParams = () => { single: string }[]
 
+type PageProps = {
+  params: { single: string; page?: number }
+}
+
 export async function generateMetadata({
-  params,
-}: {
-  params: { single: string }
-}): Promise<Metadata | undefined> {
-  const title = capitalizeFirstLetter(params.single)
+  params: { single },
+}: PageProps): Promise<Metadata | undefined> {
+  const title = capitalizeFirstLetter(single)
   return {
     title: title,
     description: 'Categories',
@@ -62,11 +64,11 @@ export const generateStaticParams: StaticParams = () => {
   return paths
 }
 
-const CategorySingle = ({ params }: { params: { single: string; page: number } }) => {
+const CategorySingle = ({ params: { single, page } }: PageProps) => {
   const posts = allCoreContent(sortPosts(allBlogs))
-  const filterByCategories = taxonomyFilter(posts, 'categories', params.single)
+  const filterByCategories = taxonomyFilter(posts, 'categories', single)
   const totalPages = Math.ceil(filterByCategories.length / POSTS_PER_PAGE)
-  const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
+  const currentPage = page && !isNaN(Number(page)) ? Number(page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE
   const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE
   const currentPosts = filterByCategories.slice(indexOfFirstPost, indexOfLastPost)
@@ -74,7 +76,7 @@ const CategorySingle = ({ params }: { params: { single: string; page: number } }
   return (
     <>
       <ScrollTopAndComment scrollToComment={false} />
-      <PageHeader title={params.single} />
+      <PageHeader title={single} />
       <div className="mb-20 flex flex-col justify-center md:flex-row">
         <div className="mt-20">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
@@ -96,7 +98,7 @@ const CategorySingle = ({ params }: { params: { single: string; page: number } }
             liclassName="mb-14"
           />
           <Pagination
-            section={`categories/${params.single}`}
+            section={`categories/${single}`}
             currentPage={currentPage}
             totalPages={totalPages}
           />

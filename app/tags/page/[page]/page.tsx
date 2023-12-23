@@ -11,6 +11,10 @@ import { TagLink } from '@/components/blog/PostSidebar/TagLink'
 
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
+type PageProps = {
+  params: { page: number }
+}
+
 export const metadata = genPageMetadata({ title: 'Tags' })
 
 // remove dynamicParams
@@ -32,10 +36,10 @@ export const generateStaticParams = () => {
   return paths
 }
 
-const tags = ({ params }: { params: { page: number } }) => {
+const tags = ({ params: { page } }: PageProps) => {
   const posts = allCoreContent(sortPosts(allBlogs))
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
-  const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
+  const currentPage = page && !isNaN(Number(page)) ? Number(page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE
   const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)

@@ -9,13 +9,15 @@ import Social from '@/components/blog/Social'
 
 import { getSinglePage } from '@/lib/contentParser'
 
-export async function generateMetadata({
-  params,
-}: {
+type PageProps = {
   params: { single: string }
-}): Promise<Metadata | undefined> {
+}
+
+export async function generateMetadata({
+  params: { single },
+}: PageProps): Promise<Metadata | undefined> {
   const authors: Author[] = getSinglePage('authors')
-  const author = authors.filter((page) => page.slug === params.single)[0]
+  const author = authors.filter((page) => page.slug === single)[0]
   const { frontmatter } = author
   const { title, description, image } = frontmatter
 
@@ -56,9 +58,9 @@ export const generateStaticParams: () => { single?: string }[] = () => {
   return paths
 }
 
-const AuthorSingle = ({ params }: { params: { single: string } }) => {
+const AuthorSingle = ({ params: { single } }: PageProps) => {
   const authors: Author[] = getSinglePage('authors')
-  const author = authors.filter((page) => page.slug === params.single)[0]
+  const author = authors.filter((page) => page.slug === single)[0]
   const { frontmatter, content } = author
   const { title, social, image } = frontmatter
 

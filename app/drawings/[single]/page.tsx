@@ -11,13 +11,15 @@ import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
 import { getSinglePage } from '@/lib/contentParser'
 
-export async function generateMetadata({
-  params,
-}: {
+type PageProps = {
   params: { single: string }
-}): Promise<Metadata | undefined> {
+}
+
+export async function generateMetadata({
+  params: { single },
+}: PageProps): Promise<Metadata | undefined> {
   const imagesData: ImgData[] = getSinglePage('gallery')
-  const imageSingle = imagesData.filter((page) => page.slug === params.single)[0]
+  const imageSingle = imagesData.filter((page) => page.slug === single)[0]
   const { frontmatter } = imageSingle
   const { title, description, image } = frontmatter
 
@@ -57,9 +59,9 @@ export const generateStaticParams: () => { single: string }[] = () => {
   return paths
 }
 
-const ImageSingle = ({ params }: { params: { single: string } }) => {
+const ImageSingle = ({ params: { single } }: PageProps) => {
   const imagesData: ImgData[] = getSinglePage('gallery')
-  const imageSingle = imagesData.filter((page) => page.slug === params.single)[0]
+  const imageSingle = imagesData.filter((page) => page.slug === single)[0]
   const { frontmatter, content, slug } = imageSingle
   const { title, description, image, width, height } = frontmatter
 

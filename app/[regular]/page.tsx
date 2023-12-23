@@ -6,13 +6,15 @@ import { getSinglePage } from '@/lib/contentParser'
 import MDXContent from '@/components/helpers/MDXContent'
 import PageHeader from '@/components/partials/PageHeader'
 
-export async function generateMetadata({
-  params,
-}: {
+type PageProps = {
   params: { regular: string }
-}): Promise<Metadata | undefined> {
+}
+
+export async function generateMetadata({
+  params: { regular },
+}: PageProps): Promise<Metadata | undefined> {
   const regularData = getSinglePage('pages')
-  const data = regularData.filter((page: RegularPage) => page.slug === params.regular)[0]
+  const data = regularData.filter((page: RegularPage) => page.slug === regular)[0]
   const { frontmatter } = data
   const { title, description, image } = frontmatter
 
@@ -54,9 +56,9 @@ export const generateStaticParams = () => {
 }
 
 // for all regular pages
-const RegularPages = ({ params }: { params: { regular: string } }) => {
+const RegularPages = ({ params: { regular } }: PageProps) => {
   const regularData = getSinglePage('pages')
-  const data = regularData.filter((page: RegularPage) => page.slug === params.regular)[0]
+  const data = regularData.filter((page: RegularPage) => page.slug === regular)[0]
   const { frontmatter, content } = data
   const { title } = frontmatter
 

@@ -19,12 +19,14 @@ import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
 type StaticParams = () => { single: string }[]
 
+type PageProps = {
+  params: { single: string; page?: number }
+}
+
 export async function generateMetadata({
-  params,
-}: {
-  params: { single: string }
-}): Promise<Metadata | undefined> {
-  const title = capitalizeFirstLetter(params.single)
+  params: { single },
+}: PageProps): Promise<Metadata | undefined> {
+  const title = capitalizeFirstLetter(single)
   return {
     title: title,
     description: 'Tags',
@@ -63,11 +65,11 @@ export const generateStaticParams: StaticParams = () => {
   return paths
 }
 
-const TagSingle = ({ params }: { params: { single: string; page: number } }) => {
+const TagSingle = ({ params: { single, page } }: PageProps) => {
   const posts = allCoreContent(sortPosts(allBlogs))
-  const filterByTags = taxonomyFilter(posts, 'tags', params.single)
+  const filterByTags = taxonomyFilter(posts, 'tags', single)
   const totalPages = Math.ceil(filterByTags.length / POSTS_PER_PAGE)
-  const currentPage = params.page && !isNaN(Number(params.page)) ? Number(params.page) : 1
+  const currentPage = page && !isNaN(Number(page)) ? Number(page) : 1
   const indexOfLastPost = currentPage * POSTS_PER_PAGE
   const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE
   const currentPosts = filterByTags.slice(indexOfFirstPost, indexOfLastPost)
@@ -75,7 +77,7 @@ const TagSingle = ({ params }: { params: { single: string; page: number } }) => 
   return (
     <>
       <ScrollTopAndComment scrollToComment={false} />
-      <PageHeader title={params.single} />
+      <PageHeader title={single} />
       <div className="mb-20 flex flex-col justify-center md:flex-row">
         <div className="mb-4 mt-20 flex flex-col">
           <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
@@ -94,7 +96,7 @@ const TagSingle = ({ params }: { params: { single: string; page: number } }) => 
             liclassName="mb-14"
           />
           <Pagination
-            section={`tags/${params.single}`}
+            section={`tags/${single}`}
             currentPage={currentPage}
             totalPages={totalPages}
           />
