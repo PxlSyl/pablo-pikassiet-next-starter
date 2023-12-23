@@ -57,7 +57,6 @@ export const generateStaticParams = ({ params: { single } }: PageProps) => {
   const tagCounts = tagData[single] || 0
   // Calculate the total number of pages based on the count and POSTS_PER_PAGE
   const totalPages = Math.ceil(tagCounts / POSTS_PER_PAGE)
-
   // Generate the paths
   const paths: { page: string }[] = []
 

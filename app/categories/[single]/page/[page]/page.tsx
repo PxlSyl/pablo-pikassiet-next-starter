@@ -53,10 +53,8 @@ export const dynamicParams = true
 export const generateStaticParams = ({ params: { single } }: PageProps) => {
   // Get the count for the specified category from categoryData
   const categoryCount = categoryData[single] || 0
-
   // Calculate the total number of pages based on the count and POSTS_PER_PAGE
   const totalPages = Math.ceil(categoryCount / POSTS_PER_PAGE)
-
   // Generate the paths
   const paths: { page: string }[] = []
 
