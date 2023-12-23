@@ -50,16 +50,22 @@ export async function generateMetadata({
   }
 }
 
-// remove dynamicParams
-export const dynamicParams = false
+export const dynamicParams = true
 
 // generate static params
-export const generateStaticParams: StaticParams = () => {
-  const tagCounts = tagData as Record<string, number>
-  const sortedTags = sortData(tagCounts)
-  const paths = sortedTags.map((tag) => ({
-    single: tag,
-  }))
+export const generateStaticParams = ({ params: { single } }: PageProps) => {
+  const tagCounts = tagData[single] || 0
+  // Calculate the total number of pages based on the count and POSTS_PER_PAGE
+  const totalPages = Math.ceil(tagCounts / POSTS_PER_PAGE)
+
+  // Generate the paths
+  const paths: { page: string }[] = []
+
+  for (let i = 1; i <= totalPages; i++) {
+    paths.push({
+      page: i.toString(),
+    })
+  }
 
   return paths
 }

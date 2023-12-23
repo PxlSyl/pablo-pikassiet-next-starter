@@ -47,7 +47,6 @@ export async function generateMetadata({
   }
 }
 
-// remove dynamicParams
 export const dynamicParams = true
 
 // generate static params
