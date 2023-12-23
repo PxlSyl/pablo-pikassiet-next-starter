@@ -11,6 +11,8 @@ import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
 import { getSinglePage } from '@/lib/contentParser'
 
+type StaticParams = () => { single: string }[]
+
 type PageProps = {
   params: { single: string }
 }
@@ -50,7 +52,7 @@ export async function generateMetadata({
 export const dynamicParams = false
 
 // generate static params
-export const generateStaticParams: () => { single: string }[] = () => {
+export const generateStaticParams: StaticParams = () => {
   const imagesData: ImgData[] = getSinglePage('gallery')
   const paths = imagesData.map((image) => ({
     single: image.slug,

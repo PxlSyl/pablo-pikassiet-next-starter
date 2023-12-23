@@ -9,6 +9,8 @@ import Social from '@/components/blog/Social'
 
 import { getSinglePage } from '@/lib/contentParser'
 
+type StaticParams = () => { single: string }[]
+
 type PageProps = {
   params: { single: string }
 }
@@ -48,7 +50,7 @@ export async function generateMetadata({
 export const dynamicParams = false
 
 // generate static params
-export const generateStaticParams: () => { single?: string }[] = () => {
+export const generateStaticParams: StaticParams = () => {
   const authors: Author[] = getSinglePage('authors')
 
   const paths = authors.map((author) => ({
