@@ -1,5 +1,4 @@
 ---
-draft: false
 title: 'The Time Machine'
 imgSrc: '/static/images/time-machine.jpg'
 href: '/blog/the-time-machine'

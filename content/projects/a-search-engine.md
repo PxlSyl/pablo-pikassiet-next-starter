@@ -1,5 +1,4 @@
 ---
-draft: false
 title: 'A Search Engine'
 imgSrc: '/static/images/google.png'
 href: 'https://www.google.com'
