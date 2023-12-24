@@ -47,7 +47,7 @@ const ProjectsCard = ({ data }) => {
           {href && (
             <Link
               href={href}
-              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 text-base font-medium leading-6"
+              className="text-base font-medium leading-6 text-highlighted hover:opacity-80 dark:text-darkmode-highlighted"
               aria-label={`Link to ${title}`}
             >
               Learn more &rarr;
