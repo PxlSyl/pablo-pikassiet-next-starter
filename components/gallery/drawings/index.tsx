@@ -26,7 +26,7 @@ const Gallery: React.FC<GalleryProps> = ({ galleryData, allSerie, allTags }) => 
 
   return (
     <>
-      <div className="mt-20 w-screen">
+      <div className="mb-20 mt-20 w-screen">
         <ImageSlider
           imageData={galleryData}
           portraitDimensions={portraitDimensions}

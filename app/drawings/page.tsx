@@ -23,12 +23,10 @@ const Drawings = () => {
   )
 
   return (
-    <>
-      <div className="mb-20 mt-20">
-        <PageHeader title={title} />
-        <Gallery galleryData={galleryData} allSerie={allSerie} allTags={allTags} />
-      </div>
-    </>
+    <div>
+      <PageHeader title={title} />
+      <Gallery galleryData={galleryData} allSerie={allSerie} allTags={allTags} />
+    </div>
   )
 }
 

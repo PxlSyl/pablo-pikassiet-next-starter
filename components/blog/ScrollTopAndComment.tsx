@@ -3,11 +3,11 @@
 import siteMetadata from '@/config/siteMetadata'
 import { useEffect, useState } from 'react'
 
-type Props = {
+type ScrollProps = {
   scrollToComment: boolean
 }
 
-const ScrollTopAndComment = ({ scrollToComment }: Props) => {
+const ScrollTopAndComment = ({ scrollToComment }: ScrollProps) => {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
@@ -26,6 +26,7 @@ const ScrollTopAndComment = ({ scrollToComment }: Props) => {
   const handleScrollToComment = () => {
     document.getElementById('comment')?.scrollIntoView()
   }
+
   return (
     <div
       className={`fixed bottom-8 right-8 z-[50] hidden flex-col gap-3 ${

@@ -1,13 +1,13 @@
 'use client'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { UrlObject } from 'url'
 import { selectedClass, hoverClass } from './menutheme'
 
 interface SectionProps {
   icon: React.ReactNode
   title: string
-  links: { title: string; href?: string | UrlObject; onClick?: () => void }[]
+  links: { title: string; href?: string }[]
   closeMenu: () => void
 }
 
@@ -26,11 +26,11 @@ export const Regularsection: React.FC<SectionProps> = ({
       </div>
       {links.map((link) => {
         if (link.href) {
-          const isSelected = pathname.includes(link.href as string)
+          const isSelected = pathname.includes(link.href)
           return (
             <Link
               key={link.title}
-              href={link.href as string | UrlObject}
+              href={link.href}
               onClick={closeMenu}
               className={`ml-4 flex flex-col font-medium ${hoverClass}
                ${isSelected ? selectedClass : ''}`}
