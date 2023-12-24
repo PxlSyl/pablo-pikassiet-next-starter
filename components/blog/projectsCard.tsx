@@ -1,56 +1,62 @@
+import { plainify } from '@/lib/utils/textConverter'
 import Image from './Image'
 import Link from './Link'
 
-const ProjectsCard = ({ title, description, imgSrc, href }) => (
-  <div className="md max-w-[544px] p-4 md:w-1/2">
-    <div
-      className={`${
-        imgSrc && 'h-full'
-      }  overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
-    >
-      {imgSrc &&
-        (href ? (
-          <Link href={href} aria-label={`Link to ${title}`}>
+const ProjectsCard = ({ data }) => {
+  const { title, imgSrc, href } = data.frontmatter
+  return (
+    <div className="max-w-[544px] p-4">
+      <div
+        className={`${
+          imgSrc && 'h-full'
+        }  rounded-2xl bg-gradient-to-b from-body to-theme-light dark:from-darkmode-body dark:to-darkmode-theme-light`}
+      >
+        {imgSrc &&
+          (href ? (
+            <Link href={href} aria-label={`Link to ${title}`}>
+              <Image
+                alt={title}
+                src={imgSrc}
+                className="rounded-2xl object-cover object-center md:h-36 lg:h-48"
+                width={544}
+                height={306}
+              />
+            </Link>
+          ) : (
             <Image
               alt={title}
               src={imgSrc}
-              className="object-cover object-center md:h-36 lg:h-48"
+              className="rounded-2xl object-cover object-center md:h-36 lg:h-48"
               width={544}
               height={306}
             />
-          </Link>
-        ) : (
-          <Image
-            alt={title}
-            src={imgSrc}
-            className="object-cover object-center md:h-36 lg:h-48"
-            width={544}
-            height={306}
-          />
-        ))}
-      <div className="p-6">
-        <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
-          {href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
-              {title}
+          ))}
+        <div className="p-6">
+          <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
+            {href ? (
+              <Link href={href} aria-label={`Link to ${title}`}>
+                {title}
+              </Link>
+            ) : (
+              title
+            )}
+          </h2>
+          <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
+            {plainify(data.content.slice(0, Number(149)))}...
+          </p>
+          {href && (
+            <Link
+              href={href}
+              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 text-base font-medium leading-6"
+              aria-label={`Link to ${title}`}
+            >
+              Learn more &rarr;
             </Link>
-          ) : (
-            title
           )}
-        </h2>
-        <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
-        {href && (
-          <Link
-            href={href}
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 text-base font-medium leading-6"
-            aria-label={`Link to ${title}`}
-          >
-            Learn more &rarr;
-          </Link>
-        )}
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default ProjectsCard
