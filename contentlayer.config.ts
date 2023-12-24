@@ -23,7 +23,6 @@ import siteMetadata from './config/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 
 const root = process.cwd()
-const isProduction = process.env.NODE_ENV === 'production'
 
 const computedFields: ComputedFields = {
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
@@ -48,7 +47,7 @@ const computedFields: ComputedFields = {
 function createCategoryCount(allBlogs) {
   const categoryCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
-    if (file.categories && (!isProduction || file.draft !== true)) {
+    if (file.categories && file.draft === false) {
       file.categories.forEach((category) => {
         const formattedCategory = slug(category)
         if (formattedCategory in categoryCount) {
@@ -66,7 +65,7 @@ function createCategoryCount(allBlogs) {
 function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
-    if (file.tags && (!isProduction || file.draft !== true)) {
+    if (file.tags && file.draft === false) {
       file.tags.forEach((tag) => {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
@@ -155,9 +154,9 @@ export default makeSource({
       rehypePresetMinify,
     ],
   },
-  onSuccess: async (importData) => {
+  /* onSuccess: async (importData) => {
     const { allBlogs } = await importData()
     createTagCount(allBlogs)
     createSearchIndex(allBlogs)
-  },
+  },*/
 })

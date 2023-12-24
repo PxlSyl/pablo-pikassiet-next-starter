@@ -6,8 +6,6 @@ import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import siteMetadata from '../config/siteMetadata.js'
 
-const isProduction = process.env.NODE_ENV === 'production'
-
 /**
  * Count the occurrences of all tags and categories across blog posts and write to json file
  */
@@ -15,7 +13,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 export async function createCategoryCount() {
   const categoryCount = {}
   allBlogs.forEach((file) => {
-    if (file.categories && (!isProduction || file.draft !== true)) {
+    if (file.categories && file.draft === false) {
       file.categories.forEach((category) => {
         const formattedCategory = slug(category)
         if (formattedCategory in categoryCount) {
@@ -33,7 +31,7 @@ export async function createCategoryCount() {
 export async function createTagCount() {
   const tagCount = {}
   allBlogs.forEach((file) => {
-    if (file.tags && (!isProduction || file.draft !== true)) {
+    if (file.tags && file.draft === false) {
       file.tags.forEach((tag) => {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
