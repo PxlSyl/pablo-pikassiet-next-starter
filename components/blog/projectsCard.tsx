@@ -39,7 +39,7 @@ const ProjectsCard = ({ data }: ProjectsCardProps) => {
             className="text-base font-medium leading-6 text-highlighted hover:opacity-80 dark:text-darkmode-highlighted"
             aria-label={`Link to ${title}`}
           >
-            Learn more &rarr;
+            {href.startsWith('http') ? 'Visit project' : 'Read more'} &rarr;
           </Link>
         </div>
       </div>
