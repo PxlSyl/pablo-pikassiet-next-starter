@@ -20,7 +20,7 @@ const Photography = () => {
   )
   return (
     <>
-      <div className="mt-20">
+      <div className="mb-20 mt-20">
         <PageHeader title="Photography" />
         <Gallery galleryData={galleryData} allSerie={allSerie} allTags={allTags} />
       </div>

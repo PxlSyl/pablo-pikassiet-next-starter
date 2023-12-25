@@ -10,7 +10,7 @@ type GalleryStore = {
 }
 
 export const useGalleryStore = create<GalleryStore>((set) => ({
-  selectedSerie: 'Bonsai',
+  selectedSerie: 'Portrait',
   selectSeries: (serie: string) =>
     set((state) => {
       if (serie === state.selectedSerie) {
