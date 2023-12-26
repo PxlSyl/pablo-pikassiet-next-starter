@@ -8,7 +8,7 @@ import MDXContent from '@/components/helpers/MDXContent'
 import Share from '@/components/blog/Share'
 import Comments from '@/components/blog/Comments'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
-
+import { thumbsGallery } from '@/config/galleriesContent'
 import { getSinglePage } from '@/lib/contentParser'
 
 type StaticParams = () => { single: string }[]
@@ -20,7 +20,7 @@ type PageProps = {
 export async function generateMetadata({
   params: { single },
 }: PageProps): Promise<Metadata | undefined> {
-  const imagesData: ImgData[] = getSinglePage('photography')
+  const imagesData: ImgData[] = getSinglePage(thumbsGallery)
   const imageSingle = imagesData.filter((page) => page.slug === single)[0]
   const { frontmatter } = imageSingle
   const { title, description, image } = frontmatter
@@ -53,7 +53,7 @@ export const dynamicParams = false
 
 // generate static params
 export const generateStaticParams: StaticParams = () => {
-  const imagesData: ImgData[] = getSinglePage('photography')
+  const imagesData: ImgData[] = getSinglePage(thumbsGallery)
   const paths = imagesData.map((image) => ({
     single: image.slug,
   }))
@@ -62,7 +62,7 @@ export const generateStaticParams: StaticParams = () => {
 }
 
 const ImageSingle = ({ params: { single } }: PageProps) => {
-  const imagesData: ImgData[] = getSinglePage('photography')
+  const imagesData: ImgData[] = getSinglePage(thumbsGallery)
   const imageSingle = imagesData.filter((page) => page.slug === single)[0]
   const { frontmatter, content, slug } = imageSingle
   const { title, description, image, width, height } = frontmatter

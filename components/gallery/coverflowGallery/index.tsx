@@ -1,10 +1,10 @@
 'use client'
 
-import { ImageSlider } from '@/components/gallery/drawings/imageSlider'
+import { ImageSlider } from './imageSlider'
 
-import { Sidebar } from '@/components/gallery/drawings/sidebar'
+import { Sidebar } from './sidebar'
 import { useWindowWidth } from '@/hooks/useWindowWidth'
-import { useGalleryStore } from '@/components/gallery/drawings/store'
+import { useGalleryStore } from './store'
 
 interface GalleryProps {
   galleryData: any

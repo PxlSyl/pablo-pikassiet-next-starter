@@ -3,13 +3,14 @@ import type { ImgData } from '@/types'
 import { useMemo } from 'react'
 import { genPageMetadata } from '../seo'
 import PageHeader from '@/components/partials/PageHeader'
-import Gallery from '@/components/gallery/drawings'
+import Gallery from '@/components/gallery/coverflowGallery'
+import { coverflowGallery } from '@/config/galleriesContent'
 import { getSinglePage } from '@/lib/contentParser'
 
 export const metadata = genPageMetadata({ title: 'Drawings', description: 'Drawings' })
 
 const Drawings = () => {
-  const galleryData: ImgData[] = getSinglePage('drawings')
+  const galleryData: ImgData[] = getSinglePage(coverflowGallery)
 
   const allSerie = useMemo(
     () => Array.from(new Set(galleryData.map((item) => item.frontmatter.serie))).sort(),

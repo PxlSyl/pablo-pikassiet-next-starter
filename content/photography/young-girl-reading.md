@@ -3,7 +3,7 @@ draft: false
 image: '/images/photography/pexels-pixabay.jpg'
 serie: 'Portrait'
 tags: ['Child', 'Girl']
-title: Old indian woman
+title: Young girl reading
 description: Young girl portrait
 width: 400
 height: 533
