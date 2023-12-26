@@ -1,4 +1,6 @@
 import { MetadataRoute } from 'next'
+import categoryData from '@/config/data/category-data.json'
+import tagData from '@/config/data/tag-data.json'
 import { allBlogs } from 'contentlayer/generated'
 import siteMetadata from '@/config/siteMetadata'
 import { getSinglePage } from '@/lib/contentParser'
@@ -31,6 +33,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: post.lastmod || post.date,
     }))
 
+  const categories = Object.keys(categoryData)
+  const categoryRoutes = categories.map((category) => ({
+    url: `${siteUrl}/category/${category}`,
+    lastModified: new Date().toISOString().split('T')[0],
+  }))
+
+  const tags = Object.keys(tagData)
+  const tagRoutes = tags.map((tag) => ({
+    url: `${siteUrl}/tags/${tag}`,
+    lastModified: new Date().toISOString().split('T')[0],
+  }))
+
   const authors = getSinglePage('authors')
   const authorsRoutes = authors.map((author) => ({
     url: `${siteUrl}/authors/${author.slug}`,
@@ -57,7 +71,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...regularRoutes,
     ...drawingsRoutes,
     ...photosRoutes,
-    ...authorsRoutes,
+    ...categoryRoutes,
+    ...tagRoutes,
     ...blogRoutes,
+    ...authorsRoutes,
   ]
 }
