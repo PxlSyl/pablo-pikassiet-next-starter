@@ -9,7 +9,7 @@ import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { genPageMetadata } from '../seo'
 
-export const metadata = genPageMetadata({ title: 'Blog Posts' })
+export const metadata = genPageMetadata({ title: 'Blog Posts', description: 'Blog Posts' })
 
 // for all regular pages
 const Posts = () => {

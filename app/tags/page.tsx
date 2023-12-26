@@ -10,7 +10,7 @@ import BlogPostsSection from '@/components/blog/BlogPostSection'
 import Pagination from '@/components/blog/Pagination'
 import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 
-export const metadata = genPageMetadata({ title: 'Tags' })
+export const metadata = genPageMetadata({ title: 'Tags', description: 'Tags' })
 
 const tags = () => {
   const allPost = allCoreContent(sortPosts(allBlogs))

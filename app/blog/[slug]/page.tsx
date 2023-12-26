@@ -45,8 +45,8 @@ export async function generateMetadata({
   const publishedAt = new Date(post.date).toISOString()
   const modifiedAt = new Date(post.lastmod || post.date).toISOString()
   let imageList = [siteMetadata.socialBanner]
-  if (post.images) {
-    imageList = typeof post.images === 'string' ? [post.images] : post.images
+  if (post.image) {
+    imageList = typeof post.image === 'string' ? [post.image] : post.image
   }
   const ogImages = imageList.map((img) => {
     return {
@@ -61,7 +61,7 @@ export async function generateMetadata({
       title: post.title,
       description: post.summary,
       siteName: siteMetadata.title,
-      locale: 'en',
+      locale: siteMetadata.locale,
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,

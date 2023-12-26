@@ -5,7 +5,7 @@ import Gallery from '@/components/gallery/photos'
 import PageHeader from '@/components/partials/PageHeader'
 import { getSinglePage } from '@/lib/contentParser'
 
-export const metadata = genPageMetadata({ title: 'Photography' })
+export const metadata = genPageMetadata({ title: 'Photography', description: 'Photography' })
 
 const Photography = () => {
   const galleryData: ImgData[] = getSinglePage('photography')

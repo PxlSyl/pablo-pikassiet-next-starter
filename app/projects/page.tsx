@@ -4,7 +4,7 @@ import { getSinglePage } from '@/lib/contentParser'
 import { genPageMetadata } from '../seo'
 import PageHeader from '@/components/partials/PageHeader'
 
-export const metadata = genPageMetadata({ title: 'Projects' })
+export const metadata = genPageMetadata({ title: 'Projects', description: 'Project' })
 
 export default function Projects() {
   const projects: Project[] = getSinglePage('projects')

@@ -9,7 +9,7 @@ import ImageFallback from '@/components/helpers/ImageFallback'
 import siteMetadata from '@/config/siteMetadata'
 import NewsletterForm from '@/components/blog/NewsletterForm'
 
-export const metadata = genPageMetadata({ title: 'Home' })
+export const metadata = genPageMetadata({ title: 'Home', description: 'Home page' })
 
 const Home = () => {
   const homepage = getListPage('homepage/_index.md')

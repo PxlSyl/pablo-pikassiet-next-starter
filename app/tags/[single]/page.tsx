@@ -27,24 +27,25 @@ export async function generateMetadata({
   params: { single },
 }: PageProps): Promise<Metadata | undefined> {
   const title = capitalizeFirstLetter(single)
+
   return {
     title: title,
     description: 'Tags',
     openGraph: {
       title: title,
       description: 'Tags',
-      siteName: siteMetadata.title,
-      locale: 'en',
-      type: 'website',
       url: './',
+      siteName: siteMetadata.title,
       images: siteMetadata.socialBanner,
+      locale: siteMetadata.locale,
+      type: 'website',
     },
     twitter: {
-      card: 'summary_large_image',
-      site: siteMetadata.siteUrl,
-      creator: siteMetadata.author,
       title: title,
       description: 'Tags',
+      site: siteMetadata.siteUrl,
+      creator: siteMetadata.author,
+      card: 'summary_large_image',
       images: siteMetadata.socialBanner,
     },
   }

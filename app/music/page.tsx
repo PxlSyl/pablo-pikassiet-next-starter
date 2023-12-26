@@ -2,7 +2,7 @@ import PageHeader from '@/components/partials/PageHeader'
 import MusicPlayer from './music'
 import { genPageMetadata } from '../seo'
 
-export const metadata = genPageMetadata({ title: 'Music' })
+export const metadata = genPageMetadata({ title: 'Music', description: 'Music' })
 
 const Music = () => {
   return (

@@ -4,7 +4,7 @@ import { getListPage, getSinglePage } from '@/lib/contentParser'
 import AuthorCard from '@/components/blog/AuthorCard'
 import PageHeader from '@/components/partials/PageHeader'
 
-export const metadata = genPageMetadata({ title: 'Authors' })
+export const metadata = genPageMetadata({ title: 'Authors', description: 'Authors' })
 
 const Authors = () => {
   const authorIndex: Author = getListPage('authors/_index.md')

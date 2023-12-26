@@ -15,7 +15,7 @@ type PageProps = {
   params: { page: number }
 }
 
-export const metadata = genPageMetadata({ title: 'Tags' })
+export const metadata = genPageMetadata({ title: 'Tags', description: 'Tags' })
 
 // remove dynamicParams
 export const dynamicParams = false
