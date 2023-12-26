@@ -9,7 +9,7 @@ import { getSinglePage } from '@/lib/contentParser'
 export const metadata = genPageMetadata({ title: 'Drawings', description: 'Drawings' })
 
 const Drawings = () => {
-  const galleryData: ImgData[] = getSinglePage('gallery')
+  const galleryData: ImgData[] = getSinglePage('drawings')
 
   const allSerie = useMemo(
     () => Array.from(new Set(galleryData.map((item) => item.frontmatter.serie))).sort(),

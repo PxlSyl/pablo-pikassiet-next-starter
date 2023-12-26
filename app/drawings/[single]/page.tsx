@@ -20,7 +20,7 @@ type PageProps = {
 export async function generateMetadata({
   params: { single },
 }: PageProps): Promise<Metadata | undefined> {
-  const imagesData: ImgData[] = getSinglePage('gallery')
+  const imagesData: ImgData[] = getSinglePage('drawings')
   const imageSingle = imagesData.filter((page) => page.slug === single)[0]
   const { frontmatter } = imageSingle
   const { title, description, image } = frontmatter
@@ -53,7 +53,7 @@ export const dynamicParams = false
 
 // generate static params
 export const generateStaticParams: StaticParams = () => {
-  const imagesData: ImgData[] = getSinglePage('gallery')
+  const imagesData: ImgData[] = getSinglePage('drawings')
   const paths = imagesData.map((image) => ({
     single: image.slug,
   }))
@@ -62,7 +62,7 @@ export const generateStaticParams: StaticParams = () => {
 }
 
 const ImageSingle = ({ params: { single } }: PageProps) => {
-  const imagesData: ImgData[] = getSinglePage('gallery')
+  const imagesData: ImgData[] = getSinglePage('drawings')
   const imageSingle = imagesData.filter((page) => page.slug === single)[0]
   const { frontmatter, content, slug } = imageSingle
   const { title, description, image, width, height } = frontmatter
