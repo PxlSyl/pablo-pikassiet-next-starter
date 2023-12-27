@@ -73,7 +73,7 @@ export const Header: React.FC = (): JSX.Element | null => {
         className={`${menuClass}`}
         onClick={handleClick}
         onKeyDown={handleMenuKeyPress}
-        role="menuitem"
+        role="button"
         aria-label="Menu button"
         tabIndex={0}
       >
