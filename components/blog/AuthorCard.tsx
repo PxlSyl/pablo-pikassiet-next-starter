@@ -29,7 +29,9 @@ const AuthorCard = ({ data }: { data: any }) => {
       </h4>
       <Link href={`/authors/${data.slug}`}>
         <p className="mb-4">{plainify(data.content?.slice(0, 300))}...</p>
-        <p className="mb-4 text-highlighted dark:text-darkmode-highlighted">Read more</p>
+        <p className="mb-4 text-highlighted hover:opacity-80  dark:text-darkmode-highlighted">
+          Read more &rarr;
+        </p>
       </Link>
       <Social source={social} className="social-icons" />
     </div>
