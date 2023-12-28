@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       suppressHydrationWarning={true}
       lang="en"
-      className={`${signika.variable} ${space_grotesk.variable}`}
+      className={`${signika.variable} ${space_grotesk.variable} scroll-smooth`}
     >
       <head>
         {/* responsive meta */}
@@ -81,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
+        <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
 
       <body suppressHydrationWarning={true}>
