@@ -9,7 +9,6 @@ const siteMetadata = {
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
 
   trailing_slash: false,
-  favicon: '/images/favicon.png',
   logo: '/images/logo.svg',
   logo_darkmode: '/images/logo-darkmode.svg',
   logo_width: '225',
