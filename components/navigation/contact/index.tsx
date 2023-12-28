@@ -10,7 +10,7 @@ import { CModal } from './CModal'
 
 export const ContactModal = (): JSX.Element => {
   const contactModal = useContactModal()
-  const [state, handleSubmit, reset] = useForm(`${process.env.NEXT_FORMSPREE_KEY}`)
+  const [state, handleSubmit, reset] = useForm('xdojkndq')
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [message, setMessage] = useState<string>('')
@@ -29,7 +29,7 @@ export const ContactModal = (): JSX.Element => {
       }, 2000)
     }
 
-    if (state.errors && Object.keys(state.errors).length > 0) {
+    if (state.errors && !state.submitting && Object.keys(state.errors).length > 0) {
       toast.error<unknown>('Error!')
     }
   }, [state, reset])

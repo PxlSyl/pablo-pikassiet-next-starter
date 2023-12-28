@@ -25,7 +25,7 @@ const BlogCard = ({ post }: Props) => {
   return (
     <div className="bg-body dark:bg-darkmode-body">
       {image && (
-        <Link href={`/blog/${path}`}>
+        <Link href={`/blog/${path}`} aria-label={`link to ${title}`}>
           <ImageFallback
             className="mb-6 w-full rounded"
             src={image}
@@ -36,7 +36,9 @@ const BlogCard = ({ post }: Props) => {
         </Link>
       )}
       <h4 className="mb-3">
-        <Link href={`/blog/${path}`}>{title}</Link>
+        <Link href={`/blog/${path}`} aria-label={`link to ${title}`}>
+          {title}
+        </Link>
       </h4>
       <ul className="mb-4 ">
         <li className="mr-4 inline-block">
@@ -45,6 +47,7 @@ const BlogCard = ({ post }: Props) => {
             <Link
               className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
               href="/about"
+              aria-label={`link to ${title}`}
             >
               {humanize(authorDefault)}
             </Link>
@@ -55,6 +58,7 @@ const BlogCard = ({ post }: Props) => {
                   className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                   key={index}
                   href={author === 'default' ? '/about' : `/authors/${slugify(author)}`}
+                  aria-label={`link to ${title}`}
                 >
                   {humanize(author === 'default' ? authorDefault : author)}
                   {index !== authors.length - 1 && ', '}
@@ -70,6 +74,7 @@ const BlogCard = ({ post }: Props) => {
               className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
               key={index}
               href={`/categories/${slugify(category)}`}
+              aria-label={`link to ${title}`}
             >
               {humanize(category)}
               {index !== categories.length - 1 && ', '}
@@ -83,6 +88,7 @@ const BlogCard = ({ post }: Props) => {
               className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
               key={index}
               href={`/tags/${slugify(tag)}`}
+              aria-label={`link to ${title}`}
             >
               {humanize(tag)}
               {index !== tags.length - 1 && ', '}
@@ -98,7 +104,11 @@ const BlogCard = ({ post }: Props) => {
         )}
       </ul>
       <p className="mb-6">{summary.length > 149 ? `${summary.substring(0, 149)}...` : summary}</p>
-      <Link className="btn btn-outline-primary btn-sm" href={`/blog/${path}`}>
+      <Link
+        className="btn btn-outline-primary btn-sm"
+        href={`/blog/${path}`}
+        aria-label={`link to ${title}`}
+      >
         read more
       </Link>
     </div>
