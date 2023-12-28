@@ -37,7 +37,7 @@ export const Mobilesection: React.FC<SectionProps> = ({
       <AccordionItemPanel>
         {links.map((link) => {
           if (link.href) {
-            const isSelected = pathname.includes(link.href)
+            const isSelected = pathname.endsWith(link.href)
             return (
               <Link
                 key={link.title}

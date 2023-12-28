@@ -26,7 +26,7 @@ export const Regularsection: React.FC<SectionProps> = ({
       </div>
       {links.map((link) => {
         if (link.href) {
-          const isSelected = pathname.includes(link.href)
+          const isSelected = pathname.endsWith(link.href)
           return (
             <Link
               key={link.title}
