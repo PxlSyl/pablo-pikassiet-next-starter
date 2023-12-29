@@ -6,6 +6,7 @@ import { Thumbs } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/navigation'
 import Link from 'next/link'
+import { useWindowWidth } from '@/hooks/useWindowWidth'
 
 type ImageSliderProps = {
   imageData: ImgData[]
@@ -22,6 +23,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
   selectedSerie,
   selectedTags,
 }) => {
+  const windowWidth = useWindowWidth()
   const [thumbs, setThumbs] = useState(null)
 
   const filteredImages = useMemo(() => {
@@ -134,18 +136,14 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
       </SwiperSlide>
     )
   })
-  const swiperStyles = {
-    width: '533px',
-  }
 
   return (
-    <div className="mb-10 mt-10 items-center justify-center">
+    <div className="mb-10 mt-10" style={{ transform: windowWidth < 768 ? 'scale(0.8)' : 'none' }}>
       <Swiper
         loop={true}
         modules={[Thumbs]}
         thumbs={{ swiper: thumbs && !thumbs.destroyed ? thumbs : null }}
-        style={swiperStyles}
-        className="mb-2 rounded  bg-theme-light p-6 dark:bg-darkmode-theme-light"
+        className="mb-2 w-[533px] rounded bg-theme-light p-6 dark:bg-darkmode-theme-light"
       >
         {slides}
       </Swiper>
@@ -153,7 +151,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
         loop={true}
         slidesPerView={3}
         onSwiper={setThumbs}
-        className="w-[533px] rounded  bg-theme-light p-6 dark:bg-darkmode-theme-light"
+        className=" w-[533px] rounded  bg-theme-light p-6 dark:bg-darkmode-theme-light"
       >
         <div style={{ display: 'flex' }}>{thumbsSlides}</div>
       </Swiper>
