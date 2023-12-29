@@ -139,7 +139,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
   }
 
   return (
-    <div className="mb-10 mt-10">
+    <div className="mb-10 mt-10 items-center justify-center">
       <Swiper
         loop={true}
         modules={[Thumbs]}
