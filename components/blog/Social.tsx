@@ -19,7 +19,7 @@ const Social = ({ source, className }: { source: ISocial[]; className: string })
               rel="noopener noreferrer nofollow"
             >
               <span className="sr-only">{social.name}</span>
-              <DynamicIcon className="inline-block" icon={social.icon} />
+              <DynamicIcon icon={social.icon} />
             </a>
           </li>
         ) : null
