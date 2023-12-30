@@ -98,8 +98,8 @@ export const Header: React.FC = (): JSX.Element | null => {
           </div>
         </nav>
         <div className="z-40">
-          <SearchButton className="fixed right-[70px] top-[34px] mr-5" />
-          <ThemeSwitcher className="fixed right-[20px] top-[34px] h-6 w-12 cursor-pointer opacity-100" />
+          <SearchButton className="fixed right-[70px] top-[30px] mr-5" />
+          <ThemeSwitcher className="fixed right-[20px] top-[30px] h-6 w-12 cursor-pointer opacity-100" />
         </div>
       </div>
       <div
