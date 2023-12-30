@@ -70,12 +70,11 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
       return (
         <SwiperSlide
           key={img.frontmatter.image}
+          className={`${
+            windowWidth < 768 ? 'h-[425px] w-[425px]' : 'h-[533px] w-[533px]'
+          } flex items-center justify-center`}
           style={{
-            width: '533px',
-            height: '533px',
             display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
           }}
         >
           {img.frontmatter.draft === false ? (
@@ -138,12 +137,14 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
   })
 
   return (
-    <div className="mb-10 mt-10" style={{ transform: windowWidth < 768 ? 'scale(0.8)' : 'none' }}>
+    <div className="mb-10 mt-10">
       <Swiper
         loop={true}
         modules={[Thumbs]}
         thumbs={{ swiper: thumbs && !thumbs.destroyed ? thumbs : null }}
-        className="mb-2 w-[533px] rounded bg-theme-light p-6 dark:bg-darkmode-theme-light"
+        className={`${
+          windowWidth < 768 ? 'w-[425px]' : 'w-[533px]'
+        } mb-6 rounded bg-theme-light p-6 dark:bg-darkmode-theme-light`}
       >
         {slides}
       </Swiper>
@@ -151,7 +152,9 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
         loop={true}
         slidesPerView={3}
         onSwiper={setThumbs}
-        className=" w-[533px] rounded  bg-theme-light p-6 dark:bg-darkmode-theme-light"
+        className={`${
+          windowWidth < 768 ? 'w-[425px]' : 'w-[533px]'
+        } rounded bg-theme-light p-6 dark:bg-darkmode-theme-light`}
       >
         <div style={{ display: 'flex' }}>{thumbsSlides}</div>
       </Swiper>
