@@ -32,7 +32,7 @@ const Share = ({ title, description, slug, className }: ShareProps) => {
       <li className="inline-block">
         <a
           aria-label="twitter share button"
-          href={`https://twitter.com/intent/tweet/?text=${title}&amp;url=${siteMetadata.siteUrl}/${secondPath}/${slug}`}
+          href={`https://twitter.com/intent/tweet/?url=${siteMetadata.siteUrl}/${secondPath}/${slug}&text=${title}`}
           target="_blank"
           rel="noreferrer noopener"
         >
