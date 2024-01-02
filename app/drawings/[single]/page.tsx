@@ -11,8 +11,6 @@ import ScrollTopAndComment from '@/components/blog/ScrollTopAndComment'
 import { coverflowGallery } from '@/config/galleriesContent'
 import { getSinglePage } from '@/lib/contentParser'
 
-type StaticParams = () => { single: string }[]
-
 type PageProps = {
   params: { single: string }
 }
@@ -52,7 +50,7 @@ export async function generateMetadata({
 export const dynamicParams = false
 
 // generate static params
-export const generateStaticParams: StaticParams = () => {
+export const generateStaticParams = () => {
   const imagesData: ImgData[] = getSinglePage(coverflowGallery)
   const paths = imagesData.map((image) => ({
     single: image.slug,
