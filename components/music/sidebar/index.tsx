@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { MenuItems } from './menuItems'
-import { defaultClass, selectedClass } from '../styles'
+import { defaultClass } from '../styles'
 import styles from './index.module.css'
 
 interface Music {
@@ -64,7 +64,9 @@ export const Sidebar = ({
           handleSelect(genre)
         }
       }}
-      className={`${defaultClass} ${selectedItem === genre ? selectedClass : ''}`}
+      className={`${defaultClass} ${
+        selectedItem === genre ? 'text-highlighted dark:text-darkmode-highlighted' : ''
+      }`}
     >
       {genre}
     </div>
@@ -72,7 +74,7 @@ export const Sidebar = ({
 
   return (
     <>
-      <div className="fixed bottom-[32px] left-[20px] z-[12] flex h-[50px] w-[50px] items-center justify-center rounded-xl bg-blue-400">
+      <div className="fixed bottom-[32px] left-[20px] z-[12] flex h-[50px] w-[50px] items-center justify-center rounded-xl bg-highlighted dark:bg-darkmode-highlighted">
         <input
           type="checkbox"
           aria-label="Music menu"

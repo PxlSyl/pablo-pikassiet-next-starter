@@ -35,7 +35,6 @@ var require_siteMetadata = __commonJS({
       base_path: "/",
       siteRepo: "https://github.com/timlrx/tailwind-nextjs-starter-blog",
       trailing_slash: false,
-      favicon: "/images/favicon.png",
       logo: "/images/logo.svg",
       logo_darkmode: "/images/logo-darkmode.svg",
       logo_width: "225",
@@ -45,7 +44,7 @@ var require_siteMetadata = __commonJS({
       theme: "system",
       // system, dark or light
       theme_switcher: true,
-      socialBanner: "/static/images/twitter-card.png",
+      socialBanner: "/images/twitter-card.png",
       locale: "en",
       analytics: {
         // If you want to use an analytics provider you have to add it to the
@@ -167,7 +166,7 @@ var computedFields = {
 };
 var Blog = defineDocumentType(() => ({
   name: "Blog",
-  filePathPattern: "**/*.*",
+  filePathPattern: "**/**/*.*",
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
@@ -180,7 +179,6 @@ var Blog = defineDocumentType(() => ({
     lastmod: { type: "date" },
     draft: { type: "boolean" },
     summary: { type: "string" },
-    images: { type: "json" },
     authors: { type: "list", of: { type: "string" } },
     serie: { type: "string" },
     layout: { type: "string" },
@@ -198,14 +196,14 @@ var Blog = defineDocumentType(() => ({
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
         description: doc.summary,
-        image: doc.images ? doc.images[0] : import_siteMetadata.default.socialBanner,
+        image: doc.image ? doc.image[0] : import_siteMetadata.default.socialBanner,
         url: `${import_siteMetadata.default.siteUrl}/${doc._raw.flattenedPath}`
       })
     }
   }
 }));
 var contentlayer_config_default = makeSource({
-  contentDirPath: "content/blog/",
+  contentDirPath: "content/blog",
   documentTypes: [Blog],
   mdx: {
     cwd: process.cwd(),
@@ -235,4 +233,4 @@ export {
   Blog,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-3NC7OTNX.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-GN3JXIFZ.mjs.map

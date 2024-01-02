@@ -11,5 +11,6 @@ import newFeaturesInV1Mdx from './new-features-in-v1.mdx.json' assert { type: 'j
 import picturesOfCanadaMdx from './pictures-of-canada.mdx.json' assert { type: 'json' }
 import releaseOfTailwindNextjsStarterBlogV2_0Mdx from './release-of-tailwind-nextjs-starter-blog-v2.0.mdx.json' assert { type: 'json' }
 import theTimeMachineMdx from './the-time-machine.mdx.json' assert { type: 'json' }
+import nestedRoute__introducingMultiPartPostsWithNestedRoutingMdx from './nested-route__introducing-multi-part-posts-with-nested-routing.mdx.json' assert { type: 'json' }
 
-export const allBlogs = [codeSampleMdx, derivingOlsEstimatorMdx, elementsMdx, githubMarkdownGuideMdx, guideToUsingImagesInNextjsMdx, introducingTailwindNextjsStarterBlogMdx, myFancyTitleMdx, newFeaturesInV1Mdx, picturesOfCanadaMdx, releaseOfTailwindNextjsStarterBlogV2_0Mdx, theTimeMachineMdx]
+export const allBlogs = [codeSampleMdx, derivingOlsEstimatorMdx, elementsMdx, githubMarkdownGuideMdx, guideToUsingImagesInNextjsMdx, introducingTailwindNextjsStarterBlogMdx, myFancyTitleMdx, newFeaturesInV1Mdx, picturesOfCanadaMdx, releaseOfTailwindNextjsStarterBlogV2_0Mdx, theTimeMachineMdx, nestedRoute__introducingMultiPartPostsWithNestedRoutingMdx]
