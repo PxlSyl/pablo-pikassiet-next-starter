@@ -57,7 +57,6 @@ export const generateStaticParams: StaticParams = () => {
   const paths = imagesData.map((image) => ({
     single: image.slug,
   }))
-
   return paths
 }
 

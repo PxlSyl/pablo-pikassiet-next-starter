@@ -47,7 +47,7 @@ export const MenuItems: React.FC<MenuItemsProps> = ({ selectedItem, handleSelect
           selectedItem === 'Search' ? 'text-highlighted dark:text-darkmode-highlighted' : ''
         }`}
       >
-        {selectedItem === 'Search' ? <SearchSelected fill={fill} /> : <Search fill={darkmode} />}{' '}
+        {selectedItem === 'Search' ? <SearchSelected fill={fill} /> : <Search fill={darkmode} />}
         <p className="ml-3 text-lg">Search</p>
       </div>
     </div>

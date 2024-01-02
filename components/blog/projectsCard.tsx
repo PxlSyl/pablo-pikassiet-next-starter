@@ -8,7 +8,7 @@ type ProjectsCardProps = {
 }
 
 const ProjectsCard = ({ data }: ProjectsCardProps) => {
-  const { title, imgSrc, href } = data.frontmatter
+  const { title, imgSrc, href, description } = data.frontmatter
   return (
     <div className="max-w-[544px] p-4">
       <div
@@ -32,7 +32,7 @@ const ProjectsCard = ({ data }: ProjectsCardProps) => {
             </Link>
           </h2>
           <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">
-            {plainify(data.content.slice(0, Number(149)))}...
+            {plainify(description.slice(0, Number(149)))}...
           </p>
           <Link
             href={href}

@@ -49,6 +49,7 @@ export type Project = {
   frontmatter: {
     title: string
     imgSrc: string
+    description?: string
     href: string
   }
   slug?: string
