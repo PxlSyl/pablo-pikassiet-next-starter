@@ -12,13 +12,7 @@ export default function Projects() {
     <>
       <PageHeader title="Projects" />
       <div className="mb-20 mt-20 flex flex-col items-center justify-center">
-        <div className="grid w-full max-w-6xl grid-cols-1 md:grid-cols-2">
-          {projects.map((project: any, index: number) => (
-            <div key={index} className="w-full">
-              <ProjectsCard data={project} />
-            </div>
-          ))}
-        </div>
+        <ProjectsCard projects={projects} />
       </div>
     </>
   )
