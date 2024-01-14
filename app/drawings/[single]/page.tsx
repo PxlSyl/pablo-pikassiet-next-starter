@@ -71,7 +71,7 @@ const ImageSingle = ({ params: { single } }: PageProps) => {
       <section className="section-sm pb-0">
         <div className="container">
           <article className="flex flex-col items-center justify-center border-b border-border pb-14 dark:border-darkmode-border">
-            <div className="text-center lg:col-4">
+            <div className="text-center">
               {image && (
                 <ImageFallback
                   src={`${image}`}
@@ -82,7 +82,7 @@ const ImageSingle = ({ params: { single } }: PageProps) => {
                 />
               )}
               <h1 className="h3 mb-6 text-highlighted dark:text-darkmode-highlighted">Details:</h1>
-              <div className="content">
+              <div className="content max-w-[533px]">
                 <MDXContent content={content} />
               </div>
             </div>
