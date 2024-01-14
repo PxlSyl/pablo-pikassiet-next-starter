@@ -1,111 +1,32 @@
 <h1 align=center>Nextjs + Tailwind CSS + TypeScript Starter and Boilerplate</h1>
 
-<p align=center>Nextplate is a free starter template built with Nextjs, TailwindCSS & TypeScript, providing everything you need to jumpstart your Next project and save valuable time.</p>
+<p align=center>Pablo Pikassiet is a free starter template built with Nextjs, TailwindCSS & TypeScript, providing everything you need to jumpstart your artist Next project and save valuable time.</p>
 
-<p align=center>Made with ♥ by<a href="https://zeon.studio/"> Zeon Studio</a></p>
+<p align=center>Made with ♥ by<a href="https://www.pxlsyl.art/fr"> PxlSyl</a></p>
 <p align=center> If you find this project useful, please give it a ⭐ to show your support. </p>
 
-<h2 align="center"> <a target="_blank" href="https://nextplate.netlify.app/" rel="nofollow">👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-nextplate-netlify-app/zttnq0z42d?form_factor=desktop">Page Speed (100%)🚀</a>
-</h2>
+## Introduction
 
-<p align=center>
+This artist starter template is a very hard fork from Nextplate and Tailwind Next Starter Blog, mixed together with my own ideas.
 
-  <a href="https://github.com/vercel/next.js/releases/tag/v14.0.2" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=NEXTJS&message=13.4&color=000&logo=nextjs" />
-  </a>
+## Note
 
-  <a href="https://github.com/zeon-studio/nextplate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zeon-studio/nextplate" alt="license"></a>
+I don't have that much time so I need help to write and replace some posts for the doc, for testing and debugging, and even for news ideas if you have some. Feel free to open issues or make pr!
 
-  <img src="https://img.shields.io/github/languages/code-size/zeon-studio/nextplate" alt="code size">
+## Features
 
-  <a href="https://github.com/zeon-studio/nextplate/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zeon-studio/nextplate" alt="contributors"></a>
-</p>
+- All best features from [Nextplate](https://github.com/zeon-studio/nextplate)
+- All best features from [Tailwind Next Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
+- All best features, ideas and improvments from my own project and website.
 
-## 📌 Key Features
+## i18n version
 
-- 👥 Multi-Authors
-- 🎯 Similar Posts Suggestion
-- 🔍 Search Functionality
-- 🌑 Dark Mode
-- 🏷️ Tags & Categories
-- 🔗 Netlify setting pre-configured
-- 📞 Support contact form
-- 📱 Fully responsive
-- 📝 Write and update content in Markdown / MDX
-- 💬 Disqus Comment
-- 🔳 Syntax Highlighting
+There's also a version with i18n available here : [Pablo Pikassiet i18n](https://github.com/PxlSyl/pablo-pikassiet-next-starter-i18n)
 
-### 📄 15+ Pre-designed Pages
+## License
 
-- 🏠 Homepage
-- 👤 About
-- 📞 Contact
-- 👥 Authors
-- 👤 Author Single
-- 📝 Blog
-- 📝 Blog Single
-- 🚫 Custom 404
-- 💡 Elements
-- 📄 Privacy Policy
-- 🏷️ Tags
-- 🏷️ Tag Single
-- 🗂️ Categories
-- 🗂️ Category Single
-- 🔍 Search
+Copyright (c) 2023 - Present, Designed & Developed by [PxlSyl](https://www.pxlsyl.art/fr)
 
-## 🚀 Getting Started
+**Image and music license:** The images are only for demonstration purposes. They have their license, I don't have permission to share those images.
 
-### 📦 Dependencies
-
-- next 14+
-- node v20+
-- npm v9.6+
-- tailwind v3.3+
-
-### 👉 Install Dependencies
-
-```bash
-npm install
-```
-
-### 👉 Development Command
-
-```bash
-npm run dev
-```
-
-### 👉 Build Command
-
-```bash
-npm run build
-```
-
-### 👉 Build and Run With Docker
-
-```bash
-docker build -t nextplate .
-docker run -p 3000:3000 nextplate
-```
-
-<!-- reporting issue -->
-
-## 🐞 Reporting Issues
-
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/zeon-studio/nextplate/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/zeon-studio/nextplate/issues).
-
-<!-- licence -->
-
-## 📝 License
-
-Copyright (c) 2023 - Present, Designed & Developed by [Zeon Studio](https://zeon.studio/)
-
-**Code License:** Released under the [MIT](https://github.comzeon-studio/nextplate/blob/main/LICENSE) license.
-
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
-
-## 💻 Need Custom Development Services?
-
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://zeon.studio/).
+The images from the drawing galleries come from my own artworks, as well for the musics in the music player : all rights reserved.
