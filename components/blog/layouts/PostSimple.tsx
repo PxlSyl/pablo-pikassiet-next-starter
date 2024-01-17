@@ -6,8 +6,7 @@ import type { Blog } from 'contentlayer/generated'
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
-import { FaRegUserCircle } from 'react-icons/fa'
-import { FaRegFolder, FaRegClock, FaTags } from 'react-icons/fa6'
+import { User, Folder, Clock, Tags } from '../icons'
 
 import Comments from '../Comments'
 import Link from '../Link'
@@ -53,7 +52,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       <div>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6">
-                          <FaRegClock className="-mt-1 mr-2 inline-block" />
+                          <Clock className="-mt-1 mr-2 inline-block" />
                           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         </dd>
                       </div>
@@ -64,7 +63,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   </div>
                   <ul className="text-cente mb-4 mt-4 ">
                     <li className="mr-4 inline-block">
-                      <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                      <User className={'-mt-1 mr-2 inline-block'} />
                       {authors === undefined ? (
                         <Link
                           className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
@@ -88,7 +87,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       )}
                     </li>
                     <li className="mr-4 inline-block">
-                      <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
+                      <Folder className={'-mt-1 mr-2 inline-block'} />
                       {categories?.map((category: string, index: number) => (
                         <Link
                           className="mx-1 text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
@@ -101,7 +100,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       ))}
                     </li>
                     <li className="mr-4 inline-block">
-                      <FaTags className={'-mt-1 mr-2 inline-block'} />
+                      <Tags className={'-mt-1 mr-2 inline-block'} />
                       {tags?.map((tag: string) => (
                         <Link
                           className="mx-1 text-highlighted  hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"

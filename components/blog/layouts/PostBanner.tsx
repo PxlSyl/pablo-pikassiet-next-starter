@@ -3,8 +3,7 @@ import Bleed from 'pliny/ui/Bleed'
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
-import { FaRegUserCircle } from 'react-icons/fa'
-import { FaRegFolder, FaRegClock } from 'react-icons/fa6'
+import { User, Folder, Clock } from '../icons'
 
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
@@ -64,7 +63,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                 </div>
                 <ul className="mb-2 mt-2 text-center">
                   <li className="mr-4 inline-block">
-                    <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                    <User className={'-mt-1 mr-2 inline-block'} />
                     {authors === undefined ? (
                       <Link
                         className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
@@ -88,7 +87,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                     )}
                   </li>
                   <li className="mr-4 inline-block">
-                    <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
+                    <Folder className={'-mt-1 mr-2 inline-block'} />
                     {categories?.map((category: string, index: number) => (
                       <Link
                         className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
@@ -102,7 +101,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                   </li>
                   {date && (
                     <li className="mr-4 inline-block">
-                      <FaRegClock className="-mt-1 mr-2 inline-block" />
+                      <Clock className="-mt-1 mr-2 inline-block" />
                       <time dateTime={date}>
                         {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                       </time>

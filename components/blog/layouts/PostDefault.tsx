@@ -4,7 +4,7 @@ import Link from 'next/link'
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
-import { FaRegClock, FaRegFolder, FaRegUserCircle } from 'react-icons/fa/index.js'
+import { User, Folder, Clock } from '../icons'
 
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { Blog } from 'contentlayer/generated'
@@ -53,7 +53,7 @@ const PostDefault = ({ children, content }: LayoutProps) => {
               <h1 dangerouslySetInnerHTML={markdownify(title)} className="h2 mb-4" />
               <ul className="mb-4">
                 <li className="mr-4 inline-block">
-                  <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                  <User className={'-mt-1 mr-2 inline-block'} />
                   {authors === undefined ? (
                     <Link
                       className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
@@ -77,7 +77,7 @@ const PostDefault = ({ children, content }: LayoutProps) => {
                   )}
                 </li>
                 <li className="mr-4 inline-block">
-                  <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
+                  <Folder className={'-mt-1 mr-2 inline-block'} />
                   {categories?.map((category: string, index: number) => (
                     <Link
                       className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
@@ -91,7 +91,7 @@ const PostDefault = ({ children, content }: LayoutProps) => {
                 </li>
                 {date && (
                   <li className="mr-4 inline-block">
-                    <FaRegClock className="-mt-1 mr-2 inline-block" />
+                    <Clock className="-mt-1 mr-2 inline-block" />
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>

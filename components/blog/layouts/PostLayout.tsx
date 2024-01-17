@@ -1,8 +1,6 @@
 import { ReactNode } from 'react'
 
-import { FaRegClock, FaRegFolder } from 'react-icons/fa6'
-import { FaHashtag, FaRegUserCircle } from 'react-icons/fa'
-import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from 'react-icons/io'
+import { User, Folder, Clock, Tags, ArrowLeft, ArrowRight } from '../icons'
 
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
@@ -63,7 +61,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       <div>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                          <FaRegClock className="-mt-1 mr-2 inline-block" />
+                          <Clock className="-mt-1 mr-2 inline-block" />
                           <time dateTime={date}>
                             {new Date(date).toLocaleDateString(
                               siteMetadata.locale,
@@ -105,7 +103,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     <div className="divide-gray-200 text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2 xl:divide-y dark:divide-gray-700">
                       <div className="py-4 xl:py-8">
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          <FaRegUserCircle className={'-mt-1 mr-2 inline-block'} />
+                          <User className={'-mt-1 mr-2 inline-block'} />
                           Author
                         </h2>
                         {authors === undefined ? (
@@ -135,7 +133,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       {categories && (
                         <div className="py-4 xl:py-8">
                           <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                            <FaRegFolder className={'-mt-1 mr-2 inline-block'} />
+                            <Folder className={'-mt-1 mr-2 inline-block'} />
                             Categories
                           </h2>
                           <div className="flex flex-wrap">
@@ -148,7 +146,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       {tags && (
                         <div className="py-4 xl:py-8">
                           <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                            <FaHashtag className={'-mt-1 mr-2 inline-block'} />
+                            <Tags className={'-mt-1 mr-2 inline-block'} />
                             Tags
                           </h2>
                           <div className="flex flex-wrap">
@@ -164,7 +162,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                             <div>
                               <Link href={`/blog/${prev.path}`}>
                                 <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                  <IoIosArrowDropleftCircle className={'-mt-1 mr-2 inline-block'} />
+                                  <ArrowLeft className={'-mt-1 mr-2 inline-block'} />
                                   Previous Article
                                 </h2>
                                 <div className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80">
@@ -178,9 +176,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                               <Link href={`/blog/${next.path}`}>
                                 <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                                   Next Article
-                                  <IoIosArrowDroprightCircle
-                                    className={'-mt-1 mr-2 inline-block'}
-                                  />
+                                  <ArrowRight className={'-mt-1 mr-2 inline-block'} />
                                 </h2>
                                 <div className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80">
                                   {next.title}

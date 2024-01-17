@@ -3,11 +3,13 @@
 import { useDarkMode } from '@/hooks/useDarkmode'
 
 export const HomeIcon: React.FC = (): JSX.Element => {
+  const { theme, mounted } = useDarkMode()
+  if (!mounted) return null
   return (
     <svg
       width="32"
       height="32"
-      fill="#ffffff"
+      fill={`${theme === 'light' ? '#000000' : ' #ffffff'}`}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -16,102 +18,66 @@ export const HomeIcon: React.FC = (): JSX.Element => {
   )
 }
 
-export const NotepadIcon: React.FC = (): JSX.Element => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="24"
-      height="24"
-      xmlSpace="preserve"
-      version="1.1"
-      viewBox="0 0 48 48"
-    >
-      <image
-        width="48"
-        height="48"
-        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABbmlDQ1BpY2MAACiRdZE7SwNBFIW/xISIRlJoIWIRIYpFAqIg2kkEbdQiRjBqk928hDyW3Q0itoKNhWAh2vgq/AfaCrYKgqAIInb2vhoJ651EiEgyy+z9ODPncvcsuGfyesHyTEChaJux6WhwMbEU9L3ixY2HPsaTumXMzk/Fabq+7nGpehdRvZrfa7jaU2lLB1er8KhumLawTMPMmm0o3hbu0nPJlPCRcNiUAYWvla7V+EVxtsYfis14bBLcqmcw+4e1P6znzILwoHCokC/rv/OoL/GniwvzUntk92IRY5ooQTTKrJLHJiK1KJk19g1VfXOUxKPL22AdUxxZcuINi1qWrmmpGdHT8uRZV7n/z9PKjAzXuvuj4H12nPd+8O1CZcdxvo8dp3ICLU9wWaz7S5LT2KfoO3UtdAiBTTi/qmvaHlxsQfejkTSTValFtjuTgbcz6EhA5y20Ldey+j3n9AHiG/KLbmD/AAbkfmDlBynBaB3MfTDHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkElEQVRoQ+1Z207DMAztRrkIaTyzN/5xfAZ8Is+AACEYYwxKhz2aKglpjtM0pYhGqrTOzrGP7bhJm2XjGCPwvyMwiaG/paHPn9BQ921lof5MQycMTf/PExCVUFUOnxT9vR4zUFBF7iN7MAPk/FsF0qfzbDIn22U0AQSQWP6O8GEGCODQAbLVO46S839q2HOQjPSNjlbNh/7liCHJjdp3OS7AgCqEWzurteA7NBEy7Hnh2v7OEQFJBhoxfNloK7OMpVvEF9fPGV+JRyeLOLGPXvgjZFyyBhBGSjl80EatgcXpbLsw93OtyFzeLJscfWkFqE/ilqYPJeP6t2Vt720nXfaaiAy9hFwPN4NLFAFOfRfDEd1N9V9aAtH12Qyg+nNUgHfwVl0/JHS6hiabV8ousgfblHU03FDJwN6MjCI52eT9F0efN43eLISmqK8zgQpsgciGPgde7RaLDLDc0+ez8/mJC4IXL5PgTHhHaAZmCLAjuToFfiC8UAIIryv5cQV0gABDS8hY9KkON5rTrtOgwWmoGUCBr+WhGRADSxVjzxSSDKykzvyGXmsCPZ3IYEwkBIzeryPyeaDNgF4FKEgInLnwGh5AAaa7UZXshdS+ZGfR9wpd6pKv/ZZludb3W6hVS7pQY5YQuJSQrkeYsPfr+hICal/Sxh84x26jlIHJdFrH7AkCIAVapKuQMyrCQ3IioJtTe6LGaZIMGBsq+9MRckj/CsW/ycEsz7/NFkWRcbS1L1PGb1KB5SQhAPfkPhK2c1p51ERQEHxySRvtawv9w09Jk4AEqq7AL5g4E490Lenih9stXfzyVR3A9TcI9tsEvud2zOWoy+6re/6PcVlnTdeLxPmYzI1zxwiMERhIBL4A9VxrC1h/lngAAAAASUVORK5CYII="
-      />
-    </svg>
-  )
-}
-
 export const ShopIcon: React.FC = (): JSX.Element => {
+  const { theme, mounted } = useDarkMode()
+  if (!mounted) return null
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="24"
-      height="24"
-      xmlSpace="preserve"
-      version="1.1"
-      viewBox="0 0 32 32"
+      height="16"
+      width="20"
+      fill={`${theme === 'light' ? '#000000' : ' #ffffff'}`}
+      viewBox="0 0 640 512"
     >
-      <image
-        width="32"
-        height="32"
-        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABbmlDQ1BpY2MAACiRdZE7SwNBFIW/xISIRlJoIWIRIYpFAqIg2kkEbdQiRjBqk928hDyW3Q0itoKNhWAh2vgq/AfaCrYKgqAIInb2vhoJ651EiEgyy+z9ODPncvcsuGfyesHyTEChaJux6WhwMbEU9L3ixY2HPsaTumXMzk/Fabq+7nGpehdRvZrfa7jaU2lLB1er8KhumLawTMPMmm0o3hbu0nPJlPCRcNiUAYWvla7V+EVxtsYfis14bBLcqmcw+4e1P6znzILwoHCokC/rv/OoL/GniwvzUntk92IRY5ooQTTKrJLHJiK1KJk19g1VfXOUxKPL22AdUxxZcuINi1qWrmmpGdHT8uRZV7n/z9PKjAzXuvuj4H12nPd+8O1CZcdxvo8dp3ICLU9wWaz7S5LT2KfoO3UtdAiBTTi/qmvaHlxsQfejkTSTValFtjuTgbcz6EhA5y20Ldey+j3n9AHiG/KLbmD/AAbkfmDlBynBaB3MfTDHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABE0lEQVRYR+1WXQ/CIBAbTOeT/v//6UfUiHoQtrANSO+8xEThcWNtKaWj69r4dwdMyYAXDU1zDI0cntUk+Sksb9dGcUXFrS5xWJ8BjRwkOHgG6COnuPoARZhPKIQ08TBOVD4InXNuwh45VrYsbN/R6blLt8IfPSIdrLW3SHiiR/vUiVRAT0SP2ct4dj8REO2fdQrB9vQ8bMkkYElSKg5pNiB8reTX2lXqpnThsu+0najhwW3HtQ7N0Nd/RrADU3EY48vkWNhcX+GsFpU4cJElK/+VRMCsyRawvmBYQyLgXGFg36IkAoaKAHamUAHpvJoD10QcdAlBBbCtJSFbJAxZldzSQYjCny9zM0YdQDnavOYA24E360d69wq8HTsAAAAASUVORK5CYII="
-      />
+      <path d="M36.8 192H603.2c20.3 0 36.8-16.5 36.8-36.8c0-7.3-2.2-14.4-6.2-20.4L558.2 21.4C549.3 8 534.4 0 518.3 0H121.7c-16 0-31 8-39.9 21.4L6.2 134.7c-4 6.1-6.2 13.2-6.2 20.4C0 175.5 16.5 192 36.8 192zM64 224V384v80c0 26.5 21.5 48 48 48H336c26.5 0 48-21.5 48-48V384 224H320V384H128V224H64zm448 0V480c0 17.7 14.3 32 32 32s32-14.3 32-32V224H512z" />
     </svg>
   )
 }
 
 export const PaletteIcon: React.FC = (): JSX.Element => {
+  const { theme, mounted } = useDarkMode()
+  if (!mounted) return null
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="24"
-      height="24"
-      xmlSpace="preserve"
-      version="1.1"
-      viewBox="0 0 32 32"
+      height="16"
+      width="16"
+      fill={`${theme === 'light' ? '#000000' : ' #ffffff'}`}
+      viewBox="0 0 512 512"
     >
-      <image
-        width="32"
-        height="32"
-        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABbmlDQ1BpY2MAACiRdZE7SwNBFIW/xISIRlJoIWIRIYpFAqIg2kkEbdQiRjBqk928hDyW3Q0itoKNhWAh2vgq/AfaCrYKgqAIInb2vhoJ651EiEgyy+z9ODPncvcsuGfyesHyTEChaJux6WhwMbEU9L3ixY2HPsaTumXMzk/Fabq+7nGpehdRvZrfa7jaU2lLB1er8KhumLawTMPMmm0o3hbu0nPJlPCRcNiUAYWvla7V+EVxtsYfis14bBLcqmcw+4e1P6znzILwoHCokC/rv/OoL/GniwvzUntk92IRY5ooQTTKrJLHJiK1KJk19g1VfXOUxKPL22AdUxxZcuINi1qWrmmpGdHT8uRZV7n/z9PKjAzXuvuj4H12nPd+8O1CZcdxvo8dp3ICLU9wWaz7S5LT2KfoO3UtdAiBTTi/qmvaHlxsQfejkTSTValFtjuTgbcz6EhA5y20Ldey+j3n9AHiG/KLbmD/AAbkfmDlBynBaB3MfTDHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC60lEQVRYR8WXTUiVQRSGr2mZSRYWBIZFbVqIFbYppKA2Jva3aOe+dasgogwKoiBoUfSzijbR1k3UIuwXglq0sIUVZQoVRRQVZqm3543zyfg1M99cDe6BlzN35vy8c2a+mbk15XK5VE2ZV83kyl11AnUVVqAD+/1gG1gHlpv/O/RT8ARcB0PJcbUHErAVm0cgRaYwugk2J8QtFSWvJ8hloKCST+As6ALLnAQttHeBc+CL2U6gT4EFMSIxAktxvG/BxtBHQUPCrBqxOQx+mu+dmF+IwEKcBizACHqjk7iH9ihQf3eE0HrGXlqMW2hV8598IQIXzFGJVuUclTiTtwUVke9rMz6dSkAbbhL8Ah0epxgBX3XaiDEOfoNN+Xi+CmjNJCcCs1PZRUKz35lYneMW83YRAa215CtYAlLXO5tIqDramIqpyq5xSeQr0GcELppRJeutWLHqXLLYx2IE7pnR7lkSiH3Wiinpdwnk74K1doQ+M30APQpGgNpzkUFzbnOD1IiNSS163Nr16Mm5ZPP4Kv6ExZ2+g9wKKKEM1Of2N/G7B/SCTqBARSL7rHLdzqTUnFn13Gehg0eyGqg6OlK/W1+mXtDYnvPLr71v866wAB9jm/CGGT1GZ/eAurQ5r4IhG9chFSPhI6AzQ6K404TzzFsZHHRmLLZ7HIc62udtXJWoDVTC9znqppScjBEQISXZAfTZNHkSzKdPySVbAgTyE1uE3Wfz2VBEoOiNoPFrFqzXghWdmH1m/yBPOCWZz+ahBcyu49iJqRnrPaFHTef/ILDPkn9DL7aAIQIrGX9j9tnxPmNClVZAryQ9yySHnNn4Nl0748Nmq4pV9CAJEdtrAe+i/56iHujmOwKyJ5nWvTlgW6r0Wf7DTrUGdCt4D6ZAC2gHXXZiNqN1xl8BB8FY8OgMMQv06xN9blWIKc1an3LhEruXUdH5no1r5meA/pxopqriB/AKDIB+oD8pSTIbAkmBU42q/t+w6gT+AKe6XNuPuQLaAAAAAElFTkSuQmCC"
-      />
+      <path d="M512 256c0 .9 0 1.8 0 2.7c-.4 36.5-33.6 61.3-70.1 61.3H344c-26.5 0-48 21.5-48 48c0 3.4 .4 6.7 1 9.9c2.1 10.2 6.5 20 10.8 29.9c6.1 13.8 12.1 27.5 12.1 42c0 31.8-21.6 60.7-53.4 62c-3.5 .1-7 .2-10.6 .2C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM128 288a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm96 96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z" />
     </svg>
   )
 }
 
 export const MusicIcon: React.FC = (): JSX.Element => {
+  const { theme, mounted } = useDarkMode()
+  if (!mounted) return null
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="24"
-      height="24"
-      xmlSpace="preserve"
-      version="1.1"
-      viewBox="0 0 32 32"
+      height="16"
+      width="16"
+      fill={`${theme === 'light' ? '#000000' : ' #ffffff'}`}
+      viewBox="0 0 512 512"
     >
-      <image
-        width="32"
-        height="32"
-        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABbmlDQ1BpY2MAACiRdZE7SwNBFIW/xISIRlJoIWIRIYpFAqIg2kkEbdQiRjBqk928hDyW3Q0itoKNhWAh2vgq/AfaCrYKgqAIInb2vhoJ651EiEgyy+z9ODPncvcsuGfyesHyTEChaJux6WhwMbEU9L3ixY2HPsaTumXMzk/Fabq+7nGpehdRvZrfa7jaU2lLB1er8KhumLawTMPMmm0o3hbu0nPJlPCRcNiUAYWvla7V+EVxtsYfis14bBLcqmcw+4e1P6znzILwoHCokC/rv/OoL/GniwvzUntk92IRY5ooQTTKrJLHJiK1KJk19g1VfXOUxKPL22AdUxxZcuINi1qWrmmpGdHT8uRZV7n/z9PKjAzXuvuj4H12nPd+8O1CZcdxvo8dp3ICLU9wWaz7S5LT2KfoO3UtdAiBTTi/qmvaHlxsQfejkTSTValFtjuTgbcz6EhA5y20Ldey+j3n9AHiG/KLbmD/AAbkfmDlBynBaB3MfTDHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADe0lEQVRYR+2X30tUQRTH75r1ELtp+bvINrYearMfEEj0w63/IOihQCiiog1DgoV66zVSCKIfTybVSxgGle9uKUSRZerig1tWEO6Sq8kaksna58jcbXa9d3+4vtXAhzt37sw5Z753Zu65hvGvF8f8/LylBq2trW6n07kfqqEYDJfLZchVRwZPT0+nEI/Hzfs5nkWgNxAIfLFytCiAUChU6fV679L5KPyAyQLf0lrGl0Inti9g+3uKPVHAZGhoqJL6R+iHQ9w7CnRuiA1s+WAAwtxX6D6TzlVjp3LuNDsVGoDmzEX9A3RYBtDS0uLmQUJmntKhwAh0W0qJBL5qzfYi074sOHnnvKeefHy2t7ev6e7uPjg6OnoRo23wFr5AXfoCx/YLbE/h64Dpo1gLoJx6lEWSsi0sdslG+p2E3bAHNoOsFVnl/dAFTbAPBvXJKNtRAqiwCkDUsN6TqZI85HYTvIRbyqk41nfLqQwqJgggqbyuQK7KV9LxJtzQBqygvk2psourqGlb5BxZpIAcMnmUrfQ9D/IKxGEdrIY4DEDG7av7WooCEqcfxiAEr2Ox2J1wONw3MjIy3NjYmKDtc94K6LLkoMRl+lw3+5WVlRlCfX19DkONhaPcLPo2zGmw6vQ7W+eZmZmc1sBSA8jm35ictP+EWCqQ1WJ+HYozBaCbSiogn9RCSjAYlF2wDo7D+kwB6L6WEsDKtGDdOOzx+Xwygxg8gLllDYDZbcDoFjgHnmg0qot1T900cN0L1TBOAL/sFNUnkDwHbF6BHDhPmN0OZewn15lIJGJ4PB7Tvjg9LSqohu1cawhADiTLYhmApFEWRTIjyWB2gjj/BsMooO+xV7RdUs+ruF6Frubm5vd2Aei+sq0BL0bug3zVPoEo4iaAd5rxs9RF7mdwDZ7DCTvn0m73CuQITT/Du2m7AvJMPqEBeOr3+99oDr5SPwKrYDaTY/WsiADE3kLRFRjnvoqkQQ9Cvut90ApnoA1kmyWLw+EwFLNa3WxLiQfb4q+KAJKJqb4Ie3lYStIgqzmoRk5gtDGHWeXURdkukTQ9OSAtZ3usEkdJIBcS1kJLWlIqmfEj26xYpcxhFUTDMqXlRdg7DIMwgs1yPQCrH5MKpLrNzI/BFEwUqIIczyXQwRpowrastb9ryE5mfs1qJXuFmgJ/zcbUr5nslv9lkQJ/AMBURRact8KSAAAAAElFTkSuQmCC"
-      />
+      <path d="M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z" />
     </svg>
   )
 }
 
 export const BlogIcon: React.FC = (): JSX.Element => {
+  const { theme, mounted } = useDarkMode()
+  if (!mounted) return null
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="24"
-      height="24"
-      xmlSpace="preserve"
-      version="1.1"
-      viewBox="0 0 32 32"
+      height="16"
+      width="14"
+      fill={`${theme === 'light' ? '#000000' : ' #ffffff'}`}
+      viewBox="0 0 448 512"
     >
-      <image
-        width="32"
-        height="32"
-        xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABbmlDQ1BpY2MAACiRdZE7SwNBFIW/xISIRlJoIWIRIYpFAqIg2kkEbdQiRjBqk928hDyW3Q0itoKNhWAh2vgq/AfaCrYKgqAIInb2vhoJ651EiEgyy+z9ODPncvcsuGfyesHyTEChaJux6WhwMbEU9L3ixY2HPsaTumXMzk/Fabq+7nGpehdRvZrfa7jaU2lLB1er8KhumLawTMPMmm0o3hbu0nPJlPCRcNiUAYWvla7V+EVxtsYfis14bBLcqmcw+4e1P6znzILwoHCokC/rv/OoL/GniwvzUntk92IRY5ooQTTKrJLHJiK1KJk19g1VfXOUxKPL22AdUxxZcuINi1qWrmmpGdHT8uRZV7n/z9PKjAzXuvuj4H12nPd+8O1CZcdxvo8dp3ICLU9wWaz7S5LT2KfoO3UtdAiBTTi/qmvaHlxsQfejkTSTValFtjuTgbcz6EhA5y20Ldey+j3n9AHiG/KLbmD/AAbkfmDlBynBaB3MfTDHAAAACXBIWXMAAAsTAAALEwEAmpwYAAABDklEQVRYR+1WAQ6CMAwUY/yU7zO+Q7+i/kR4hrNNKJnQsutYMkhY0pCN7Xq93pQmhHCoOY41k3PuncAJaMFSkzRzOaq3AFFACpitRKkSUm5TCkiRqcpcSm1SAVeFqVuGmDA3IXTOIpDq8/hmePcPwqzSA3E1Yxnl3Xhd5tZ7Wefn31nEA5qPUMlTHlT/DSHzJJH1DRNsrwLFyVU3IUrgTYo+I1W9c7NjKIEvIcTG885NAo3xUWpdp0zvDeQnHkIVkMTFpBdAL4Fi0g+/5WttQdczvOQ2PTonGK2GZbXg0W9+9e5nU+YGY/C4q8VwC5Q409qNoqVYOj4EcKVgzEku6xoWUB6D8N4CDNWxayfwA3Lyu1YVflZaAAAAAElFTkSuQmCC"
-      />
+      <path d="M446.6 222.7c-1.8-8-6.8-15.4-12.5-18.5-1.8-1-13-2.2-25-2.7-20.1-.9-22.3-1.3-28.7-5-10.1-5.9-12.8-12.3-12.9-29.5-.1-33-13.8-63.7-40.9-91.3-19.3-19.7-40.9-33-65.5-40.5-5.9-1.8-19.1-2.4-63.3-2.9-69.4-.8-84.8 .6-108.4 10C45.9 59.5 14.7 96.1 3.3 142.9 1.2 151.7 .7 165.8 .2 246.8c-.6 101.5 .1 116.4 6.4 136.5 15.6 49.6 59.9 86.3 104.4 94.3 14.8 2.7 197.3 3.3 216 .8 32.5-4.4 58-17.5 81.9-41.9 17.3-17.7 28.1-36.8 35.2-62.1 4.9-17.6 4.5-142.8 2.5-151.7zm-322.1-63.6c7.8-7.9 10-8.2 58.8-8.2 43.9 0 45.4 .1 51.8 3.4 9.3 4.7 13.4 11.3 13.4 21.9 0 9.5-3.8 16.2-12.3 21.6-4.6 2.9-7.3 3.1-50.3 3.3-26.5 .2-47.7-.4-50.8-1.2-16.6-4.7-22.8-28.5-10.6-40.8zm191.8 199.8l-14.9 2.4-77.5 .9c-68.1 .8-87.3-.4-90.9-2-7.1-3.1-13.8-11.7-14.9-19.4-1.1-7.3 2.6-17.3 8.2-22.4 7.1-6.4 10.2-6.6 97.3-6.7 89.6-.1 89.1-.1 97.6 7.8 12.1 11.3 9.5 31.2-4.9 39.4z" />
     </svg>
   )
 }
@@ -273,5 +239,23 @@ export const MailIcon: React.FC = (): JSX.Element => {
     >
       <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
     </svg>
+  )
+}
+
+export const Check = ({ className }: { className: string }): JSX.Element => {
+  const { theme, mounted } = useDarkMode()
+  if (!mounted) return null
+  return (
+    <div className={className}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="16"
+        width="14"
+        fill={`${theme === 'light' ? '#000000' : ' #ffffff'}`}
+        viewBox="0 0 448 512"
+      >
+        <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+      </svg>
+    </div>
   )
 }
