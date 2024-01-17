@@ -4,7 +4,11 @@ import Social from './Social'
 import { plainify } from '@/lib/utils/textConverter'
 import ImageFallback from '../helpers/ImageFallback'
 
-const AuthorCard = ({ data }: { data: any }) => {
+type AuthorCardProps = {
+  data: any
+}
+
+const AuthorCard = ({ data }: AuthorCardProps) => {
   const { title, image, social } = data.frontmatter
   return (
     <div className="rounded bg-theme-light p-8 text-center dark:bg-darkmode-theme-light">

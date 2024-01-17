@@ -1,12 +1,19 @@
+import React from 'react'
 import DynamicIcon from '../helpers/DynamicIcon'
+import * as SocialIcons from '../navigation/icons'
 
-export interface ISocial {
+interface ISocial {
   name: string
-  icon: string
+  icon: any
   link?: string
 }
 
-const Social = ({ source, className }: { source: ISocial[]; className: string }) => {
+type SocialProps = {
+  source: ISocial[]
+  className: string
+}
+
+const Social = ({ source, className }: SocialProps) => {
   return (
     <ul className={className}>
       {source.map((social) =>
@@ -19,7 +26,7 @@ const Social = ({ source, className }: { source: ISocial[]; className: string })
               rel="noopener noreferrer nofollow"
             >
               <span className="sr-only">{social.name}</span>
-              <DynamicIcon icon={social.icon} />
+              <DynamicIcon icon={SocialIcons[social.icon]} />
             </a>
           </li>
         ) : null

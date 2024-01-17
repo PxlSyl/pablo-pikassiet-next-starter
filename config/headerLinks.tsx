@@ -10,13 +10,6 @@ export const headerShopLinks: Links[] = [
   { href: '/shop-infos', title: 'Infos' },
 ]
 
-export const headerProjectsLinks: Links[] = [
-  { href: '/art', title: 'Art' },
-  { href: '/photography', title: 'Photos' },
-  { href: '/games', title: 'Games' },
-  { href: '/web', title: 'Web' },
-]
-
 export const headerArtLinks: Links[] = [
   { href: '/drawings', title: 'Drawings' },
   { href: '/photography', title: 'Photography' },
