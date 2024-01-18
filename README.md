@@ -58,6 +58,10 @@ This means :
 
 There's also a version with i18n available here : [Pablo Pikassiet i18n](https://github.com/PxlSyl/pablo-pikassiet-next-starter-i18n)
 
+My own website based on this new template :
+
+- [PxlSyl.art](https://www.pxlsyl.art/)
+
 ## License
 
 Copyright (c) 2023 - Present, Designed & Developed by [PxlSyl](https://www.pxlsyl.art/fr)
