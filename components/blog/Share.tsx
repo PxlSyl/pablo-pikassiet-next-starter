@@ -1,7 +1,7 @@
 'use client'
 
 import siteMetadata from '@/config/siteMetadata'
-import { Facebook, Twitter, Pinterest, Linkedin } from '../navigation/icons'
+import { Facebook, Twitter, Pinterest, Linkedin, Whatsapp, Telegram } from '../navigation/icons'
 import { usePathname } from 'next/navigation'
 
 type ShareProps = { title: string; description?: string; slug: string; className?: string }
@@ -52,6 +52,26 @@ const Share = ({ title, description, slug, className }: ShareProps) => {
           rel="noreferrer noopener"
         >
           <Pinterest />
+        </a>
+      </li>
+      <li className="inline-block">
+        <a
+          aria-label="whatsapp share button"
+          href={`https://wa.me/?text=${siteMetadata.siteUrl}/${secondPath}/${slug}&text=${title}`}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <Whatsapp />
+        </a>
+      </li>
+      <li className="inline-block">
+        <a
+          aria-label="telegram share button"
+          href={`https://telegram.me/share/url?url=${siteMetadata.siteUrl}/${secondPath}/${slug}&text=${title}`}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <Telegram />
         </a>
       </li>
     </ul>
