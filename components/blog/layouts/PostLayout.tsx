@@ -77,17 +77,12 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   </div>
                 </header>
                 <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0 dark:divide-gray-700">
-                  <div>
-                    <h5 className="mb-3 mr-3 mt-3 text-highlighted dark:text-darkmode-highlighted">
-                      Share :
-                    </h5>
-                    <Share
-                      className="social-icons flex items-center"
-                      title={title}
-                      description={description}
-                      slug={slug}
-                    />
-                  </div>
+                  <Share
+                    className="social-icons flex items-center"
+                    title={title}
+                    description={description}
+                    slug={slug}
+                  />
                   <div className="mt-10 divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
                     <div className="content pb-8 pt-10">{children}</div>
                     {siteMetadata.comments && (

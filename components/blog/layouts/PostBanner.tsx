@@ -122,17 +122,12 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                       </Link>
                     ))}
                   </div>
-                  <div className="flex items-center ">
-                    <h5 className="mr-3  text-highlighted dark:text-darkmode-highlighted">
-                      Share :
-                    </h5>
-                    <Share
-                      className="social-icons"
-                      title={title}
-                      description={description}
-                      slug={slug}
-                    />
-                  </div>
+                  <Share
+                    className="social-icons"
+                    title={title}
+                    description={description}
+                    slug={slug}
+                  />
                 </div>
                 {siteMetadata.comments && (
                   <div
