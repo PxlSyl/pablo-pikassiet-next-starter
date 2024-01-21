@@ -88,7 +88,7 @@ const ImageSingle = ({ params: { single } }: PageProps) => {
               </div>
             </div>
             <Share className="social-icons" title={title} description={description} slug={slug} />
-            <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
+            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               {siteMetadata.comments && (
                 <div
                   className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"

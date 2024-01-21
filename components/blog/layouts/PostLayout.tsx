@@ -76,14 +76,14 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     </div>
                   </div>
                 </header>
-                <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0 dark:divide-gray-700">
+                <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
                   <Share
                     className="social-icons flex items-center"
                     title={title}
                     description={description}
                     slug={slug}
                   />
-                  <div className="mt-10 divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
+                  <div className="mt-10 divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
                     <div className="content pb-8 pt-10">{children}</div>
                     {siteMetadata.comments && (
                       <div
@@ -95,7 +95,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     )}
                   </div>
                   <footer>
-                    <div className="divide-gray-200 text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2 xl:divide-y dark:divide-gray-700">
+                    <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
                       <div className="py-4 xl:py-8">
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           <User className={'-mt-1 mr-2 inline-block'} />
