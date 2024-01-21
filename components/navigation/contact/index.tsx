@@ -17,8 +17,7 @@ export const ContactModal = (): JSX.Element => {
 
   useEffect(() => {
     if (state.succeeded && !state.submitting) {
-      toast<unknown>('Thank you for your message!', {
-        icon: '🤘',
+      toast.success<unknown>('Thank you for your message!', {
         position: 'bottom-right',
       })
       setTimeout(() => {
