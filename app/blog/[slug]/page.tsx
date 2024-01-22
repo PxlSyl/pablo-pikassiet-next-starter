@@ -34,7 +34,7 @@ const layouts: { [key: string]: React.ComponentType<any> } = {
 }
 
 async function getPostFromParams({ params: { slug } }: PageProps): Promise<any> {
-  const dslug = decodeURI(slug.join('/'))
+  const dslug = Array.isArray(slug) ? decodeURI(slug.join('/')) : decodeURI(slug)
   const post = allBlogs.find((p) => p.slug === dslug) as Blog
 
   if (!post) {
