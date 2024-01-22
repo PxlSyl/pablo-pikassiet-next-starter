@@ -12,6 +12,7 @@ import Comments from '../Comments'
 import Link from '../Link'
 import PageTitle from '../PageTitle'
 import ScrollTopAndComment from '../ScrollTopAndComment'
+import { PostSeriesBox } from '../PostseriesBox'
 import Share from '../Share'
 import ImageFallback from '../../helpers/ImageFallback'
 
@@ -25,7 +26,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { title, description, image, slug, authors, categories, tags, date } = content
+  const { title, description, image, slug, authors, categories, tags, date, series } = content
 
   return (
     <>
@@ -114,6 +115,11 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                   </ul>
                 </header>
                 <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
+                  {series && (
+                    <div className="not-prose mt-4">
+                      <PostSeriesBox data={series} />
+                    </div>
+                  )}
                   <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
                     <div className="content max-w-none pb-8 pt-10">{children}</div>
                   </div>

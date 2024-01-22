@@ -13,6 +13,7 @@ import { humanize, markdownify, slugify } from '@/lib/utils/textConverter'
 import ImageFallback from '../../helpers/ImageFallback'
 import Share from '../Share'
 import ScrollTopAndComment from '../ScrollTopAndComment'
+import { PostSeriesBox } from '../PostseriesBox'
 import Comments from '../Comments'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
@@ -30,7 +31,7 @@ interface LayoutProps {
 }
 
 const PostDefault = ({ children, content }: LayoutProps) => {
-  const { title, slug, description, image, authors, serie, categories, date, tags } = content
+  const { title, slug, description, image, authors, categories, date, tags, series } = content
 
   return (
     <>
@@ -98,6 +99,11 @@ const PostDefault = ({ children, content }: LayoutProps) => {
                   </li>
                 )}
               </ul>
+              {series && (
+                <div className="not-prose mt-4">
+                  <PostSeriesBox data={series} />
+                </div>
+              )}
               <div className="content mb-10">{children}</div>
               <div className="row items-start justify-between">
                 <div className="mb-10 flex items-center lg:col-5 lg:mb-0">

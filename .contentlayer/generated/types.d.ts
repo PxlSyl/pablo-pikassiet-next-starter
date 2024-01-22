@@ -14,6 +14,7 @@ export type Blog = {
   _raw: Local.RawDocumentData
   type: 'Blog'
   title: string
+  series?: Series | undefined
   meta_title?: string | undefined
   description?: string | undefined
   date: IsoDateTimeString
@@ -39,7 +40,15 @@ export type Blog = {
 }  
 
 /** Nested types */
-  
+export type Series = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Series'
+  title: string
+  order: number
+
+}  
 
 /** Helper types */
 
@@ -49,8 +58,8 @@ export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 export type DocumentTypes = Blog
 export type DocumentTypeNames = 'Blog'
 
-export type NestedTypes = never
-export type NestedTypeNames = never
+export type NestedTypes = Series
+export type NestedTypeNames = 'Series'
 
 export type DataExports = {
   allDocuments: DocumentTypes[]
@@ -78,7 +87,7 @@ export type DocumentTypeMap = {
 }
 
 export type NestedTypeMap = {
-
+  Series: Series
 }
 
  

@@ -45,6 +45,7 @@ This means :
 - Automatic image optimization via next/image
 - Support for tags - each unique tag will be its own page, + pagination and subpagination
 - Support for categories - each unique category will be its own page, + pagination and subpagination
+- Support for posts series.
 - Support for main author page, + dedicated page for multiple authors
 - Similar posts suggestion
 - 4 different blog layouts

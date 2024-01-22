@@ -21,6 +21,7 @@ import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './config/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+import { defineNestedType } from 'contentlayer/source-files'
 
 const root = process.cwd()
 
@@ -93,12 +94,27 @@ function createSearchIndex(allBlogs) {
   }
 }
 
+export const Series = defineNestedType(() => ({
+  name: 'Series',
+  fields: {
+    title: {
+      type: 'string',
+      required: true,
+    },
+    order: {
+      type: 'number',
+      required: true,
+    },
+  },
+}))
+
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: '**/*.*',
+  filePathPattern: '**/**/*.*',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
+    series: { type: 'nested', of: Series },
     meta_title: { type: 'string' },
     description: { type: 'string' },
     date: { type: 'date', required: true },
@@ -133,7 +149,7 @@ export const Blog = defineDocumentType(() => ({
 }))
 
 export default makeSource({
-  contentDirPath: 'content/blog/',
+  contentDirPath: 'content/blog',
   documentTypes: [Blog],
   mdx: {
     cwd: process.cwd(),

@@ -14,6 +14,7 @@ import PageTitle from '../PageTitle'
 import Category from '../Categories'
 import Tag from '../Tag'
 import ScrollTopAndComment from '../ScrollTopAndComment'
+import { PostSeriesBox } from '../PostseriesBox'
 import Share from '../Share'
 import ImageFallback from '../../helpers/ImageFallback'
 
@@ -34,7 +35,7 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { slug, date, title, description, authors, image, categories, tags } = content
+  const { slug, date, title, description, authors, image, categories, tags, series } = content
 
   return (
     <>
@@ -84,6 +85,11 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     slug={slug}
                   />
                   <div className="mt-10 divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+                    {series && (
+                      <div className="not-prose mt-4">
+                        <PostSeriesBox data={series} />
+                      </div>
+                    )}
                     <div className="content pb-8 pt-10">{children}</div>
                     {siteMetadata.comments && (
                       <div

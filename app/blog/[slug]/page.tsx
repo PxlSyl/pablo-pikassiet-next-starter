@@ -33,6 +33,33 @@ const layouts: { [key: string]: React.ComponentType<any> } = {
   PostBanner,
 }
 
+async function getPostFromParams({ params: { slug } }: PageProps): Promise<any> {
+  const dslug = decodeURI(slug.join('/'))
+  const post = allBlogs.find((p) => p.slug === dslug) as Blog
+
+  if (!post) {
+    null
+  }
+
+  if (post?.series) {
+    const seriesPosts = allBlogs
+      .filter((p) => p.series?.title === post.series?.title)
+      .sort((a, b) => Number(a.series!.order) - Number(b.series!.order))
+      .map((p) => {
+        return {
+          title: p.title,
+          slug: p.slug,
+          isCurrent: p.slug === post.slug,
+        }
+      })
+    if (seriesPosts.length > 0) {
+      return { ...post, series: { ...post.series, posts: seriesPosts } }
+    }
+  }
+
+  return post
+}
+
 export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata | undefined> {
@@ -98,7 +125,7 @@ export default async function Page({ params: { slug } }: PageProps) {
   const prev = sortedCoreContents[postIndex + 1]
   const next = sortedCoreContents[postIndex - 1]
   const posts = allCoreContent(sortPosts(allBlogs))
-  const post = allBlogs.find((p) => p.slug === dslug) as Blog
+  const post = await getPostFromParams({ params: { slug } })
 
   const mainContent = coreContent(post)
 
