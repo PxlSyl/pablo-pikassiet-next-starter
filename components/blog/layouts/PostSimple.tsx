@@ -6,7 +6,7 @@ import type { Blog } from 'contentlayer/generated'
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
-import { User, Folder, Clock, Tags } from '../icons'
+import { User, Folder, Clock, Calendar, Tags } from '../icons'
 
 import Comments from '../Comments'
 import Link from '../Link'
@@ -26,7 +26,8 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { title, description, image, slug, authors, categories, tags, date, series } = content
+  const { title, description, image, slug, authors, categories, tags, date, series, readingTime } =
+    content
 
   return (
     <>
@@ -53,11 +54,15 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       <div>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6">
-                          <Clock className="-mt-1 mr-2 inline-block" />
+                          <Calendar className="-mt-1 mr-2 inline-block" />
                           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         </dd>
                       </div>
                     </dl>
+                    <li className="inline-block">
+                      <Clock className={'mr-2 mt-1 inline-block'} />
+                      <time className="mb-2">{`${readingTime}`}</time>
+                    </li>
                     <div>
                       <PageTitle>{title}</PageTitle>
                     </div>

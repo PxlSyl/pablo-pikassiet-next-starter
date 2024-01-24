@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { User, Folder, Clock, Tags, ArrowLeft, ArrowRight } from '../icons'
+import { User, Folder, Clock, Calendar, Tags, ArrowLeft, ArrowRight } from '../icons'
 
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
@@ -35,7 +35,8 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, next, prev, children }: LayoutProps) {
-  const { slug, date, title, description, authors, image, categories, tags, series } = content
+  const { slug, date, title, description, authors, image, categories, tags, series, readingTime } =
+    content
 
   return (
     <>
@@ -62,7 +63,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                       <div>
                         <dt className="sr-only">Published on</dt>
                         <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                          <Clock className="-mt-1 mr-2 inline-block" />
+                          <Calendar className="-mt-1 mr-2 inline-block" />
                           <time dateTime={date}>
                             {new Date(date).toLocaleDateString(
                               siteMetadata.locale,
@@ -72,6 +73,10 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                         </dd>
                       </div>
                     </dl>
+                    <div className="inline-block">
+                      <Clock className={'mr-2 mt-1 inline-block'} />
+                      <time className="mb-2">{`${readingTime}`}</time>
+                    </div>
                     <div>
                       <PageTitle>{title}</PageTitle>
                     </div>

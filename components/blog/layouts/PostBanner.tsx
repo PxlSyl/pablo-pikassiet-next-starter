@@ -3,7 +3,7 @@ import Bleed from 'pliny/ui/Bleed'
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
-import { User, Folder, Clock } from '../icons'
+import { User, Folder, Clock, Calendar } from '../icons'
 
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
@@ -33,7 +33,8 @@ interface LayoutProps {
 }
 
 export default function PostMinimal({ content, next, prev, children }: LayoutProps) {
-  const { slug, title, description, image, authors, categories, tags, date, series } = content
+  const { slug, title, description, image, authors, categories, tags, date, series, readingTime } =
+    content
 
   return (
     <>
@@ -102,12 +103,16 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                   </li>
                   {date && (
                     <li className="mr-4 inline-block">
-                      <Clock className="-mt-1 mr-2 inline-block" />
+                      <Calendar className="-mt-1 mr-2 inline-block" />
                       <time dateTime={date}>
                         {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                       </time>
                     </li>
                   )}
+                  <li className="inline-block">
+                    <Clock className={'mr-2 mt-1 inline-block'} />
+                    <time className="mb-2">{`${readingTime}`}</time>
+                  </li>
                 </ul>
                 {series && (
                   <div className="not-prose mt-4">

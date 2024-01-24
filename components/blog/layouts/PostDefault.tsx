@@ -4,7 +4,7 @@ import Link from 'next/link'
 import siteMetadata from '@/config/siteMetadata'
 import { authorDefault } from '@/config/authorDefault'
 
-import { User, Folder, Clock } from '../icons'
+import { User, Folder, Calendar, Clock } from '../icons'
 
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { Blog } from 'contentlayer/generated'
@@ -31,7 +31,8 @@ interface LayoutProps {
 }
 
 const PostDefault = ({ children, content }: LayoutProps) => {
-  const { title, slug, description, image, authors, categories, date, tags, series } = content
+  const { title, slug, description, image, authors, categories, date, tags, series, readingTime } =
+    content
 
   return (
     <>
@@ -92,12 +93,16 @@ const PostDefault = ({ children, content }: LayoutProps) => {
                 </li>
                 {date && (
                   <li className="mr-4 inline-block">
-                    <Clock className="-mt-1 mr-2 inline-block" />
+                    <Calendar className="-mt-1 mr-2 inline-block" />
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
                   </li>
                 )}
+                <li className="inline-block">
+                  <Clock className={'mr-2 mt-1 inline-block'} />
+                  <time className="mb-2">{`${readingTime}`}</time>
+                </li>
               </ul>
               {series && (
                 <div className="not-prose mt-4">
