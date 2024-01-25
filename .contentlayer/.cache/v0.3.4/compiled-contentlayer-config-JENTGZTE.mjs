@@ -196,32 +196,6 @@ var computedFields = {
   },
   toc: { type: "string", resolve: (doc) => extractTocHeadings(doc.body.raw) }
 };
-function createTagCount(allBlogs) {
-  const tagCount = {};
-  allBlogs.forEach((file) => {
-    if (file.tags && file.draft === false) {
-      file.tags.forEach((tag) => {
-        const formattedTag = slug(tag);
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1;
-        } else {
-          tagCount[formattedTag] = 1;
-        }
-      });
-    }
-  });
-  writeFileSync("./config/data/tag-data.json", JSON.stringify(tagCount));
-  console.log("Results for tag-data.json written.");
-}
-function createSearchIndex(allBlogs) {
-  if (import_siteMetadata.default?.search?.provider === "kbar" && import_siteMetadata.default.search.kbarConfig.searchDocumentsPath) {
-    writeFileSync(
-      `public/${import_siteMetadata.default.search.kbarConfig.searchDocumentsPath}`,
-      JSON.stringify(allCoreContent(sortPosts(allBlogs)))
-    );
-    console.log("Local search index generated...");
-  }
-}
 var Series = defineNestedType(() => ({
   name: "Series",
   fields: {
@@ -294,16 +268,16 @@ var contentlayer_config_default = makeSource({
       [rehypePrismPlus, { defaultLanguage: "js", ignoreMissing: true }],
       rehypePresetMinify
     ]
-  },
-  onSuccess: async (importData) => {
-    const { allBlogs } = await importData();
-    createTagCount(allBlogs);
-    createSearchIndex(allBlogs);
   }
+  /*onSuccess: async (importData) => {
+    const { allBlogs } = await importData()
+    createTagCount(allBlogs)
+    createSearchIndex(allBlogs)
+  },*/
 });
 export {
   Blog,
   Series,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-F5SIV2GA.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-JENTGZTE.mjs.map

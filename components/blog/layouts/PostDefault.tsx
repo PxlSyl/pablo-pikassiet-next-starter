@@ -53,9 +53,9 @@ const PostDefault = ({ children, content }: LayoutProps) => {
                 </div>
               )}
               <h1 dangerouslySetInnerHTML={markdownify(title)} className="h2 mb-4" />
-              <ul className="mb-4">
-                <li className="mr-4 inline-block">
-                  <User className={'-mt-1 mr-2 inline-block'} />
+              <ul className="mb-4 flex flex-wrap">
+                <li className="mr-4 flex flex-row items-center">
+                  <User className="mr-2" />
                   {authors === undefined ? (
                     <Link
                       className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
@@ -78,11 +78,11 @@ const PostDefault = ({ children, content }: LayoutProps) => {
                     </>
                   )}
                 </li>
-                <li className="mr-4 inline-block">
-                  <Folder className={'-mt-1 mr-2 inline-block'} />
+                <li className="mr-4 flex flex-row items-center">
+                  <Folder className="mr-2" />
                   {categories?.map((category: string, index: number) => (
                     <Link
-                      className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                      className="mx-1 text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                       key={category}
                       href={`/categories/${slugify(category)}`}
                     >
@@ -92,16 +92,17 @@ const PostDefault = ({ children, content }: LayoutProps) => {
                   ))}
                 </li>
                 {date && (
-                  <li className="mr-4 inline-block">
-                    <Calendar className="-mt-1 mr-2 inline-block" />
+                  <li className="mr-4 flex flex-row items-center">
+                    <Calendar className="-mt-1 mr-2" />
+                    <dt className="sr-only">Published on</dt>
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
                   </li>
                 )}
-                <li className="inline-block">
-                  <Clock className={'mr-2 mt-1 inline-block'} />
-                  <time className="mb-2">{`${readingTime}`}</time>
+                <li className="flex flex-row items-center">
+                  <Clock className="mr-2" />
+                  <time>{readingTime}</time>
                 </li>
               </ul>
               {series && (

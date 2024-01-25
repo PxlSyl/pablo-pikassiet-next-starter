@@ -40,9 +40,9 @@ const BlogCard = ({ post }: Props) => {
           {title}
         </Link>
       </h4>
-      <ul className="mb-4 ">
-        <li className="mr-4 inline-block">
-          <User className={'-mt-1 mr-2 inline-block'} />
+      <ul className="mb-4 flex flex-wrap">
+        <li className="mr-4 flex flex-row items-center">
+          <User className="mr-2" />
           {authors === undefined ? (
             <Link
               className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
@@ -55,7 +55,7 @@ const BlogCard = ({ post }: Props) => {
             <>
               {authors.map((author: string, index: number) => (
                 <Link
-                  className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+                  className="mx-1 text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
                   key={index}
                   href={author === 'default' ? '/about' : `/authors/${slugify(author)}`}
                   aria-label={`link to ${title}`}
@@ -67,11 +67,11 @@ const BlogCard = ({ post }: Props) => {
             </>
           )}
         </li>
-        <li className="mr-4 inline-block">
-          <Folder className={'-mt-1 mr-2 inline-block'} />
+        <li className="mr-4 flex flex-row items-center">
+          <Folder className="mr-2" />
           {categories?.map((category: string, index: number) => (
             <Link
-              className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+              className="mx-1 text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
               key={index}
               href={`/categories/${slugify(category)}`}
               aria-label={`link to ${title}`}
@@ -81,11 +81,11 @@ const BlogCard = ({ post }: Props) => {
             </Link>
           ))}
         </li>
-        <li className="mr-4 inline-block">
-          <Tags className={'-mt-1 mr-2 inline-block'} />
+        <li className="mr-4 flex flex-row items-center">
+          <Tags className="mr-2" />
           {tags?.map((tag: string, index: number) => (
             <Link
-              className="text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
+              className="mx-1 text-highlighted hover:opacity-80 dark:text-darkmode-highlighted dark:hover:opacity-80"
               key={index}
               href={`/tags/${slugify(tag)}`}
               aria-label={`link to ${title}`}
@@ -96,14 +96,14 @@ const BlogCard = ({ post }: Props) => {
           ))}
         </li>
         {date && (
-          <li className="mr-4 inline-block">
-            <Calendar className={'-mt-1 mr-2 inline-block'} />
+          <li className="mr-4 flex flex-row items-center">
+            <Calendar className="-mt-1 mr-2" />
             <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
           </li>
         )}
-        <li className="inline-block">
-          <Clock className={'mr-2 mt-1 inline-block'} />
-          <time className="mb-2">{`${readingTime}`}</time>
+        <li className="mr-4 flex flex-row items-center">
+          <Clock className="mr-2" />
+          <time>{readingTime}</time>
         </li>
       </ul>
       <p className="mb-6">{summary.length > 149 ? `${summary.substring(0, 149)}...` : summary}</p>
