@@ -7,14 +7,16 @@ import { footerLinks } from '@/config/headerLinks'
 
 import siteMetadata from '@/config/siteMetadata'
 import SocialIcons from '../icons/social'
-
 import { markdownify } from '@/lib/utils/textConverter'
+import { usePathname } from 'next/navigation'
 
 const Footer = () => {
   const { copyright, credits } = footer.params
+  const pathname = usePathname()
+  const isMusicPage = pathname.endsWith(`music`)
 
   return (
-    <footer className="bg-theme-light dark:bg-darkmode-theme-light">
+    <footer className={`${isMusicPage ? 'hidden' : 'bg-theme-light dark:bg-darkmode-theme-light'}`}>
       <div className="container pt-10">
         <div className="mb-8 justify-center text-center">
           <SocialIcons className="social-icons" />
