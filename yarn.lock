@@ -2640,7 +2640,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/bundle-analyzer@npm:^14.2.1":
+"@next/bundle-analyzer@npm:^14.2.3":
   version: 14.2.3
   resolution: "@next/bundle-analyzer@npm:14.2.3"
   dependencies:
@@ -5574,7 +5574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:^14.2.1":
+"eslint-config-next@npm:^14.2.3":
   version: 14.2.3
   resolution: "eslint-config-next@npm:14.2.3"
   dependencies:
@@ -9109,7 +9109,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^14.2.1":
+"next@npm:^14.2.3":
   version: 14.2.3
   resolution: "next@npm:14.2.3"
   dependencies:
@@ -9477,7 +9477,7 @@ __metadata:
   resolution: "pablopikassiet@workspace:."
   dependencies:
     "@formspree/react": "npm:^2.5.1"
-    "@next/bundle-analyzer": "npm:^14.2.1"
+    "@next/bundle-analyzer": "npm:^14.2.3"
     "@svgr/webpack": "npm:^8.1.0"
     "@tailwindcss/forms": "npm:^0.5.7"
     "@tailwindcss/typography": "npm:^0.5.10"
@@ -9495,7 +9495,7 @@ __metadata:
     date-fns: "npm:^3.3.0"
     date-fns-tz: "npm:^3.1.2"
     eslint: "npm:^8.56.0"
-    eslint-config-next: "npm:^14.2.1"
+    eslint-config-next: "npm:^14.2.3"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.1.3"
     framer-motion: "npm:^10.18.0"
@@ -9506,7 +9506,7 @@ __metadata:
     lint-staged: "npm:^15.2.0"
     marked: "npm:^11.1.1"
     music-metadata: "npm:^7.14.0"
-    next: "npm:^14.2.1"
+    next: "npm:^14.2.3"
     next-contentlayer2: "npm:0.4.5"
     next-mdx-remote: "npm:^0.0.0-canary-20240321205249"
     next-themes: "npm:^0.3.0"
